@@ -1,3 +1,4 @@
+using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Radzen;
@@ -16,6 +17,7 @@ builder.Services.AddSingleton<BrowserService>();
 builder.Services.AddSingleton<StateService>();
 builder.Services.AddRadzenComponents();
 builder.Services.AddMessagePipe();
+builder.Services.AddBlazoredLocalStorageAsSingleton();
 
 var app = builder.Build();
 app.Services.GetService<InfoService>()!.LoadAll();
