@@ -8,9 +8,9 @@
 * Added about dialog ([e243b0d](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/e243b0d6f4ca15b8bf09332e27eaf7088ce33693))
 
 
-### Miscellaneous Chores
+### Fixes
 
-* release 1.2.1 ([7e6e2d1](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/7e6e2d13fe6e55f36a526cf78248ae34f64bb9e4))
+* correct FilterThreshold for ChooseEngineDialog ([3229e6e](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/3229e6e7432d56194ce376cfac00f684bc0f0c8f))
 
 ## 1.2.0 (2024-10-17)
 
