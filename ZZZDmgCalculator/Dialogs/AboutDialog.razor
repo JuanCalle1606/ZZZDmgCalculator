@@ -1,0 +1,24 @@
+@inherits MainComponent
+
+<div class="rz-dialog-titlebar rz-p-3">
+	<div class="rz-dialog-title rz-display-flex rz-justify-content-center">
+		<RadzenLabel class="rz-color-primary">@Lang["AppName"]</RadzenLabel>
+	</div>
+	<a class="rz-dialog-titlebar-icon rz-dialog-titlebar-close" style="cursor: pointer" @onclick="() => Dialogs.Close()">
+		<span class="notranslate rzi rzi-times"></span>
+	</a>
+</div>
+
+<div class="rz-dialog-content rz-p-3 ">
+	<RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center">
+		<img class="sticker" alt src="icons/stickers/Zenless_Zone_Zero_Ridu_Stroll_Sticker_Pack_1_Grace_Howard.webp"/>
+		<RadzenLabel class="rz-text-align-center">
+			Hi Proxy! This site is still under development, so please be patient. If you have any suggestions or feedback, please let me know. Thank you!
+		</RadzenLabel>
+		<RadzenLabel>
+			Contact email:
+			<RadzenLink Target="_blank" Path="mailto:support@bangboo.network"> support@bangboo.network</RadzenLink>
+			
+		</RadzenLabel>
+	</RadzenStack>
+</div>

@@ -270,4 +270,7 @@
     <data name="Skills" xml:space="preserve">
         <value>Skills</value>
     </data>
+    <data name="AppName" xml:space="preserve">
+        <value>ZZZ Damage Calculator</value>
+    </data>
 </root>

@@ -30,4 +30,17 @@ public static class DialogUtils {
 		});
 		return (EngineState?)d;
 	}
+
+	public async static Task OpenAboutDialog(this DialogService dialogs) {
+		await dialogs.OpenAsync<AboutDialog>("About", null, new()
+		{
+			Width = "650px",
+			Height = "450px",
+			ShowTitle = false,
+			AutoFocusFirstElement = false,
+			Style = "max-width: 100%",
+			CloseDialogOnEsc = true,
+			CloseDialogOnOverlayClick = true
+		});
+	}
 }

@@ -1,10 +1,13 @@
 ﻿@inherits LayoutComponentBase
+@inject LangService Lang
+
+<FirstTime/>
 
 <RadzenLayout>
 	<RadzenHeader>
 		<RadzenStack AlignItems="AlignItems.Center" Orientation="Orientation.Horizontal" Gap="0" Style="height: 100%">
 			<RadzenLabel class="rz-p-1">
-				ZZZ Damage Calculator
+				@Lang["AppName"]
 			</RadzenLabel>
 		</RadzenStack>
 	</RadzenHeader>
