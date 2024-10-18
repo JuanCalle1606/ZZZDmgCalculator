@@ -1,5 +1,4 @@
 ﻿@page "/"
-@using ZZZDmgCalculator.Models.State
 
 @inject StateService State
 @inject InfoService Info
@@ -10,8 +9,10 @@
 		<AdaptableCard TabText=@Lang["Overview"]>
 			<OverviewCard Agent="State.CurrentAgent"/>
 		</AdaptableCard>
-		<AdaptableCard TabText=@Lang["Party"]>
-			<SetupCard TeamState="State.CurrentSetup"/>
-		</AdaptableCard>
+		<DebugOnly>
+			<AdaptableCard TabText=@Lang["Party"]>
+				<SetupCard TeamState="State.CurrentSetup"/>
+			</AdaptableCard>
+		</DebugOnly>
 	</AdaptableCards>
 </CascadingValue>
