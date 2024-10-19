@@ -41,8 +41,11 @@ public class EngineState(EngineInfo info) {
 			var statModifier = buff.Modifiers[i];
 			if (buff.Scales is not null && statModifier.Value == 0)
 			{
+				// When buff have multiple modifiers but only 1 scale all modifiers use that scale
+				var scaleIndex = buff.Scales.Length > 1 ? i : 0;
+
 				// If the buff is scaling, we need to get the correct value from the scale.
-				var scale = buff.Scales[i]!;
+				var scale = buff.Scales[scaleIndex]!;
 				var value = scale[0];// 0 means the refinement is 1.
 				buffs.Add(statModifier.WithValue(value));
 			}
