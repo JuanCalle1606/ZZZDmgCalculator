@@ -19,16 +19,7 @@ public class StateService {
 	public StateService(InfoService info) {
 		_info = info;
 		// set ellen by default
-		CurrentSetup.Agents[0] = new(_info[Agents.Rina]);
+		CurrentSetup.Agents[0] = new(_info[Agents.Anby]);
 		CurrentAgentIndex = 0;
-		
-		// for testing set a engine
-		/*CurrentAgent.Engine = new (info[Engines.Cradle])
-		{
-			Refinement = 2
-		};*/
-		
-		// for testing set a disc
-		CurrentAgent.Discs[0] = new DiscState(info[Discs.FreedomBlues], info[Stats.Atk].DiscData[0]);
 	}
 }
