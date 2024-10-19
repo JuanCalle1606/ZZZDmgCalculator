@@ -5,10 +5,10 @@
 	<div class="agent-avatar" @onclick="OpenAgentDialog">
 		<img src="@Agent.Info.Url" alt="@Agent.Info.Id"/>
 	</div>
-	<RadzenStack Orientation="Orientation.Vertical" Style="width: 100%" Gap="10px">
-		<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" class="agent-name" JustifyContent="JustifyContent.Start" Gap="5px">
-			<h2 class="rz-m-0">@Agent.Info.DisplayName</h2>
-		</RadzenStack>
+	<RadzenStack Orientation="Orientation.Vertical" class="mw-0" Gap="10px">
+		<div class="rz-overflow-hidden">
+			<h2 class="rz-m-0 truncate">@Agent.Info.DisplayName</h2>
+		</div>
 		<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" class="agent-level" JustifyContent="JustifyContent.SpaceBetween" Gap="5px">
 			<div>
 				<RadzenLabel>
@@ -26,11 +26,11 @@
 				</Template>
 			</RadzenDropDown>
 		</RadzenStack>
-		<RadzenStack Orientation="Orientation.Horizontal">
-			<img class="agent-rank" alt="" src="@Info.AgentRankIcon(@Agent.Info.Rank)"/>
+		<RadzenStack Orientation="Orientation.Horizontal" class="feature-icon-container">
+			<img alt="" src="@Info.AgentRankIcon(@Agent.Info.Rank)"/>
 			@foreach(var info in (BaseInfo[])[Info[Agent.Info.Specialty], Info[Agent.Info.Attribute], Info[Agent.Info.Faction]])
 			{
-				<img class="agent-rank" alt="@info.DisplayName" title="@info.DisplayName" src="@info.Url"/>
+				<img alt="@info.DisplayName" title="@info.DisplayName" src="@info.Url"/>
 			}
 			
 		</RadzenStack>

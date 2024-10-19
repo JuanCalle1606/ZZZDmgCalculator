@@ -1,0 +1,36 @@
+@inherits MainComponent
+
+
+<RadzenStack Orientation="Orientation.Horizontal" class="rz-mb-2" Gap="5px">
+	<div class="engine-avatar" @onclick="OpenEngineDialog">
+		<img src="@Engine.Info.Url" alt="@Engine.Info.Id"/>
+	</div>
+	<RadzenStack Orientation="Orientation.Vertical" class="mw-0" Gap="12px">
+		<div class="rz-overflow-hidden">
+			<h2 class="rz-m-0 truncate">@Engine.Info.DisplayName</h2>
+		</div>
+
+		<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween" AlignItems="AlignItems.Center" class="rz-w-100">
+			<RadzenRating Stars="5"/>
+			<div>
+				<RadzenLabel>
+					@Lang["Level"]:
+				</RadzenLabel>
+				<RadzenDropDown TValue="AscensionState" @bind-Value="@Engine.Ascension" Data="@(Enum.GetValues<AscensionState>())" Chips="true" class="z-select">
+					<Template>
+						@Info.AscensionToString((AscensionState)(object)context)
+					</Template>
+				</RadzenDropDown>
+			</div>
+		</RadzenStack>
+		
+		<RadzenStack Orientation="Orientation.Horizontal" class="feature-icon-container" Gap="7px">
+			<img alt="" src="@Info.ItemRankIcon(@Engine.Info.Rank)"/>
+			@{
+			var info = Info[Engine.Info.Type];
+			}
+			<img alt="@info.DisplayName" title="@info.DisplayName" src="@info.Url"/>
+
+		</RadzenStack>
+	</RadzenStack>
+</RadzenStack>

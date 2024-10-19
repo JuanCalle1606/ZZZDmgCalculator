@@ -18,6 +18,30 @@ body {
 	min-width: 100%;
 }
 
+.feature-icon-container > img {
+	height: 30px;
+	width: 30px;
+}
+
+.rz-ellipsis {
+	text-overflow: ellipsis !important;
+}
+
+.mw-0 {
+	min-width: 0 !important;
+}
+
+.truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.feature-icon {
+	height: 30px;
+	width: 30px;
+}
+
 .adaptive-tab-item {
 	width: 100%;
 }
@@ -48,6 +72,18 @@ body {
 	width: 67px;
 	border: none !important;
 	box-shadow: none !important;
+	padding-top: 0;
+	padding-bottom: 4px;
+	height: min-content;
+}
+
+.z-select .rz-dropdown-label {
+	margin-top: 1px;
+}
+
+.z-select .rz-dropdown-trigger {
+	display: block;
+	padding-top: 1px;
 }
 
 .rz-dropdown {

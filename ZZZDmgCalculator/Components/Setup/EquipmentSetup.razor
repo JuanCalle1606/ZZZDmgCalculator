@@ -33,9 +33,9 @@
 <RadzenTabs class="hidden-tabs no-border-tabs setup-tabs" @bind-SelectedIndex="_equipmentSelectedIndex" RenderMode="TabRenderMode.Client">
 	<Tabs>
 		<RadzenTabsItem Text="Engine">
-			@if (Agent.Engine is {} engineState)
+			@if (Agent.Engine is not null)
 			{
-				@engineState.Info.DisplayName
+				<EngineView @bind-Engine="Agent.Engine"/>
 			}
 		</RadzenTabsItem>
 		@for (var i = 0; i < 6; i++)
