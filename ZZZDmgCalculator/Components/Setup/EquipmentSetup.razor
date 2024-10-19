@@ -30,7 +30,7 @@
 	</div>
 </div>
 
-<RadzenTabs class="hidden-tabs" @bind-SelectedIndex="_equipmentSelectedIndex">
+<RadzenTabs class="hidden-tabs no-border-tabs setup-tabs" @bind-SelectedIndex="_equipmentSelectedIndex" RenderMode="TabRenderMode.Client">
 	<Tabs>
 		<RadzenTabsItem Text="Engine">
 			@if (Agent.Engine is {} engineState)
