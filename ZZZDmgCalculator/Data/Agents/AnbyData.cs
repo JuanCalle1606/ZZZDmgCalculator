@@ -30,8 +30,8 @@ public class AnbyData {
 		[
 			new()
 			{
-				Stat = PenRatio,
-				Value = 4.8
+				Stat = Impact,
+				Value = 6
 			},
 			new()
 			{
