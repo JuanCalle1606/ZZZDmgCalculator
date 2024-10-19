@@ -68,6 +68,14 @@ body {
 	display: none;
 }
 
+.icon-filled {
+	font-variation-settings: "FILL" 1;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
 .z-select {
 	width: 67px;
 	border: none !important;

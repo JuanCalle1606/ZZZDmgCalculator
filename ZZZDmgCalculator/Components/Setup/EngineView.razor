@@ -5,13 +5,13 @@
 	<div class="engine-avatar" @onclick="OpenEngineDialog">
 		<img src="@Engine.Info.Url" alt="@Engine.Info.Id"/>
 	</div>
-	<RadzenStack Orientation="Orientation.Vertical" class="mw-0" Gap="10px">
+	<RadzenStack Orientation="Orientation.Vertical" class="mw-0 rz-w-100" Gap="10px">
 		<div class="rz-overflow-hidden">
 			<h2 class="rz-m-0 truncate">@Engine.Info.DisplayName</h2>
 		</div>
 
-		<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween" AlignItems="AlignItems.Center" class="rz-w-100">
-			<RadzenRating Stars="5"/>
+		<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween" AlignItems="AlignItems.Center">
+			<RefinementSelector @bind-Value="Engine.Refinement" />
 			<div>
 				<RadzenLabel>
 					@Lang["Level"]:

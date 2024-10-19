@@ -1,0 +1,7 @@
+<RadzenStack Orientation="Orientation.Horizontal" Gap="0" class="rz-unselectable-text pointer">
+	@for (var i = 0; i < 5; i++)
+	{
+		var li = i;
+		<RadzenIcon Icon="star" @onclick="() => ValueChanged.InvokeAsync(li + 1)" class=@(li < Value ? "icon-filled" : "")/>
+	}
+</RadzenStack>
