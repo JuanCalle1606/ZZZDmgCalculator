@@ -5,10 +5,6 @@
 	"installCommand": "dotnet workload install wasm-tools",
 	"rewrites": [
 		{
-			"source": "/nows/vscript.js",
-			"destination": "/_vercel/insights/script.js"
-		},
-		{
 			"source": "/(.*)",
 			"destination": "/"
 		}
