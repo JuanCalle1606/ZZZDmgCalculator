@@ -1,12 +1,18 @@
 namespace ZZZDmgCalculator.Models.State;
 
+using Abstractions;
 using Enum;
 using Info;
+using static Enum.Stats;
 using Enum=System.Enum;
 
-public class AgentState {
+public class AgentState : IModifierContainer {
 	CoreSkills _coreSkillLevel;
 	AscensionState _ascension;
+	EngineState? _engine;
+
+	Dictionary<Stats, StatModifier> _baseStats = new();
+	StatModifier[] _coreStats = new StatModifier[2];
 
 	public AgentInfo Info { get; }
 
@@ -18,6 +24,9 @@ public class AgentState {
 		set
 		{
 			_ascension = value;
+			_baseStats[Atk].Value = Info.BaseStats[0][(int)_ascension];
+			_baseStats[Hp].Value = Info.BaseStats[1][(int)_ascension];
+			_baseStats[Def].Value = Info.BaseStats[2][(int)_ascension];
 			UpdateBaseStats();
 		}
 	}
@@ -30,9 +39,33 @@ public class AgentState {
 		set
 		{
 			_coreSkillLevel = value;
+
+			// Core skill values
+			var core1 = Info.CoreStats[0];
+			var core2 = Info.CoreStats[1];
+
+			var num = (int)_coreSkillLevel;
+
+			_coreStats[0].Value = core1.Value * (num switch
+			{
+				1 or 2 => 1,
+				3 or 4 => 2,
+				5 or 6 => 3,
+				_ => 0
+			});
+			_coreStats[1].Value = core2.Value * (num switch
+			{
+				2 or 3 => 1,
+				4 or 5 => 2,
+				6 => 3,
+				_ => 0
+			});
+
 			UpdateBaseStats();
 		}
 	}
+
+	static int ObtenerResultado(int num) => num is 1 or 2 ? 1 : num is 3 or 4 ? 2 : num is 5 or 6 ? 3 : 0;
 
 	public EntityState Stats { get; } = new();
 
@@ -45,15 +78,67 @@ public class AgentState {
 	/// 4: Ultimate
 	/// </summary>
 	public int[] SkillLevels { get; private set; } = [1, 1, 1, 1, 1];
-	
-	public EngineState? Engine { get; set; }
-	
+
+	public IList<StatModifier> Modifiers { get; } = new List<StatModifier>();
+
+	public IModifierContainer? Parent { get; set; } = null;
+
+	readonly List<IModifierContainer> _children = [];
+
+	IEnumerable<IModifierContainer> IModifierContainer.Children => _children;
+
+	public EngineState? Engine
+	{
+		get => _engine;
+		set
+		{
+			Console.WriteLine("pre total mods: " + ((IModifierContainer)this).AllModifiers.Count());
+			if (_engine is not null)
+				_children.Remove(_engine);
+			_engine = value;
+			if (_engine is not null)
+				_children.Add(_engine);
+			Console.WriteLine("total mods: " + ((IModifierContainer)this).AllModifiers.Count());
+		}
+	}
+
 	public DiscState?[] Discs { get; } = new DiscState?[6];
 
 	public AgentState(AgentInfo info) {
 		Info = info;
 		Agent = Enum.Parse<Agents>(info.Id);
+
+		InitBaseStats();
+
+		foreach (var baseStat in _baseStats)
+		{
+			Modifiers.Add(baseStat.Value);
+		}
+		foreach (var coreStat in _coreStats)
+		{
+			Modifiers.Add(coreStat);
+		}
+
 		UpdateBaseStats();
+	}
+	void InitBaseStats() {
+		// Initialize base stats
+		_baseStats[Atk] = new() { Stat = Atk, Value = Info.BaseStats[0][(int)_ascension] };
+		_baseStats[Hp] = new() { Stat = Hp, Value = Info.BaseStats[1][(int)_ascension] };
+		_baseStats[Def] = new() { Stat = Def, Value = Info.BaseStats[2][(int)_ascension] };
+
+		_baseStats[CritDmg] = new() { Stat = CritDmg, Value = 50 };
+		_baseStats[CritRate] = new() { Stat = CritRate, Value = 5 };
+		_baseStats[Pen] = new() { Stat = Pen, Value = 0 };
+
+		_baseStats[PenRatio] = new() { Stat = PenRatio, Value = Info.FinalStats[0] };
+		_baseStats[Impact] = new() { Stat = Impact, Value = Info.FinalStats[1] };
+		_baseStats[Mastery] = new() { Stat = Mastery, Value = Info.FinalStats[2] };
+		_baseStats[Proficiency] = new() { Stat = Proficiency, Value = Info.FinalStats[3] };
+		_baseStats[EnergyRegen] = new() { Stat = EnergyRegen, Value = Info.FinalStats[4] };
+
+		_coreStats[0] = new() { Stat = Info.CoreStats[0].Stat };
+		_coreStats[1] = new() { Stat = Info.CoreStats[1].Stat };
 	}
 
 	void UpdateBaseStats() {
@@ -62,40 +147,13 @@ public class AgentState {
 		{
 			Stats.Base[stat] = 0;
 		}
-		
-		// Stats that scale with ascension
-		Stats.Base[Models.Enum.Stats.Atk] = Info.BaseStats[0][(int)_ascension];
-		Stats.Base[Models.Enum.Stats.Hp] =  Info.BaseStats[1][(int)_ascension];
-		Stats.Base[Models.Enum.Stats.Def] = Info.BaseStats[2][(int)_ascension];
-		
-		// Fixed values for all agents
-		Stats.Base[Models.Enum.Stats.CritDmg] = 50;
-		Stats.Base[Models.Enum.Stats.CritRate] = 5;
-		Stats.Base[Models.Enum.Stats.Pen] = 0;
-		
-		// Fixed values from info
-		Stats.Base[Models.Enum.Stats.PenRatio] = Info.FinalStats[0];
-		Stats.Base[Models.Enum.Stats.Impact] = Info.FinalStats[1];
-		Stats.Base[Models.Enum.Stats.Mastery] = Info.FinalStats[2];
-		Stats.Base[Models.Enum.Stats.Proficiency] = Info.FinalStats[3];
-		Stats.Base[Models.Enum.Stats.EnergyRegen] = Info.FinalStats[4];
 
-		// Core skill values
-		var core1 = Info.CoreStats[0];
-		var core2 = Info.CoreStats[1];
-		CoreSkills[] coreSkillThresholds = [CoreSkills.A, CoreSkills.C, CoreSkills.E];
-		foreach (var threshold in coreSkillThresholds)
+		IModifierContainer container = this;
+		foreach (var stat in container.AllModifiers.Where(m=>m.Type==StatModifiers.Base))
 		{
-			if (_coreSkillLevel >= threshold)
-			{
-				Stats.Base[core1.Stat] += core1.Value;
-			}
-			if (_coreSkillLevel >= (threshold + 1))
-			{
-				Stats.Base[core2.Stat] += core2.Value;
-			}
+			Stats.Base[stat.Stat] += stat.Value;
 		}
-		// TODO: look for base modifiers on weapons or buffs
+		
 		Stats.Update();
 	}
 }
