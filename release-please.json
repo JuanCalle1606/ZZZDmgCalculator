@@ -1,0 +1,9 @@
+{
+	"extra-files": [
+		{
+			"type": "xml",
+			"path": "ZZZDmgCalculator/ZZZDmgCalculator.csproj",
+			"xpath": "//Project/PropertyGroup/Version"
+		}
+	]
+}
