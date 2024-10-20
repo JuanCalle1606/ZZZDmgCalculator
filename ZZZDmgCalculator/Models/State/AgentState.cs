@@ -92,13 +92,12 @@ public class AgentState : IModifierContainer {
 		get => _engine;
 		set
 		{
-			Console.WriteLine("pre total mods: " + ((IModifierContainer)this).AllModifiers.Count());
 			if (_engine is not null)
 				_children.Remove(_engine);
 			_engine = value;
 			if (_engine is not null)
 				_children.Add(_engine);
-			Console.WriteLine("total mods: " + ((IModifierContainer)this).AllModifiers.Count());
+			UpdateAll();
 		}
 	}
 
@@ -141,7 +140,7 @@ public class AgentState : IModifierContainer {
 		_coreStats[1] = new() { Stat = Info.CoreStats[1].Stat };
 	}
 
-	void UpdateBaseStats() {
+	void UpdateBaseStats(bool update = true) {
 		// reset all stat
 		foreach (var stat in Enum.GetValues<Stats>())
 		{
@@ -153,7 +152,11 @@ public class AgentState : IModifierContainer {
 		{
 			Stats.Base[stat.Stat] += stat.Value;
 		}
-		
-		Stats.Update();
+
+		if (update) Stats.Update();
+	}
+	
+	public void UpdateAll() {
+		UpdateBaseStats();
 	}
 }

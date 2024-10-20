@@ -7,4 +7,8 @@ public partial class Main {
 		State.CurrentAgent = stateCurrentAgent;
 		StateHasChanged();
 	}
+	
+	public void FullUpdate() {
+		StateHasChanged();
+	}
 }
