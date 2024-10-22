@@ -2,14 +2,17 @@
 	"packages": {
 		".": {
 			"release-type": "simple",
-			"release-as": "0.1.0",
-			"changelog-path": "ZZZDmgCalculator/wwwroot/CHANGELOG.md"
+			"release-as": "0.1.0"
 		}
 	},
 	"bootstrap-sha": "b43e9a5276321c82fa82ea8e62b1a8b41b10342f",
 	"latest-release-sha": "b43e9a5276321c82fa82ea8e62b1a8b41b10342f",
 	"prerelease": true,
 	"prerelease-type": "beta",
+	"bump-minor-pre-major": true,
+	"bump-patch-for-minor-pre-major": true,
+	"changelog-path": "ZZZDmgCalculator/wwwroot/CHANGELOG.md",
+	"pull-request-header": ":star: A new release has been created :star:",
 	"changelog-sections": [
 		{
 			"type": "feat",
