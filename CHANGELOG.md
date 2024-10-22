@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.2.2](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v1.2.2...v1.2.2) (2024-10-22)
+## [1.2.2.1](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v1.2.2...v1.2.2.1) (2024-10-22)
 
 
 ### Bug Fixes
