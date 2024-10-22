@@ -7,5 +7,64 @@
 		}
 	},
 	"bootstrap-sha": "b43e9a5276321c82fa82ea8e62b1a8b41b10342f",
-	"latest-release-sha": "b43e9a5276321c82fa82ea8e62b1a8b41b10342f"
+	"latest-release-sha": "b43e9a5276321c82fa82ea8e62b1a8b41b10342f",
+	"prerelease": true,
+	"prerelease-type": "beta",
+	"changelog-sections": [
+		{
+			"type": "feat",
+			"hidden": false,
+			"section": "Features"
+		},
+		{
+			"type": "fix",
+			"hidden": false,
+			"section": "Bug Fixes"
+		},
+		{
+			"type": "perf",
+			"hidden": false,
+			"section": "Performance Improvements"
+		},
+		{
+			"type": "revert",
+			"hidden": false,
+			"section": "Reverts"
+		},
+		{
+			"type": "docs",
+			"hidden": true,
+			"section": "Documentation"
+		},
+		{
+			"type": "style",
+			"hidden": false,
+			"section": "Styles"
+		},
+		{
+			"type": "refactor",
+			"hidden": true,
+			"section": "Code Refactoring"
+		},
+		{
+			"type": "test",
+			"hidden": true,
+			"section": "Tests"
+		},
+		{
+			"type": "build",
+			"hidden": true,
+			"section": "Build System"
+		},
+		{
+			"type": "ci",
+			"hidden": true,
+			"section": "Continuous Integration"
+		},
+		{
+			"type": "chore",
+			"hidden": true,
+			"section": "Miscellaneous Chores"
+		}
+	]
 }
