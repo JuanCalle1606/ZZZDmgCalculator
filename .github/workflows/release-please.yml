@@ -17,6 +17,5 @@ jobs:
         with:
           # this is a built-in strategy in release-please, see "Action Inputs"
           # for more options
-          release-type: simple
           config-file: 'release-please-config.json'
           manifest-file: '.release-please-manifest.json'

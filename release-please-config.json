@@ -10,6 +10,13 @@
 	"bump-patch-for-minor-pre-major": true,
 	"changelog-path": "ZZZDmgCalculator/wwwroot/CHANGELOG.md",
 	"pull-request-header": ":star: A new release has been created :star:",
+	"extra-files": [
+		{
+			"type": "xml",
+			"path": "ZZZDmgCalculator/ZZZDmgCalculator.csproj",
+			"xpath": "//Project/PropertyGroup/Version"
+		}
+	],
 	"changelog-sections": [
 		{
 			"type": "feat",
@@ -39,7 +46,7 @@
 		{
 			"type": "style",
 			"hidden": false,
-			"section": "Styles"
+			"section": "UI Changes"
 		},
 		{
 			"type": "refactor",
