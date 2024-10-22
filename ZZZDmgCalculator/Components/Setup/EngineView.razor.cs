@@ -11,23 +11,19 @@ public partial class EngineView {
 	[Parameter]
 	public EngineState Engine { get; set; } = null!;
 
-	[Parameter]
-	public EventCallback<EngineState> EngineChanged { get; set; }
-
 	[CascadingParameter]
 	public Main MainPage { get; set; } = null!;
 	
 	async Task OpenEngineDialog() {
 		if (await Dialogs.OpenEngineDialog() is {} info)
 		{
-			await EngineChanged.InvokeAsync(info);
-			MainPage.FullUpdate();
+			Notifier.SwapCurrentEngine(info);
 		}
 	}
 
-	void AscencionChanged(AscensionState ascension) {
+	void AscensionChanged(AscensionState ascension) {
 		Engine.Ascension = ascension;
 		State.CurrentAgent.UpdateAll();
-		MainPage.FullUpdate();
+		Notifier.CurrentEngineUpdated();
 	}
 }

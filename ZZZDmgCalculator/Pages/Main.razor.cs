@@ -1,14 +1,10 @@
 namespace ZZZDmgCalculator.Pages;
 
-using Models.State;
+using MessagePipe;
+using Util;
 
 public partial class Main {
-	public void AgentSwap(AgentState stateCurrentAgent) {
-		State.CurrentAgent = stateCurrentAgent;
-		StateHasChanged();
-	}
-	
-	public void FullUpdate() {
-		StateHasChanged();
+	protected override void OnDisposableBag(DisposableBagBuilder bag) {
+		Notifier.OnCurrentAgentChanged.SubscribeUpdate(this).AddTo(bag);
 	}
 }

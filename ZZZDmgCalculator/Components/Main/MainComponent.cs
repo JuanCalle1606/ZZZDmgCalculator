@@ -24,6 +24,9 @@ public abstract class MainComponent : ComponentBase, IDisposable {
 	
 	[Inject]
 	protected StateService State { get; private set; } = null!;
+	
+	[Inject]
+	protected NotifierService Notifier { get; private set; } = null!;
 
 	[Inject]
 	IBufferedAsyncSubscriber<BrowserDimension> ResizeSubscriber { get; set; } = null!;
@@ -41,7 +44,9 @@ public abstract class MainComponent : ComponentBase, IDisposable {
 		OnBrowserResize(dimension);
 		await OnBrowserResizeAsync(dimension);
 	}
-	
+
+	public void Update() => StateHasChanged();
+
 	protected bool StateHasChanged(ref int state, int limit) {
 		if ((Browser.Dimensions.Width < limit && state >= limit) ||
 		    (Browser.Dimensions.Width >= limit && state < limit))

@@ -16,7 +16,7 @@
 				<RadzenLabel>
 					@Lang["Level"]:
 				</RadzenLabel>
-				<RadzenDropDown TValue="AscensionState" ValueChanged="AscencionChanged" Value="@Engine.Ascension" Data="@(Enum.GetValues<AscensionState>())" Chips="true" class="z-select">
+				<RadzenDropDown TValue="AscensionState" ValueChanged="AscensionChanged" Value="@Engine.Ascension" Data="@(Enum.GetValues<AscensionState>())" Chips="true" class="z-select">
 					<Template>
 						@Info.AscensionToString((AscensionState)(object)context)
 					</Template>

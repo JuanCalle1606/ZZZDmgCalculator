@@ -1,10 +1,10 @@
 namespace ZZZDmgCalculator.Services;
 
+using MessagePipe;
 using Models.Enum;
 using Models.State;
 
 public class StateService {
-	InfoService _info;
 
 	public int CurrentAgentIndex { get; }
 
@@ -17,9 +17,8 @@ public class StateService {
 	}
 	
 	public StateService(InfoService info) {
-		_info = info;
 		// set ellen by default
-		CurrentSetup.Agents[0] = new(_info[Agents.Anby]);
+		CurrentSetup.Agents[0] = new(info[Agents.Anby]);
 		CurrentAgentIndex = 0;
 	}
 }

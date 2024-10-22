@@ -1,8 +1,10 @@
 namespace ZZZDmgCalculator.Components.Main;
 
+using MessagePipe;
 using Microsoft.AspNetCore.Components;
 using Models.Enum;
 using Models.State;
+using Util;
 
 public partial class AgentStatsTable {
 	const int Cols = 4;
@@ -29,4 +31,9 @@ public partial class AgentStatsTable {
 	string GetCatStyle(int index) => _categoriesState[index] ? "" : "display: none;";
 	string GetCombatClass(double value) => "rz-cell-data " + (value == 0 ? CeroColor : BonusColor);
 	string GetStatClass(double value) => "rz-cell-data " + (value == 0 ? CeroColor : "");
+
+	protected override void OnDisposableBag(DisposableBagBuilder bag) {
+		// update stats everytime an engine is changed
+		Notifier.OnCurrentEngineChanged.SubscribeUpdate(this).AddTo(bag);
+	}
 }

@@ -1,6 +1,7 @@
 namespace ZZZDmgCalculator.Components.Main;
 
 using System.Collections;
+using MessagePipe;
 using Microsoft.AspNetCore.Components;
 using Models.Enum;
 using Models.State;
@@ -13,13 +14,14 @@ public partial class OverviewCard {
     [Parameter]
     public AgentState Agent { get; set; } = null!;
     
-    [CascadingParameter]
-    public Main MainPage { get; set; } = null!;
-    
 	async Task OpenAgentDialog() {
 		if (await Dialogs.OpenAgentDialog() is {} a)
 		{
-			MainPage.AgentSwap(a);
+			Notifier.SwapCurrentAgent(a);
 		}
+	}
+
+	protected override void OnDisposableBag(DisposableBagBuilder bag) {
+		base.OnDisposableBag(bag);
 	}
 }
