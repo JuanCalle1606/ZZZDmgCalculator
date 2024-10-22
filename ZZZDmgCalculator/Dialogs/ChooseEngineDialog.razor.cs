@@ -1,6 +1,5 @@
 namespace ZZZDmgCalculator.Dialogs;
 
-using System.Collections;
 using Models.Enum;
 using Models.Info;
 using Util;

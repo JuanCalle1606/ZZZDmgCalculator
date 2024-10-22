@@ -1,16 +1,10 @@
 namespace ZZZDmgCalculator.Components.Main;
 
-using System.Collections;
-using MessagePipe;
 using Microsoft.AspNetCore.Components;
-using Models.Enum;
 using Models.State;
-using Pages;
 using Util;
 
 public partial class OverviewCard {
-    static IEnumerable AscensionData => Enum.GetValues<AscensionState>();
-    
     [Parameter]
     public AgentState Agent { get; set; } = null!;
     
@@ -19,9 +13,5 @@ public partial class OverviewCard {
 		{
 			Notifier.SwapCurrentAgent(a);
 		}
-	}
-
-	protected override void OnDisposableBag(DisposableBagBuilder bag) {
-		base.OnDisposableBag(bag);
 	}
 }

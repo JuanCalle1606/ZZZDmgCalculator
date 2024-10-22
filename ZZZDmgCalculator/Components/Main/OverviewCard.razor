@@ -14,11 +14,8 @@
 				<RadzenLabel>
 					@Lang["Level"]:
 				</RadzenLabel>
-				<RadzenDropDown TValue="AscensionState" @bind-Value="@Agent.Ascension" Data="@AscensionData" Chips="true" class="z-select">
-					<Template>
-						@Info.AscensionToString((AscensionState)(object)context)
-					</Template>
-				</RadzenDropDown>
+				<RadzenDropDown TValue="AscensionState" @bind-Value="@Agent.Ascension" Data="@(Enum.GetValues<AscensionState>().Cast<Enum>())" Chips="true" class="z-select"/>
+				
 			</div>
 			<RadzenDropDown @bind-Value="@Agent.Cinema" Data="@ListsUtil.Simple(0, 6)" Chips="true" Style="width: 55px">
 				<Template>

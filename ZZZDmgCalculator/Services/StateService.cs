@@ -1,6 +1,5 @@
 namespace ZZZDmgCalculator.Services;
 
-using MessagePipe;
 using Models.Enum;
 using Models.State;
 

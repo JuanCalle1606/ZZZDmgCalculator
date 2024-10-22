@@ -16,11 +16,11 @@
 				<RadzenLabel>
 					@Lang["Level"]:
 				</RadzenLabel>
-				<RadzenDropDown TValue="AscensionState" ValueChanged="AscensionChanged" Value="@Engine.Ascension" Data="@(Enum.GetValues<AscensionState>())" Chips="true" class="z-select">
-					<Template>
-						@Info.AscensionToString((AscensionState)(object)context)
-					</Template>
-				</RadzenDropDown>
+				<RadzenDropDown TValue="AscensionState" ValueChanged="AscensionChanged" 
+				                Value="@Engine.Ascension"
+				                Data="@(Enum.GetValues<AscensionState>().Cast<Enum>())" 
+				                Chips="true" class="z-select"/>
+				
 			</div>
 		</RadzenStack>
 		

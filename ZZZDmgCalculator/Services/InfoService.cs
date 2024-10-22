@@ -110,8 +110,6 @@ public class InfoService(LangService lang) {
 		_ => throw new ArgumentOutOfRangeException(nameof(infoRank), infoRank, null)
 	};
 	
-	public string AscensionToString(AscensionState context) => context.ToString().Replace("A", "").Replace("_", "/");
-	
 	public BaseInfo GetVar<T>(T value) where T : struct, Enum {
 		if (typeof(T) == typeof(Attributes))
 			return this[(Attributes)(object)value];
