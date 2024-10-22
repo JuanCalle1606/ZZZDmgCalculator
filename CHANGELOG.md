@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.0](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v1.2.2...v0.1.0) (2024-10-22)
+## [0.1.0](https://github.com/JuanCalle1606/ZZZDmgCalculator/releases/tag/v0.1.0) (2024-10-22)
 
 
 ### Features
@@ -18,10 +18,3 @@
 * index out of ranged caused by some engines ([a536f8a](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/a536f8a53aec84b1a6e82666dd7fc4a03cbc2f99))
 * make DropDown update the selected value correctly ([61200bc](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/61200bc91ae30bc512b48fd6375a59e720f8e2ec))
 * solved choosing an engine not reflected on stats ([6098ee0](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/6098ee0a0af4a0b68c4178942be74ac31451a97d))
-
-
-### Miscellaneous Chores
-
-* Initial beta version ([e39c471](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/e39c471942874210af9973f2d272ec07eadc0aaf))
-* release 1.2.1 ([7e6e2d1](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/7e6e2d13fe6e55f36a526cf78248ae34f64bb9e4))
-* **versioning:** Add manifest for release pls ([11c3a22](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/11c3a2254416fab1c8faf7c529af0fd52f37afed))
