@@ -1,14 +1,11 @@
 {
 	"packages": {
 		".": {
-			"release-type": "simple"
+			"release-type": "simple",
+			"release-as": "0.1.0",
+			"changelog-path": "ZZZDmgCalculator/wwwroot/CHANGELOG.md"
 		}
 	},
-	"extra-files": [
-		{
-			"type": "xml",
-			"path": "ZZZDmgCalculator/ZZZDmgCalculator.csproj",
-			"xpath": "//Project/PropertyGroup/Version"
-		}
-	]
+	"bootstrap-sha": "b43e9a5276321c82fa82ea8e62b1a8b41b10342f",
+	"latest-release-sha": "b43e9a5276321c82fa82ea8e62b1a8b41b10342f"
 }
