@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.2](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v1.2.2...v1.2.2) (2024-10-22)
+
+
+### Bug Fixes
+
+* make DropDown update the selected value correctly ([61200bc](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/61200bc91ae30bc512b48fd6375a59e720f8e2ec))
+* solved choosing an engine not reflected on stats ([6098ee0](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/6098ee0a0af4a0b68c4178942be74ac31451a97d))
+
 ## [1.2.2.1](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v1.2.2...v1.2.2.1) (2024-10-22)
 
 
