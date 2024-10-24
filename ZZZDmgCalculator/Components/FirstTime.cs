@@ -13,9 +13,9 @@ public class FirstTime : MainComponent {
 		await base.OnInitializedAsync();
 		
 		var visited = await LocalStorage.GetItemAsync<bool>("Visited");
+		var cv = typeof(FirstTime).Assembly.GetName().Version!;
 		if (!visited) {
 			await LocalStorage.SetItemAsync("Visited", true);
-			await LocalStorage.SetItemAsync("LastVersion", typeof(FirstTime).Assembly.GetName().Version!.ToString());
 			await Dialogs.OpenAboutDialog();
 		}
 		else
@@ -24,13 +24,13 @@ public class FirstTime : MainComponent {
 			if (!string.IsNullOrEmpty(lastVersion))
 			{
 				var lv = new Version(lastVersion);
-				var cv = typeof(FirstTime).Assembly.GetName().Version!;
 				if (lv < cv)
 				{
-					await LocalStorage.SetItemAsync("LastVersion", cv.ToString());
 					await Dialogs.OpenAboutDialog();
 				}
 			}
 		}
+		await LocalStorage.SetItemAsync("LastVersion", cv.ToString());
+
 	}
 }
