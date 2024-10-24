@@ -5,23 +5,23 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
-    <PackageReference Include="MessagePipe" Version="1.8.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.7" PrivateAssets="all" />
-    <PackageReference Include="Radzen.Blazor" Version="5.2.9" />
+    <PackageReference Include="Blazored.LocalStorage" Version="4.5.0"/>
+    <PackageReference Include="MessagePipe" Version="1.8.1"/>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.7"/>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.7" PrivateAssets="all"/>
+    <PackageReference Include="Radzen.Blazor" Version="5.2.9"/>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Lang\Resources.resx" />
+    <EmbeddedResource Update="Lang\Resources.resx"/>
   </ItemGroup>
 
   <ItemGroup>
-    <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
+    <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js"/>
   </ItemGroup>
   
 </Project>

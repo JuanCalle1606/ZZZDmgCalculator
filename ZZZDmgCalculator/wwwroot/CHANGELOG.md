@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.1.1](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v0.1.0...v0.1.1) (2024-10-24)
+
+
+### Features
+
+* **Agent Stats:** Add support for BasePercent and BaseFlat modifiers ([f99a40b](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/f99a40b20be35239f47629130be1188007cbbbf9))
+* **Engine View:** Allow removing current engine ([5aff5bd](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/5aff5bd8f9c95a4d7a64ecec9c7e03d0f9980861))
+* **Stat Table:** Show base + bonus values when hover initial stat ([d58a2e9](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/d58a2e9c50a51e9a152857601abc0d61d62ca1ec))
+
+
+### Bug Fixes
+
+* **About Dialog:** Update support email ([a187d32](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/a187d3287fe2a1a484a660c35b37d94f2e91ee46))
+* remove Miscellaneous Chores from changelog ([161b6fe](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/161b6feb097426d36a44f7596f57fbe3afb83c20))
+
+
+### UI Changes
+
+* **Overview:** Separate level selector from cinema selector ([9f1038f](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/9f1038f6b1c740f37aa262b605f3b6b6745bb72f))
+
 ## [0.1.0](https://github.com/JuanCalle1606/ZZZDmgCalculator/releases/tag/v0.1.0) (2024-10-22)
 
 
