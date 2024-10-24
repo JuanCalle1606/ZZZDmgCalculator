@@ -3,6 +3,7 @@ namespace ZZZDmgCalculator.Models.State;
 using Abstractions;
 using Enum;
 using Info;
+using Util;
 using static Enum.Stats;
 using Enum=System.Enum;
 
@@ -27,7 +28,7 @@ public class AgentState : IModifierContainer {
 			_baseStats[Atk].Value = Info.BaseStats[0][(int)_ascension];
 			_baseStats[Hp].Value = Info.BaseStats[1][(int)_ascension];
 			_baseStats[Def].Value = Info.BaseStats[2][(int)_ascension];
-			UpdateBaseStats();
+			UpdateAll();
 		}
 	}
 
@@ -61,7 +62,7 @@ public class AgentState : IModifierContainer {
 				_ => 0
 			});
 
-			UpdateBaseStats();
+			UpdateAll();
 		}
 	}
 
@@ -118,8 +119,9 @@ public class AgentState : IModifierContainer {
 			Modifiers.Add(coreStat);
 		}
 
-		UpdateBaseStats();
+		UpdateAll();
 	}
+	
 	void InitBaseStats() {
 		// Initialize base stats
 		_baseStats[Atk] = new() { Stat = Atk, Value = Info.BaseStats[0][(int)_ascension] };
@@ -142,21 +144,49 @@ public class AgentState : IModifierContainer {
 
 	void UpdateBaseStats(bool update = true) {
 		// reset all stat
-		foreach (var stat in Enum.GetValues<Stats>())
-		{
-			Stats.Base[stat] = 0;
-		}
+		Stats.Base.Reset();
 
 		IModifierContainer container = this;
-		foreach (var stat in container.AllModifiers.Where(m=>m.Type==StatModifiers.Base))
+		foreach (var stat in container.AllModifiers.Where(m => m.Type == StatModifiers.Base))
 		{
 			Stats.Base[stat.Stat] += stat.Value;
 		}
 
 		if (update) Stats.Update();
 	}
-	
+
 	public void UpdateAll() {
-		UpdateBaseStats();
+		UpdateBaseStats(false);
+		UpdateBonusStats(false);
+		Stats.Update();
+	}
+
+	void UpdateBonusStats(bool update = true) {
+		Stats.Bonus.Reset();
+
+		IModifierContainer container = this;
+		var percent = container.AllModifiers
+			.Where(m => m.Type == StatModifiers.BasePercent)
+			.GroupBy(mod => mod.Stat)
+			.Select(group => new KeyValuePair<Stats, double>(group.Key, group.Sum(mod => mod.Value)));
+
+		foreach (var perPair in percent)
+		{
+			// values are in percent need to be converted to decimal + 1
+			var mod = perPair.Value / 100 + 1;
+			Stats.Bonus[perPair.Key] = Stats.Base[perPair.Key] * mod;
+		}
+		
+		var flat = container.AllModifiers
+			.Where(m => m.Type == StatModifiers.BaseFlat)
+			.GroupBy(mod => mod.Stat)
+			.Select(group => new KeyValuePair<Stats, double>(group.Key, group.Sum(mod => mod.Value)));
+
+		foreach (var flatPair in flat)
+		{
+			Stats.Bonus[flatPair.Key] += flatPair.Value;
+		}
+		
+		if (update) Stats.Update();
 	}
 }
