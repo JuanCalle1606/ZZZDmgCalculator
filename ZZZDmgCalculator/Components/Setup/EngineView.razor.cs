@@ -23,7 +23,7 @@ public partial class EngineView {
 
 	void AscensionChanged(AscensionState ascension) {
 		Engine.Ascension = ascension;
-		State.CurrentAgent.UpdateAll();
+		State.CurrentAgent.UpdateAllStats();
 		Notifier.CurrentEngineUpdated();
 	}
 }

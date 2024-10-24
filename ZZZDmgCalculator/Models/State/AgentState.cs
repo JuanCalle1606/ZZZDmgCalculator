@@ -3,6 +3,7 @@ namespace ZZZDmgCalculator.Models.State;
 using Abstractions;
 using Enum;
 using Info;
+using Services;
 using Util;
 using static Enum.Stats;
 using Enum=System.Enum;
@@ -28,7 +29,7 @@ public class AgentState : IModifierContainer {
 			_baseStats[Atk].Value = Info.BaseStats[0][(int)_ascension];
 			_baseStats[Hp].Value = Info.BaseStats[1][(int)_ascension];
 			_baseStats[Def].Value = Info.BaseStats[2][(int)_ascension];
-			UpdateAll();
+			UpdateAllStats();
 		}
 	}
 
@@ -62,7 +63,7 @@ public class AgentState : IModifierContainer {
 				_ => 0
 			});
 
-			UpdateAll();
+			UpdateAllStats();
 		}
 	}
 
@@ -98,7 +99,7 @@ public class AgentState : IModifierContainer {
 			_engine = value;
 			if (_engine is not null)
 				_children.Add(_engine);
-			UpdateAll();
+			UpdateAllStats();
 		}
 	}
 
@@ -119,7 +120,7 @@ public class AgentState : IModifierContainer {
 			Modifiers.Add(coreStat);
 		}
 
-		UpdateAll();
+		UpdateAllStats();
 	}
 	
 	void InitBaseStats() {
@@ -141,8 +142,14 @@ public class AgentState : IModifierContainer {
 		_coreStats[0] = new() { Stat = Info.CoreStats[0].Stat };
 		_coreStats[1] = new() { Stat = Info.CoreStats[1].Stat };
 	}
+	
+	public void UpdateAllStats() {
+		UpdateBaseStats();
+		UpdateBonusStats();
+		Stats.Update();
+	}
 
-	void UpdateBaseStats(bool update = true) {
+	void UpdateBaseStats() {
 		// reset all stat
 		Stats.Base.Reset();
 
@@ -151,17 +158,9 @@ public class AgentState : IModifierContainer {
 		{
 			Stats.Base[stat.Stat] += stat.Value;
 		}
-
-		if (update) Stats.Update();
 	}
-
-	public void UpdateAll() {
-		UpdateBaseStats(false);
-		UpdateBonusStats(false);
-		Stats.Update();
-	}
-
-	void UpdateBonusStats(bool update = true) {
+	
+	void UpdateBonusStats() {
 		Stats.Bonus.Reset();
 
 		IModifierContainer container = this;
@@ -173,7 +172,7 @@ public class AgentState : IModifierContainer {
 		foreach (var perPair in percent)
 		{
 			// values are in percent need to be converted to decimal + 1
-			var mod = perPair.Value / 100 + 1;
+			var mod = perPair.Value / 100;
 			Stats.Bonus[perPair.Key] = Stats.Base[perPair.Key] * mod;
 		}
 		
@@ -186,7 +185,5 @@ public class AgentState : IModifierContainer {
 		{
 			Stats.Bonus[flatPair.Key] += flatPair.Value;
 		}
-		
-		if (update) Stats.Update();
 	}
 }

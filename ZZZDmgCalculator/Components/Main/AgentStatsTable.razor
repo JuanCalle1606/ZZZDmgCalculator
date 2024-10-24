@@ -65,7 +65,7 @@
 				</tr>
 				@foreach (var stat in GetStats(category))
 				{
-					var baseStat = EntityStats.Initial[stat];
+					var baseStat = EntityStats.Base[stat];
 					var bonusStat = EntityStats.Bonus[stat];
 					var initialStat = EntityStats.Initial[stat];
 					var combatStat = EntityStats.Combat[stat];
@@ -76,7 +76,14 @@
 							<span class=@GetStatClass(totalStat)>@Info[stat].DisplayName</span>
 						</td>
 						<td class="rz-text-align-right initial-stat">
-							<span class=@GetStatClass(initialStat)>@stat.Format(initialStat)</span>
+							@{
+								var baseFormatted = stat.Format(baseStat);
+								var bonusFormatted = stat.Format(bonusStat);
+								var tittle = baseFormatted.Contains("%") || bonusStat == 0 ? "" : $"{baseFormatted} + {bonusFormatted}";
+							}
+							<span class=@(GetStatClass(initialStat)) title="@tittle">
+								@stat.Format(initialStat)
+							</span>
 						</td>
 						<td class="rz-text-align-right">
 							<span class=@GetCombatClass(combatStat)>
