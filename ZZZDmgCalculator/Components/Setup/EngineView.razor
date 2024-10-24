@@ -23,14 +23,19 @@
 				
 			</div>
 		</RadzenStack>
-		
-		<RadzenStack Orientation="Orientation.Horizontal" class="feature-icon-container" Gap="7px">
-			<img alt="" src="@Info.ItemRankIcon(@Engine.Info.Rank)"/>
-			@{
-			var info = Info[Engine.Info.Type];
-			}
-			<img alt="@info.DisplayName" title="@info.DisplayName" src="@info.Url"/>
+		<RadzenStack Orientation="Orientation.Horizontal" Gap="0" JustifyContent="JustifyContent.SpaceBetween" AlignItems="AlignItems.Center">
+			<RadzenStack Orientation="Orientation.Horizontal" class="feature-icon-container" Gap="7px">
+				<img alt="" src="@Info.ItemRankIcon(@Engine.Info.Rank)"/>
+				@{
+					var info = Info[Engine.Info.Type];
+				}
+				<img alt="@info.DisplayName" title="@info.DisplayName" src="@info.Url"/>
 
+			</RadzenStack>
+			<RadzenButton ButtonStyle="ButtonStyle.Danger" class="rz-mr-2" 
+			              Click="RemoveEngine" Icon="delete" Size="ButtonSize.Small"
+			              title="@Lang["Tooltip.RemoveEngine"]" Variant="Variant.Text" />
 		</RadzenStack>
+		
 	</RadzenStack>
 </RadzenStack>

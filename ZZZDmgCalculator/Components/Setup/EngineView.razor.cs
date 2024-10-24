@@ -26,4 +26,8 @@ public partial class EngineView {
 		State.CurrentAgent.UpdateAllStats();
 		Notifier.CurrentEngineUpdated();
 	}
+	
+	void RemoveEngine() {
+		Notifier.SwapCurrentEngine(null);
+	}
 }

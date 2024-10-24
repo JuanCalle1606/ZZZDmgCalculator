@@ -25,7 +25,7 @@ public class NotifierService : IDisposable {
 		_currentAgentChangedPublisher.Publish(_stateService.CurrentAgent);
 	}
 
-	public void SwapCurrentEngine(EngineState newEngine) {
+	public void SwapCurrentEngine(EngineState? newEngine) {
 		_stateService.CurrentAgent.Engine = newEngine;
 		CurrentEngineUpdated();
 	}

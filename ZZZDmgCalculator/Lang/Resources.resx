@@ -300,4 +300,7 @@
     <data name="EngineSelection" xml:space="preserve">
         <value>Engine Selection</value>
     </data>
+    <data name="Tooltip.RemoveEngine" xml:space="preserve">
+        <value>Remove Engine</value>
+    </data>
 </root>
