@@ -1,7 +1,7 @@
 @inherits MainComponent
 @typeparam T where T : BaseInfo
 
-<div @ref="Container">
+<div @ref="Container" class="choose-dialog-grid-container">
 	<RadzenRow Gap="10px" RowGap="10px" class="choose-grid" JustifyContent="JustifyContent.Start">
 		@foreach (var info in Items)
 		{
@@ -25,14 +25,22 @@
 
 	[Parameter]
 	public RenderFragment<T> ChildContent { get; set; } = null!;
+	
+	string _colWidth = "103px";
 
 	string ColWidth
 	{
 		get
 		{
 			if (_containerWidth == 0) return "103px";
-
+			
 			var elementsPerRow = _containerWidth / 100;
+			// we have a 10px gap between elements so let's calculate if number of elements per row plus the gap fits the container
+			while ((_containerWidth - (elementsPerRow - 1) * 10) / elementsPerRow < 100)
+			{
+				elementsPerRow--;
+			}
+			
 			var elementSize = (_containerWidth - (elementsPerRow - 1) * 10) / (float)elementsPerRow;
 
 			return $"{elementSize}px";
@@ -43,14 +51,22 @@
 
 	protected override async Task OnAfterRenderAsync(bool firstRender) {
 		await base.OnAfterRenderAsync(firstRender);
-		if (firstRender || _containerWidth == 0) _containerWidth = (await Browser.GetElementDimensionAsync(Container)).Width;
+		if (_containerWidth == 0)
+		{
+			_containerWidth = (await Browser.GetElementDimensionAsync(Container)).Width;
+			// we need to force a re-render to calculate the correct column width
+			// this is because the container width is not available on the first render
+			_colWidth = ColWidth;
+			StateHasChanged();
+		}
 	}
 
 	protected override async Task OnBrowserResizeAsync(BrowserDimension dimension) {
 		await base.OnBrowserResizeAsync(dimension);
 		_containerWidth = (await Browser.GetElementDimensionAsync(Container)).Width;
+		_colWidth = ColWidth;
 		StateHasChanged();
 	}
 	
-	string GetStyle(T linfo) => IsVisible(linfo) ? $"max-width: {ColWidth};" : "display: none;";
+	string GetStyle(T linfo) => IsVisible(linfo) ? $"max-width: {_colWidth};" : "display: none;";
 }

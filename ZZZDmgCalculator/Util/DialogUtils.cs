@@ -34,8 +34,8 @@ public static class DialogUtils {
 		new() { { "Index", i } }
 		, new()
 		{
-			Width = "950px",
-			Height = "750px",
+			Width = "600px",
+			Height = "auto",
 			ShowTitle = false,
 			AutoFocusFirstElement = false,
 			Style = "max-width: 100%"
