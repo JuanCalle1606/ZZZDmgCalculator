@@ -9,6 +9,14 @@
 		<div class="rz-overflow-hidden">
 			<h2 class="rz-m-0 truncate">@Agent.Info.DisplayName</h2>
 		</div>
+		<RadzenStack Orientation="Orientation.Horizontal" class="feature-icon-container">
+			<img alt="" src="@Info.AgentRankIcon(@Agent.Info.Rank)"/>
+			@foreach(var info in (BaseInfo[])[Info[Agent.Info.Specialty], Info[Agent.Info.Attribute], Info[Agent.Info.Faction]])
+			{
+			<img alt="@info.DisplayName" title="@info.DisplayName" src="@info.Url"/>
+			}
+
+		</RadzenStack>
 		<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" class="agent-level" JustifyContent="JustifyContent.SpaceBetween" Gap="5px">
 			<div>
 				<RadzenLabel>
@@ -22,14 +30,6 @@
 					@("M" + (object)context)
 				</Template>
 			</RadzenDropDown>
-		</RadzenStack>
-		<RadzenStack Orientation="Orientation.Horizontal" class="feature-icon-container">
-			<img alt="" src="@Info.AgentRankIcon(@Agent.Info.Rank)"/>
-			@foreach(var info in (BaseInfo[])[Info[Agent.Info.Specialty], Info[Agent.Info.Attribute], Info[Agent.Info.Faction]])
-			{
-				<img alt="@info.DisplayName" title="@info.DisplayName" src="@info.Url"/>
-			}
-			
 		</RadzenStack>
 	</RadzenStack>
 </RadzenStack>
