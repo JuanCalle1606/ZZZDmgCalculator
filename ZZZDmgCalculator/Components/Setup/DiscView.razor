@@ -1,0 +1,105 @@
+@using ZZZDmgCalculator.Util
+@inherits MainComponent
+
+<RadzenStack Orientation="Orientation.Horizontal" class="rz-mb-2" Gap="5px">
+	<div class="disc-avatar" @onclick="OpenDiscDialog">
+		<img src="@Disc.Info.Url" alt="@Disc.Info.Id"/>
+	</div>
+	<RadzenStack Orientation="Orientation.Vertical" class="mw-0 rz-w-100" Gap="7px">
+		<div class="rz-overflow-hidden">
+			<h2 class="rz-m-0 truncate">[@(Index + 1)] @Disc.Info.DisplayName</h2>
+		</div>
+
+		<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween" AlignItems="AlignItems.Center">
+			<ItemRankSelector Rank="Disc.Rank" RankChanged="RankChanged"/>
+			<RadzenDropDown TValue="int" Value="Disc.Level"
+			                ValueChanged="LevelChanged" class="z-select"
+			                Data="@ListsUtil.Simple(0, Disc.MaxLevel)"
+			                Chips="true" Style="width: 85px">
+				<Template>
+					@(Lang["Level"] + ": " + (object)context)
+				</Template>
+			</RadzenDropDown>
+		</RadzenStack>
+		<RadzenButton ButtonStyle="ButtonStyle.Danger" class="rz-mr-2"
+		              Click="RemoveDisc" Icon="delete" Size="ButtonSize.Small"
+		              Text="@Lang["Tooltip.RemoveDisc"]" Variant="Variant.Filled"/>
+	</RadzenStack>
+</RadzenStack>
+
+<RadzenCard Variant="Variant.Flat" class="rz-background-color-base-900 rz-pt-2">
+	<RadzenStack class="rz-pt-1" Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0" JustifyContent="JustifyContent.SpaceBetween">
+		<RadzenText Style="margin-bottom: 5px">
+			@Lang["MainStat"]:
+		</RadzenText>
+		<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
+			@if (_discStatInfos.Length > 1)
+			{
+				<RadzenDropDown TValue="int" Value="Array.IndexOf(_discStatInfos, Disc.MainStatInfo)"
+				                ValueChanged="MainStatChanged" class="z-select rz-pl-0"
+				                Data="@ListsUtil.Simple(0, _discStatInfos.Length - 1)" Chips="true"
+				                Style="width: 100%; max-width: 155px; text-align: end; background-color: unset">
+					<Template>
+						@{ var s = _discStatInfos[(int)(object)context].Buff; }
+						<RadzenText class="rz-color-bonus">
+							@Info[s.Stat].DisplayName
+							@(s.Stat is Stats.Atk or Stats.Def or Stats.Hp && s.IsPercent ? " %" : "")
+						</RadzenText>
+					</Template>
+
+				</RadzenDropDown>
+			}
+			else
+			{
+				<RadzenText class="rz-color-bonus rz-px-4" Style="margin-bottom: 5px">
+					@Info[Disc.MainStat].DisplayName
+				</RadzenText>
+			}
+			<RadzenText class="rz-color-bonus rz-pr-2" Style="margin-bottom: 5px">
+				@Disc.Modifiers.First().Format()
+			</RadzenText>
+		</RadzenStack>
+
+	</RadzenStack>
+	<RadzenStack Orientation="Orientation.Vertical" class="rz-pt-2" Gap="10px">
+		@for (var i = 0; i < 4; i++)
+		{
+			var li = i;
+			var stat = Disc.SubStats[i];
+			if (stat is not null)
+			{
+				var availableStats = AvaliableSubStats(stat);
+				<div class="rz-background-color-base-700 rz-p-1 rz-display-flex rz-border-radius rz-justify-content-space-between rz-align-items-center">
+					<RadzenStack Orientation="Orientation.Horizontal" Gap="0px">
+						<RadzenDropDown TValue="int" Value="Array.IndexOf(availableStats, stat)"
+						                ValueChanged="i1 => SubStatChanged(stat, availableStats[i1])" class="z-select rz-pl-0 rz-mt-1 rz-ml-1"
+						                Data="@ListsUtil.Simple(0, availableStats.Length - 1)" Chips="true"
+						                Style="width: 100%; max-width: 155px; text-align: start; background-color: unset; ">
+							<Template>
+								@{ var s = availableStats[(int)(object)context].Buff; }
+								<RadzenText>
+									@Info[s.Stat].DisplayName
+									@(s.Stat is Stats.Atk or Stats.Def or Stats.Hp && s.IsPercent ? " %" : "")
+								</RadzenText>
+							</Template>
+
+						</RadzenDropDown>
+						<RadzenNumeric TValue="int" Value=@Disc.SubStats.Rolls[li] ValueChanged="i1 => RollsChanged(li, i1)"
+						               Min="0" Step="1" Max="5" TextAlign="TextAlign.Center" class="z-numeric"
+						               Style="width: 50px" Format="+0"/>
+					</RadzenStack>
+					<RadzenText class="rz-color-bonus rz-pr-2">
+						+ @Disc.SubStats.Modifiers[li].Format()
+					</RadzenText>
+				</div>
+			}
+			else
+			{
+				<div class="rz-background-color-base-700 rz-p-2  rz-display-flex rz-justify-content-center rz-border-radius pointer rz-unselectable-text"
+				     @onclick="AddNewSubStat">
+					@Lang["AddSubStat"]
+				</div>
+			}
+		}
+	</RadzenStack>
+</RadzenCard>

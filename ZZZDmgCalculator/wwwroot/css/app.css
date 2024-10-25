@@ -62,6 +62,7 @@ body {
 .setup-tabs > .rz-tabview-panels > .rz-tabview-panel {
 	padding-left: 0;
 	padding-right: 0;
+	padding-bottom: 0;
 }
 
 .hidden-tabs > ul {
@@ -83,6 +84,22 @@ body {
 	padding-top: 0;
 	padding-bottom: 4px;
 	height: min-content;
+}
+
+.z-numeric {
+	border: none !important;
+	box-shadow: none !important;
+	padding: 0;
+	height: min-content;
+}
+
+.z-numeric input {
+	padding-top: 7px !important;
+	padding-bottom: 7px !important;
+}
+
+.rz-w-min {
+	width: min-content !important;
 }
 
 .z-select .rz-dropdown-label {
@@ -112,7 +129,7 @@ body {
 	max-width: 75%;
 }
 
-.agent-avatar, .engine-avatar {
+.agent-avatar, .engine-avatar, .disc-avatar {
 	position: relative;
 	cursor: pointer;
 
@@ -132,8 +149,23 @@ body {
 	flex: none;
 }
 
-.engine-avatar {
+.engine-avatar, .disc-avatar  {
 	height: 105px;
+}
+
+.rz-color-bonus {
+	color: #b5ff00;
+}
+
+.disc-avatar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.disc-avatar > img {
+	width: 88px;
+	height: 88px;
 }
 
 .choose-grid .rz-col {
@@ -147,6 +179,10 @@ body {
 
 .rz-dialog-content {
 	min-height: 300px;
+}
+
+.disc-level-selector {
+	width: 45px;
 }
 
 #blazor-error-ui {

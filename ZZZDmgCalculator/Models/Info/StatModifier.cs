@@ -38,7 +38,7 @@ public class StatModifier {
 	{
 		get
 		{
-			if (Type == StatModifiers.Combat || Type == StatModifiers.CombatPercent || Type == StatModifiers.CombatFlat)
+			if (Type is StatModifiers.Combat or StatModifiers.CombatPercent or StatModifiers.CombatFlat)
 				return true;
 			return Stat > Stats.BonusDmg;
 		}

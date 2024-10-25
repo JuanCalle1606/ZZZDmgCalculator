@@ -1,0 +1,16 @@
+@inherits MainComponent
+
+<RadzenStack Orientation="Orientation.Horizontal" Gap="0" JustifyContent="JustifyContent.Center">
+	<div class=@("feature-icon-container " + (_open ? "rz-display-none" : ""))
+	     	     @onclick="OpenSelector">
+		<img alt="" src="@Info.ItemRankIcon(Rank)"/>
+	</div>
+	
+	@foreach(var rank in Enum.GetValues<ItemRank>())
+	{
+		<div class=@("feature-icon-container " + (_open ? "" : "rz-display-none"))
+		     @onclick="() => SelectRank(rank)">
+			<img alt="" src="@Info.ItemRankIcon(rank)"/>
+		</div>
+	}
+</RadzenStack>

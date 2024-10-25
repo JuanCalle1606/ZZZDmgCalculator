@@ -1,0 +1,12 @@
+@inherits MainComponent
+
+<ChooseDialogTitlebar Title=@Lang["DiscSelection"] TitlebarThreshold="500" FilterThreshold="0" @bind-SearchFilter="_searchFilter">
+	<EnumFilters>
+	</EnumFilters>
+</ChooseDialogTitlebar>
+
+<ChooseDialogGrid Items="_discs" IsVisible="ApplyFilters">
+	<div class="disc-avatar" @onclick="() => Dialogs.Close(CreateDiscState(context))">
+		<img src="@context.Url" alt="@context.Id"/>
+	</div>
+</ChooseDialogGrid>

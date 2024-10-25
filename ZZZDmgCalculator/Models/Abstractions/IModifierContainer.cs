@@ -11,6 +11,4 @@ public interface IModifierContainer {
 	public IEnumerable<IModifierContainer> Children => NoChildren;
 	
 	public IEnumerable<StatModifier> AllModifiers => Modifiers.Concat(Children.SelectMany(child => child.AllModifiers));
-	
-	public IModifierContainer? Parent { get; set; }
 }

@@ -16,6 +16,7 @@ public partial class EquipmentSetup {
 			if (await Dialogs.OpenEngineDialog() is {} info)
 			{
 				Notifier.SwapCurrentEngine(info);
+				_equipmentSelectedIndex = 0;
 			}
 		}
 		else
@@ -23,10 +24,14 @@ public partial class EquipmentSetup {
 			_equipmentSelectedIndex = 0;
 		}
 	}
-	void DiscsClick(int i) {
+	async Task DiscsClick(int i) {
 		if(Agent.Discs[i] == null) {
 			// open disc choose dialog
-			
+			if (await Dialogs.OpenDiscDialog(i) is {} info)
+			{
+				Notifier.SwapCurrentDisc(i, info);
+				_equipmentSelectedIndex = i + 1;
+			}
 		}
 		else
 		{
@@ -36,5 +41,6 @@ public partial class EquipmentSetup {
 
 	protected override void OnDisposableBag(DisposableBagBuilder bag) {
 		Notifier.OnCurrentEngineChanged.SubscribeUpdate(this).AddTo(bag);
+		Notifier.OnCurrentDiscChanged.SubscribeUpdate(this).AddTo(bag);
 	}
 }

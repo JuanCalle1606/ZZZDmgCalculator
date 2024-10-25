@@ -41,8 +41,6 @@ public class EngineState : IModifierContainer {
 
 	public List<BuffState> Buffs { get; }
 	
-	IModifierContainer? IModifierContainer.Parent { get; set; }
-
 	public EngineState(EngineInfo engineInfo) {
 		_info = engineInfo;
 		MainStat = _info.MainStat.WithValue(_info.MainStats[0]);

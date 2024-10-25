@@ -94,6 +94,8 @@ public class InfoService(LangService lang) {
 	}
 	
 	public IEnumerable<Agents> AvailableAgents => _agents.Keys;
+	
+	public IEnumerable<StatInfo> AllStatInfos => _stats.Values;
 
 	public string AgentRankIcon(AgentRank infoRank) => infoRank switch
 	{

@@ -6,7 +6,7 @@ using Util;
 public class DiscInfo : BaseInfo {
 	public required StatModifier StatBuff { get; set; }
 
-	public SingleList<BuffInfo> Buffs { get; set; } = [];
+	public SingleList<BuffInfo> Buffs { get; init; } = [];
 
 	public override void PostLoad(LangService lang) {
 		for (var i = 0; i < Buffs.Count; i++)

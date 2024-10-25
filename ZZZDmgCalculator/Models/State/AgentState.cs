@@ -82,9 +82,7 @@ public class AgentState : IModifierContainer {
 	public int[] SkillLevels { get; private set; } = [1, 1, 1, 1, 1];
 
 	public IList<StatModifier> Modifiers { get; } = new List<StatModifier>();
-
-	public IModifierContainer? Parent { get; set; } = null;
-
+	
 	readonly List<IModifierContainer> _children = [];
 
 	IEnumerable<IModifierContainer> IModifierContainer.Children => _children;
@@ -104,6 +102,15 @@ public class AgentState : IModifierContainer {
 	}
 
 	public DiscState?[] Discs { get; } = new DiscState?[6];
+	
+	public void SetDisc(DiscState? disc, int i) {
+		if (Discs[i] is {} d)
+			_children.Remove(d);
+		Discs[i] = disc;
+		if (Discs[i] is {} d2)
+			_children.Add(d2);
+		UpdateAllStats();
+	}
 
 	public AgentState(AgentInfo info) {
 		Info = info;

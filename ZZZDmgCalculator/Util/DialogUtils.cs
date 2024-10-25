@@ -16,7 +16,7 @@ public static class DialogUtils {
 		});
 		return (AgentState?)d;
 	}
-	
+
 	public async static Task<EngineState?> OpenEngineDialog(this DialogService dialogs) {
 		object d = await dialogs.OpenAsync<ChooseEngineDialog>("EngineSelection", null, new()
 		{
@@ -27,6 +27,20 @@ public static class DialogUtils {
 			Style = "max-width: 100%"
 		});
 		return (EngineState?)d;
+	}
+
+	public async static Task<DiscState?> OpenDiscDialog(this DialogService dialogs, int i) {
+		object d = await dialogs.OpenAsync<ChooseDiscDialog>("DiscSelection",
+		new() { { "Index", i } }
+		, new()
+		{
+			Width = "950px",
+			Height = "750px",
+			ShowTitle = false,
+			AutoFocusFirstElement = false,
+			Style = "max-width: 100%"
+		});
+		return (DiscState?)d;
 	}
 
 	public async static Task OpenAboutDialog(this DialogService dialogs) {

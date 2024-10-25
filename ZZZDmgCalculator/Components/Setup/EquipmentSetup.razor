@@ -44,7 +44,7 @@
 			<RadzenTabsItem Text="Disc">
 				@if (Agent.Discs[ld] is {} discState)
 				{
-					@discState.Info.DisplayName
+					<DiscView Disc="discState" Index="ld"/>
 				}
 			</RadzenTabsItem>
 		}

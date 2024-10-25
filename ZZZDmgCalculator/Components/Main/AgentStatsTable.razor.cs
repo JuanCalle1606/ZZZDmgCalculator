@@ -9,7 +9,7 @@ using Util;
 public partial class AgentStatsTable {
 	const int Cols = 4;
 	const string CeroColor = "rz-color-base-600";
-	const string BonusColor = "rz-color-success-light";
+	const string BonusColor = "rz-color-bonus";
 
 	[Parameter]
 	public EntityState EntityStats { get; set; } = null!;
@@ -35,5 +35,6 @@ public partial class AgentStatsTable {
 	protected override void OnDisposableBag(DisposableBagBuilder bag) {
 		// update stats everytime an engine is changed
 		Notifier.OnCurrentEngineChanged.SubscribeUpdate(this).AddTo(bag);
+		Notifier.OnCurrentDiscChanged.SubscribeUpdate(this).AddTo(bag);
 	}
 }
