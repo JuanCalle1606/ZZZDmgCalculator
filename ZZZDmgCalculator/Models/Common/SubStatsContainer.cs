@@ -62,7 +62,7 @@ public class SubStatsContainer : IModifierContainer, IEnumerable<DiscStatInfo> {
 			return;
 		}
 		_subStats[index] = newStat;
-		Modifiers[index] = newStat.Buff.WithValue(newStat.SubScales![(int)_disc.Rank]);
+		Modifiers[index] = newStat.Buff.WithValue(newStat.SubScales![(int)_disc.Rank] * (_subStatRolls[index] + 1));
 	}
 	
 	public IEnumerator<DiscStatInfo> GetEnumerator() => _subStats.GetEnumerator();

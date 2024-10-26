@@ -51,6 +51,10 @@ public class AgentSerializer : JsonConverter<AgentState> {
 									case "CoreSkillLevel":
 										dev.CoreSkillLevel = (CoreSkills)reader.GetInt32();
 										break;
+									case "SkillLevels":
+										var skillLevels = JsonSerializer.Deserialize<int[]>(ref reader, options)!;
+										Array.Copy(skillLevels, dev.SkillLevels, skillLevels.Length);
+										break;
 									case "Engine":
 										dev.Engine = JsonSerializer.Deserialize<EngineState?>(ref reader, options);
 										break;
@@ -86,6 +90,8 @@ public class AgentSerializer : JsonConverter<AgentState> {
 		writer.WriteNumber("Cinema", value.Cinema);
 		writer.WriteNumber("CoreSkillLevel", (int)value.CoreSkillLevel);
 
+		writer.WritePropertyName("SkillLevels");
+		JsonSerializer.Serialize(writer, value.SkillLevels, options);
 		
 		writer.WritePropertyName("Engine");
 		JsonSerializer.Serialize(writer, value.Engine, options);
