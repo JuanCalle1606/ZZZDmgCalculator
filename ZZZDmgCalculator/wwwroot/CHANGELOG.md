@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.1.2](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v0.1.1...v0.1.2) (2024-10-26)
+
+
+### Features
+
+* **Engine View:** Show main and sub stat o current engine ([4ab5a44](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/4ab5a441442e4d0a03de73af7554010e10e0432c))
+* **Equipment:** Added Disc selection support ([a4dbc9d](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/a4dbc9df8f74a289b7f7a9074a593ca7ff70c431))
+
+
+### Bug Fixes
+
+* **Agent Stats:** Solved Mastery and Proficiency with inverted values ([cb33153](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/cb331534bc4af976ac98c62865b58b593027f7ec))
+* **Choose Dialogs:** solved incorrect gap between elements in choose dialogs. ([4dd5fb1](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/4dd5fb1019981177bccb6b3aad158bbffcd3d7ad))
+* **Stats:** Fix EnergyRegen display when is percent ([1a18ea4](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/1a18ea4b4655fef4832d68a04485a70aad76470c))
+
+
+### UI Changes
+
+* **Adaptable Card:** Hide overflow x on desktop resolution ([6cbadd2](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/6cbadd2d4e8e82653580ac1afe0a6a52b6096a37))
+* **Agent Overview:** Swap Agent features with level selector ([8eb9810](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/8eb9810fd71559b4ff9325580ffc0aa76ad5137f))
+
 ## [0.1.1](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v0.1.0...v0.1.1) (2024-10-24)
 
 
