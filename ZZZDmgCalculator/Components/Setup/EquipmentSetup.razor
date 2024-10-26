@@ -1,6 +1,8 @@
 @using ZZZDmgCalculator.Util
 @inherits MainComponent
 
+<AgentsView Agents="State.CurrentSetup.Agents"/>
+
 <div class="agent-equipment rz-pb-3">
 	<div class="main-content">
 		<div class="agent-weapon" @onclick="EngineClick">

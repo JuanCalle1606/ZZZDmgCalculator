@@ -248,3 +248,4 @@ FodyWeavers.xsd
 *.sln.iml
 .build/
 .vercel
+discord.xml
