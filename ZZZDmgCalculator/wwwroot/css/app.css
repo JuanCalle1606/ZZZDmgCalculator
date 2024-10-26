@@ -75,6 +75,10 @@ body {
 	cursor: pointer;
 }
 
+.no-cursor {
+	cursor: default !important;
+}
+
 .z-select {
 	width: 67px;
 	border: none !important;

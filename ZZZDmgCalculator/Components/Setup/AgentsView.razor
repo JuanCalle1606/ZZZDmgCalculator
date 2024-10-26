@@ -1,0 +1,26 @@
+@inherits MainComponent
+
+<RadzenCard Variant="Variant.Flat" class="rz-background-color-base-900 rz-p-3">
+	<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceEvenly" Gap="10px">
+		@for (var i = 0; i < Agents.Length; i++)
+		{
+			var li = i;
+			var agent = Agents[li];
+			if (agent is not null)
+			{
+				<div class=@(State.CurrentAgentIndex == li ? "agent-avatar no-cursor" : "agent-avatar-unselect")
+				     @onclick="() => ClickAgent(li)">
+					<img src="@agent.Info.Url" alt="@agent.Info.Id"/>
+				</div>
+			}
+			else
+			{
+				<div class="no-agent-avatar" @onclick="()=>ChooseAgent(li)">
+					<img src="icons/misc/equip-disable.png" alt/>
+				</div>
+			}
+			
+		}
+
+	</RadzenStack>
+</RadzenCard>
