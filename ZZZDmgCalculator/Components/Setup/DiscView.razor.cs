@@ -17,8 +17,8 @@ public partial class DiscView {
 	[Parameter]
 	public int Index { get; set; }
 
-	protected override void OnInitialized() {
-		base.OnInitialized();
+	protected override void OnParametersSet() {
+		base.OnParametersSet();
 		_discStatInfos = Info.AllStatInfos.Where(si => si.IsMain).SelectMany(si => si.DiscData).Where(dd => dd.MainDiscs!.Contains(Index + 1)).ToArray();
 		_discSubStatInfos = Info.AllStatInfos.Where(si => si.IsSub).SelectMany(si => si.DiscData).ToArray();
 	}
