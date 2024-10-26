@@ -5,14 +5,14 @@
 
 ### Features
 
-* **Engine View:** Show main and sub stat o current engine ([4ab5a44](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/4ab5a441442e4d0a03de73af7554010e10e0432c))
+* **Engine View:** Show main and sub stat on current engine ([4ab5a44](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/4ab5a441442e4d0a03de73af7554010e10e0432c))
 * **Equipment:** Added Disc selection support ([a4dbc9d](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/a4dbc9df8f74a289b7f7a9074a593ca7ff70c431))
 
 
 ### Bug Fixes
 
 * **Agent Stats:** Solved Mastery and Proficiency with inverted values ([cb33153](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/cb331534bc4af976ac98c62865b58b593027f7ec))
-* **Choose Dialogs:** solved incorrect gap between elements in choose dialogs. ([4dd5fb1](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/4dd5fb1019981177bccb6b3aad158bbffcd3d7ad))
+* **Choose Dialogs:** solved incorrect gap between elements in choose dialogs ([4dd5fb1](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/4dd5fb1019981177bccb6b3aad158bbffcd3d7ad))
 * **Stats:** Fix EnergyRegen display when is percent ([1a18ea4](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/1a18ea4b4655fef4832d68a04485a70aad76470c))
 
 
