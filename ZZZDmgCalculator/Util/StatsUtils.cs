@@ -12,16 +12,16 @@ public static class StatsUtils {
 		{
 			return $"{value:0.0#}";
 		}
-		return !percent ? $"{value:N0}" : $"{value:N1}%";
+		return percent ? $"{value:0.#}%" : $"{value:N0}";
 	}
 	
 	public static string Format(this StatModifier stat) {
 		var value = stat.Value;
 		var percent = stat.IsPercent;
-		if (stat.Stat == EnergyRegen)
+		if (stat.Stat == EnergyRegen && !percent)
 		{
 			return $"{value:0.0#}";
 		}
-		return !percent ? $"{value:N0}" : $"{value:N1}%";
+		return percent ? $"{value:0.#}%" : $"{value:N0}";
 	}
 }
