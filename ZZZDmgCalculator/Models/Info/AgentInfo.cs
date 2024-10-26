@@ -15,7 +15,7 @@ public class AgentInfo : BaseInfo {
 	public required AttackTypes AttackType { get; set; }
 
 	public required DodgeTypes DodgeType { get; set; }
-	
+
 	public required AgentRank Rank { get; set; }
 
 	[JsonIgnore]
@@ -25,13 +25,13 @@ public class AgentInfo : BaseInfo {
 
 	public required double[][] BaseStats { get; set; } = [];
 
-	/// <summary>
-	/// 0: Pen Ratio
-	/// 1: Impact
-	/// 2: Mastery
-	/// 3: Proficiency
-	/// 4: Energy
-	/// </summary>
+	/**
+	 * 0: Pen Ratio
+	 * 1: Impact
+	 * 2: Proficiency
+	 * 3: Mastery
+	 * 4: Energy
+	 */
 	public required double[] FinalStats { get; set; }
 
 	public SingleList<BuffInfo> CoreBuff { get; set; } = [];

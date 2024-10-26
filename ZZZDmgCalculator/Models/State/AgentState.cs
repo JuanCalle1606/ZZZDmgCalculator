@@ -150,8 +150,8 @@ public class AgentState : IModifierContainer {
 
 		_baseStats[PenRatio] = new() { Stat = PenRatio, Value = Info.FinalStats[0] };
 		_baseStats[Impact] = new() { Stat = Impact, Value = Info.FinalStats[1] };
-		_baseStats[Mastery] = new() { Stat = Mastery, Value = Info.FinalStats[2] };
-		_baseStats[Proficiency] = new() { Stat = Proficiency, Value = Info.FinalStats[3] };
+		_baseStats[Proficiency] = new() { Stat = Proficiency, Value = Info.FinalStats[2] };
+		_baseStats[Mastery] = new() { Stat = Mastery, Value = Info.FinalStats[3] };
 		_baseStats[EnergyRegen] = new() { Stat = EnergyRegen, Value = Info.FinalStats[4] };
 
 		_coreStats[0] = new() { Stat = Info.CoreStats[0].Stat };

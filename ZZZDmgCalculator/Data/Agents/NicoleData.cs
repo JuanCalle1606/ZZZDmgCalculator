@@ -43,7 +43,7 @@ public class NicoleData {
 			Templates["Nicole.Hp"],
 			Templates["Nicole.Def"],
 		],
-		FinalStats = [0, 88, 93, 99, 1.2],
+		FinalStats = [0, 88, 93, 90, 1.2],
 		CoreBuff = new BuffInfo
 		{
 			Scales = [[-20, -25, -30, -34, -36, -38, -40]],
