@@ -1,26 +1,38 @@
 @inherits MainComponent
 
 <RadzenCard Variant="Variant.Flat" class="rz-background-color-base-900 rz-p-3">
-	<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceEvenly" Gap="10px">
+	<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween" Gap="10px">
 		@for (var i = 0; i < Agents.Length; i++)
 		{
 			var li = i;
 			var agent = Agents[li];
 			if (agent is not null)
 			{
-				<div class=@(State.CurrentAgentIndex == li ? "agent-avatar no-cursor" : "agent-avatar-unselect")
-				     @onclick="() => ClickAgent(li)">
+				<div class=@(State.CurrentAgentIndex == li ? "agent-avatar no-cursor" : "agent-avatar-unselect") @onclick="() => ClickAgent(li)">
 					<img src="@agent.Info.Url" alt="@agent.Info.Id"/>
 				</div>
 			}
 			else
 			{
-				<div class="no-agent-avatar" @onclick="()=>ChooseAgent(li)">
+				<div class="no-agent-avatar" @onclick="() => ChooseAgent(li)">
 					<img src="icons/misc/equip-disable.png" alt/>
 				</div>
 			}
-			
 		}
-
+	</RadzenStack>
+	<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="Justify" class=@($"rz-pt-3 rz-px-{(CanRemove ? "2" : "7")}")>
+		@if (State.CurrentAgentIndex != 0)
+		{
+			<RadzenButton Icon="chevron_backward" Variant="Variant.Text" Click="MoveLeft"/>
+		}
+		@if (CanRemove)
+		{
+			<RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Danger" Variant="Variant.Text"
+			              Click="RemoveAgent"/>
+		}
+		@if (State.CurrentAgentIndex != 2)
+		{
+			<RadzenButton Icon="chevron_right" Variant="Variant.Text" Click="MoveRight"/>
+		}
 	</RadzenStack>
 </RadzenCard>
