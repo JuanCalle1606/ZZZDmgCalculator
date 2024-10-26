@@ -315,4 +315,7 @@
     <data name="AddSubStat" xml:space="preserve">
         <value>Click to add sub stat</value>
     </data>
+    <data name="SubStat" xml:space="preserve">
+        <value>Sub Stat</value>
+    </data>
 </root>

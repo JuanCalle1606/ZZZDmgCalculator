@@ -1,3 +1,4 @@
+@using ZZZDmgCalculator.Util
 @inherits MainComponent
 
 
@@ -39,3 +40,34 @@
 		
 	</RadzenStack>
 </RadzenStack>
+
+<RadzenCard Variant="Variant.Flat" class="rz-background-color-base-900 rz-pt-2">
+	<RadzenStack Orientation="Orientation.Vertical" class="rz-pt-2" Gap="10px">
+		<RadzenText>
+			@Lang["MainStat"]:
+		</RadzenText>
+		<div class="rz-background-color-base-700 rz-p-1 rz-display-flex rz-border-radius rz-justify-content-space-between rz-align-items-center">
+			<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween" class="rz-w-100 rz-px-4">
+				<RadzenText>
+					@Info[Engine.MainStat.Stat].DisplayName
+				</RadzenText>
+				<RadzenText class="rz-color-bonus">
+					@Engine.MainStat.Format()
+				</RadzenText>
+			</RadzenStack>
+		</div>
+		<RadzenText>
+			@Lang["SubStat"]:
+		</RadzenText>
+		<div class="rz-background-color-base-700 rz-p-1 rz-display-flex rz-border-radius rz-justify-content-space-between rz-align-items-center">
+			<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween" class="rz-w-100 rz-px-4">
+				<RadzenText>
+					@Info[Engine.SubStat.Stat].DisplayName
+				</RadzenText>
+				<RadzenText class="rz-color-bonus">
+					@Engine.SubStat.Format()
+				</RadzenText>
+			</RadzenStack>
+		</div>
+	</RadzenStack>
+</RadzenCard>
