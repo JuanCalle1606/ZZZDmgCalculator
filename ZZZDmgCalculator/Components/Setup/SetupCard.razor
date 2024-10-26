@@ -1,7 +1,7 @@
 @using ZZZDmgCalculator.Models.State
 @inherits MainComponent
 
-<RadzenTabs	class="no-border-tabs setup-tabs" RenderMode="TabRenderMode.Client">
+<RadzenTabs	class="no-border-tabs setup-tabs" RenderMode="TabRenderMode.Server">
 	<Tabs>
 		<RadzenTabsItem Text=@Lang["Equipment"] class="adaptive-tab-item">
 			<EquipmentSetup Agent="TeamState.Agents[State.CurrentAgentIndex]"/>
