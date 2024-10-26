@@ -1,13 +1,15 @@
 namespace ZZZDmgCalculator.Models.State;
 
+using System.Text.Json.Serialization;
 using Abstractions;
 using Enum;
 using Info;
-using Services;
+using Json;
 using Util;
 using static Enum.Stats;
 using Enum=System.Enum;
 
+[JsonConverter(typeof(AgentSerializer))]
 public class AgentState : IModifierContainer {
 	CoreSkills _coreSkillLevel;
 	AscensionState _ascension;
@@ -16,6 +18,12 @@ public class AgentState : IModifierContainer {
 	Dictionary<Stats, StatModifier> _baseStats = new();
 	StatModifier[] _coreStats = new StatModifier[2];
 
+	/**
+	 * To improve the performance a little bit, we can use a flag to indicate if the agent is currently loading,
+	 * so we can skip the update process until the agent is fully loaded.
+	 */
+	internal bool Loading;
+	
 	public AgentInfo Info { get; }
 
 	public Agents Agent { get; }
@@ -151,6 +159,7 @@ public class AgentState : IModifierContainer {
 	}
 	
 	public void UpdateAllStats() {
+		if(Loading) return;
 		UpdateBaseStats();
 		UpdateBonusStats();
 		Stats.Update();

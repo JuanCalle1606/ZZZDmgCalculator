@@ -5,7 +5,7 @@ using Models.State;
 
 public class StateService {
 
-	public int CurrentAgentIndex { get; }
+	public int CurrentAgentIndex { get; set; }
 
 	public SetupState CurrentSetup { get; set; } = new();
 

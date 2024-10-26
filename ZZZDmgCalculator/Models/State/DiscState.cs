@@ -1,9 +1,11 @@
 namespace ZZZDmgCalculator.Models.State;
 
+using System.Text.Json.Serialization;
 using Abstractions;
 using Common;
 using Enum;
 using Info;
+using Json;
 using Enum=System.Enum;
 
 /**
@@ -11,6 +13,7 @@ using Enum=System.Enum;
  * This class is used to calculate the stats of a disc.
  * Only tha main stats and sub stats are stored here, the buffs from sets are stored in <see cref="DiscSetState"/>.
  */
+[JsonConverter(typeof(DiscSerializer))]
 public class DiscState : IModifierContainer {
 
 	DiscStatInfo _mainStat = null!;

@@ -1,9 +1,12 @@
 namespace ZZZDmgCalculator.Models.State;
 
+using System.Text.Json.Serialization;
 using Abstractions;
 using Enum;
 using Info;
+using Json;
 
+[JsonConverter(typeof(EngineSerializer))]
 public class EngineState : IModifierContainer {
 
 	AscensionState _ascension = AscensionState.A0_10;

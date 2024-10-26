@@ -1,10 +1,11 @@
 namespace ZZZDmgCalculator.Models.Common;
 
+using System.Collections;
 using Abstractions;
 using Info;
 using State;
 
-public class SubStatsContainer : IModifierContainer {
+public class SubStatsContainer : IModifierContainer, IEnumerable<DiscStatInfo> {
 	const int MaxSubStats = 4;
 	List<DiscStatInfo> _subStats = new(MaxSubStats);
 	List<int> _subStatRolls = new(MaxSubStats);
@@ -25,15 +26,14 @@ public class SubStatsContainer : IModifierContainer {
 	
 	public bool Contains(DiscStatInfo stat) => _subStats.Contains(stat);
 
-	public bool Add(DiscStatInfo stat) {
+	public void Add(DiscStatInfo stat, int initialRoll = 0) {
 		if (_subStats.Count >= MaxSubStats || _subStats.Contains(stat))
 		{
-			return false;
+			return;
 		}
-		_subStatRolls.Add(0);
+		_subStatRolls.Add(initialRoll);
 		_subStats.Add(stat);
-		Modifiers.Add(stat.Buff.WithValue(stat.SubScales![(int)_disc.Rank]));
-		return true;
+		Modifiers.Add(stat.Buff.WithValue(stat.SubScales![(int)_disc.Rank] * (initialRoll + 1)));
 	}
 	
 	public void Update() {
@@ -64,4 +64,7 @@ public class SubStatsContainer : IModifierContainer {
 		_subStats[index] = newStat;
 		Modifiers[index] = newStat.Buff.WithValue(newStat.SubScales![(int)_disc.Rank]);
 	}
+	
+	public IEnumerator<DiscStatInfo> GetEnumerator() => _subStats.GetEnumerator();
+	IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)_subStats).GetEnumerator();
 }

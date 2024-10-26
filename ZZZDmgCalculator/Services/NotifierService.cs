@@ -25,7 +25,10 @@ public class NotifierService : IDisposable {
 	
 	public void SwapCurrentAgent(AgentState newAgent) {
 		_stateService.CurrentAgent = newAgent;
-		
+		CurrentAgentChanged();
+	}
+	
+	public void CurrentAgentChanged() {
 		_currentAgentChangedPublisher.Publish(_stateService.CurrentAgent);
 	}
 

@@ -1,5 +1,9 @@
 namespace ZZZDmgCalculator.Models.State;
 
+using System.Text.Json.Serialization;
+using Json;
+
+[JsonConverter(typeof(SetupSerializer))]
 public class SetupState {
 	public string DisplayName { get; set; } = "";
 	
