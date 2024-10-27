@@ -1,6 +1,13 @@
 ﻿@page "/"
 @inherits MainComponent
 
+@code {
+	string text = "Hello, World!";
+	void Callback() {
+		text = Lang.GenMiss();
+	}
+}
+
 <CascadingValue Value="this" IsFixed="true">
 	<AdaptableCards>
 		<AdaptableCard TabText=@Lang["Overview"]>
@@ -9,5 +16,12 @@
 		<AdaptableCard TabText=@Lang["Party"]>
 			<SetupCard TeamState="State.CurrentSetup"/>
 		</AdaptableCard>
+		<DebugOnly>
+			<AdaptableCard TabText="Debug">
+				<RadzenButton Text="Click Me" Click="Callback"></RadzenButton>
+				
+				<RadzenTextArea @bind-Value="text"></RadzenTextArea>
+			</AdaptableCard>
+		</DebugOnly>
 	</AdaptableCards>
 </CascadingValue>

@@ -49,6 +49,11 @@
 			"section": "UI Changes"
 		},
 		{
+			"type": "lang",
+			"hidden": false,
+			"section": "Language Changes"
+		},
+		{
 			"type": "refactor",
 			"hidden": true,
 			"section": "Code Refactoring"

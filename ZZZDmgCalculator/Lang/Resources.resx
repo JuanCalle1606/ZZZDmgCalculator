@@ -318,4 +318,203 @@
     <data name="SubStat" xml:space="preserve">
         <value>Sub Stat</value>
     </data>
+    <data name="Buffs" xml:space="preserve">
+        <value>Buffs</value>
+    </data>
+    <data name="NoBuffsHere" xml:space="preserve">
+        <value>There are no buffs available here</value>
+    </data>
+    <data name="Discs.ChaosJazz" xml:space="preserve">
+        <value>Chaos Jazz</value>
+    </data>
+    <data name="Discs.ChaoticMetal" xml:space="preserve">
+        <value>Chaotic Metal</value>
+    </data>
+    <data name="Discs.FangedMetal" xml:space="preserve">
+        <value>Fanged Metal	</value>
+    </data>
+    <data name="Discs.FreedomBlues" xml:space="preserve">
+        <value>Freedom Blues</value>
+    </data>
+    <data name="Discs.HormonePunk" xml:space="preserve">
+        <value>Hormone Punk</value>
+    </data>
+    <data name="Discs.InfernoMetal" xml:space="preserve">
+        <value>Inferno Metal	</value>
+    </data>
+    <data name="Discs.PolarMetal" xml:space="preserve">
+        <value>Polar Metal</value>
+    </data>
+    <data name="Discs.ProtoPunk" xml:space="preserve">
+        <value>Proto Punk</value>
+    </data>
+    <data name="Discs.PufferElectro" xml:space="preserve">
+        <value>Puffer Electro</value>
+    </data>
+    <data name="Discs.ShockstarDisco" xml:space="preserve">
+        <value>Shockstar Disco</value>
+    </data>
+    <data name="Discs.SoulRock" xml:space="preserve">
+        <value>Soul Rock</value>
+    </data>
+    <data name="Discs.SwingJazz" xml:space="preserve">
+        <value>Swing Jazz</value>
+    </data>
+    <data name="Discs.ThunderMetal" xml:space="preserve">
+        <value>Thunder Metal</value>
+    </data>
+    <data name="Discs.WoodpeckerElectro" xml:space="preserve">
+        <value>Woodpecker Electro</value>
+    </data>
+    <data name="Engines.Alpha" xml:space="preserve">
+        <value>[Magnetic Storm] Alpha</value>
+    </data>
+    <data name="Engines.Arrow" xml:space="preserve">
+        <value>[Vortex] Arrow</value>
+    </data>
+    <data name="Engines.Base" xml:space="preserve">
+        <value>[Identity] Base</value>
+    </data>
+    <data name="Engines.BashfulDemon" xml:space="preserve">
+        <value>Bashful Demon</value>
+    </data>
+    <data name="Engines.Battery" xml:space="preserve">
+        <value>Demara Battery Mark II</value>
+    </data>
+    <data name="Engines.Blossom" xml:space="preserve">
+        <value>Gilded Blossom</value>
+    </data>
+    <data name="Engines.Bravo" xml:space="preserve">
+        <value>[Magnetic Storm] Bravo</value>
+    </data>
+    <data name="Engines.Brimstone" xml:space="preserve">
+        <value>The Brimstone</value>
+    </data>
+    <data name="Engines.Bunny" xml:space="preserve">
+        <value>Bunny Band</value>
+    </data>
+    <data name="Engines.Cannon" xml:space="preserve">
+        <value>Cannon Rotor</value>
+    </data>
+    <data name="Engines.Charlie" xml:space="preserve">
+        <value>[Magnetic Storm] Charlie</value>
+    </data>
+    <data name="Engines.Compiler" xml:space="preserve">
+        <value>Fusion Compiler</value>
+    </data>
+    <data name="Engines.Cradle" xml:space="preserve">
+        <value>Weeping Cradle</value>
+    </data>
+    <data name="Engines.Cushion" xml:space="preserve">
+        <value>Steel Cushion</value>
+    </data>
+    <data name="Engines.Cylinder" xml:space="preserve">
+        <value>Big Cylinder</value>
+    </data>
+    <data name="Engines.Decrescent" xml:space="preserve">
+        <value>[Lunar] Decrescent</value>
+    </data>
+    <data name="Engines.DeepSea" xml:space="preserve">
+        <value>Deep Sea Visitor</value>
+    </data>
+    <data name="Engines.Drill" xml:space="preserve">
+        <value>Drill Rig - Red Axis</value>
+    </data>
+    <data name="Engines.ElectroLip" xml:space="preserve">
+        <value>Electro-Lip Gloss</value>
+    </data>
+    <data name="Engines.GameBall" xml:space="preserve">
+        <value>Unfettered Game Ball</value>
+    </data>
+    <data name="Engines.Gemini" xml:space="preserve">
+        <value>Weeping Gemini</value>
+    </data>
+    <data name="Engines.Hatchet" xml:space="preserve">
+        <value>[Vortex] Hatchet</value>
+    </data>
+    <data name="Engines.Hellfire" xml:space="preserve">
+        <value>Hellfire Gears</value>
+    </data>
+    <data name="Engines.Housekeeper" xml:space="preserve">
+        <value>Housekeeper</value>
+    </data>
+    <data name="Engines.Inflection" xml:space="preserve">
+        <value>[Identity] Inflection</value>
+    </data>
+    <data name="Engines.Kaboom" xml:space="preserve">
+        <value>Kaboom the Cannon</value>
+    </data>
+    <data name="Engines.Mark1" xml:space="preserve">
+        <value>[Reverb] Mark I</value>
+    </data>
+    <data name="Engines.Mark2" xml:space="preserve">
+        <value>[Reverb] Mark II</value>
+    </data>
+    <data name="Engines.Mark3" xml:space="preserve">
+        <value>[Reverb] Mark III</value>
+    </data>
+    <data name="Engines.Noviluna" xml:space="preserve">
+        <value>[Lunar] Noviluna</value>
+    </data>
+    <data name="Engines.Peacekeeper" xml:space="preserve">
+        <value>Peacekeeper - Specialized</value>
+    </data>
+    <data name="Engines.Pleniluna" xml:space="preserve">
+        <value>[Lunar] Pleniluna</value>
+    </data>
+    <data name="Engines.Rainforest" xml:space="preserve">
+        <value>Rainforest Gourmet</value>
+    </data>
+    <data name="Engines.Restrained" xml:space="preserve">
+        <value>The Restrained</value>
+    </data>
+    <data name="Engines.Revolver" xml:space="preserve">
+        <value>[Vortex] Revolver</value>
+    </data>
+    <data name="Engines.Roaring" xml:space="preserve">
+        <value>Roaring Ride</value>
+    </data>
+    <data name="Engines.Rock" xml:space="preserve">
+        <value>Precious Fossilized Core</value>
+    </data>
+    <data name="Engines.Shooter" xml:space="preserve">
+        <value>Six Shooter</value>
+    </data>
+    <data name="Engines.SliceOfTime" xml:space="preserve">
+        <value>Slice of Time</value>
+    </data>
+    <data name="Engines.Spring" xml:space="preserve">
+        <value>Spring Embrace</value>
+    </data>
+    <data name="Engines.Starlight" xml:space="preserve">
+        <value>Starlight Engine</value>
+    </data>
+    <data name="Engines.StarlightReplica" xml:space="preserve">
+        <value>Starlight Engine Replica</value>
+    </data>
+    <data name="Engines.Steam" xml:space="preserve">
+        <value>Steam Oven</value>
+    </data>
+    <data name="Engines.Stinger" xml:space="preserve">
+        <value>Sharpened Stinger</value>
+    </data>
+    <data name="Engines.Superstar" xml:space="preserve">
+        <value>Street Superstar</value>
+    </data>
+    <data name="Engines.Suppressor" xml:space="preserve">
+        <value>Riot Suppressor Mark VI</value>
+    </data>
+    <data name="Engines.Teapot" xml:space="preserve">
+        <value>Ice-Jade Teapot</value>
+    </data>
+    <data name="Engines.TheVault" xml:space="preserve">
+        <value>The Vault</value>
+    </data>
+    <data name="Engines.Transmorpher" xml:space="preserve">
+        <value>Original Transmorpher</value>
+    </data>
+    <data name="Engines.TuskOfFury" xml:space="preserve">
+        <value>Tusks of Fury</value>
+    </data>
+
 </root>

@@ -33,7 +33,7 @@ public class LangService {
 	
 	public string GenMiss() {
 		var sb = new StringBuilder();
-		foreach (var key in _warnKeys)
+		foreach (var key in _warnKeys.Where(k=>true))
 			sb.AppendLine(
 $"""
 <data name="{key}" xml:space="preserve">
