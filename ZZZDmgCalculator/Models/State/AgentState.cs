@@ -15,8 +15,8 @@ public class AgentState : IModifierContainer, IBuffContainer {
 	AscensionState _ascension;
 	EngineState? _engine;
 
-	Dictionary<Stats, StatModifier> _baseStats = new();
-	StatModifier[] _coreStats = new StatModifier[2];
+	readonly Dictionary<Stats, StatModifier> _baseStats = new();
+	readonly StatModifier[] _coreStats = new StatModifier[2];
 
 	/**
 	 * To improve the performance a little bit, we can use a flag to indicate if the agent is currently loading,
@@ -25,8 +25,6 @@ public class AgentState : IModifierContainer, IBuffContainer {
 	internal bool Loading;
 
 	public AgentInfo Info { get; }
-
-	public Agents Agent { get; }
 
 	public AscensionState Ascension
 	{
@@ -125,7 +123,7 @@ public class AgentState : IModifierContainer, IBuffContainer {
 	 * Disc sets of the agent, there is a maximum of 3 disc sets, this means that the agent has 3 pairs of different discs.
 	 * The full set is when the agent has 4 discs of the same type.
 	 */
-	public List<DiscSetState> DiscSets { get; } = new(3);
+	List<DiscSetState> DiscSets { get; } = new(3);
 
 	public void SetDisc(DiscState? disc, int i) {
 		if (Discs[i] is {} d)
@@ -179,8 +177,7 @@ public class AgentState : IModifierContainer, IBuffContainer {
 
 	public AgentState(AgentInfo info) {
 		Info = info;
-		Agent = Enum.Parse<Agents>(info.Id);
-
+		
 		InitBaseStats();
 
 		foreach (var baseStat in _baseStats)
@@ -239,26 +236,65 @@ public class AgentState : IModifierContainer, IBuffContainer {
 		if (Loading) return;
 		UpdateBaseStats();
 		UpdateBonusStats();
+		Stats.Update(false);
+		UpdateCombatStats();
 		Stats.Update();
+	}
+	void UpdateCombatStats() {
+		Stats.Combat.Reset();
+		
+		var percent = ListModifiers(StatModifiers.CombatPercent)
+			.GroupBy(mod => mod.Stat)
+			.Select(group => new KeyValuePair<Stats, double>(group.Key, group.Sum(mod => mod.Value)));
+
+		foreach (var perPair in percent)
+		{
+			// values are in percent need to be converted to decimal + 1
+			var mod = perPair.Value / 100;
+			Stats.Combat[perPair.Key] = Stats.Initial[perPair.Key] * mod;
+		}
+
+		var flat = ListModifiers(StatModifiers.CombatFlat)
+			.GroupBy(mod => mod.Stat)
+			.Select(group => new KeyValuePair<Stats, double>(group.Key, group.Sum(mod => mod.Value)));
+
+		foreach (var flatPair in flat)
+		{
+			Stats.Combat[flatPair.Key] += flatPair.Value;
+		}
+		
+		var flat2 = ListModifiers(StatModifiers.Combat)
+			.GroupBy(mod => mod.Stat)
+			.Select(group => new KeyValuePair<Stats, double>(group.Key, group.Sum(mod => mod.Value)));
+
+		foreach (var flatPair in flat2)
+		{
+			Stats.Combat[flatPair.Key] += flatPair.Value;
+		}
 	}
 
 	void UpdateBaseStats() {
 		// reset all stat
 		Stats.Base.Reset();
-
-		IModifierContainer container = this;
-		foreach (var stat in container.AllModifiers.Where(m => m.Type == StatModifiers.Base))
+		
+		foreach (var stat in ListModifiers(StatModifiers.Base))
 		{
 			Stats.Base[stat.Stat] += stat.Value;
 		}
 	}
 
+	IEnumerable<StatModifier> ListModifiers(StatModifiers modifier) {
+		IModifierContainer container = this;
+		IBuffContainer buffContainer = this;
+		return container.AllModifiers
+			.Concat(buffContainer.AllBuffs.Where(b=>b is { Available: true, Active: true }).SelectMany(b => b.Modifiers))
+			.Where(m => m.Type == modifier && m is { Enemy: false, Agent: false });
+	}
+	
 	void UpdateBonusStats() {
 		Stats.Bonus.Reset();
-
-		IModifierContainer container = this;
-		var percent = container.AllModifiers
-			.Where(m => m.Type == StatModifiers.BasePercent)
+		
+		var percent = ListModifiers(StatModifiers.BasePercent)
 			.GroupBy(mod => mod.Stat)
 			.Select(group => new KeyValuePair<Stats, double>(group.Key, group.Sum(mod => mod.Value)));
 
@@ -269,8 +305,7 @@ public class AgentState : IModifierContainer, IBuffContainer {
 			Stats.Bonus[perPair.Key] = Stats.Base[perPair.Key] * mod;
 		}
 
-		var flat = container.AllModifiers
-			.Where(m => m.Type == StatModifiers.BaseFlat)
+		var flat = ListModifiers(StatModifiers.BaseFlat)
 			.GroupBy(mod => mod.Stat)
 			.Select(group => new KeyValuePair<Stats, double>(group.Key, group.Sum(mod => mod.Value)));
 

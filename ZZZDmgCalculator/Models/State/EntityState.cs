@@ -50,11 +50,11 @@ public class EntityState {
 		return stats;
 	}
 
-	public void Update() {
+	public void Update(bool b = true) {
 		foreach (var stat in Enum.GetValues<Stats>())
 		{
 			Initial[stat] = Base[stat] + Bonus[stat];
-			Total[stat] = Initial[stat] + Combat[stat];
+			if(b) Total[stat] = Initial[stat] + Combat[stat];
 		}
 	}
 }

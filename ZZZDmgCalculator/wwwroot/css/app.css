@@ -177,7 +177,7 @@ body {
 }
 
 .rz-color-bonus {
-	color: #b5ff00;
+	color: #b5ff00 !important;
 }
 
 .disc-avatar {
