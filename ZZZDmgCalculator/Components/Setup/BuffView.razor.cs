@@ -11,4 +11,18 @@ public partial class BuffView {
 
 	public string Url => 
 		Buff.SourceInfo is DiscInfo info ? $"icons/discs/Setup_Disc_{info.Id.ToUnderscore()}.png" : Buff.SourceInfo?.Url ?? string.Empty;
+
+	void StacksChanged(int val) {
+		Buff.Stacks = val;
+		NotifyAll();
+	}
+	void NotifyAll() {
+		State.CurrentAgent.UpdateAllStats();
+		Notifier.BuffUpdated(Buff);
+	}
+	
+	void SwitchChanged(bool obj) {
+		Buff.Enabled = obj;
+		NotifyAll();
+	}
 }

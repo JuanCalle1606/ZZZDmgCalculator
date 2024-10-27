@@ -36,5 +36,6 @@ public partial class AgentStatsTable {
 		// update stats everytime an engine is changed
 		Notifier.OnCurrentEngineChanged.SubscribeUpdate(this).AddTo(bag);
 		Notifier.OnCurrentDiscChanged.SubscribeUpdate(this).AddTo(bag);
+		Notifier.OnBuffChanged.SubscribeUpdate(this).AddTo(bag);
 	}
 }

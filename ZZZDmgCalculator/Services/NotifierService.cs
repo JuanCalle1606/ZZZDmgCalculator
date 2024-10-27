@@ -16,11 +16,15 @@ public class NotifierService : IDisposable {
 	readonly IDisposablePublisher<KeyValuePair<int, DiscState?>> _currentDiscChangedPublisher;
 	public ISubscriber<KeyValuePair<int, DiscState?>> OnCurrentDiscChanged { get; }
 
+	readonly IDisposablePublisher<BuffState> _buffChangedPublisher;
+	public ISubscriber<BuffState> OnBuffChanged { get; }
+	
 	public NotifierService(EventFactory eventFactory, StateService stateService) {
 		_stateService = stateService;
 		(_currentAgentChangedPublisher, OnCurrentAgentChanged) = eventFactory.CreateEvent<AgentState>();
 		(_currentEngineChangedPublisher, OnCurrentEngineChanged) = eventFactory.CreateEvent<EngineState?>();
 		(_currentDiscChangedPublisher, OnCurrentDiscChanged) = eventFactory.CreateEvent<KeyValuePair<int, DiscState?>>();
+		(_buffChangedPublisher, OnBuffChanged) = eventFactory.CreateEvent<BuffState>();
 	}
 	
 	public void SwapCurrentAgent(AgentState newAgent) {
@@ -40,11 +44,16 @@ public class NotifierService : IDisposable {
 	public void CurrentEngineUpdated() {
 		_currentEngineChangedPublisher.Publish(_stateService.CurrentAgent.Engine);
 	}
+	
+	public void BuffUpdated(BuffState buff) {
+		_buffChangedPublisher.Publish(buff);
+	}
 
 	public void Dispose() {
 		_currentAgentChangedPublisher.Dispose();
 		_currentEngineChangedPublisher.Dispose();
 		_currentDiscChangedPublisher.Dispose();
+		_buffChangedPublisher.Dispose();
 		
 		GC.SuppressFinalize(this);
 	}
