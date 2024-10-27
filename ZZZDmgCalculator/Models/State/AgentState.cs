@@ -5,13 +5,12 @@ using Abstractions;
 using Enum;
 using Info;
 using Json;
-using Services;
 using Util;
 using static Enum.Stats;
 using Enum=System.Enum;
 
 [JsonConverter(typeof(AgentSerializer))]
-public class AgentState : IModifierContainer {
+public class AgentState : IModifierContainer, IBuffContainer {
 	CoreSkills _coreSkillLevel;
 	AscensionState _ascension;
 	EngineState? _engine;
@@ -75,9 +74,7 @@ public class AgentState : IModifierContainer {
 			UpdateAllStats();
 		}
 	}
-
-	static int ObtenerResultado(int num) => num is 1 or 2 ? 1 : num is 3 or 4 ? 2 : num is 5 or 6 ? 3 : 0;
-
+	
 	public EntityState Stats { get; } = new();
 
 	/// <summary>
@@ -92,9 +89,15 @@ public class AgentState : IModifierContainer {
 
 	public IList<StatModifier> Modifiers { get; } = new List<StatModifier>();
 
-	readonly List<IModifierContainer> _children = [];
+	readonly List<IModifierContainer> _modChildren = [];
+	IEnumerable<IModifierContainer> IModifierContainer.Children => _modChildren;
+	
+	readonly List<IBuffContainer> _buffChildren = [];
+	IEnumerable<IBuffContainer> IBuffContainer.Children => _buffChildren;
+	
+	public BuffSource Source => BuffSource.Agent;
 
-	IEnumerable<IModifierContainer> IModifierContainer.Children => _children;
+	public List<BuffState> Buffs { get; } = [];
 
 	public EngineState? Engine
 	{
@@ -102,10 +105,16 @@ public class AgentState : IModifierContainer {
 		set
 		{
 			if (_engine is not null)
-				_children.Remove(_engine);
+			{
+				_modChildren.Remove(_engine);
+				_buffChildren.Remove(_engine);
+			}
 			_engine = value;
 			if (_engine is not null)
-				_children.Add(_engine);
+			{
+				_modChildren.Add(_engine);
+				_buffChildren.Add(_engine);
+			}
 			UpdateAllStats();
 		}
 	}
@@ -120,13 +129,13 @@ public class AgentState : IModifierContainer {
 
 	public void SetDisc(DiscState? disc, int i) {
 		if (Discs[i] is {} d)
-			_children.Remove(d);
+			_modChildren.Remove(d);
 		else if (disc is null)
 			// both disc and current disc are null
 			return;
 		Discs[i] = disc;
 		if (Discs[i] is {} d2)
-			_children.Add(d2);
+			_modChildren.Add(d2);
 		CheckDiscSets();
 		UpdateAllStats();
 	}
@@ -149,6 +158,7 @@ public class AgentState : IModifierContainer {
 				if (!set.FullSet)
 				{
 					set.FullSet = true;
+					_buffChildren.Add(set);
 				}
 			}
 		}
@@ -159,30 +169,12 @@ public class AgentState : IModifierContainer {
 			if (set is not null)
 			{
 				set.FullSet = false;
+				_buffChildren.Remove(set);
 			}
 		}
 
 		RemoveDiscSet(halfSets);
 		AddDiscSet(halfSets);
-	}
-
-	void AddDiscSet(IGrouping<Discs, DiscState?>[] halfSets) {
-		// when a disc is added whe need to add a possible set to the list
-		var toadd = halfSets.Select(s => s.Key).Except(DiscSets.Select(ds => ds.Disc)).Cast<Discs?>().FirstOrDefault();
-		if (toadd is null) return;
-		var set = new DiscSetState(halfSets.First(s => s.Key == toadd).First()!.Info);
-		DiscSets.Add(set);
-		_children.Add(set);
-	}
-
-	void RemoveDiscSet(IGrouping<Discs, DiscState?>[] halfSets) {
-		// when a disc is removed, we need to check if the set is still valid
-		var toremove = DiscSets.Select(d => d.Disc).Except(halfSets.Select(s => s.Key)).Cast<Discs?>().FirstOrDefault();
-		if (toremove is null) return;
-		
-		var set = DiscSets.First(ds => ds.Disc == toremove);
-		DiscSets.Remove(set);
-		_children.Remove(set);
 	}
 
 	public AgentState(AgentInfo info) {
@@ -203,6 +195,26 @@ public class AgentState : IModifierContainer {
 		UpdateAllStats();
 	}
 
+	
+	void AddDiscSet(IGrouping<Discs, DiscState?>[] halfSets) {
+		// when a disc is added whe need to add a possible set to the list
+		var toadd = halfSets.Select(s => s.Key).Except(DiscSets.Select(ds => ds.Disc)).Cast<Discs?>().FirstOrDefault();
+		if (toadd is null) return;
+		var set = new DiscSetState(halfSets.First(s => s.Key == toadd).First()!.Info);
+		DiscSets.Add(set);
+		_modChildren.Add(set);
+	}
+
+	void RemoveDiscSet(IGrouping<Discs, DiscState?>[] halfSets) {
+		// when a disc is removed, we need to check if the set is still valid
+		var toremove = DiscSets.Select(d => d.Disc).Except(halfSets.Select(s => s.Key)).Cast<Discs?>().FirstOrDefault();
+		if (toremove is null) return;
+		
+		var set = DiscSets.First(ds => ds.Disc == toremove);
+		DiscSets.Remove(set);
+		_modChildren.Remove(set);
+	}
+	
 	void InitBaseStats() {
 		// Initialize base stats
 		_baseStats[Atk] = new() { Stat = Atk, Value = Info.BaseStats[0][(int)_ascension] };

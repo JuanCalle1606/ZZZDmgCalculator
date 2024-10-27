@@ -1,0 +1,12 @@
+@inherits MainComponent
+
+<RadzenPanelMenu class="buff-menu" >
+	<RadzenPanelMenuItem Text="Engine">
+		<RadzenPanelMenuItem Style="display: none"/>
+		<BuffList Buffs="Agent.Engine?.Buffs"/>
+	</RadzenPanelMenuItem>
+	<RadzenPanelMenuItem Text="Discs">
+		<RadzenPanelMenuItem Style="display: none"/>
+		<BuffList Buffs="DiscBuffs"/>
+	</RadzenPanelMenuItem>
+</RadzenPanelMenu>

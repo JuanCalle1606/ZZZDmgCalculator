@@ -1,0 +1,49 @@
+@using ZZZDmgCalculator.Util
+@inherits MainComponent
+
+<RadzenCard Variant="Variant.Flat" class="rz-background-color-base-700 rz-p-2 rz-border-radius-5">
+	<RadzenStack Orientation="Orientation.Vertical" Gap="2px">
+		<RadzenStack Orientation="Orientation.Horizontal" Gap="5px" AlignItems="AlignItems.Center">
+			<div class="source-info-avatar">
+				<img alt src="@Url"/>
+			</div>
+			@if (Buff.Available)
+			{
+				@switch (Buff.Info.Type)
+				{
+					case BuffTrigger.Permanent:
+						<div class="rz-switch rz-state-empty small-switch buff-permanent rz-mx-3">
+							<span class="rz-unselectable-text">
+								<RadzenIcon Icon="check" class="rz-color-bonus"/>
+							</span>
+						</div>
+						break;
+					case BuffTrigger.Stack:
+						<RadzenDropDown @bind-Value="Buff.Stacks" Data="@ListsUtil.Simple(0, Buff.MaxStacks)"
+						                class="buff-stacks"/>
+					
+						break;
+					case BuffTrigger.Switch:
+						<RadzenSwitch class="small-switch" @bind-Value="Buff.Enabled"/>
+						break;
+				}
+			}
+			else
+			{
+				<div class="rz-switch rz-state-empty small-switch buff-permanent rz-mx-3">
+					<span class="rz-unselectable-text">
+						<RadzenIcon Icon="close" IconStyle="IconStyle.Danger"/>
+					</span>
+				</div>
+			}
+			<div class="rz-overflow-hidden">
+				<RadzenText TextStyle="TextStyle.Body1" class="truncate">
+					@Buff.Info.DisplayName
+				</RadzenText>
+			</div>
+		</RadzenStack>
+		<RadzenText TextStyle="TextStyle.Body2">
+			@Buff.Info.Description.Replace(".", ". ")
+		</RadzenText>
+	</RadzenStack>
+</RadzenCard>

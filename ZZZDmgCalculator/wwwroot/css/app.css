@@ -88,6 +88,27 @@ body {
 	height: min-content;
 }
 
+
+.buff-stacks {
+	border: none !important;
+	box-shadow: none !important;
+	width: 48px;
+	height: 24px;
+	padding-top: 2px;
+	padding-bottom: 0;
+	padding-right: 0;
+	background: var(--rz-switch-background-color);
+	border-radius: calc(5 * var(--rz-border-radius));
+}
+
+.buff-stacks .rz-dropdown-trigger span {
+	margin-right: 3px;
+}
+
+.buff-stacks > span {
+	padding-left: 3px;
+}
+
 .z-numeric {
 	border: none !important;
 	box-shadow: none !important;
@@ -185,6 +206,18 @@ body {
 
 .disc-level-selector {
 	width: 45px;
+}
+
+.buff-menu > li > .rz-navigation-item-wrapper{
+	background-color: var(--rz-base-900);
+}
+
+.buff-menu > li {
+	padding-bottom: 8px;
+}
+
+.small-switch {
+	height: 24px;
 }
 
 #blazor-error-ui {
