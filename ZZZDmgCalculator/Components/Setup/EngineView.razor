@@ -12,7 +12,7 @@
 		</div>
 
 		<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween" AlignItems="AlignItems.Center">
-			<RefinementSelector @bind-Value="Engine.Refinement" />
+			<RefinementSelector Value="Engine.Refinement" ValueChanged="RefinementChanged" />
 			<div>
 				<RadzenLabel>
 					@Lang["Level"]:
