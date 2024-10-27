@@ -56,7 +56,7 @@ public class StatModifier {
 				Stats.CritRate => true,
 				Stats.CritDmg => true,
 				Stats.PenRatio => true,
-				> Stats.ElectricDmg => true,
+				>= Stats.ElectricDmg => true,
 				_ => false
 			};
 		}

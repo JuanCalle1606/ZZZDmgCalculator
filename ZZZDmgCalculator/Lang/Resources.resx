@@ -517,4 +517,17 @@
         <value>Tusks of Fury</value>
     </data>
 
+    <data name="Buffs.Engines.Battery.0" xml:space="preserve">
+        <value>In a Flash of Light</value>
+    </data>
+    <data name="Buffs.Engines.Battery.0.Desc" xml:space="preserve">
+        <value>Increases {stat} by {value}</value>
+    </data>
+    <data name="Buffs.Engines.Battery.1" xml:space="preserve">
+        <value>In a Flash of Light</value>
+    </data>
+    <data name="Buffs.Engines.Battery.1.Desc" xml:space="preserve">
+        <value>When the equipper hits an enemy with Dodge Counter or Assist Attack, their {stat} increases by {value}.</value>
+    </data>
+
 </root>

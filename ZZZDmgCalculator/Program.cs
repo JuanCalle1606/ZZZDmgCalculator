@@ -20,6 +20,7 @@ builder.Services.AddSingleton<InfoService>();
 builder.Services.AddSingleton<BrowserService>();
 builder.Services.AddSingleton<StateService>();
 builder.Services.AddSingleton<NotifierService>();
+builder.Services.AddSingleton<FormatService>();
 
 var app = builder.Build();
 app.Services.GetService<InfoService>()!.LoadAll();

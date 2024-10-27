@@ -1,5 +1,6 @@
 @using ZZZDmgCalculator.Util
 @inherits MainComponent
+@inject FormatService Format
 
 <RadzenCard Variant="Variant.Flat" class="rz-background-color-base-700 rz-p-2 rz-border-radius-5">
 	<RadzenStack Orientation="Orientation.Vertical" Gap="2px">
@@ -43,7 +44,7 @@
 			</div>
 		</RadzenStack>
 		<RadzenText TextStyle="TextStyle.Body2">
-			@Buff.Info.Description.Replace(".", ". ")
+			@Format.BuffDescription(Buff.Info.Description, Buff.Modifiers)
 		</RadzenText>
 	</RadzenStack>
 </RadzenCard>

@@ -2,16 +2,17 @@ namespace ZZZDmgCalculator.Services;
 
 using System.Resources;
 using System.Text;
+using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Components;
+using Models.Info;
+using Util;
 
 /// <summary>
 /// Provides access to the language resources.
 /// </summary>
 public class LangService {
-	readonly ResourceManager _manager;
+	readonly ResourceManager _manager = new("ZZZDmgCalculator.Lang.Resources", typeof(LangService).Assembly);
 
-	public LangService() {
-		_manager = new("ZZZDmgCalculator.Lang.Resources", typeof(LangService).Assembly);
-	}
 #if DEBUG
 	readonly List<string> _warnKeys = [];
 	

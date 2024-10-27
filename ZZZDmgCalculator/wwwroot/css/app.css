@@ -180,6 +180,30 @@ body {
 	color: #b5ff00 !important;
 }
 
+.rz-color-ether {
+	color: #FE427E !important;
+}
+
+.rz-color-ice {
+	color: #95EAE9 !important;
+}
+
+.rz-color-fire {
+	color: #FF5623 !important;
+}
+
+.rz-color-electric {
+	color: #33B6FE !important;
+}
+
+.rz-color-physical {
+	color: #EDCC2C !important;
+}
+
+.rz-color-stat {
+	color: whitesmoke !important;
+}
+
 .disc-avatar {
 	display: flex;
 	justify-content: center;
