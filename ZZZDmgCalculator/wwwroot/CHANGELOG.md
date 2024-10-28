@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.2.0](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v0.1.2...v0.2.0) (2024-10-28)
+
+
+### Features
+
+* **Agents:** Added support for 2-piece disc sets ([b23c7a7](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/b23c7a7fdb62d4114e88ed738598b2a4bf96753c))
+* **Setup:** Added buffs tab ([c49fe93](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/c49fe936b7e0a2f00f2aa3f74b35cf182262b337))
+* **Setup:** Allow choosing other agents on the team ([677544f](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/677544f54791a81226b0db25d2c2f3f06388de84))
+
+
+### Bug Fixes
+
+* **Disc View:** fix an error when component is reused ([35a5afa](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/35a5afac7c546bf46865c914792ac5b69d19989c))
+* fix typo in changelog ([c3dfe52](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/c3dfe522469e9e862990e4e6bae3087e728330eb))
+
+
+### Performance Improvements
+
+* **Tabs:** Make some tabs render only when needed to improve response time ([3c460b3](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/3c460b3edc40fb597dc3654a4a50a2bb61563430))
+
+
+### Language Changes
+
+* Added lang keys for engines and discs ([a3d56be](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/a3d56be4d1cf403e547724dcfe070bf600552e22))
+* **Buffs:** Added lang entries for all disc buffs ([45457d5](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/45457d56a16b62aec03cd1a8363935194fa97875))
+
 ## [0.1.2](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v0.1.1...v0.1.2) (2024-10-26)
 
 
