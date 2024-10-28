@@ -1,4 +1,4 @@
-namespace ZZZDmgCalculator.Services;
+namespace ZZZDmgCalculator.Util;
 
 using System.Text.Json;
 

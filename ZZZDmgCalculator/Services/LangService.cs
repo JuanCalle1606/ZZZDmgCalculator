@@ -23,7 +23,6 @@ public class LangService {
 			var value = _manager.GetString(key);
 			if (value is null && !_warnKeys.Contains(key))
 			{
-				Console.WriteLine($@"Missing Lang Key: {key}");
 				_warnKeys.Add(key);
 			}
 			return value ?? $"%{key}%";
