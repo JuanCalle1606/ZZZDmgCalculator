@@ -1,12 +1,11 @@
 @inherits MainComponent
 
-<RadzenPanelMenu class="buff-menu" >
-	<RadzenPanelMenuItem Expanded="Agent.Engine?.Buffs.Count > 0" Text="Engine">
-		<RadzenPanelMenuItem Style="display: none"/>
-		<BuffList Buffs="Agent.Engine?.Buffs"/>
-	</RadzenPanelMenuItem>
-	<RadzenPanelMenuItem Text="Discs">
-		<RadzenPanelMenuItem Style="display: none"/>
-		<BuffList Buffs="DiscBuffs"/>
-	</RadzenPanelMenuItem>
+<RadzenPanelMenu class="buff-menu">
+
+	<BuffList Buffs="_sharedBuffs" Title="@Lang["Team"]"/>
+	
+	<BuffList Buffs="_engineBuffs" Title="@Lang["Engine"]"/>
+
+	<BuffList Buffs="_discBuffs" Title="@Lang["Discs"]"/>
+	
 </RadzenPanelMenu>

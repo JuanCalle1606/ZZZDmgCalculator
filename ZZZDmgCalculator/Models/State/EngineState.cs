@@ -7,12 +7,14 @@ using Info;
 using Json;
 
 [JsonConverter(typeof(EngineSerializer))]
-public class EngineState : IModifierContainer, IBuffContainer {
+public class EngineState : IModifierContainer, IBuffContainer, IBuffDependencyChecker {
 
 	AscensionState _ascension = AscensionState.A0_10;
 	int _refinement = 1;
 
 	readonly EngineInfo _info;
+	
+	bool _weaponEnabled = true;
 
 	public AscensionState Ascension
 	{
@@ -44,6 +46,10 @@ public class EngineState : IModifierContainer, IBuffContainer {
 
 	public List<BuffState> Buffs { get; }
 	
+	public EngineInfo Info => _info;
+
+	public bool Disabled => !_weaponEnabled;
+
 	public EngineState(EngineInfo engineInfo) {
 		_info = engineInfo;
 		MainStat = _info.MainStat.WithValue(_info.MainStats[0]);
@@ -52,10 +58,20 @@ public class EngineState : IModifierContainer, IBuffContainer {
 		
 		Buffs = _info.Passives.Select(x => new BuffState(x)
 		{
-			SourceInfo = _info
+			SourceInfo = _info,
+			DependencyChecker = this
 		}).ToList();
 	}
 	
+	public void CheckDependencies(bool available = true) {
+	
+		_weaponEnabled = available;
+		foreach (var buff in Buffs)
+		{
+			CheckBuffDependencies(buff);
+		}
+	}
+
 	void Update(bool refinement = false) {
 		if (refinement)
 		{
@@ -72,5 +88,17 @@ public class EngineState : IModifierContainer, IBuffContainer {
 		}
 	}
 
-	public EngineInfo Info => _info;
+	public void CheckBuffDependencies(BuffState buff) {
+		buff.Available = _weaponEnabled;
+		if (!buff.HasDependencies || !_weaponEnabled) return;
+		var depends = buff.Info.Depends!.Value;
+		var dependency = Buffs[depends];
+		buff.Dependency = dependency;
+		var requiredStacks = buff.Info.RequiredStacks ?? dependency.MaxStacks;
+			
+		if(!dependency.Available || !dependency.Active || (dependency.Info.Type == BuffTrigger.Stack && dependency.Stacks < requiredStacks))
+		{
+			buff.Available = false;
+		}
+	}
 }

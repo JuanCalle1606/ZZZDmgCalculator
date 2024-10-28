@@ -25,7 +25,11 @@ public class SetupSerializer : JsonConverter<SetupState> {
 						var agents = JsonSerializer.Deserialize<AgentState?[]>(ref reader, options);
 						if (agents != null)
 						{
-							dev.Agents = agents;
+							for (var index = 0; index < agents.Length; index++)
+							{
+								var agent = agents[index];
+								dev[index] = agent;
+							}
 						}
 						break;
 				}

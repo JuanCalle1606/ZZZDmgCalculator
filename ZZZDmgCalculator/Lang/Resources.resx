@@ -583,4 +583,19 @@
     <data name="Buffs.Discs.WoodpeckerElectro.0" xml:space="preserve">
         <value>Triggering a critical hit with a Basic Attack, Dodge Counter, or EX Special Attack increases the equipper's {stat} by {value}, each activation represents one stack.</value>
     </data>
+    <data name="BuffSharedWarning" xml:space="preserve">
+        <value>Passive effects of the same name do not stack.</value>
+    </data>
+    <data name="BuffEngineDisabledWarning" xml:space="preserve">
+        <value>This engine only works on {0} agents.</value>
+    </data>
+    <data name="Team" xml:space="preserve">
+        <value>Team</value>
+    </data>
+    <data name="Engine" xml:space="preserve">
+        <value>Engine</value>
+    </data>
+    <data name="Discs" xml:space="preserve">
+        <value>Discs</value>
+    </data>
 </root>

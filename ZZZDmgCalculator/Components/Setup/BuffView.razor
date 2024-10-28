@@ -1,3 +1,4 @@
+@using ZZZDmgCalculator.Models.State
 @using ZZZDmgCalculator.Util
 @inherits MainComponent
 @inject FormatService Format
@@ -46,5 +47,23 @@
 		<RadzenText TextStyle="TextStyle.Body2">
 			@Format.BuffDescription(Buff.Info.Description, Buff)
 		</RadzenText>
+		@if (Buff.Available)
+		{
+			if (Buff.Shared)
+			{
+				<RadzenText TextStyle="TextStyle.Body2" class="rz-text-disabled-color">
+					@Lang["BuffSharedWarning"]
+				</RadzenText>
+			}
+		}
+		else
+		{
+			if (Buff.DependencyChecker is EngineState engine && engine.Disabled)
+			{
+				<RadzenText TextStyle="TextStyle.Body2" class="rz-color-danger-light">
+					@string.Format(Lang["BuffEngineDisabledWarning"], Info[engine.Info.Type].DisplayName)
+				</RadzenText>
+			}
+		}
 	</RadzenStack>
 </RadzenCard>

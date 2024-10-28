@@ -61,6 +61,10 @@ public class BuffState : IModifierContainer {
 	
 	public double[]? ValuePerStack { get; private set; }
 
+	public BuffState? Dependency { get; set; }
+	
+	public IBuffDependencyChecker? DependencyChecker { get; set; }
+
 	public BuffState(BuffInfo info) {
 		Info = info;
 

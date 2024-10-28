@@ -5,12 +5,8 @@ using Models.State;
 
 public partial class BuffList {
 	[Parameter]
-	public IEnumerable<BuffState>? Buffs { get; set; }
+	public List<BuffState> Buffs { get; set; } = null!;
 
-	BuffState[] _buffStates = null!;
-
-	protected override void OnParametersSet() {
-		base.OnParametersSet();
-		_buffStates = Buffs?.ToArray() ?? [];
-	}
+	[Parameter]
+	public string Title { get; set; } = "";
 }

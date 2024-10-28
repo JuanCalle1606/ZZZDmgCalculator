@@ -1,8 +1,9 @@
 namespace ZZZDmgCalculator.Models.Enum;
 
 public enum BuffSource {
-	Agent,
-	Engine,
-	Disc,
-	Other
+	Agent = 1,
+	Engine = 2,
+	Disc = 4,
+	Shared = 8,
+	Other = 16
 }

@@ -19,7 +19,8 @@ public class SwingJazzData {
 			Modifiers = new StatModifier
 			{
 				Stat = Stats.BonusDmg,
-				Value = 15
+				Value = 15,
+				Shared = true
 			}
 		}
 	};

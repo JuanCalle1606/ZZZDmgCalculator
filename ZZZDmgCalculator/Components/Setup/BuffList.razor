@@ -1,21 +1,25 @@
 @inherits MainComponent
 
-<div class="rz-px-2">
-	@if (Buffs is not null && _buffStates.Length > 0)
-	{
-		<RadzenStack Orientation="Orientation.Vertical" class="rz-pt-4 rz-pb-2">
-			@foreach (var buff in _buffStates)
-			{
-				<BuffView Buff="buff"/>
-			}
-		</RadzenStack>
-	}
-	else
-	{
-		<RadzenStack class="rz-pt-8 rz-pb-6">
-			<RadzenText TextAlign="TextAlign.Center">
-				@Lang["NoBuffsHere"]
-			</RadzenText>
-		</RadzenStack>
-	}
-</div>
+<RadzenPanelMenuItem Expanded="@(Buffs.Count > 0 && Buffs.Any(b => b.Available))"
+                     Text="@Title">
+	<RadzenPanelMenuItem Style="display: none"/>
+	<div class="rz-px-2">
+		@if (Buffs.Count > 0)
+		{
+			<RadzenStack Orientation="Orientation.Vertical" class="rz-pt-4 rz-pb-2">
+				@foreach (var buff in Buffs)
+				{
+					<BuffView Buff="buff"/>
+				}
+			</RadzenStack>
+		}
+		else
+		{
+			<RadzenStack class="rz-pt-8 rz-pb-6">
+				<RadzenText TextAlign="TextAlign.Center">
+					@Lang["NoBuffsHere"]
+				</RadzenText>
+			</RadzenStack>
+		}
+	</div>
+</RadzenPanelMenuItem>

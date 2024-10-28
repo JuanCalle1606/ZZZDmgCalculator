@@ -97,6 +97,8 @@ public class AgentState : IModifierContainer, IBuffContainer {
 
 	public List<BuffState> Buffs { get; } = [];
 
+	public IBuffContainer? SharedContainer { get; set; }
+
 	public EngineState? Engine
 	{
 		get => _engine;
@@ -112,6 +114,8 @@ public class AgentState : IModifierContainer, IBuffContainer {
 			{
 				_modChildren.Add(_engine);
 				_buffChildren.Add(_engine);
+				_engine.CheckDependencies(Info.Specialty == _engine.Info.Type);
+				
 			}
 			UpdateAllStats();
 		}
@@ -124,6 +128,7 @@ public class AgentState : IModifierContainer, IBuffContainer {
 	 * The full set is when the agent has 4 discs of the same type.
 	 */
 	List<DiscSetState> DiscSets { get; } = new(3);
+	
 
 	public void SetDisc(DiscState? disc, int i) {
 		if (Discs[i] is {} d)

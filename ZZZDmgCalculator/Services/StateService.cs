@@ -11,13 +11,13 @@ public class StateService {
 
 	public AgentState CurrentAgent
 	{
-		get => CurrentSetup.Agents[CurrentAgentIndex]!;
-		set => CurrentSetup.Agents[CurrentAgentIndex] = value;
+		get => CurrentSetup[CurrentAgentIndex]!;
+		set => CurrentSetup[CurrentAgentIndex] = value;
 	}
 	
 	public StateService(InfoService info) {
 		// set ellen by default
-		CurrentSetup.Agents[0] = new(info[Agents.Anby]);
+		CurrentSetup[0] = new(info[Agents.Anby]);
 		CurrentAgentIndex = 0;
 	}
 }

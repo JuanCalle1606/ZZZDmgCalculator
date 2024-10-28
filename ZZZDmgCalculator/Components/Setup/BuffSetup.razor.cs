@@ -12,11 +12,15 @@ public partial class BuffSetup {
 	[Parameter]
 	public AgentState Agent { get; set; } = null!;
 
-	public IEnumerable<BuffState> SharedBuffs => Team.Agents
-		.Where(a => a is not null && a != Agent)
-		.SelectMany(a => a!.Buffs).Where(b => b.Shared);
+	List<BuffState> _engineBuffs = null!;
+	List<BuffState> _discBuffs = null!;
+	List<BuffState> _sharedBuffs = null!;
 
-	public IEnumerable<BuffState> DiscBuffs => ((IBuffContainer)Agent).Children
-		.Where(c => c.Source == BuffSource.Disc)
-		.SelectMany(c => c.Buffs);
+	protected override void OnInitialized() {
+		base.OnInitialized();
+		IBuffContainer container = Agent;
+		_engineBuffs = container.Children.Where(c => c.Source == BuffSource.Engine).SelectMany(c => c.Buffs).ToList();
+		_discBuffs = container.Children.Where(c => c.Source == BuffSource.Disc).SelectMany(c => c.Buffs).ToList();
+		_sharedBuffs = Team.AllBuffs.Except(container.SelfBuffs).ToList();
+	}
 }
