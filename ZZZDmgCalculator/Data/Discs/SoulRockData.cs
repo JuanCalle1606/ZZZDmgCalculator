@@ -14,7 +14,7 @@ public class SoulRockData {
 			Value = 16,
 			Type = StatModifiers.BasePercent
 		},
-		Buffs = new BuffInfo()
+		Buffs = new BuffInfo() // TODO: maybe remove this buff because DmgReduction in agents dont affect the dmg they deal.
 		{
 			Modifiers = new StatModifier
 			{

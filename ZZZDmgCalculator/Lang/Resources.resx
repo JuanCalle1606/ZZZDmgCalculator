@@ -94,10 +94,10 @@
         <value>Basic Attack</value>
     </data>
     <data name="Skills.Dodge" xml:space="preserve">
-        <value>Dodge</value>
+        <value>Dodge Counter</value>
     </data>
     <data name="Skills.Assist" xml:space="preserve">
-        <value>Assist</value>
+        <value>Assist Follow-Up</value>
     </data>
     <data name="Skills.Special" xml:space="preserve">
         <value>Special Attack</value>
@@ -529,5 +529,58 @@
     <data name="Buffs.Engines.Battery.1.Desc" xml:space="preserve">
         <value>When the equipper hits an enemy with Dodge Counter or Assist Attack, their {stat} increases by {value}.</value>
     </data>
-
+    <data name="Skills.Dash" xml:space="preserve">
+        <value>Dash Attack</value>
+    </data>
+    <data name="Skills.Quick" xml:space="preserve">
+        <value>Quick Assist</value>
+    </data>
+    <data name="Buffs.Discs.Fullset" xml:space="preserve">
+        <value>4-Piece Bonus</value>
+    </data>
+    <data name="Buffs.Discs.ChaosJazz.0" xml:space="preserve">
+        <value>{stat} and {stats.1} are increased by {value}</value>
+    </data>
+    <data name="Buffs.Discs.ChaosJazz.1" xml:space="preserve">
+        <value>When off-field, DMG dealt by EX Special Attacks and Assist Attacks is increased by {value}.</value>
+    </data>
+    <data name="Buffs.Discs.ChaoticMetal.0" xml:space="preserve">
+        <value>Whenever a squad member inflicts &lt;span class="rz-color-ether"&gt;&lt;b&gt;Corruption&lt;/b&gt;&lt;/span&gt; on an enemy, that enemy takes {value} more DMG for 12s.</value>
+    </data>
+    <data name="Buffs.Discs.FangedMetal.0" xml:space="preserve">
+        <value>Whenever a squad member inflicts &lt;span class="rz-color-physical"&gt;&lt;b&gt;Assault&lt;/b&gt;&lt;/span&gt; on an enemy, the equipper deals {value} additional DMG to the target.</value>
+    </data>
+    <data name="Buffs.Discs.HormonePunk.0" xml:space="preserve">
+        <value>Upon entering or switching into combat, the equipper has their {stat} increased by {value}.</value>
+    </data>
+    <data name="Buffs.Discs.InfernoMetal.0" xml:space="preserve">
+        <value>Upon hitting a Burning enemy, the equipper's {stat} is increased by {value}.</value>
+    </data>
+    <data name="Buffs.Discs.PolarMetal.0" xml:space="preserve">
+        <value>Basic Attack and Dash Attack DMG increases by {value}.</value>
+    </data>
+    <data name="Buffs.Discs.PolarMetal.1" xml:space="preserve">
+        <value>Whenever a squad member &lt;span class="rz-color-ice"&gt;&lt;b&gt;Freezes&lt;/b&gt;&lt;/span&gt; or &lt;span class="rz-color-ice"&gt;&lt;b&gt;Shatters&lt;/b&gt;&lt;/span&gt; an enemy, the buff further increases by {value}.</value>
+    </data>
+    <data name="Buffs.Discs.ProtoPunk.0" xml:space="preserve">
+        <value>When any squad member triggers a Defensive Assist or Evasive Assist, all squad members deal {value} increased DMG.</value>
+    </data>
+    <data name="Buffs.Discs.PufferElectro.0" xml:space="preserve">
+        <value>Ultimate DMG increases by {value}.</value>
+    </data>
+    <data name="Buffs.Discs.PufferElectro.1" xml:space="preserve">
+        <value>Launching an Ultimate increases the equipper's {stat} by {valu}.</value>
+    </data>
+    <data name="Buffs.Discs.SoulRock.0" xml:space="preserve">
+        <value>Upon receiving an enemy attack and losing HP, the equipper takes {value} less DMG.</value>
+    </data>
+    <data name="Buffs.Discs.SwingJazz.0" xml:space="preserve">
+        <value>Launching a Chain Attack or Ultimate increases all squad members' DMG by {value} </value>
+    </data>
+    <data name="Buffs.Discs.ThunderMetal.0" xml:space="preserve">
+        <value>As long as an enemy in combat is Shocked, the equipper's {stat} is increased by {value}.</value>
+    </data>
+    <data name="Buffs.Discs.WoodpeckerElectro.0" xml:space="preserve">
+        <value>Triggering a critical hit with a Basic Attack, Dodge Counter, or EX Special Attack increases the equipper's {stat} by {value}, each activation represents one stack.</value>
+    </data>
 </root>

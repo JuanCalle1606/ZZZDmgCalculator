@@ -13,14 +13,13 @@ public class FangedMetalData {
 			Stat = Stats.PhysicalDmg,
 			Value = 10
 		},
-		// I dont know if the full set is a bonus damage buff for agent or a dmg taken debuff for enemy.
-		// I am assuming it is a dmg taken debuff for enemy but it need more deep testing.
+		// I don't know if the full set is a bonus damage buff for agent or a dmg taken debuff for enemy.
+		// I am assuming it is a dmg buff, but it needs more deep testing.
 		Buffs = new BuffInfo()
 		{
 			Modifiers = new StatModifier
 			{
-				Stat = Stats.DmgTaken,
-				Enemy = true,
+				Stat = Stats.BonusDmg,
 				Value = 35
 			}
 		}

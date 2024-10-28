@@ -38,7 +38,7 @@ public class LangService {
 			sb.AppendLine(
 $"""
 <data name="{key}" xml:space="preserve">
-    <value/>
+    <value></value>
 </data>
 """);
 		return sb.ToString();

@@ -58,6 +58,8 @@ public class BuffState : IModifierContainer {
 	public BaseInfo? SourceInfo { get; set; }
 	
 	public IList<StatModifier> Modifiers { get; }
+	
+	public double[]? ValuePerStack { get; private set; }
 
 	public BuffState(BuffInfo info) {
 		Info = info;
@@ -67,6 +69,7 @@ public class BuffState : IModifierContainer {
 	}
 
 	void Update() {
+		ValuePerStack ??= new double[Modifiers.Count];
 		foreach (var ((current, source), index) in Modifiers.Zip(Info.Modifiers).Select((d, i) => (d, i)))
 		{
 			double value;
@@ -82,6 +85,7 @@ public class BuffState : IModifierContainer {
 			{
 				value = source.Value;
 			}
+			ValuePerStack[index] = value;
 			current.Value = value * ValueMultiplier;
 		}
 	}

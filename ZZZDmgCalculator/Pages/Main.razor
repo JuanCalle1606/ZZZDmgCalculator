@@ -4,7 +4,9 @@
 @code {
 	string text = "Hello, World!";
 	void Callback() {
+#if DEBUG
 		text = Lang.GenMiss();
+#endif
 	}
 }
 
@@ -19,8 +21,8 @@
 		<DebugOnly>
 			<AdaptableCard TabText="Debug">
 				<RadzenButton Text="Click Me" Click="Callback"></RadzenButton>
-				
-				<RadzenTextArea @bind-Value="text"></RadzenTextArea>
+
+				<RadzenTextArea @bind-Value="text" Style="width: 100%; height: 100%"></RadzenTextArea>
 			</AdaptableCard>
 		</DebugOnly>
 	</AdaptableCards>
