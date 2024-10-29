@@ -26,6 +26,7 @@ public class CompilerData {
 			new()
 			{
 				Scales = [EngineScales.Templates["Stinger.Buff"]],
+				Type = BuffTrigger.Permanent,
 				Modifiers = new StatModifier
 				{
 					Stat = Stats.Atk,

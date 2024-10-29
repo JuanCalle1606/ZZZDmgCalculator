@@ -21,7 +21,6 @@ public partial class AdaptableCards {
 			< 1275 => widthMin,
 			_ => (dimension.Width - 1275) * (widthMax - widthMin) / (1900 - 1275) + widthMin
 		};
-		Console.WriteLine(CardWith);
 
 		Phone = dimension.Width < 576;
 
