@@ -2,6 +2,7 @@ namespace ZZZDmgCalculator.Models.Info;
 
 using System.Text.Json.Serialization;
 using Enum;
+using Services;
 using Util;
 
 public class AgentInfo : BaseInfo {
@@ -36,9 +37,27 @@ public class AgentInfo : BaseInfo {
 
 	public SingleList<BuffInfo> CoreBuff { get; set; } = [];
 
-	public BuffInfo? AdditionalBuff { get; set; }
+	public SingleList<BuffInfo> AdditionalBuff { get; set; } = [];
 
 	public List<AbilityInfo> Abilities { get; set; } = [];
 
-	public Dictionary<int, AbilityInfo> Cinema { get; set; } = new();
+	public Dictionary<int, AbilityInfo> Cinema { get; set; } = [];
+
+	public override void PostLoad(LangService lang) {
+		for (var i = 0; i < CoreBuff.Count; i++)
+		{
+			var buffInfo = CoreBuff[i];
+			buffInfo.Id = $"Buffs.Agents.{Id}.Core.{i}";
+			buffInfo.DisplayName = lang[buffInfo.Id];
+			buffInfo.Description = lang[$"{buffInfo.Id}.Desc"];
+		}
+		
+		for (var i = 0; i < AdditionalBuff.Count; i++)
+		{
+			var buffInfo = AdditionalBuff[i];
+			buffInfo.Id = $"Buffs.Agents.{Id}.Additional.{i}";
+			buffInfo.DisplayName = lang[buffInfo.Id];
+			buffInfo.Description = lang[$"{buffInfo.Id}.Desc"];
+		}
+	}
 }

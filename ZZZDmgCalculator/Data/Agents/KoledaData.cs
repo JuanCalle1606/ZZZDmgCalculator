@@ -46,7 +46,7 @@ public class KoledaData {
 		],
 		FinalStats = [0, 116, 96, 97, 1.2],
 		// TODO: Add core buff when app support daze
-		AdditionalBuff = new()
+		AdditionalBuff = new BuffInfo()
 		{
 			Type = Stack,
 			Stacks = 2,

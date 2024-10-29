@@ -31,6 +31,13 @@ public class SetupState : IBuffContainer {
 			Agents[currentAgentIndex] = value; 
 			if(value != null)
 				value.SharedContainer = this;
+
+			foreach (var agent in Agents.Where(a=>a is not null))
+			{
+				agent!.SetAdditionalStatus(
+					Agents.Any(a => a is not null && a != agent && agent.Info.AdditionalCondition(agent.Info, a.Info))
+				);
+			}
 		}
 	}
 }

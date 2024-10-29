@@ -12,5 +12,7 @@ public class BaseInfo {
 
 	public string Url { get; set; } = string.Empty;
 	
+	public InfoService Container { get; set; } = null!;
+	
 	public virtual void PostLoad(LangService lang) { }
 }

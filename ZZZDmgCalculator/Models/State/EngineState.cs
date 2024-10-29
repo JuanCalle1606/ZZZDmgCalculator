@@ -101,4 +101,11 @@ public class EngineState : IModifierContainer, IBuffContainer, IBuffDependencyCh
 			buff.Available = false;
 		}
 	}
+	
+	public void UpdateOwner(AgentState agentState) {
+		foreach (var buff in Buffs)
+		{
+			buff.Owner = agentState;
+		}
+	}
 }

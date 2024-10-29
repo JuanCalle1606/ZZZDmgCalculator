@@ -35,7 +35,7 @@ public partial class AgentsView {
 		if(!CanRemove) return;
 		// get the index of other agent to swap to
 		var index = Agents.Select((a, i) => (a, i)).First(i => i.a != null && i.i != State.CurrentAgentIndex).i;
-		Agents[State.CurrentAgentIndex] = null;
+		State.CurrentAgent = null;
 		State.CurrentAgentIndex = index;
 		Notifier.CurrentAgentChanged();
 	}

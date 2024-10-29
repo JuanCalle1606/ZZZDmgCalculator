@@ -78,6 +78,7 @@ public class InfoService(LangService lang) {
 
 		foreach (var (key, x) in ret)
 		{
+			x.Container = this;
 			x.DisplayName = lang[key];
 			if (string.IsNullOrEmpty(x.Url))
 			{

@@ -9,7 +9,7 @@ public class StateService {
 
 	public SetupState CurrentSetup { get; set; } = new();
 
-	public AgentState CurrentAgent
+	public AgentState? CurrentAgent
 	{
 		get => CurrentSetup[CurrentAgentIndex]!;
 		set => CurrentSetup[CurrentAgentIndex] = value;

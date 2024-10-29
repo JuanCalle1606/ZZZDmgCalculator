@@ -65,6 +65,8 @@ public class BuffState : IModifierContainer {
 	
 	public IBuffDependencyChecker? DependencyChecker { get; set; }
 
+	public AgentState Owner { get; set; } = null!;
+
 	public BuffState(BuffInfo info) {
 		Info = info;
 

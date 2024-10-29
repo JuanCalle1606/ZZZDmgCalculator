@@ -69,6 +69,11 @@ public class AgentState : IModifierContainer, IBuffContainer {
 				_ => 0
 			});
 
+			foreach (var buff in _coreBuffs)
+			{
+				buff.Scale = num;
+			}
+
 			UpdateAllStats();
 		}
 	}
@@ -91,6 +96,10 @@ public class AgentState : IModifierContainer, IBuffContainer {
 	IEnumerable<IModifierContainer> IModifierContainer.Children => _modChildren;
 	
 	readonly List<IBuffContainer> _buffChildren = [];
+	
+	BuffState[] _coreBuffs = null!;
+	BuffState[] _additionalBuffs = null!;
+
 	IEnumerable<IBuffContainer> IBuffContainer.Children => _buffChildren;
 	
 	public BuffSource Source => BuffSource.Agent;
@@ -115,7 +124,7 @@ public class AgentState : IModifierContainer, IBuffContainer {
 				_modChildren.Add(_engine);
 				_buffChildren.Add(_engine);
 				_engine.CheckDependencies(Info.Specialty == _engine.Info.Type);
-				
+				_engine.UpdateOwner(this);
 			}
 			UpdateAllStats();
 		}
@@ -129,6 +138,23 @@ public class AgentState : IModifierContainer, IBuffContainer {
 	 */
 	List<DiscSetState> DiscSets { get; } = new(3);
 	
+	public AgentState(AgentInfo info) {
+		Info = info;
+		
+		InitBaseStats();
+
+		foreach (var baseStat in _baseStats)
+		{
+			Modifiers.Add(baseStat.Value);
+		}
+		foreach (var coreStat in _coreStats)
+		{
+			Modifiers.Add(coreStat);
+		}
+
+		InitBuffs();
+		UpdateAllStats();
+	}
 
 	public void SetDisc(DiscState? disc, int i) {
 		if (Discs[i] is {} d)
@@ -179,24 +205,32 @@ public class AgentState : IModifierContainer, IBuffContainer {
 		RemoveDiscSet(halfSets);
 		AddDiscSet(halfSets);
 	}
-
-	public AgentState(AgentInfo info) {
-		Info = info;
+	
+	public void SetAdditionalStatus(bool status) {
+		var current = _additionalBuffs.Any(b => b.Available);
+		if (current == status) return;
 		
-		InitBaseStats();
-
-		foreach (var baseStat in _baseStats)
+		foreach (var buff in _additionalBuffs)
 		{
-			Modifiers.Add(baseStat.Value);
+			buff.Available = status;
 		}
-		foreach (var coreStat in _coreStats)
-		{
-			Modifiers.Add(coreStat);
-		}
-
 		UpdateAllStats();
 	}
-
+	
+	void InitBuffs() {
+		_coreBuffs = Info.CoreBuff.Select(b=>new BuffState(b)
+		{
+			SourceInfo = Info,
+			Owner = this
+		}).ToArray();
+		_additionalBuffs = Info.AdditionalBuff.Select(b=>new BuffState(b)
+		{
+			SourceInfo = Info,
+			Owner = this
+		}).ToArray();
+		Buffs.AddRange(_coreBuffs);
+		Buffs.AddRange(_additionalBuffs);
+	}
 	
 	void AddDiscSet(IGrouping<Discs, DiscState?>[] halfSets) {
 		// when a disc is added whe need to add a possible set to the list
@@ -205,6 +239,10 @@ public class AgentState : IModifierContainer, IBuffContainer {
 		var set = new DiscSetState(halfSets.First(s => s.Key == toadd).First()!.Info);
 		DiscSets.Add(set);
 		_modChildren.Add(set);
+		foreach (var buff in set.Buffs)
+		{
+			buff.Owner = this;
+		}
 	}
 
 	void RemoveDiscSet(IGrouping<Discs, DiscState?>[] halfSets) {
