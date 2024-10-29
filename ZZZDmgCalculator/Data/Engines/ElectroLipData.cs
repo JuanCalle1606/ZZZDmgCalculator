@@ -37,7 +37,7 @@ public class ElectroLipData {
 
 					new()
 					{
-						Stat = Stats.BonusDmg
+						Stat = Stats.BonusDmg, Type = StatModifiers.Combat
 					}
 				]
 			}

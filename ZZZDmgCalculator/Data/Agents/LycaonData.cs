@@ -263,7 +263,7 @@ public class LycaonData {
 				Stacks = 5,
 				Modifiers =new StatModifier
 				{
-					Stat = BonusDmg,
+					Stat = BonusDmg, Type = StatModifiers.Combat,
 					Value = 10
 				}
 			}

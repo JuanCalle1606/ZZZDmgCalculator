@@ -283,7 +283,7 @@ public class NicoleData {
 				SkillCondition = skill => skill.Type == Ex,
 				Modifiers = new StatModifier
 				{
-					Stat = BonusDmg, Value = 16
+					Stat = BonusDmg, Type = Combat, Value = 16
 				}
 			},
 			[6] = new BuffInfo

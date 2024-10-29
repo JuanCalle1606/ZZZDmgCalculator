@@ -43,7 +43,7 @@ public class BlossomData {
 				SkillCondition = skill => skill.Type is Ex,
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.BonusDmg
+					Stat = Stats.BonusDmg, Type = StatModifiers.Combat
 				}
 			}
 		]

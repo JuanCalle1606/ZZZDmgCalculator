@@ -53,7 +53,7 @@ public class KoledaData {
 			SkillCondition = skill => skill.Type == Chain,
 			Modifiers = new StatModifier
 			{
-				Stat = BonusDmg, Value = 35, Shared = true
+				Stat = BonusDmg, Type = StatModifiers.Combat, Value = 35, Shared = true
 			}
 		},
 		Abilities =
@@ -258,7 +258,7 @@ public class KoledaData {
 				Type = Stack,
 				Stacks = 2,
 				AbilityCondition = skill => skill.Category == Chain,// this covers chain and ultimate
-				Modifiers = new StatModifier { Stat = BonusDmg, Value = 18 },
+				Modifiers = new StatModifier { Stat = BonusDmg, Type = StatModifiers.Combat, Value = 18 },
 			},
 			[6] = new SkillInfo
 			{

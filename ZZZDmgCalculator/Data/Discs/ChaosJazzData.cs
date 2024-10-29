@@ -35,7 +35,7 @@ public class ChaosJazzData {
 				SkillCondition = skill => skill.Type is Ex or Assist,
 				Modifiers = new StatModifier
 				{
-					Stat = BonusDmg, Value = 20
+					Stat = BonusDmg, Type = Combat, Value = 20
 				}
 			}
 		]

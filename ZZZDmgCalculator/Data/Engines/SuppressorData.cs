@@ -41,7 +41,7 @@ public class SuppressorData {
 				SkillCondition = skill => skill.Type is Basic && skill.DmgType is Attributes.Ether,
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.BonusDmg
+					Stat = Stats.BonusDmg, Type = StatModifiers.Combat
 				}
 			}
 		]

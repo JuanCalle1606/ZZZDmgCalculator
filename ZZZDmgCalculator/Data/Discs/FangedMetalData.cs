@@ -19,7 +19,7 @@ public class FangedMetalData {
 		{
 			Modifiers = new StatModifier
 			{
-				Stat = Stats.BonusDmg,
+				Stat = Stats.BonusDmg, Type = StatModifiers.Combat,
 				Value = 35
 			}
 		}

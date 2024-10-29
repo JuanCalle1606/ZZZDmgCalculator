@@ -277,8 +277,8 @@ public class SoukakuData {
 		],
 		Cinema =
 		{	
-			[4] = new StatModifier { Stat = IceRes, Value = 10 },	
-			[6] = new StatModifier { Stat = BonusDmg, Value = 45 }
+			[4] = new StatModifier { Stat = IceRes, Value = 10, Enemy = true},	
+			[6] = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 45 }
 		}
 	};
 }

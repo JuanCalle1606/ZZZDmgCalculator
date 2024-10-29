@@ -124,7 +124,7 @@ public class AgentState : IModifierContainer, IBuffContainer {
 			{
 				_modChildren.Add(_engine);
 				_buffChildren.Add(_engine);
-				_engine.CheckDependencies(true);
+				_engine.CheckDependencies(Info.Specialty == _engine.Info.Type);
 				_engine.UpdateOwner(this);
 			}
 			UpdateAllStats();

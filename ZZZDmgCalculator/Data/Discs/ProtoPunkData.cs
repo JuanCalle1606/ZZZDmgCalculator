@@ -15,11 +15,10 @@ public class ProtoPunkData {
 		{
 			Stat = ShieldPower,
 			Value = 15,
-			Type = Combat
 		},
 		Buffs = new StatModifier()
 		{
-			Stat = BonusDmg,
+			Stat = BonusDmg, Type = Combat,
 			Shared = true,
 			Value = 15
 		}

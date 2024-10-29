@@ -34,15 +34,7 @@ public class StatModifier {
 		Shared = Shared
 	};
 
-	public bool IsCombatStat
-	{
-		get
-		{
-			if (Type is StatModifiers.Combat or StatModifiers.CombatPercent or StatModifiers.CombatFlat)
-				return true;
-			return Stat > Stats.BonusDmg;
-		}
-	}
+	public bool IsCombatStat => Type is StatModifiers.Combat or StatModifiers.CombatPercent or StatModifiers.CombatFlat;
 
 	public bool IsPercent
 	{

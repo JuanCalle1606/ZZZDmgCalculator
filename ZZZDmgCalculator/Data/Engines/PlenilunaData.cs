@@ -32,7 +32,7 @@ public class PlenilunaData {
 				SkillCondition = skill=> skill.Type is Basic or Dash or Dodge,
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.BonusDmg
+					Stat = Stats.BonusDmg, Type = StatModifiers.Combat
 				}
 			}
 		]

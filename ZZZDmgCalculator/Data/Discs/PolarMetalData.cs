@@ -22,7 +22,7 @@ public class PolarMetalData {
 				SkillCondition = skill => skill.Type is Basic or Dash,
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.BonusDmg,
+					Stat = Stats.BonusDmg, Type = StatModifiers.Combat,
 					Value = 28
 				}
 			},
@@ -32,7 +32,7 @@ public class PolarMetalData {
 				SkillCondition = skill => skill.Type is Basic or Dash,
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.BonusDmg,
+					Stat = Stats.BonusDmg, Type = StatModifiers.Combat,
 					Value = 28
 				}
 			}

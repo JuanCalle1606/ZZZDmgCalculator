@@ -214,12 +214,12 @@ public class AnbyData {
 			[2] = new BuffInfo{
 				// anby's cinema 2 only applies to thunderbolt
 				AbilityCondition = skill => skill.Id == "Basic.Thunderbolt",
-				Modifiers = new StatModifier { Stat = BonusDmg, Value = 30 }
+				Modifiers = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 30 }
 			},
 			[6] = new BuffInfo
 			{
 				SkillCondition = skill => skill.Type is Basic or Dash,
-				Modifiers = new StatModifier { Stat = BonusDmg, Value = 45 }
+				Modifiers = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 45 }
 			}
 		}
 	};

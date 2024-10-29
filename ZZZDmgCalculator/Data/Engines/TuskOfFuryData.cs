@@ -44,7 +44,7 @@ public class TuskOfFuryData {
 				Scales = [Templates["TuskOfFury.Buff1"]],
 				Modifiers = new StatModifier
 				{
-					Stat = BonusDmg
+					Stat = BonusDmg, Type = StatModifiers.Combat
 				}
 			}
 		]

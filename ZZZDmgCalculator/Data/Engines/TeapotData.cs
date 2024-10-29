@@ -44,7 +44,7 @@ public class TeapotData {
 				RequiredStacks = 15,
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.BonusDmg,
+					Stat = Stats.BonusDmg, Type = StatModifiers.Combat,
 					Shared = true
 				}
 			}

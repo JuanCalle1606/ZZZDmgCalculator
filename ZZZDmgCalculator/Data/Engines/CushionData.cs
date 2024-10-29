@@ -39,7 +39,7 @@ public class CushionData {
 				Scales = [EngineScales.Templates["Cushion.Buff1"]],
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.BonusDmg
+					Stat = Stats.BonusDmg, Type = StatModifiers.Combat
 				}
 			}
 		]

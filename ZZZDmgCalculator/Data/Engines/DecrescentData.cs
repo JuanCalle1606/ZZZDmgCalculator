@@ -29,7 +29,7 @@ public class DecrescentData {
 				Scales = [EngineScales.Templates["ElectroLip.Buff"]],
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.BonusDmg
+					Stat = Stats.BonusDmg, Type = StatModifiers.Combat
 				}
 			}
 		]

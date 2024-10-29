@@ -33,7 +33,7 @@ public class SuperstarData {
 				SkillCondition = skill => skill.Type is Ultimate,
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.BonusDmg
+					Stat = Stats.BonusDmg, Type = StatModifiers.Combat
 				}
 			}
 		]
