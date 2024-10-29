@@ -25,7 +25,7 @@ public class CannonData {
 		[
 			new()
 			{
-				Scales = [EngineScales.Templates["Drill.Buff"]],
+				Scales = [EngineScales.Templates["Cannon.Buff"]],
 				Modifiers = new StatModifier
 				{
 					Stat = Stats.Atk,
