@@ -24,6 +24,7 @@
 						<RadzenDropDown TValue="int" Value="Buff.Stacks" ValueChanged="StacksChanged" Data="@ListsUtil.Simple(0, Buff.MaxStacks)"
 						                class="buff-stacks"/>
 					
+
 						break;
 					case BuffTrigger.Switch:
 						<RadzenSwitch class="small-switch" Value="Buff.Enabled" ValueChanged="SwitchChanged"/>
@@ -43,6 +44,14 @@
 					@Buff.Info.DisplayName
 				</RadzenText>
 			</div>
+			@if (OwnerInfo is {} owner)
+			{
+				<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.End" Style="flex-grow: 1">
+					<div class="source-info-avatar">
+						<img alt src="@owner.Url"/>
+					</div>
+				</RadzenStack>
+			}
 		</RadzenStack>
 		<RadzenText TextStyle="TextStyle.Body2">
 			@Format.BuffDescription(Buff.Info.Description, Buff)

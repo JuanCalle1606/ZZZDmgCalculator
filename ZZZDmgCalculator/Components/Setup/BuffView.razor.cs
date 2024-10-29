@@ -10,6 +10,17 @@ public partial class BuffView {
 	[Parameter]
 	public BuffState Buff { get; set; } = null!;
 
+	BaseInfo? OwnerInfo
+	{
+		get
+		{
+			if(Buff.Shared && Buff.Owner != State.CurrentAgent)
+				return Buff.Owner.Info;
+			
+			return null;
+		}
+	}
+		
 	string Url => 
 		Buff.SourceInfo is DiscInfo info ? $"icons/discs/Setup_Disc_{info.Id.ToUnderscore()}.png" : Buff.SourceInfo?.Url ?? string.Empty;
 
