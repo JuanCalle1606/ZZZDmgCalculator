@@ -121,6 +121,6 @@ public class InfoService(LangService lang) {
 		if (typeof(T) == typeof(Specialties))
 			return this[(Specialties)(object)value];
 
-		throw new NotImplementedException();
+		throw new NotSupportedException();
 	}
 }

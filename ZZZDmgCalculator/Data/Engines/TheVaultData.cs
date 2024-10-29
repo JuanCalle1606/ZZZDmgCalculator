@@ -26,23 +26,21 @@ public class TheVaultData {
 		[
 			new()
 			{
-				Scales = [EngineScales.Templates["TheVault.Buff"]],
-				Modifiers = new StatModifier
-				{
-					Stat = Stats.BonusDmg,
-					Shared = true,
-					Type = StatModifiers.Combat
-				}
-			},
-
-			new()
-			{
-				Scales = [EngineScales.Templates["TheVault.Buff2"]],
-				Modifiers = new StatModifier
-				{
-					Stat = Stats.EnergyRegen,
-					Type = StatModifiers.CombatFlat
-				}
+				Scales = [EngineScales.Templates["TheVault.Buff"], EngineScales.Templates["TheVault.Buff2"]],
+				Modifiers =
+				[
+					new StatModifier
+					{
+						Stat = Stats.BonusDmg,
+						Shared = true,
+						Type = StatModifiers.Combat
+					},
+					new StatModifier
+					{
+						Stat = Stats.EnergyRegen,
+						Type = StatModifiers.CombatFlat
+					}
+				]
 			}
 		]
 	};

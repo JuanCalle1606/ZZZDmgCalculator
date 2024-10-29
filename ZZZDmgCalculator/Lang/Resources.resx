@@ -516,17 +516,11 @@
     <data name="Engines.TuskOfFury" xml:space="preserve">
         <value>Tusks of Fury</value>
     </data>
-
+    
     <data name="Buffs.Engines.Battery.0" xml:space="preserve">
-        <value>In a Flash of Light</value>
-    </data>
-    <data name="Buffs.Engines.Battery.0.Desc" xml:space="preserve">
         <value>Increases {stat} by {value}</value>
     </data>
     <data name="Buffs.Engines.Battery.1" xml:space="preserve">
-        <value>In a Flash of Light</value>
-    </data>
-    <data name="Buffs.Engines.Battery.1.Desc" xml:space="preserve">
         <value>When the equipper hits an enemy with Dodge Counter or Assist Attack, their {stat} increases by {value}.</value>
     </data>
     <data name="Skills.Dash" xml:space="preserve">
@@ -597,5 +591,318 @@
     </data>
     <data name="Discs" xml:space="preserve">
         <value>Discs</value>
+    </data>
+    <data name="Buffs.Engines.Alpha" xml:space="preserve">
+        <value>Disordered Current</value>
+    </data>
+    <data name="Buffs.Engines.Alpha.0" xml:space="preserve">
+        <value>Accumulating Anomaly Buildup increases the equipper's {stat} by {value}</value>
+    </data>
+    <data name="Buffs.Engines.Base" xml:space="preserve">
+        <value>Sinking Strike</value>
+    </data>
+    <data name="Buffs.Engines.Base.0" xml:space="preserve">
+        <value>When attacked, equipper's {stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.BashfulDemon" xml:space="preserve">
+        <value>Visage of Greed</value>
+    </data>
+    <data name="Buffs.Engines.BashfulDemon.0" xml:space="preserve">
+        <value>Increases {stat} by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.BashfulDemon.1" xml:space="preserve">
+        <value>When launching an EX Special Attack, all squad members' {stat} increases by {value}</value>
+    </data>
+    <data name="Buffs.Engines.Battery" xml:space="preserve">
+        <value>In a Flash of Light</value>
+    </data>
+    <data name="Buffs.Engines.Blossom" xml:space="preserve">
+        <value>Extraordinary Anti-Theft Measures</value>
+    </data>
+    <data name="Buffs.Engines.Blossom.0" xml:space="preserve">
+        <value>{stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Blossom.1" xml:space="preserve">
+        <value>DMG dealt by EX Special Attacks increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Bravo" xml:space="preserve">
+        <value>High-Voltage Surge</value>
+    </data>
+    <data name="Buffs.Engines.Bravo.0" xml:space="preserve">
+        <value>Accumulating &lt;span class="rz-color-stat"&gt;&lt;b&gt;Anomaly Buildup&lt;/b&gt;&lt;/span&gt; increases the equipper's {stat} by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Brimstone" xml:space="preserve">
+        <value>Scorching Breath</value>
+    </data>
+    <data name="Buffs.Engines.Brimstone.0" xml:space="preserve">
+        <value>Upon hitting an enemy with a Basic Attack, Dash Attack, or Dodge Counter, the equipper's {stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Bunny" xml:space="preserve">
+        <value>Pet the Bunny</value>
+    </data>
+    <data name="Buffs.Engines.Bunny.0" xml:space="preserve">
+        <value>Increases {stat} by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Bunny.1" xml:space="preserve">
+        <value> Increases the equipper's {stat} by {value} when they are shielded.</value>
+    </data>
+    <data name="Buffs.Engines.Cannon" xml:space="preserve">
+        <value>Oversized Barrel</value>
+    </data>
+    <data name="Buffs.Engines.Cannon.0" xml:space="preserve">
+        <value>Increases {stat} by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Compiler" xml:space="preserve">
+        <value>Data Flood</value>
+    </data>
+    <data name="Buffs.Engines.Compiler.0" xml:space="preserve">
+        <value>Increases {stat} by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Compiler.1" xml:space="preserve">
+        <value>When using a Special Attack or EX Special Attack, the equipper's {stat} is increased by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Cradle" xml:space="preserve">
+        <value>Punishment</value>
+    </data>
+    <data name="Buffs.Engines.Cradle.0" xml:space="preserve">
+        <value>While off-field, {stat} increases by {value}/s.</value>
+    </data>
+    <data name="Buffs.Engines.Cradle.1" xml:space="preserve">
+        <value>Attacks from the equipper enhance the squad's &lt;span class="rz-color-stat"&gt;&lt;b&gt;DMG&lt;/b&gt;&lt;/span&gt; against a struck target by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Cradle.2" xml:space="preserve">
+        <value>While the buff is active the effect is further increased by {value} every 0.5s. Each increase is represented by one stack.</value>
+    </data>
+    <data name="Buffs.Engines.Cushion" xml:space="preserve">
+        <value>Metal Cat Claws</value>
+    </data>
+    <data name="Buffs.Engines.Cushion.0" xml:space="preserve">
+        <value>Increases {stat} by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Cushion.1" xml:space="preserve">
+        <value>The equipper's DMG increases by {value} when attacking the enemy from behind.</value>
+    </data>
+    <data name="Buffs.Engines.Cylinder" xml:space="preserve">
+        <value>Ten Top Ten</value>
+    </data>
+    <data name="Buffs.Engines.Cylinder.0" xml:space="preserve">
+        <value>Reduces DMG taken by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Decrescent" xml:space="preserve">
+        <value>Waning Moon</value>
+    </data>
+    <data name="Buffs.Engines.Decrescent.0" xml:space="preserve">
+        <value>Launching a Chain Attack or Ultimate increases the equipper's DMG by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.DeepSea" xml:space="preserve">
+        <value>Lord of Seas</value>
+    </data>
+    <data name="Buffs.Engines.DeepSea.0" xml:space="preserve">
+        <value>Increases {stat} by 25%.</value>
+    </data>
+    <data name="Buffs.Engines.DeepSea.1" xml:space="preserve">
+        <value>Dealing &lt;span class="rz-color-ice"&gt;&lt;b&gt;Ice DMG&lt;/b&gt;&lt;/span&gt; using Dash Attacks or Dodge Counters increases the equipper's {stat} by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.DeepSea.2" xml:space="preserve">
+        <value>When Dealing &lt;span class="rz-color-ice"&gt;&lt;b&gt;Ice DMG&lt;/b&gt;&lt;/span&gt; with a Dash Attack, the equipper's {stat} increases by an additional 1{value}.</value>
+    </data>
+    <data name="Buffs.Engines.Drill" xml:space="preserve">
+        <value>Hell's Generator</value>
+    </data>
+    <data name="Buffs.Engines.Drill.0" xml:space="preserve">
+        <value>When launching an EX Special Attack or Chain Attack, {stat} from Basic Attacks and Dash Attacks increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.ElectroLip" xml:space="preserve">
+        <value>Kiss of Death</value>
+    </data>
+    <data name="Buffs.Engines.ElectroLip.0" xml:space="preserve">
+        <value>When there are enemies inflicted with Attribute Anomaly on the field, the equipper's {stat} increases by {value} and they deal an additional {values.1} more DMG to the target.</value>
+    </data>
+    <data name="Buffs.Engines.GameBall" xml:space="preserve">
+        <value>Game Start!</value>
+    </data>
+    <data name="Buffs.Engines.GameBall.0" xml:space="preserve">
+        <value>Whenever the equipper's attack triggers an Attribute Counter effect, all squad members' {stat} against the struck enemy increases by {value}</value>
+    </data>
+    <data name="Buffs.Engines.Gemini" xml:space="preserve">
+        <value>Lingering Cries</value>
+    </data>
+    <data name="Buffs.Engines.Gemini.0" xml:space="preserve">
+        <value>Whenever a squad member inflicts an Attribute Anomaly on an enemy, the equipper gains a buff that increases {stat} by {value}, stacking up to 4 times. This effect expires when the target recovers from Stun or is defeated.</value>
+    </data>
+    <data name="Buffs.Engines.Hatchet" xml:space="preserve">
+        <value>Riptide</value>
+    </data>
+    <data name="Buffs.Engines.Hatchet.0" xml:space="preserve">
+        <value>Upon entering combat or switching in, the equipper's {stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Hellfire" xml:space="preserve">
+        <value>Passionate Construction
+</value>
+    </data>
+    <data name="Buffs.Engines.Hellfire.0" xml:space="preserve">
+        <value>When off-field, the equipper's {stat} increases by {value}/s</value>
+    </data>
+    <data name="Buffs.Engines.Hellfire.1" xml:space="preserve">
+        <value>When using an EX Special Attack, the equipper's {stat} is increased by {value}, stacking up to 2 times.</value>
+    </data>
+    <data name="TODO.1" xml:space="preserve">
+        <value>Check time in buffs before this comment.</value>
+    </data>
+    <data name="Buffs.Engines.Housekeeper" xml:space="preserve">
+        <value>Safe Household Saw</value>
+    </data>
+    <data name="Buffs.Engines.Housekeeper.0" xml:space="preserve">
+        <value>While off-field, the equipper's {stat} increases by {value}/s.</value>
+    </data>
+    <data name="Buffs.Engines.Housekeeper.1" xml:space="preserve">
+        <value> When an EX Special Attack hits an enemy, the equipper's {stat} increases by {value}, stacking up to 15 times and lasting 1s. Repeated triggers reset the duration.</value>
+    </data>
+    <data name="Buffs.Engines.Inflection" xml:space="preserve">
+        <value>Dazzle</value>
+    </data>
+    <data name="Buffs.Engines.Inflection.0" xml:space="preserve">
+        <value>When attacked, reduces the attacker's DMG by {value} for 12s.</value>
+    </data>
+    <data name="Buffs.Engines.Kaboom" xml:space="preserve">
+        <value>Stampede Accident</value>
+    </data>
+    <data name="Buffs.Engines.Kaboom.0" xml:space="preserve">
+        <value>When any friendly unit in the squad attacks and hits an enemy, all squad members' {stat} increases by {value} for 8s, stacking up to 4 times. The duration of each stack is calculated separately, and each friendly unit can provide 1 stack of the buff. </value>
+    </data>
+    <data name="Buffs.Engines.Mark1" xml:space="preserve">
+        <value>Changing Tides
+</value>
+    </data>
+    <data name="Buffs.Engines.Mark1.0" xml:space="preserve">
+        <value>Launching an EX Special Attack increases all squad members' {stat} by {value} for 10s. This effect can trigger every 20s.</value>
+    </data>
+    <data name="Buffs.Engines.Mark2" xml:space="preserve">
+        <value>Roaring Waves</value>
+    </data>
+    <data name="Buffs.Engines.Mark2.0" xml:space="preserve">
+        <value>Launching an EX Special Attack or Chain Attack increases all squad members' {stats.0} and {stats.1} by {value} for 10s. This effect can trigger once every 20s.</value>
+    </data>
+    <data name="Buffs.Engines.Mark3" xml:space="preserve">
+        <value>Booming Sound</value>
+    </data>
+    <data name="Buffs.Engines.Mark3.0" xml:space="preserve">
+        <value>Launching a Chain Attack or Ultimate increases all squad members' {stat} by {value} for 10s. This effect can trigger once every 20s. </value>
+    </data>
+    <data name="Buffs.Engines.Peacekeeper" xml:space="preserve">
+        <value>Standard Blocking Technique</value>
+    </data>
+    <data name="Buffs.Engines.Peacekeeper.0" xml:space="preserve">
+        <value>While Shielded, the equipper's {stat} increases by {value}/s.</value>
+    </data>
+    <data name="Buffs.Engines.Pleniluna" xml:space="preserve">
+        <value>Full Moon</value>
+    </data>
+    <data name="Buffs.Engines.Pleniluna.0" xml:space="preserve">
+        <value>Basic Attack, Dash Attack, and Dodge Counter DMG increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Rainforest" xml:space="preserve">
+        <value>Dinner's Ready!</value>
+    </data>
+    <data name="Buffs.Engines.Rainforest.0" xml:space="preserve">
+        <value>For every 10 Energy consumed, the equipper gains a buff that increases {stat} by {value} for 10s, stacking up to 10 times. The duration of each stack is calculated separately.</value>
+    </data>
+    <data name="Buffs.Engines.Roaring" xml:space="preserve">
+        <value>Collision Potential</value>
+    </data>
+    <data name="Buffs.Engines.Roaring.0" xml:space="preserve">
+        <value>When EX special Attack hits an enemy, one of three possible effects is randomly triggered for 5 seconds. This effect can trigger once every 0.3s. the same types of effects cannot stack. Repeated triggers reset the duration, allowing several effects to be active at once</value>
+    </data>
+    <data name="Buffs.Engines.Roaring.1" xml:space="preserve">
+        <value>Increases the equipper's {stat} by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Roaring.2" xml:space="preserve">
+        <value>Increases the equipper's {stat} by {value}.</value>
+    </data> <data name="Buffs.Engines.Roaring.3" xml:space="preserve">
+        <value>Increases the equipper's {stat} by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Spring" xml:space="preserve">
+        <value>Hot Spring Soup</value>
+    </data>
+    <data name="Buffs.Engines.Spring.0" xml:space="preserve">
+        <value>Reduces DMG taken by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Spring.1" xml:space="preserve">
+        <value>When attacked, the equipper's {stat} increase by {value} for 12s. When the equipper switches off-field, this buff will be transferred to the new on-field character with its duration refreshed. </value>
+    </data>
+    <data name="Buffs.Engines.Starlight" xml:space="preserve">
+        <value>Knight Plummel</value>
+    </data>
+    <data name="Buffs.Engines.Starlight.0" xml:space="preserve">
+        <value>Launching a Dodge Counter or Quick Assist increases the equipper's {stat} by {value} for 12s.</value>
+    </data>
+    <data name="Buffs.Engines.StarlightReplica" xml:space="preserve">
+        <value>Knight Beam: Change</value>
+    </data>
+    <data name="Buffs.Engines.StarlightReplica.0" xml:space="preserve">
+        <value>Increases the equipper's {stat} by {value} for 8s upon hitting an enemy at least 6 meters away with a Basic Attack or Dash Attack.</value>
+    </data>
+    <data name="Buffs.Engines.Steam" xml:space="preserve">
+        <value>Thick Broth</value>
+    </data>
+    <data name="Buffs.Engines.Steam.0" xml:space="preserve">
+        <value>For every 10 Energy accumulated, the equipper's {stat} is increased by {value}, stacking up to 8 times. After Energy is consumed, this bonus remains for 8 more seconds. The duration of each stack is calculated separately.</value>
+    </data>
+    <data name="Buffs.Engines.Stinger" xml:space="preserve">
+        <value>Indulge in the Hunt</value>
+    </data>
+    <data name="Buffs.Engines.Stinger.0" xml:space="preserve">
+        <value>Upon activating a Dash Attack, gain 1 stack of Predatory Instinct. Each stack of Predatory Instinct increases the equipper's {stat} by {value} for 10s, stacking up to 3 times. This effect can trigger once every 0.5s and repeated triggers reset the duration. When entering combat or triggering Perfect Dodge, gain 3 stacks of Predatory Instinct.</value>
+    </data>
+    <data name="Buffs.Engines.Stinger.1" xml:space="preserve">
+        <value>While Predatory Instinct is at maximum stacks, the equipper's {stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Superstar" xml:space="preserve">
+        <value>Flaming Bars</value>
+    </data>
+    <data name="Buffs.Engines.Superstar.0" xml:space="preserve">
+        <value>Whenever a squad member launches a Chain Attack, the equipper gains a Charge stack, stacking up to 3 times. Upon activating their own Ultimate, the equipper consumes all Charge stacks, and each stack increases the skill's DMG by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Suppressor" xml:space="preserve">
+        <value>Binding Chains</value>
+    </data>
+    <data name="Buffs.Engines.Suppressor.0" xml:space="preserve">
+        <value>Increases {stat} by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Suppressor.1" xml:space="preserve">
+        <value>Launching an EX Special Attack grants the equipper 8 Charge stacks, stacking up to 8 times, up to a maximum of 8 stacks. Whenever the equipper's Basic Attack deals &lt;span class="rz-color-ether"&gt;&lt;b&gt;Ether DMG&lt;/b&gt;&lt;/span&gt;, consumes a Charge stack and increases the skill's DMG by {value}. If this buff is enabled means that the agent have stacks, the stack amount doesn't matter.</value>
+    </data>
+    <data name="Buffs.Engines.Teapot" xml:space="preserve">
+        <value>Ringing Melody</value>
+    </data>
+    <data name="Buffs.Engines.Teapot.0" xml:space="preserve">
+        <value>When a Basic Attack hits an enemy, gain 1 stack of Tea-riffic. Each stack of Tea-riffic increases the user's {stat} by {value}, stacking up to 30 times, and lasting for 8s. The duration of each stack is calculated separately.</value>
+    </data>
+    <data name="Buffs.Engines.Teapot.1" xml:space="preserve">
+        <value>Upon acquiring Tea-riffic, if the equipper possesses stacks of Tea-riffic greater than or equal to 15, all squad members' DMG is increased by {value} for 10s.</value>
+    </data>
+    <data name="Buffs.Engines.TheVault" xml:space="preserve">
+        <value>Money-Lover</value>
+    </data>
+    <data name="Buffs.Engines.TheVault.0" xml:space="preserve">
+        <value>Dealing Ether DMG using an EX Special Attack, Chain Attack, or Ultimate increases all squad members' DMG against the target by {value} and increases the equipper's {stats.1} by {values.1}/s for 2s.</value>
+    </data>
+    <data name="Buffs.Engines.Transmorpher" xml:space="preserve">
+        <value>Starlight Knight Flying Kick</value>
+    </data>
+    <data name="Buffs.Engines.Transmorpher.0" xml:space="preserve">
+        <value>Increases {stat} by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Transmorpher.1" xml:space="preserve">
+        <value> When attacked, the equipper's {stat} is increased by {value} for 12s.</value>
+    </data>
+    <data name="Buffs.Engines.TuskOfFury" xml:space="preserve">
+        <value>Invincible Rider</value>
+    </data>
+    <data name="Buffs.Engines.TuskOfFury.0" xml:space="preserve">
+        <value>The {stat} provided by the equipper increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.TuskOfFury.1" xml:space="preserve">
+        <value>When any squad member triggers Interrupt or Perfect Dodge, all squad members' DMG increases by {value}.</value>
     </data>
 </root>

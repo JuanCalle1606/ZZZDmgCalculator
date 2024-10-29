@@ -37,7 +37,7 @@ public class StingerData {
 			},
 
 			new()
-			{
+			{ // TODO: Change to Buildup Rate when implemented
 				Scales = [EngineScales.Templates["Stinger.Buff1"]],
 				Type = BuffTrigger.Permanent,
 				Depends = 0,

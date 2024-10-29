@@ -77,7 +77,7 @@ public class AgentState : IModifierContainer, IBuffContainer {
 			UpdateAllStats();
 		}
 	}
-	
+
 	public EntityState Stats { get; } = new();
 
 	/// <summary>
@@ -93,15 +93,16 @@ public class AgentState : IModifierContainer, IBuffContainer {
 	public IList<StatModifier> Modifiers { get; } = new List<StatModifier>();
 
 	readonly List<IModifierContainer> _modChildren = [];
+
 	IEnumerable<IModifierContainer> IModifierContainer.Children => _modChildren;
-	
+
 	readonly List<IBuffContainer> _buffChildren = [];
-	
+
 	BuffState[] _coreBuffs = null!;
 	BuffState[] _additionalBuffs = null!;
 
 	IEnumerable<IBuffContainer> IBuffContainer.Children => _buffChildren;
-	
+
 	public BuffSource Source => BuffSource.Agent;
 
 	public List<BuffState> Buffs { get; } = [];
@@ -123,7 +124,7 @@ public class AgentState : IModifierContainer, IBuffContainer {
 			{
 				_modChildren.Add(_engine);
 				_buffChildren.Add(_engine);
-				_engine.CheckDependencies(Info.Specialty == _engine.Info.Type);
+				_engine.CheckDependencies(true);
 				_engine.UpdateOwner(this);
 			}
 			UpdateAllStats();
@@ -137,10 +138,10 @@ public class AgentState : IModifierContainer, IBuffContainer {
 	 * The full set is when the agent has 4 discs of the same type.
 	 */
 	List<DiscSetState> DiscSets { get; } = new(3);
-	
+
 	public AgentState(AgentInfo info) {
 		Info = info;
-		
+
 		InitBaseStats();
 
 		foreach (var baseStat in _baseStats)
@@ -168,7 +169,7 @@ public class AgentState : IModifierContainer, IBuffContainer {
 		CheckDiscSets();
 		UpdateAllStats();
 	}
-	
+
 	void CheckDiscSets() {
 		var discGroups = Discs.Where(d => d is not null)
 			.GroupBy(d => d!.Disc).ToArray();
@@ -205,25 +206,25 @@ public class AgentState : IModifierContainer, IBuffContainer {
 		RemoveDiscSet(halfSets);
 		AddDiscSet(halfSets);
 	}
-	
+
 	public void SetAdditionalStatus(bool status) {
 		var current = _additionalBuffs.Any(b => b.Available);
 		if (current == status) return;
-		
+
 		foreach (var buff in _additionalBuffs)
 		{
 			buff.Available = status;
 		}
 		UpdateAllStats();
 	}
-	
+
 	void InitBuffs() {
-		_coreBuffs = Info.CoreBuff.Select(b=>new BuffState(b)
+		_coreBuffs = Info.CoreBuff.Select(b => new BuffState(b)
 		{
 			SourceInfo = Info,
 			Owner = this
 		}).ToArray();
-		_additionalBuffs = Info.AdditionalBuff.Select(b=>new BuffState(b)
+		_additionalBuffs = Info.AdditionalBuff.Select(b => new BuffState(b)
 		{
 			SourceInfo = Info,
 			Owner = this
@@ -231,7 +232,7 @@ public class AgentState : IModifierContainer, IBuffContainer {
 		Buffs.AddRange(_coreBuffs);
 		Buffs.AddRange(_additionalBuffs);
 	}
-	
+
 	void AddDiscSet(IGrouping<Discs, DiscState?>[] halfSets) {
 		// when a disc is added whe need to add a possible set to the list
 		var toadd = halfSets.Select(s => s.Key).Except(DiscSets.Select(ds => ds.Disc)).Cast<Discs?>().FirstOrDefault();
@@ -249,12 +250,12 @@ public class AgentState : IModifierContainer, IBuffContainer {
 		// when a disc is removed, we need to check if the set is still valid
 		var toremove = DiscSets.Select(d => d.Disc).Except(halfSets.Select(s => s.Key)).Cast<Discs?>().FirstOrDefault();
 		if (toremove is null) return;
-		
+
 		var set = DiscSets.First(ds => ds.Disc == toremove);
 		DiscSets.Remove(set);
 		_modChildren.Remove(set);
 	}
-	
+
 	void InitBaseStats() {
 		// Initialize base stats
 		_baseStats[Atk] = new() { Stat = Atk, Value = Info.BaseStats[0][(int)_ascension] };
@@ -285,7 +286,7 @@ public class AgentState : IModifierContainer, IBuffContainer {
 	}
 	void UpdateCombatStats() {
 		Stats.Combat.Reset();
-		
+
 		var percent = ListModifiers(StatModifiers.CombatPercent)
 			.GroupBy(mod => mod.Stat)
 			.Select(group => new KeyValuePair<Stats, double>(group.Key, group.Sum(mod => mod.Value)));
@@ -305,7 +306,7 @@ public class AgentState : IModifierContainer, IBuffContainer {
 		{
 			Stats.Combat[flatPair.Key] += flatPair.Value;
 		}
-		
+
 		var flat2 = ListModifiers(StatModifiers.Combat)
 			.GroupBy(mod => mod.Stat)
 			.Select(group => new KeyValuePair<Stats, double>(group.Key, group.Sum(mod => mod.Value)));
@@ -319,7 +320,7 @@ public class AgentState : IModifierContainer, IBuffContainer {
 	void UpdateBaseStats() {
 		// reset all stat
 		Stats.Base.Reset();
-		
+
 		foreach (var stat in ListModifiers(StatModifiers.Base))
 		{
 			Stats.Base[stat.Stat] += stat.Value;
@@ -329,14 +330,21 @@ public class AgentState : IModifierContainer, IBuffContainer {
 	IEnumerable<StatModifier> ListModifiers(StatModifiers modifier) {
 		IModifierContainer container = this;
 		IBuffContainer buffContainer = this;
+
+
 		return container.AllModifiers
-			.Concat(buffContainer.AllBuffs.Where(b=>b is { Available: true, Active: true }).SelectMany(b => b.Modifiers))
+			.Concat(buffContainer.AllBuffs.Where(b => b is { Available: true, Active: true }).SelectMany(b => {
+				// sometimes shared buffs have not shared modifiers
+				if (b.Shared && b.Owner != this)
+					return b.Modifiers.Where(m => m.Shared);
+				return b.Modifiers;
+			}))
 			.Where(m => m.Type == modifier && m is { Enemy: false, Agent: false });
 	}
-	
+
 	void UpdateBonusStats() {
 		Stats.Bonus.Reset();
-		
+
 		var percent = ListModifiers(StatModifiers.BasePercent)
 			.GroupBy(mod => mod.Stat)
 			.Select(group => new KeyValuePair<Stats, double>(group.Key, group.Sum(mod => mod.Value)));

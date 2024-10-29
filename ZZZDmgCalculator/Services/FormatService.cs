@@ -19,8 +19,8 @@ public class FormatService(InfoService info) {
 
 		var data = new
 		{
-			stat = stats.First(),
-			value = values.First(),
+			stat = stats.FirstOrDefault(),
+			value = values.FirstOrDefault(),
 			stats = stats,
 			values = values
 		};

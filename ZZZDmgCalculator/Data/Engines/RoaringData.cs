@@ -24,6 +24,10 @@ public class RoaringData {
 		SubStats = EngineScales.Templates["SliceOfTime.Sub"],
 		Passives =
 		[
+			new ()
+			{
+				Type = BuffTrigger.Permanent
+			},
 			new()
 			{
 				Scales = [EngineScales.Templates["Transmorpher.Buff"]],
@@ -44,7 +48,7 @@ public class RoaringData {
 				}
 			},
 
-			new()
+			new() // This is Buildup rate, not mastery, need change when implemented
 			{
 				Scales = [EngineScales.Templates["Bravo.Buff"]],
 				Modifiers = new StatModifier

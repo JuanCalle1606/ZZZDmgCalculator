@@ -40,7 +40,7 @@ public class TuskOfFuryData {
 				}
 			},
 			new()
-			{
+			{// Add daze when implemented
 				Scales = [Templates["TuskOfFury.Buff1"]],
 				Modifiers = new StatModifier
 				{
