@@ -17,8 +17,8 @@ public partial class BuffSetup {
 	List<BuffState> _sharedBuffs = null!;
 	List<BuffState> _agentBuffs = null!;
 
-	protected override void OnInitialized() {
-		base.OnInitialized();
+	protected override void OnParametersSet() {
+		base.OnParametersSet();
 		IBuffContainer container = Agent;
 		_agentBuffs = container.Buffs;
 		_engineBuffs = container.Children.Where(c => c.Source == BuffSource.Engine).SelectMany(c => c.Buffs).ToList();
