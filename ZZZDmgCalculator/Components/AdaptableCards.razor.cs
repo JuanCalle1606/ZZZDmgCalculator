@@ -13,12 +13,15 @@ public partial class AdaptableCards {
 	public RenderFragment ChildContent { get; set; } = null!;
 	
 	protected override void OnBrowserResize(BrowserDimension dimension) {
+		const int widthMax = 550;
+		const int widthMin = 400;
 		CardWith = dimension.Width switch
 		{
-			> 1900 => 450,
-			< 1420 => 400,
-			_ => (dimension.Width - 1420) * (450 - 400) / (1900 - 1420) + 400
+			> 1900 => widthMax,
+			< 1275 => widthMin,
+			_ => (dimension.Width - 1275) * (widthMax - widthMin) / (1900 - 1275) + widthMin
 		};
+		Console.WriteLine(CardWith);
 
 		Phone = dimension.Width < 576;
 

@@ -5,6 +5,7 @@
 	position: relative;
 	width: 100%;
 	aspect-ratio: 1/ 0.9577804583835947;
+	max-width: 400px;
 }
 
 .agent-equipment {

@@ -9,7 +9,6 @@ body {
 }
 
 .body-content > .rz-stack > .rz-card {
-	max-width: 450px;
 	min-width: 400px;
 }
 
