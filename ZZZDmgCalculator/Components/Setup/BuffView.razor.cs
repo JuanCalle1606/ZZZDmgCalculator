@@ -14,14 +14,14 @@ public partial class BuffView {
 	{
 		get
 		{
-			if(Buff.Shared && Buff.Owner != State.CurrentAgent)
+			if (Buff.Shared && Buff.Owner != State.CurrentAgent && Buff.SourceInfo is not AgentInfo)
 				return Buff.Owner.Info;
-			
+
 			return null;
 		}
 	}
-		
-	string Url => 
+
+	string Url =>
 		Buff.SourceInfo is DiscInfo info ? $"icons/discs/Setup_Disc_{info.Id.ToUnderscore()}.png" : Buff.SourceInfo?.Url ?? string.Empty;
 
 	protected override void OnInitialized() {
@@ -33,7 +33,7 @@ public partial class BuffView {
 		Buff.Stacks = val;
 		NotifyAll();
 	}
-	
+
 	void NotifyAll() {
 		if (Buff.Shared)
 		{
@@ -48,7 +48,7 @@ public partial class BuffView {
 		}
 		Notifier.BuffUpdated(Buff);
 	}
-	
+
 	void SwitchChanged(bool obj) {
 		Buff.Enabled = obj;
 		NotifyAll();
@@ -62,7 +62,7 @@ public partial class BuffView {
 		NotifyAll();
 		StateHasChanged();
 	}
-	
+
 	protected override void OnDisposableBag(DisposableBagBuilder bag) {
 		Notifier.OnBuffChanged.Subscribe(CheckIfNeedUpdate).AddTo(bag);
 	}
