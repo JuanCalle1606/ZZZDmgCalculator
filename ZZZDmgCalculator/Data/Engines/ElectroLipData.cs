@@ -26,7 +26,7 @@ public class ElectroLipData {
 		[
 			new()
 			{
-				Scales = [EngineScales.Templates["Spring.Buff1"]],
+				Scales = [EngineScales.Templates["Spring.Buff1"], EngineScales.Templates["ElectroLip.Buff"]],
 				Modifiers =
 				[
 					new()
