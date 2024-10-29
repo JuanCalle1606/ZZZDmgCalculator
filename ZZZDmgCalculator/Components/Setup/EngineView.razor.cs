@@ -23,13 +23,13 @@ public partial class EngineView {
 
 	void RefinementChanged(int refinement) {
 		Engine.Refinement = refinement;
-		State.CurrentAgent.UpdateAllStats();
+		State.CurrentAgent!.UpdateAllStats();
 		Notifier.CurrentEngineUpdated();
 	}
 	
 	void AscensionChanged(AscensionState ascension) {
 		Engine.Ascension = ascension;
-		State.CurrentAgent.UpdateAllStats();
+		State.CurrentAgent!.UpdateAllStats();
 		Notifier.CurrentEngineUpdated();
 	}
 	

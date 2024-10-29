@@ -7,8 +7,8 @@ public class NotifierService : IDisposable {
 	
 	readonly StateService _stateService;
 
-	readonly IDisposablePublisher<AgentState> _currentAgentChangedPublisher;
-	public ISubscriber<AgentState> OnCurrentAgentChanged { get; }
+	readonly IDisposablePublisher<AgentState?> _currentAgentChangedPublisher;
+	public ISubscriber<AgentState?> OnCurrentAgentChanged { get; }
 	
 	readonly IDisposablePublisher<EngineState?> _currentEngineChangedPublisher;
 	public ISubscriber<EngineState?> OnCurrentEngineChanged { get; }
@@ -21,7 +21,7 @@ public class NotifierService : IDisposable {
 	
 	public NotifierService(EventFactory eventFactory, StateService stateService) {
 		_stateService = stateService;
-		(_currentAgentChangedPublisher, OnCurrentAgentChanged) = eventFactory.CreateEvent<AgentState>();
+		(_currentAgentChangedPublisher, OnCurrentAgentChanged) = eventFactory.CreateEvent<AgentState?>();
 		(_currentEngineChangedPublisher, OnCurrentEngineChanged) = eventFactory.CreateEvent<EngineState?>();
 		(_currentDiscChangedPublisher, OnCurrentDiscChanged) = eventFactory.CreateEvent<KeyValuePair<int, DiscState?>>();
 		(_buffChangedPublisher, OnBuffChanged) = eventFactory.CreateEvent<BuffState>();
@@ -37,12 +37,12 @@ public class NotifierService : IDisposable {
 	}
 
 	public void SwapCurrentEngine(EngineState? newEngine) {
-		_stateService.CurrentAgent.Engine = newEngine;
+		_stateService.CurrentAgent!.Engine = newEngine;
 		CurrentEngineUpdated();
 	}
 	
 	public void CurrentEngineUpdated() {
-		_currentEngineChangedPublisher.Publish(_stateService.CurrentAgent.Engine);
+		_currentEngineChangedPublisher.Publish(_stateService.CurrentAgent!.Engine);
 	}
 	
 	public void BuffUpdated(BuffState buff) {
@@ -59,11 +59,11 @@ public class NotifierService : IDisposable {
 	}
 	
 	public void SwapCurrentDisc(int i, DiscState? info) {
-		_stateService.CurrentAgent.SetDisc(info, i);
+		_stateService.CurrentAgent!.SetDisc(info, i);
 		CurrentDiscUpdated(i);
 	}
 	
 	public void CurrentDiscUpdated(int i) {
-		_currentDiscChangedPublisher.Publish(new(i, _stateService.CurrentAgent.Discs[i]));
+		_currentDiscChangedPublisher.Publish(new(i, _stateService.CurrentAgent!.Discs[i]));
 	}
 }

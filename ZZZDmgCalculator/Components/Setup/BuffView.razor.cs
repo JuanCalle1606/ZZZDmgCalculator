@@ -44,7 +44,7 @@ public partial class BuffView {
 		}
 		else
 		{
-			State.CurrentAgent.UpdateAllStats();
+			State.CurrentAgent!.UpdateAllStats();
 		}
 		Notifier.BuffUpdated(Buff);
 	}

@@ -21,7 +21,7 @@
 						<RadzenLabel>@Info[i3 == 3 ? Skills.Special : _skills[i3]].DisplayName:</RadzenLabel>
 						<div>
 							<RadzenLabel>@SkillLevels[i3]</RadzenLabel>
-							@switch (State.CurrentAgent.Cinema)
+							@switch (State.CurrentAgent!.Cinema)
 							{
 								case > 4:
 									<RadzenLabel class="rz-color-success-light rz-ml-1">(+4)</RadzenLabel>

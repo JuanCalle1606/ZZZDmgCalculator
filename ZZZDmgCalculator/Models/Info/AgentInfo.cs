@@ -48,16 +48,16 @@ public class AgentInfo : BaseInfo {
 		{
 			var buffInfo = CoreBuff[i];
 			buffInfo.Id = $"Buffs.Agents.{Id}.Core.{i}";
-			buffInfo.DisplayName = lang[buffInfo.Id];
-			buffInfo.Description = lang[$"{buffInfo.Id}.Desc"];
+			buffInfo.DisplayName = lang[$"Buffs.Agents.{Id}.Core"];
+			buffInfo.Description = lang[buffInfo.Id];
 		}
 		
 		for (var i = 0; i < AdditionalBuff.Count; i++)
 		{
 			var buffInfo = AdditionalBuff[i];
 			buffInfo.Id = $"Buffs.Agents.{Id}.Additional.{i}";
-			buffInfo.DisplayName = lang[buffInfo.Id];
-			buffInfo.Description = lang[$"{buffInfo.Id}.Desc"];
+			buffInfo.DisplayName = lang[$"Buffs.Agents.{Id}.Additional"];
+			buffInfo.Description = lang[buffInfo.Id];
 		}
 	}
 }

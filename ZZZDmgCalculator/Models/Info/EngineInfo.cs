@@ -26,11 +26,11 @@ public class EngineInfo : BaseInfo {
 		{
 			var buffInfo = Passives[i];
 			buffInfo.Id = $"Buffs.Engines.{Id}.{i}";
-			buffInfo.DisplayName = lang[buffInfo.Id];
-			buffInfo.Description = lang[$"{buffInfo.Id}.Desc"];
+			buffInfo.DisplayName = lang[$"Buffs.Engines.{Id}"];
+			buffInfo.Description = lang[buffInfo.Id];
 		}
 		if (Skill == null) return;
 		Skill.DisplayName = lang[$"Skills.Engines.{Id}"];
-		Skill.Description = lang[$"Skills.Engines.{Id}.Desc"];
+		Skill.Description = lang[$"Skills.Engines.{Id}.0"];
 	}
 }

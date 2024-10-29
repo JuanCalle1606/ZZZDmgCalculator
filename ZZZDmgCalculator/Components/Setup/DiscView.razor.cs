@@ -37,13 +37,13 @@ public partial class DiscView {
 	
 	void RankChanged(ItemRank rank) {
 		Disc.Rank = rank;
-		State.CurrentAgent.UpdateAllStats();
+		State.CurrentAgent!.UpdateAllStats();
 		Notifier.CurrentDiscUpdated(Index);
 	}
 
 	void LevelChanged(int level) {
 		Disc.Level = level;
-		State.CurrentAgent.UpdateAllStats();
+		State.CurrentAgent!.UpdateAllStats();
 		Notifier.CurrentDiscUpdated(Index);
 	}
 
@@ -53,7 +53,7 @@ public partial class DiscView {
 	void MainStatChanged(int i) {
 		var newStat = _discStatInfos[i];
 		Disc.MainStatInfo = newStat;
-		State.CurrentAgent.UpdateAllStats();
+		State.CurrentAgent!.UpdateAllStats();
 		Notifier.CurrentDiscUpdated(Index);
 	}
 	string GetStatDisplay(DiscStatInfo stat, int li) {
@@ -63,18 +63,18 @@ public partial class DiscView {
 		// we want to keep the same roll but change the stat
 		Disc.SubStats.Replace(stat, newStat);
 		
-		State.CurrentAgent.UpdateAllStats();
+		State.CurrentAgent!.UpdateAllStats();
 		Notifier.CurrentDiscUpdated(Index);
 	}
 	void AddNewSubStat() {
 		var newStat = _discSubStatInfos.First(ss => !Disc.SubStats.Contains(ss));
 		Disc.SubStats.Add(newStat);
-		State.CurrentAgent.UpdateAllStats();
+		State.CurrentAgent!.UpdateAllStats();
 		Notifier.CurrentDiscUpdated(Index);
 	}
 	void RollsChanged(int li, int i1) {
 		Disc.SubStats.Rolls[li] = i1;
-		State.CurrentAgent.UpdateAllStats();
+		State.CurrentAgent!.UpdateAllStats();
 		Notifier.CurrentDiscUpdated(Index);
 	}
 }
