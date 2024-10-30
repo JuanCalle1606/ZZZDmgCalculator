@@ -20,6 +20,10 @@
 	border-width: .1rem;
 }
 
+.avatar-selected {
+	box-shadow: 0 0 3px 3px var(--rz-primary);
+}
+
 .buff-permanent span {
 	background: var(--rz-switch-background-color);
 	border-radius: calc(5 * var(--rz-border-radius));

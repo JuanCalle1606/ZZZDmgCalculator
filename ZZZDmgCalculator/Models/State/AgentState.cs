@@ -395,6 +395,8 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 				// sometimes shared buffs have not shared modifiers
 				if (b.Shared && b.Owner != this)
 					return b.Modifiers.Where(m => m.Shared);
+				if (b.Info.Pass && b.AppliedTo != this)
+					return [];
 				return b.Modifiers;
 			}))
 			.Where(m => m.Type == modifier && m is { Enemy: false, Agent: false });

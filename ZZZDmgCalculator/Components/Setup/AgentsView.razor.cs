@@ -37,6 +37,11 @@ public partial class AgentsView {
 		var index = Agents.Select((a, i) => (a, i)).First(i => i.a != null && i.i != State.CurrentAgentIndex).i;
 		State.CurrentAgent = null;
 		State.CurrentAgentIndex = index;
+		foreach (var agent in Agents.Where(a=>a is not null))
+		{
+			agent!.UpdateAllStats();
+			
+		}
 		Notifier.CurrentAgentChanged();
 	}
 	

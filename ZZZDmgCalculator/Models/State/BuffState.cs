@@ -1,5 +1,6 @@
 namespace ZZZDmgCalculator.Models.State;
 
+using System.Diagnostics.CodeAnalysis;
 using Abstractions;
 using Enum;
 using Info;
@@ -8,6 +9,7 @@ public class BuffState : IModifierContainer {
 	int _stacks;
 
 	int _scale;
+	AgentState? _appliedTo;
 
 	/**
 	 * Get if this buff is available to be used.
@@ -66,6 +68,13 @@ public class BuffState : IModifierContainer {
 	public IBuffDependencyChecker? DependencyChecker { get; set; }
 
 	public AgentState Owner { get; set; } = null!;
+	
+	public  AgentState? AppliedTo
+	{
+		[return: NotNull]
+		get => _appliedTo ?? Owner;
+		set => _appliedTo = value;
+	}
 
 	public BuffState(BuffInfo info) {
 		Info = info;

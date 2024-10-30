@@ -1,6 +1,7 @@
 @using ZZZDmgCalculator.Models.State
 @using ZZZDmgCalculator.Util
 @inherits MainComponent
+
 @inject FormatService Format
 
 <RadzenCard Variant="Variant.Flat" class="rz-background-color-base-700 rz-p-2 rz-border-radius-5">
@@ -63,6 +64,22 @@
 				<RadzenText TextStyle="TextStyle.Body2" class="rz-text-disabled-color">
 					@Lang["BuffSharedWarning"]
 				</RadzenText>
+			}
+
+			if (Buff.Info.Pass && !Buff.HasDependencies)
+			{
+				<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.End">
+					<RadzenText TextStyle="TextStyle.Body2" class="rz-pr-2">
+						Apply to:
+					</RadzenText>
+					@foreach(var target in State.CurrentSetup.Agents.Where(a=>a is not null))
+					{
+						<div class=@($"source-info-avatar {(target == Buff.AppliedTo ? "avatar-selected" : "pointer")}")
+						     @onclick="() => ApplyToChanged(target!)">
+							<img alt src="@target!.Info.Url"/>
+						</div>
+					}
+				</RadzenStack>
 			}
 		}
 		else

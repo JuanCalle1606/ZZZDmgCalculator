@@ -19,23 +19,29 @@ public class SetupState : IBuffContainer {
 
 	public List<BuffState> Buffs { get; } = [];
 
-	public IEnumerable<BuffState> AllBuffs => Children.SelectMany(c => c.SelfBuffs).Where(b => b.Shared);
+	public IEnumerable<BuffState> AllBuffs => Children.SelectMany(c => c.SelfBuffs).Where(b => b.Shared || b.Info.Pass);
 
 	public AgentState? this[int currentAgentIndex]
 	{
 		get => Agents[currentAgentIndex]!;
 		set
 		{
-			if(Agents[currentAgentIndex] is {} current)
+			if (Agents[currentAgentIndex] is {} current)
+			{
+				foreach (var buff in AllBuffs.Where(b => b.AppliedTo == current))
+				{
+					buff.AppliedTo = null;
+				}
 				current.SharedContainer = null;
-			Agents[currentAgentIndex] = value; 
-			if(value != null)
+			}
+			Agents[currentAgentIndex] = value;
+			if (value != null)
 				value.SharedContainer = this;
 
-			foreach (var agent in Agents.Where(a=>a is not null))
+			foreach (var agent in Agents.Where(a => a is not null))
 			{
 				agent!.SetAdditionalStatus(
-					Agents.Any(a => a is not null && a != agent && agent.Info.AdditionalCondition(agent.Info, a.Info))
+				Agents.Any(a => a is not null && a != agent && agent.Info.AdditionalCondition(agent.Info, a.Info))
 				);
 			}
 		}

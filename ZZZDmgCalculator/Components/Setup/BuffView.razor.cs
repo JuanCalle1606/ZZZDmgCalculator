@@ -27,6 +27,10 @@ public partial class BuffView {
 	protected override void OnInitialized() {
 		base.OnInitialized();
 		Buff.DependencyChecker?.CheckBuffDependencies(Buff);
+		if (Buff.HasDependencies)
+		{
+			Buff.AppliedTo = Buff.Dependency!.AppliedTo;
+		}
 	}
 
 	void StacksChanged(int val) {
@@ -35,7 +39,7 @@ public partial class BuffView {
 	}
 
 	void NotifyAll() {
-		if (Buff.Shared)
+		if (Buff.Shared || Buff.Info.Pass)
 		{
 			foreach (var agent in State.CurrentSetup.Agents)
 			{
@@ -57,13 +61,21 @@ public partial class BuffView {
 	void CheckIfNeedUpdate(BuffState buff) {
 		if (buff != Buff.Dependency) return;
 		var flag = Buff.Available;
+		var flag2 = Buff.AppliedTo;
 		Buff.DependencyChecker?.CheckBuffDependencies(Buff);
-		if (flag == Buff.Available) return;
+		Buff.AppliedTo = Buff.Dependency.AppliedTo;
+		if (flag == Buff.Available && flag2 == Buff.AppliedTo) return;
 		NotifyAll();
 		StateHasChanged();
 	}
 
 	protected override void OnDisposableBag(DisposableBagBuilder bag) {
 		Notifier.OnBuffChanged.Subscribe(CheckIfNeedUpdate).AddTo(bag);
+	}
+
+
+	void ApplyToChanged(AgentState agent) {
+		Buff.AppliedTo = agent == Buff.Owner ? null : agent;
+		NotifyAll();
 	}
 }
