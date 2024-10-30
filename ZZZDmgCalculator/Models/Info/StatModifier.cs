@@ -31,7 +31,8 @@ public class StatModifier {
 		Value = value,
 		Type = Type,
 		Enemy = Enemy,
-		Shared = Shared
+		Shared = Shared,
+		Agent = Agent
 	};
 
 	public bool IsCombatStat => Type is StatModifiers.Combat or StatModifiers.CombatPercent or StatModifiers.CombatFlat;
@@ -53,6 +54,13 @@ public class StatModifier {
 			};
 		}
 	}
+
+	/// <summary>
+	/// Set by for agent modifiers to indicate the real modifier index.
+	/// </summary>
+	public int Dummy { get; set; } = -1;
+
+	public bool NotDummy => Dummy == -1 || Agent;
 
 	public static implicit operator SingleList<BuffInfo>(StatModifier modifier) => [new() { Modifiers = [modifier] }];
 }

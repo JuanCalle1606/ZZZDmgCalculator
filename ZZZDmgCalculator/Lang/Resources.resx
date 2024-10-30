@@ -945,7 +945,7 @@
         <value>Core Passive: Mini Destruction Partner</value>
     </data>
     <data name="Buffs.Agents.Rina.Core.0" xml:space="preserve">
-        <value>When ordering Drusilla or Anastella to attack, other squad members' {stat} increases together with Rina's, by {stats.1} of Rina's {stat} + {value}, up to 30%. The effect ends when both Drusilla and Anastella return to Rina.</value>
+        <value>When ordering Drusilla or Anastella to attack, other squad members' {stat} increases together with Rina's, by {values.1} of Rina's {stat} + {value}, up to 30%. The effect ends when both Drusilla and Anastella return to Rina.</value>
     </data>
     <data name="Buffs.Agents.Rina.Additional" xml:space="preserve">
         <value>Additional Ability: Banquet of Perfection</value>

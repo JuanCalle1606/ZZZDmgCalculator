@@ -56,13 +56,13 @@ public class BuffState : IModifierContainer {
 	public BuffInfo Info { get; }
 
 	public BaseInfo? SourceInfo { get; set; }
-	
+
 	public IList<StatModifier> Modifiers { get; }
-	
+
 	public double[]? ValuePerStack { get; private set; }
 
 	public BuffState? Dependency { get; set; }
-	
+
 	public IBuffDependencyChecker? DependencyChecker { get; set; }
 
 	public AgentState Owner { get; set; } = null!;
@@ -74,9 +74,9 @@ public class BuffState : IModifierContainer {
 		Update();
 	}
 
-	void Update() {
+	public void Update() {
 		ValuePerStack ??= new double[Modifiers.Count];
-		foreach (var ((current, source), index) in Modifiers.Zip(Info.Modifiers).Select((d, i) => (d, i)))
+		foreach (var ((current, source), index) in Modifiers.Where(m => m.NotDummy).Zip(Info.Modifiers).Select((d, i) => (d, i)))
 		{
 			double value;
 			if (Info.Scales is not null && source.Value == 0)

@@ -11,12 +11,11 @@ public class FormatService(InfoService info) {
 
 
 	public MarkupString BuffDescription(string infoDescription, BuffState buff) {
-		var buffModifiers = buff.Modifiers;
+		var buffModifiers = buff.Modifiers.Where(m => m.NotDummy).ToList();
 		var buffValueMultiplier = buff.ValueMultiplier;
-
+		
 		var stats = buffModifiers.Select(m => $"<span class='{GetStatColor(m.Stat)}'><b>{info[m.Stat].DisplayName}</b></span>").ToArray();
 		var values = buffModifiers.Select((m, i) => $"<span class='rz-color-bonus'><b>{m.Format(buffValueMultiplier, buff.ValuePerStack![i], true)}</b></span>").ToArray();
-		var mods = buff.Info.Modifiers.Select((m, i) => $"<span class='rz-color-bonus'><b>{m.Format(abs: true)}</b></span>").ToArray();
 
 		var data = new
 		{
@@ -24,7 +23,7 @@ public class FormatService(InfoService info) {
 			value = values.FirstOrDefault(),
 			stats = stats,
 			values = values,
-			mods = mods
+			buff = buff
 		};
 
 		return new(Smart.Format(infoDescription, data));

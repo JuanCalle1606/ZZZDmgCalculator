@@ -7,10 +7,9 @@ using Info;
 using Json;
 using Util;
 using static Enum.Stats;
-using Enum=System.Enum;
 
 [JsonConverter(typeof(AgentSerializer))]
-public class AgentState : IModifierContainer, IBuffContainer {
+public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChecker {
 	CoreSkills _coreSkillLevel;
 	AscensionState _ascension;
 	EngineState? _engine;
@@ -222,7 +221,8 @@ public class AgentState : IModifierContainer, IBuffContainer {
 		_coreBuffs = Info.CoreBuff.Select(b => new BuffState(b)
 		{
 			SourceInfo = Info,
-			Owner = this
+			Owner = this,
+			DependencyChecker = this
 		}).ToArray();
 		_additionalBuffs = Info.AdditionalBuff.Select(b => new BuffState(b)
 		{
@@ -231,6 +231,43 @@ public class AgentState : IModifierContainer, IBuffContainer {
 		}).ToArray();
 		Buffs.AddRange(_coreBuffs);
 		Buffs.AddRange(_additionalBuffs);
+
+		// check for agent buffs
+		foreach (var buff in Buffs)
+		{
+			var agentMods = buff.Modifiers.Where(m => m.Agent).ToArray();
+			foreach (var mod in agentMods)
+			{
+				var dummy = buff.Modifiers.Count;
+				buff.Modifiers.Add(new()
+				{
+					Stat = mod.Stat,
+					Type = StatModifiers.Combat,
+					Value = mod.Value,
+					Dummy = dummy,
+					Shared = mod.Shared
+				});
+				mod.Dummy = dummy;
+			}
+			
+			buff.Update();
+			CheckBuffDependencies(buff);
+		}
+	}
+
+	public void CheckBuffDependencies(BuffState buff) {
+		if (!_coreBuffs.Contains(buff)) return;
+		buff.Available = true;
+		if (!buff.HasDependencies) return;
+		var depends = buff.Info.Depends!.Value;
+		var dependency = _coreBuffs[depends];
+		buff.Dependency = dependency;
+		var requiredStacks = buff.Info.RequiredStacks ?? dependency.MaxStacks;
+
+		if (!dependency.Available || !dependency.Active || (dependency.Info.Type == BuffTrigger.Stack && dependency.Stacks < requiredStacks))
+		{
+			buff.Available = false;
+		}
 	}
 
 	void AddDiscSet(IGrouping<Discs, DiscState?>[] halfSets) {
@@ -281,9 +318,31 @@ public class AgentState : IModifierContainer, IBuffContainer {
 		UpdateBaseStats();
 		UpdateBonusStats();
 		Stats.Update(false);
+		UpdateDummies();
 		UpdateCombatStats();
 		Stats.Update();
 	}
+
+	void UpdateDummies() {
+		foreach (var buff in Buffs)
+		{
+			var limit = buff.Info.BuffLimit ?? double.MaxValue;
+			
+			
+			foreach (var mod in buff.Modifiers.Where(m => m.Agent).ToList())
+			{
+				var subtotal = buff.Modifiers.Where(m => m.Dummy == -1 && m.Stat == mod.Stat).Sum(m => m.Value);
+				var dummy = buff.Modifiers[mod.Dummy];
+				var stat = Stats.Initial[mod.Stat];
+				dummy.Value = stat * (mod.Value / 100);
+				if (dummy.Value + subtotal > limit)
+				{
+					dummy.Value = limit - subtotal;
+				}
+			}
+		}
+	}
+
 	void UpdateCombatStats() {
 		Stats.Combat.Reset();
 
@@ -330,7 +389,6 @@ public class AgentState : IModifierContainer, IBuffContainer {
 	IEnumerable<StatModifier> ListModifiers(StatModifiers modifier) {
 		IModifierContainer container = this;
 		IBuffContainer buffContainer = this;
-
 
 		return container.AllModifiers
 			.Concat(buffContainer.AllBuffs.Where(b => b is { Available: true, Active: true }).SelectMany(b => {
