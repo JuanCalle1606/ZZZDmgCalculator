@@ -905,4 +905,70 @@
     <data name="Buffs.Engines.TuskOfFury.1" xml:space="preserve">
         <value>When any squad member triggers Interrupt or Perfect Dodge, all squad members' DMG increases by {value}.</value>
     </data>
+    <data name="Buffs.Agents.Koleda.Additional" xml:space="preserve">
+        <value>Additional Ability: Belobog Management</value>
+    </data>
+    <data name="Buffs.Agents.Koleda.Additional.0" xml:space="preserve">
+        <value>When the explosion from Koleda's EX Special Attack hits an enemy, it applies a debuff to the target. While the target is Stunned, all squad members' Chain Attacks deal {value} more DMG to the target. This effect can stack up to 2 times and resets when the Stunned effect ends.</value>
+    </data>
+    <data name="Buffs.Agents.Lycaon.Core" xml:space="preserve">
+        <value>Core Passive: Metallic Paws</value>
+    </data>
+    <data name="Buffs.Agents.Lycaon.Core.0" xml:space="preserve">
+        <value>When EX Special Attack or Assist Follow-Up hits an enemy, the target's {stat} decreases by {value} for 30s.</value>
+    </data>
+    <data name="Buffs.Agents.Lycaon.Additional" xml:space="preserve">
+        <value>Additional Ability: Elegant Predator</value>
+    </data>
+    <data name="Buffs.Agents.Lycaon.Additional.0" xml:space="preserve">
+        <value>When Lycaon hits a Stunned enemy, the target's {stat} Multiplier increases by {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Nicole.Core" xml:space="preserve">
+        <value>Core Passive: Mechanical Case</value>
+    </data>
+    <data name="Buffs.Agents.Nicole.Core.0" xml:space="preserve">
+        <value>After hitting an enemy with a Special Attack, EX Special Attack, Chain Attack, or Ultimate, Nicole can reload, enhance her Basic Attack and Dash Attack. When her enhanced bullets or Energy Field hits an enemy, the target's {stat} is reduced by {value} for 3.5s.</value>
+    </data>
+    <data name="Buffs.Agents.Nicole.Additional" xml:space="preserve">
+        <value>Additional Ability: Hare of Many Burrows</value>
+    </data>
+    <data name="Buffs.Agents.Nicole.Additional.0" xml:space="preserve">
+        <value>When Nicole's Core Passive: Mechanical Case applies a debuff to an enemy, all squad members deal {value} more {stat} to the target for 3.5s.</value>
+    </data>
+    <data name="Buffs.Agents.Qingyi.Core" xml:space="preserve">
+        <value>Core Passive: Eternal Seasons</value>
+    </data>
+    <data name="Buffs.Agents.Qingyi.Core.0" xml:space="preserve">
+        <value>When Qingyi lands a Finishing Move on an enemy with her Basic Attack: Enchanted Moonlit Blossoms, it applies 5 stacks of Subjugation to the enemy, stacking up to 20 times. Each stack of Subjugation increases the target's {stat} Multiplier by {value}. For each rush attack during Basic Attack: Enchanted Moonlit Blossoms, the Finishing Move will apply an extra stack of Subjugation. If Perfect Dodge is triggered when using the Finishing Move, it directly applies 10 stacks of Subjugation. When applying Subjugation to normal or elite enemies, the target receives double the stacks. When the target recovers from being Stunned, the corresponding stacks of Subjugation are reset.</value>
+    </data>
+    <data name="Buffs.Agents.Rina.Core" xml:space="preserve">
+        <value>Core Passive: Mini Destruction Partner</value>
+    </data>
+    <data name="Buffs.Agents.Rina.Core.0" xml:space="preserve">
+        <value>When ordering Drusilla or Anastella to attack, other squad members' {stat} increases together with Rina's, by {stats.1} of Rina's {stat} + {value}, up to 30%. The effect ends when both Drusilla and Anastella return to Rina.</value>
+    </data>
+    <data name="Buffs.Agents.Rina.Additional" xml:space="preserve">
+        <value>Additional Ability: Banquet of Perfection</value>
+    </data>
+    <data name="Buffs.Agents.Rina.Additional.0" xml:space="preserve">
+        <value>Increases the duration of Shock inflicted on enemies by any character by 3s. When Shocked enemies are on the field, all squad members' {stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Soukaku.Core" xml:space="preserve">
+        <value>Core Passive: Blade Banner</value>
+    </data>
+    <data name="Buffs.Agents.Soukaku.Core.0" xml:space="preserve">
+        <value>When Soukaku launches Fly the Flag, her ATK is increased by {value}, up to 500, for 22s. This buff can be passed along to characters switching in via Quick Assists or Chain Attacks triggered by Fly the Flag, and it refreshes the duration of the buff.</value>
+    </data>
+    <data name="Buffs.Agents.Soukaku.Core.1" xml:space="preserve">
+        <value>When consuming Vortex during Fly the Flag, the ATK increase is doubled.</value>
+    </data>
+    <data name="Buffs.Agents.Soukaku.Additional" xml:space="preserve">
+        <value>Additional Ability: Group Set Meal</value>
+    </data>
+    <data name="Buffs.Agents.Soukaku.Additional.0" xml:space="preserve">
+        <value>When Soukaku consumes Vortex to activate Fly the Flag, the {stat} of the squad is increased by {value} for 22s.</value>
+    </data>
+    <data name="Agent" xml:space="preserve">
+        <value>Agent</value>
+    </data>
 </root>

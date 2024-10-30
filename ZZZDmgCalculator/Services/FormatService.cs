@@ -15,14 +15,16 @@ public class FormatService(InfoService info) {
 		var buffValueMultiplier = buff.ValueMultiplier;
 
 		var stats = buffModifiers.Select(m => $"<span class='{GetStatColor(m.Stat)}'><b>{info[m.Stat].DisplayName}</b></span>").ToArray();
-		var values = buffModifiers.Select((m, i) => $"<span class='rz-color-bonus'><b>{m.Format(buffValueMultiplier, buff.ValuePerStack![i])}</b></span>").ToArray();
+		var values = buffModifiers.Select((m, i) => $"<span class='rz-color-bonus'><b>{m.Format(buffValueMultiplier, buff.ValuePerStack![i], true)}</b></span>").ToArray();
+		var mods = buff.Info.Modifiers.Select((m, i) => $"<span class='rz-color-bonus'><b>{m.Format(abs: true)}</b></span>").ToArray();
 
 		var data = new
 		{
 			stat = stats.FirstOrDefault(),
 			value = values.FirstOrDefault(),
 			stats = stats,
-			values = values
+			values = values,
+			mods = mods
 		};
 
 		return new(Smart.Format(infoDescription, data));
@@ -31,12 +33,11 @@ public class FormatService(InfoService info) {
 	static string GetStatColor(Stats firstStat) {
 		return firstStat switch
 		{
-			Stats.BonusDmg => "rz-color-bonus",
-			Stats.ElectricDmg => "rz-color-electric",
-			Stats.FireDmg => "rz-color-fire",
-			Stats.IceDmg => "rz-color-ice",
-			Stats.EtherDmg => "rz-color-ether",
-			Stats.PhysicalDmg => "rz-color-physical",
+			Stats.ElectricDmg or Stats.ElectricRes or Stats.ElectricCritDmg or Stats.ElectricCritRate => "rz-color-electric",
+			Stats.FireDmg or Stats.FireRes or Stats.FireCritDmg or Stats.FireCritRate => "rz-color-fire",
+			Stats.IceDmg or Stats.IceRes or Stats.IceCritDmg or Stats.IceCritRate => "rz-color-ice",
+			Stats.EtherDmg or Stats.EtherRes or Stats.EtherCritDmg or Stats.EtherCritRate => "rz-color-ether",
+			Stats.PhysicalDmg or Stats.PhysicalRes or Stats.PhysicalCritDmg or Stats.PhysicalCritRate => "rz-color-physical",
 			_ => "rz-color-stat"
 		};
 	}

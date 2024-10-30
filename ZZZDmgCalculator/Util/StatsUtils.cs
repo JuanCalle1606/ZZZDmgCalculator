@@ -15,8 +15,9 @@ public static class StatsUtils {
 		return percent ? $"{value:0.#}%" : $"{value:N0}";
 	}
 	
-	public static string Format(this StatModifier stat, int buffValueMultiplier = 1, double valuePerStack = 0) {
+	public static string Format(this StatModifier stat, int buffValueMultiplier = 1, double valuePerStack = 0, bool abs = false) {
 		var value = buffValueMultiplier == 0 ? valuePerStack : stat.Value / buffValueMultiplier;
+		if (abs) value = Math.Abs(value);
 		var percent = stat.IsPercent;
 		if (stat.Stat == EnergyRegen && !percent)
 		{

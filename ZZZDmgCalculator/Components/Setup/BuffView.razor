@@ -58,7 +58,7 @@
 		</RadzenText>
 		@if (Buff.Available)
 		{
-			if (Buff.Shared)
+			if (Buff is { Shared: true, SourceInfo: not AgentInfo })
 			{
 				<RadzenText TextStyle="TextStyle.Body2" class="rz-text-disabled-color">
 					@Lang["BuffSharedWarning"]
