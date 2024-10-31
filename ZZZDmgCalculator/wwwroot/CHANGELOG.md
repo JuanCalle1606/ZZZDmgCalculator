@@ -1,5 +1,34 @@
 # Changelog
 
+## [0.2.1](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v0.2.0...v0.2.1) (2024-10-30)
+
+
+### Features
+
+* **Buffs:** Added agent stat buffs ([10952ea](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/10952eac9932c4842a01561ae4d4f18e855cb396))
+* **Buffs:** Added passed buffs ([ec3ca4c](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/ec3ca4ca25fe2d39774521eb33fcdf6dc2f2f925))
+* **Buffs:** Added support for core and additional buffs ([1a59d5a](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/1a59d5a97c203cc566f9584b2f4366bab67f87c8))
+* **Buffs:** Added support for shared buffs ([dcb6f6c](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/dcb6f6c4f6c853eac55e49d5d07281e9a36a8364))
+
+
+### Bug Fixes
+
+* **Buffs:** Fixed buffs with incorrect type ([4e2a36e](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/4e2a36e01a1370de03adeddf20a71e7e8bc7ceb8))
+* **Cannon Rotor:** Use correct scale values ([2b31a30](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/2b31a30ba20721091ec318e109ed92417dffb88b))
+* **Electro Lip:** Added missing scales for second buff ([8f50600](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/8f50600ae2243e1cb03a6f70e67c8afcb24bb2a3))
+* **Fusion Compiler:** Change first buff type from switch to permanent. ([e931364](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/e9313649a08eedc6e8972d47120a442401028300))
+
+
+### UI Changes
+
+* **Adaptable Cards:** Increase max width of cards. ([f4c065e](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/f4c065eb6c70f36a61bb1b76d5abdb08aa526871))
+* **Buffs View:** Show agent in shared buffs ([dc02e31](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/dc02e31487f3e97c68cbd9cb7645209b2c73719d))
+
+
+### Language Changes
+
+* **Buffs:** Added lang keys for core buffs of current agents ([0d968d2](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/0d968d25fc55104e1f0f0e83c0c4a3259a977267))
+
 ## [0.2.0](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v0.1.2...v0.2.0) (2024-10-28)
 
 
