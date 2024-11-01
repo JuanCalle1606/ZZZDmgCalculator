@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZZZDmgCalculator", "ZZZDmgCalculator\ZZZDmgCalculator.csproj", "{54ABD443-FEB4-49F7-BCC3-A6CC575880C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZZZ.ApiModels", "lib\ApiModels\ZZZ.ApiModels.csproj", "{C7A77CBF-0C38-4C21-82B7-8EDADB7F8FE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{54ABD443-FEB4-49F7-BCC3-A6CC575880C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54ABD443-FEB4-49F7-BCC3-A6CC575880C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54ABD443-FEB4-49F7-BCC3-A6CC575880C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7A77CBF-0C38-4C21-82B7-8EDADB7F8FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7A77CBF-0C38-4C21-82B7-8EDADB7F8FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7A77CBF-0C38-4C21-82B7-8EDADB7F8FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7A77CBF-0C38-4C21-82B7-8EDADB7F8FE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
