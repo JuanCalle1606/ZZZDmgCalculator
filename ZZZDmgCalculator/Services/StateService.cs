@@ -1,7 +1,7 @@
 namespace ZZZDmgCalculator.Services;
 
-using Models.Enum;
 using Models.State;
+using ZZZ.ApiModels;
 
 public class StateService {
 

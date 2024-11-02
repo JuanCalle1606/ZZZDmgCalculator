@@ -3,6 +3,7 @@ namespace ZZZDmgCalculator.Models.State;
 using Abstractions;
 using Enum;
 using Info;
+using ZZZ.ApiModels;
 using Enum=System.Enum;
 
 public class DiscSetState(DiscInfo info, bool fullSet = false) : IModifierContainer, IBuffContainer {

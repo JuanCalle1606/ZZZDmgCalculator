@@ -1,6 +1,7 @@
 namespace ZZZDmgCalculator.Models.Info;
 
 using Enum;
+using ZZZ.ApiModels;
 
 public class SkillInfo {
 	public string DisplayName { get; set; } = string.Empty;

@@ -4,6 +4,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Enum;
 using State;
+using ZZZ.ApiModels;
 using Enum=System.Enum;
 
 public class EngineSerializer : JsonConverter<EngineState> {

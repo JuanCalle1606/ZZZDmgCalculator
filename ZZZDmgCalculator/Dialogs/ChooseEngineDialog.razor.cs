@@ -3,6 +3,8 @@ namespace ZZZDmgCalculator.Dialogs;
 using Models.Enum;
 using Models.Info;
 using Util;
+using ZZZ.ApiModels;
+
 
 public partial class ChooseEngineDialog {
 	string _searchFilter = string.Empty;

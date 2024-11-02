@@ -3,6 +3,7 @@ namespace ZZZDmgCalculator.Models.Info;
 using Enum;
 using Services;
 using Util;
+using ZZZ.ApiModels;
 
 public class EngineInfo : BaseInfo {
 	public required Specialties Type { get; set; }

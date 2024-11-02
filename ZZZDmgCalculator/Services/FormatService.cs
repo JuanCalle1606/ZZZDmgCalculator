@@ -2,7 +2,6 @@ namespace ZZZDmgCalculator.Services;
 
 using Microsoft.AspNetCore.Components;
 using Models.Enum;
-using Models.Info;
 using Models.State;
 using SmartFormat;
 using Util;

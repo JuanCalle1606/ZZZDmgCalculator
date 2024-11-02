@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Components;
 
 namespace ZZZDmgCalculator.Components.Setup;
 
-using Models.Enum;
 using Models.Info;
 using Models.State;
 using Util;
+using ZZZ.ApiModels;
 
 public partial class DiscView {
 	DiscStatInfo[] _discStatInfos = null!;

@@ -2,6 +2,7 @@ namespace ZZZDmgCalculator.Components.Main;
 
 using Microsoft.AspNetCore.Components;
 using Models.Enum;
+using ZZZ.ApiModels;
 
 public partial class SkillLevelSelector {
 	Skills[] _skills = [Skills.Basic, Skills.Dodge, Skills.Assist, Skills.Ex, Skills.Ultimate];

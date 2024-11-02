@@ -6,6 +6,7 @@ using Enum;
 using Info;
 using Json;
 using Util;
+using ZZZ.ApiModels;
 using static Enum.Stats;
 
 [JsonConverter(typeof(AgentSerializer))]

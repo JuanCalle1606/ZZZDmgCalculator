@@ -1,7 +1,7 @@
 namespace ZZZDmgCalculator.Models.Info;
 
-using Enum;
 using Util;
+using ZZZ.ApiModels;
 
 public class AbilityInfo : BaseInfo {
 	public string Description { get; set; } = string.Empty;

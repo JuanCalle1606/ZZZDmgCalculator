@@ -1,9 +1,9 @@
 namespace ZZZDmgCalculator.Dialogs;
 
 using Microsoft.AspNetCore.Components;
-using Models.Enum;
 using Models.Info;
 using Models.State;
+using ZZZ.ApiModels;
 
 public partial class ChooseDiscDialog {
 	string _searchFilter = string.Empty;

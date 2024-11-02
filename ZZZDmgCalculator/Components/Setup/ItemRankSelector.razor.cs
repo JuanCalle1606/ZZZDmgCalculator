@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace ZZZDmgCalculator.Components.Setup;
 
-using Models.Enum;
+using ZZZ.ApiModels;
 
 public partial class ItemRankSelector {
 

@@ -1,7 +1,7 @@
 namespace ZZZDmgCalculator.Data;
 
-using Models.Enum;
 using Models.Info;
+using ZZZ.ApiModels;
 
 [UrlTemplate("icons/skills/Icon_{Icon}.webp")]
 [InfoData<Skills>]

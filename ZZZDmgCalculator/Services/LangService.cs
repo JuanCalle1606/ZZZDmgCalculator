@@ -2,10 +2,6 @@ namespace ZZZDmgCalculator.Services;
 
 using System.Resources;
 using System.Text;
-using System.Text.RegularExpressions;
-using Microsoft.AspNetCore.Components;
-using Models.Info;
-using Util;
 
 /// <summary>
 /// Provides access to the language resources.
