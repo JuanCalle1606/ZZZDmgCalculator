@@ -12,8 +12,6 @@ public class EngineState : IModifierContainer, IBuffContainer, IBuffDependencyCh
 	AscensionState _ascension = AscensionState.A0_10;
 	int _refinement = 1;
 
-	readonly EngineInfo _info;
-	
 	bool _weaponEnabled = true;
 
 	public AscensionState Ascension
@@ -46,19 +44,19 @@ public class EngineState : IModifierContainer, IBuffContainer, IBuffDependencyCh
 
 	public List<BuffState> Buffs { get; }
 	
-	public EngineInfo Info => _info;
+	public EngineInfo Info { get; }
 
 	public bool Disabled => !_weaponEnabled;
 
 	public EngineState(EngineInfo engineInfo) {
-		_info = engineInfo;
-		MainStat = _info.MainStat.WithValue(_info.MainStats[0]);
-		SubStat = _info.SubStat.WithValue(_info.SubStats[0]);
+		Info = engineInfo;
+		MainStat = Info.MainStat.WithValue(Info.MainStats[0]);
+		SubStat = Info.SubStat.WithValue(Info.SubStats[0]);
 		Modifiers = new List<StatModifier> { MainStat, SubStat };
 		
-		Buffs = _info.Passives.Select(x => new BuffState(x)
+		Buffs = Info.Passives.Select(x => new BuffState(x)
 		{
-			SourceInfo = _info,
+			SourceInfo = Info,
 			DependencyChecker = this
 		}).ToList();
 	}
@@ -83,8 +81,8 @@ public class EngineState : IModifierContainer, IBuffContainer, IBuffDependencyCh
 		else
 		{
 			// the ascension has changed, we need to update the stats.
-			MainStat.Value = _info.MainStats[(int)_ascension];
-			SubStat.Value = _info.SubStats[(int)_ascension];
+			MainStat.Value = Info.MainStats[(int)_ascension];
+			SubStat.Value = Info.SubStats[(int)_ascension];
 		}
 	}
 

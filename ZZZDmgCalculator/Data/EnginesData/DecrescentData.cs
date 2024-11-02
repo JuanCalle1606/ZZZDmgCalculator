@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class DecrescentData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Decrescent),
+		Uid = Engines.Decrescent,
 		Icon = "(Lunar)_Decrescent",
 		Rank = ItemRank.B,
 		Type = Specialties.Attack,

@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class HellfireData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Hellfire),
+		Uid = Engines.Hellfire,
 		Icon = "Hellfire_Gears",
 		Rank = ItemRank.S,
 		Type = Specialties.Stun,

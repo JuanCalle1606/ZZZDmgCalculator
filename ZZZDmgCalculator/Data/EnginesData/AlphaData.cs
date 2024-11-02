@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class AlphaData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Alpha),
+		Uid = Engines.Alpha,
 		Icon = "(Magnetic_Storm)_Alpha",
 		Rank = ItemRank.B,
 		Type = Specialties.Anomaly,

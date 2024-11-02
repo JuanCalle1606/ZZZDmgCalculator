@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class NovilunaData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Noviluna),
+		Uid = Engines.Noviluna,
 		Icon = "(Lunar)_Noviluna",
 		Rank = ItemRank.B,
 		Type = Specialties.Attack,

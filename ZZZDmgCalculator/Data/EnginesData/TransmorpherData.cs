@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class TransmorpherData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Transmorpher),
+		Uid = Engines.Transmorpher,
 		Icon = "Original_Transmorpher",
 		Rank = ItemRank.A,
 		Type = Specialties.Defense,

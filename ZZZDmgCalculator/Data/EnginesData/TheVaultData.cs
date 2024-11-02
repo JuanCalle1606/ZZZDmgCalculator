@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class TheVaultData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.TheVault),
+		Uid = Engines.TheVault,
 		Icon = "The_Vault",
 		Rank = ItemRank.A,
 		Type = Specialties.Support,

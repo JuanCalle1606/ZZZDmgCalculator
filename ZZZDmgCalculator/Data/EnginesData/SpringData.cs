@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class SpringData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Spring),
+		Uid = Engines.Spring,
 		Icon = "Spring_Embrace",
 		Rank = ItemRank.A,
 		Type = Specialties.Defense,

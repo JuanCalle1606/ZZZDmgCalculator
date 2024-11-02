@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class CharlieData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Charlie),
+		Uid = Engines.Charlie,
 		Icon = "(Magnetic_Storm)_Charlie",
 		Rank = ItemRank.B,
 		Type = Specialties.Anomaly,

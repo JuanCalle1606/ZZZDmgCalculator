@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class HousekeeperData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Housekeeper),
+		Uid = Engines.Housekeeper,
 		Icon = "Housekeeper",
 		Rank = ItemRank.A,
 		Type = Specialties.Attack,

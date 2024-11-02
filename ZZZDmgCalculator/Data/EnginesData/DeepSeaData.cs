@@ -14,7 +14,7 @@ using static Models.Enum.Stats;
 public class DeepSeaData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(DeepSea),
+		Uid = DeepSea,
 		Icon = "Deep_Sea_Visitor",
 		Rank = ItemRank.S,
 		Type = Attack,

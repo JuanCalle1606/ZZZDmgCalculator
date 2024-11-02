@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class StarlightData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Starlight),
+		Uid = Engines.Starlight,
 		Icon = "Starlight_Engine",
 		Rank = ItemRank.A,
 		Type = Specialties.Attack,

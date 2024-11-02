@@ -18,7 +18,7 @@ using static Models.Info.DodgeTypes;
 public class SoukakuData {
 	public readonly static AgentInfo Data = new()
 	{
-		Id = nameof(Soukaku),
+		Uid = Soukaku,
 		Icon = "Soukaku",
 		Attribute = Ice,
 		Faction = Section6,

@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class PeacekeeperData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Peacekeeper),
+		Uid = Engines.Peacekeeper,
 		Icon = "Peacekeeper_-_Specialized",
 		Rank = ItemRank.A,
 		Type = Specialties.Defense,

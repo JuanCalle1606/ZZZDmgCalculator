@@ -10,7 +10,7 @@ using static ZZZ.ApiModels.Skills;
 public class DrillData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Drill),
+		Uid = Engines.Drill,
 		Icon = "Drill_Rig_-_Red_Axis",
 		Rank = ItemRank.A,
 		Type = Specialties.Attack,

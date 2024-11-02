@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class HatchetData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Hatchet),
+		Uid = Engines.Hatchet,
 		Icon = "(Vortex)_Hatchet",
 		Rank = ItemRank.B,
 		Type = Specialties.Stun,  

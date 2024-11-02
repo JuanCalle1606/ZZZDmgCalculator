@@ -51,7 +51,7 @@ public class DiscState : IModifierContainer {
 		}
 	}
 
-	public DiscStats MainStat { get; }
+	public DiscStats MainStat => MainStatInfo.Uid;
 
 	public IList<StatModifier> Modifiers { get; }
 
@@ -83,7 +83,6 @@ public class DiscState : IModifierContainer {
 	public DiscState(DiscInfo info, DiscStatInfo mainStat) {
 		Modifiers = new List<StatModifier>();
 		Info = info;
-		MainStat = Enum.Parse<DiscStats>(mainStat.Id);
 
 		MainStatInfo = mainStat;
 		SubStats = new(this);

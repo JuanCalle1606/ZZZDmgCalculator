@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class ArrowData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Arrow),
+		Uid = Engines.Arrow,
 		Icon = "(Vortex)_Arrow",
 		Rank = ItemRank.B,
 		Type = Specialties.Stun,

@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class CradleData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Cradle),
+		Uid = Engines.Cradle,
 		Icon = "Weeping_Cradle",
 		Rank = ItemRank.S,
 		Type = Specialties.Support,

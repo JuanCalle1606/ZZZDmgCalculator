@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class BatteryData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Battery),
+		Uid = Engines.Battery,
 		Icon = "Demara_Battery_Mark_II",
 		Rank = ItemRank.A,
 		Type = Specialties.Stun,  

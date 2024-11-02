@@ -10,7 +10,7 @@ using static ZZZ.ApiModels.Skills;
 public class PlenilunaData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Pleniluna),
+		Uid = Engines.Pleniluna,
 		Icon = "(Lunar)_Pleniluna",
 		Rank = ItemRank.B,
 		Type = Specialties.Attack,

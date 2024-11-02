@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class ElectroLipData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.ElectroLip),
+		Uid = Engines.ElectroLip,
 		Icon = "Electro-Lip_Gloss",
 		Rank = ItemRank.A,
 		Type = Specialties.Anomaly,

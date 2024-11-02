@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class BunnyData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Bunny),
+		Uid = Engines.Bunny,
 		Icon = "Bunny_Band",
 		Rank = ItemRank.A,
 		Type = Specialties.Defense,

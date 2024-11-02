@@ -19,7 +19,7 @@ using static Models.Info.DodgeTypes;
 public class KoledaData {
 	public readonly static AgentInfo Data = new()
 	{
-		Id = nameof(Koleda),
+		Uid = Koleda,
 		Icon = "Koleda_Belobog",
 		Attribute = Fire,
 		Faction = Belobog,

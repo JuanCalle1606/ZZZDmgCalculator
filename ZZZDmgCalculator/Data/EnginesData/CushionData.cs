@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class CushionData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Cushion),
+		Uid = Engines.Cushion,
 		Icon = "Steel_Cushion",
 		Rank = ItemRank.S,
 		Type = Specialties.Attack,

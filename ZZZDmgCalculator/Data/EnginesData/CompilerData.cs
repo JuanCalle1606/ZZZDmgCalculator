@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class CompilerData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Compiler),
+		Uid = Engines.Compiler,
 		Icon = "Fusion_Compiler",
 		Rank = ItemRank.S,
 		Type = Specialties.Anomaly,

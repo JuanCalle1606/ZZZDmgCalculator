@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class KaboomData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Kaboom),
+		Uid = Engines.Kaboom,
 		Icon = "Kaboom_the_Cannon",
 		Rank = ItemRank.A,
 		Type = Specialties.Support,

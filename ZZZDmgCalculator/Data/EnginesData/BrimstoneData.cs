@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class BrimstoneData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Brimstone),
+		Uid = Engines.Brimstone,
 		Icon = "The_Brimstone",
 		Rank = ItemRank.S,
 		Type = Specialties.Attack,

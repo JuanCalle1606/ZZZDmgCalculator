@@ -5,7 +5,7 @@ using Services;
 using Util;
 using ZZZ.ApiModels;
 
-public class EngineInfo : BaseInfo {
+public class EngineInfo : BaseInfo<Engines> {
 	public required Specialties Type { get; set; }
 
 	public required ItemRank Rank { get; set; }

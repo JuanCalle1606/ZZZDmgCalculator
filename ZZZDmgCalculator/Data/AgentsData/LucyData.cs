@@ -19,7 +19,7 @@ using static Models.Info.DodgeTypes;
 public class LucyData {
 	public readonly static AgentInfo Data = new()
 	{
-		Id = nameof(Lucy),
+		Uid = Lucy,
 		Icon = "Luciana_de_Montefio",
 		Attribute = Fire,
 		Faction = Calydon,

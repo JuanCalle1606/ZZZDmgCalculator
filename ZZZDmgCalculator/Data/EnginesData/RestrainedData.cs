@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class RestrainedData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Restrained),
+		Uid = Engines.Restrained,
 		Icon = "The_Restrained",
 		Rank = ItemRank.S,
 		Type = Specialties.Stun,  

@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class StingerData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Stinger),
+		Uid = Engines.Stinger,
 		Icon = "Sharpened_Stinger",
 		Rank = ItemRank.S,
 		Type = Specialties.Anomaly,

@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class BravoData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Bravo),
+		Uid = Engines.Bravo,
 		Icon = "(Magnetic_Storm)_Bravo",
 		Rank = ItemRank.B,
 		Type = Specialties.Anomaly,

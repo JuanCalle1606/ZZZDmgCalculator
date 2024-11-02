@@ -18,7 +18,7 @@ using static Models.Info.DodgeTypes;
 public class AnbyData {
 	public readonly static AgentInfo Data = new()
 	{
-		Id = nameof(Anby),
+		Uid = Anby,
 		Icon = "Anby_Demara",
 		Attribute = Electric,
 		Faction = Hares,

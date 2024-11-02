@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class SliceOfTimeData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.SliceOfTime),
+		Uid = Engines.SliceOfTime,
 		Icon = "Slice_of_Time",
 		Rank = ItemRank.A,
 		Type = Specialties.Support,

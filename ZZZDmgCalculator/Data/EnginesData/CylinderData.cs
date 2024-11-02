@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class CylinderData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Cylinder),
+		Uid = Engines.Cylinder,
 		Icon = "Big_Cylinder",
 		Rank = ItemRank.A,
 		Type = Specialties.Defense,

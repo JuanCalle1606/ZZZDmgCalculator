@@ -4,11 +4,10 @@ using Abstractions;
 using Enum;
 using Info;
 using ZZZ.ApiModels;
-using Enum=System.Enum;
 
 public class DiscSetState(DiscInfo info, bool fullSet = false) : IModifierContainer, IBuffContainer {
 
-	public Discs Disc { get; } = Enum.Parse<Discs>(info.Id);
+	public Discs Disc { get; } = info.Uid;
 
 	/**
 	 * When this set has 4 pieces this instance will also provide buffs, otherwise it will only provide the stats.

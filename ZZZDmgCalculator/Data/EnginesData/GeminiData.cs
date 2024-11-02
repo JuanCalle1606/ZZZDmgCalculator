@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class GeminiData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Gemini),
+		Uid = Engines.Gemini,
 		Icon = "Weeping_Gemini",
 		Rank = ItemRank.A,
 		Type = Specialties.Anomaly,

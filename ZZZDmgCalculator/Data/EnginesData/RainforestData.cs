@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class RainforestData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Rainforest),
+		Uid = Engines.Rainforest,
 		Icon = "Rainforest_Gourmet",
 		Rank = ItemRank.A,
 		Type = Specialties.Anomaly,

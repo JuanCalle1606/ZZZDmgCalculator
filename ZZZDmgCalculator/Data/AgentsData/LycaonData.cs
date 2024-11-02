@@ -18,7 +18,7 @@ using static Models.Info.DodgeTypes;
 public class LycaonData {
 	public readonly static AgentInfo Data = new()
 	{
-		Id = nameof(Lycaon),
+		Uid = Lycaon,
 		Icon = "Von_Lycaon",
 		Attribute = Ice,
 		Faction = Victoria,

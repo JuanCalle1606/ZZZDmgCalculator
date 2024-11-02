@@ -14,7 +14,7 @@ using static Models.Enum.Stats;
 public class TuskOfFuryData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(TuskOfFury),
+		Uid = TuskOfFury,
 		Icon = "Tusks_of_Fury",
 		Rank = ItemRank.S,
 		Type = Defense,

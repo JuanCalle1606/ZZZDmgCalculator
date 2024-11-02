@@ -19,7 +19,7 @@ using static Models.Info.DodgeTypes;
 public class QingyiData {
 	public readonly static AgentInfo Data = new()
 	{
-		Id = nameof(Qingyi),
+		Uid = Qingyi,
 		Icon = "Qingyi",
 		Attribute = Electric,
 		Faction = Neps,

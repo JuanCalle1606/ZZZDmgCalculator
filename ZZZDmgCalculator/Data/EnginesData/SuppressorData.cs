@@ -10,7 +10,7 @@ using static ZZZ.ApiModels.Skills;
 public class SuppressorData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Suppressor),
+		Uid = Engines.Suppressor,
 		Icon = "Riot_Suppressor_Mark_VI",
 		Rank = ItemRank.S,
 		Type = Specialties.Attack,

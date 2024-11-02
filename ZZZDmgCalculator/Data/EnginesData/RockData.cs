@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class RockData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Rock),
+		Uid = Engines.Rock,
 		Icon = "Precious_Fossilized_Core",
 		Rank = ItemRank.A,
 		Type = Specialties.Stun,  

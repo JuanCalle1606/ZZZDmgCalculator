@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class InflectionData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Inflection),
+		Uid = Engines.Inflection,
 		Icon = "(Identity)_Inflection",
 		Rank = ItemRank.B,
 		Type = Specialties.Defense,

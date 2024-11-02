@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class GameBallData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.GameBall),
+		Uid = Engines.GameBall,
 		Icon = "Unfettered_Game_Ball",
 		Rank = ItemRank.A,
 		Type = Specialties.Support,

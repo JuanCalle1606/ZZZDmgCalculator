@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class BashfulDemonData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.BashfulDemon),
+		Uid = Engines.BashfulDemon,
 		Icon = "Bashful_Demon",
 		Rank = ItemRank.A,
 		Type = Specialties.Support,

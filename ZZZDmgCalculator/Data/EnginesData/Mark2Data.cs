@@ -9,7 +9,7 @@ using ZZZ.ApiModels;
 public class Mark2Data {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Mark2),
+		Uid = Engines.Mark2,
 		Icon = "(Reverb)_Mark_II",
 		Rank = ItemRank.B,
 		Type = Specialties.Support,

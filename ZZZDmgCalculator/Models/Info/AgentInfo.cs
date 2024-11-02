@@ -4,8 +4,9 @@ using System.Text.Json.Serialization;
 using Enum;
 using Services;
 using Util;
+using ZZZ.ApiModels;
 
-public class AgentInfo : BaseInfo {
+public class AgentInfo : BaseInfo<Agents> {
 
 	public required Attributes Attribute { get; set; }
 

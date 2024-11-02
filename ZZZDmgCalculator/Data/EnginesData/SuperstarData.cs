@@ -10,7 +10,7 @@ using static ZZZ.ApiModels.Skills;
 public class SuperstarData {
 	public readonly static EngineInfo Data = new()
 	{
-		Id = nameof(Engines.Superstar),
+		Uid = Engines.Superstar,
 		Icon = "Street_Superstar",
 		Rank = ItemRank.A,
 		Type = Specialties.Attack,
