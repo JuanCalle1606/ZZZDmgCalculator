@@ -1,7 +1,7 @@
 namespace ZZZDmgCalculator.Pages;
 
 using MessagePipe;
-using Util;
+using Extensions;
 
 public partial class Main {
 	protected override void OnDisposableBag(DisposableBagBuilder bag) {

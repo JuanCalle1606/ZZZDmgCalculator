@@ -5,7 +5,7 @@ namespace ZZZDmgCalculator.Components.Setup;
 using Models.Enum;
 using Models.State;
 using Pages;
-using Util;
+using Extensions;
 
 public partial class EngineView {
 	[Parameter]

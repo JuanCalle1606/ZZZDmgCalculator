@@ -1,6 +1,6 @@
 namespace ZZZDmgCalculator.Models.Info;
 
-using Util;
+using Extensions;
 using ZZZ.ApiModels;
 
 public class AbilityInfo : BaseInfo {

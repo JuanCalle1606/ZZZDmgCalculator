@@ -1,4 +1,4 @@
-namespace ZZZDmgCalculator.Util;
+namespace ZZZDmgCalculator.Extensions;
 
 using Dialogs;
 using Models.State;

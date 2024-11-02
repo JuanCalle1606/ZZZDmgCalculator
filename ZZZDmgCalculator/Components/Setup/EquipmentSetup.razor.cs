@@ -3,7 +3,7 @@ namespace ZZZDmgCalculator.Components.Setup;
 using MessagePipe;
 using Microsoft.AspNetCore.Components;
 using Models.State;
-using Util;
+using Extensions;
 
 public partial class EquipmentSetup {
 	[Parameter]

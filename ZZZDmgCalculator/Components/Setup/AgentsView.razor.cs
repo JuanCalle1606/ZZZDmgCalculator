@@ -3,7 +3,7 @@ namespace ZZZDmgCalculator.Components.Setup;
 using Microsoft.AspNetCore.Components;
 using Models.State;
 using Radzen;
-using Util;
+using Extensions;
 
 public partial class AgentsView {
 	[Parameter]

@@ -3,7 +3,7 @@ namespace ZZZDmgCalculator.Models.Info;
 using System.Text.Json.Serialization;
 using Enum;
 using Services;
-using Util;
+using Extensions;
 using ZZZ.ApiModels;
 
 public class AgentInfo : BaseInfo<Agents> {

@@ -1,4 +1,4 @@
-namespace ZZZDmgCalculator.Util;
+namespace ZZZDmgCalculator.Extensions;
 
 using Models.Enum;
 

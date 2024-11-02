@@ -1,7 +1,7 @@
 namespace ZZZDmgCalculator.Models.Info;
 
 using Enum;
-using Util;
+using Extensions;
 
 public class StatModifier {
 	public required Stats Stat { get; set; }

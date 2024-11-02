@@ -2,7 +2,7 @@ namespace ZZZDmgCalculator.Models.Info;
 
 using System.Text.Json.Serialization;
 using Enum;
-using Util;
+using Extensions;
 
 public class BuffInfo : BaseInfo {
 	public string Description { get; set; } = string.Empty;

@@ -2,7 +2,7 @@ namespace ZZZDmgCalculator.Components.Main;
 
 using Microsoft.AspNetCore.Components;
 using Models.State;
-using Util;
+using Extensions;
 
 public partial class OverviewCard {
     [Parameter]

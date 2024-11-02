@@ -4,7 +4,7 @@ using MessagePipe;
 using Microsoft.AspNetCore.Components;
 using Models.Info;
 using Models.State;
-using Util;
+using Extensions;
 
 public partial class BuffView {
 	[Parameter]

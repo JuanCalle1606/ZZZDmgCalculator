@@ -4,7 +4,7 @@ using MessagePipe;
 using Microsoft.AspNetCore.Components;
 using Models.Enum;
 using Models.State;
-using Util;
+using Extensions;
 
 public partial class AgentStatsTable {
 	const int Cols = 4;

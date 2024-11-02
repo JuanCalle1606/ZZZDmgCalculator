@@ -3,7 +3,7 @@ namespace ZZZDmgCalculator.Components;
 using Blazored.LocalStorage;
 using Main;
 using Microsoft.AspNetCore.Components;
-using Util;
+using Extensions;
 
 public class FirstTime : MainComponent {
 	[Inject]

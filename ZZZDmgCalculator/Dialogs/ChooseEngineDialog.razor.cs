@@ -2,7 +2,7 @@ namespace ZZZDmgCalculator.Dialogs;
 
 using Models.Enum;
 using Models.Info;
-using Util;
+using Extensions;
 using ZZZ.ApiModels;
 
 

@@ -2,7 +2,7 @@ namespace ZZZDmgCalculator.Models.Info;
 
 using Enum;
 using Services;
-using Util;
+using Extensions;
 using ZZZ.ApiModels;
 
 public class EngineInfo : BaseInfo<Engines> {

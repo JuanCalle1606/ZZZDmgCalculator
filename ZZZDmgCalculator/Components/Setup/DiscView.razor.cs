@@ -4,7 +4,7 @@ namespace ZZZDmgCalculator.Components.Setup;
 
 using Models.Info;
 using Models.State;
-using Util;
+using Extensions;
 using ZZZ.ApiModels;
 
 public partial class DiscView {

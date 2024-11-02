@@ -21,6 +21,7 @@ builder.Services.AddSingleton<BrowserService>();
 builder.Services.AddSingleton<StateService>();
 builder.Services.AddSingleton<NotifierService>();
 builder.Services.AddSingleton<FormatService>();
+builder.Services.AddSingleton<StorageService>();
 
 var app = builder.Build();
 app.Services.GetService<InfoService>()!.LoadAll();
