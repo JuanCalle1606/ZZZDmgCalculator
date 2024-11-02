@@ -10,7 +10,7 @@ using static Models.Enum.Stats;
 public class ChaoticMetalData {
 	public readonly static DiscInfo Data = new()
 	{
-		Id = nameof(ChaoticMetal),
+		Uid = ChaoticMetal,
 		StatBuff = new()
 		{
 			Stat = EtherDmg,

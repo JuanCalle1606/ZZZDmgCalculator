@@ -9,7 +9,7 @@ using static ZZZ.ApiModels.Skills;
 public class PufferElectroData {
 	public readonly static DiscInfo Data = new ()
 	{
-		Id = nameof(Discs.PufferElectro),
+		Uid = Discs.PufferElectro,
 		StatBuff = new ()
 		{
 			Stat = Stats.PenRatio,

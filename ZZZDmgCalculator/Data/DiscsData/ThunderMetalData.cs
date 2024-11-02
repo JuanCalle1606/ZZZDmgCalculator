@@ -8,7 +8,7 @@ using ZZZ.ApiModels;
 public class ThunderMetalData {
 	public readonly static DiscInfo Data = new()
 	{
-		Id = nameof(Discs.ThunderMetal),
+		Uid = Discs.ThunderMetal,
 		StatBuff = new()
 		{
 			Stat = Stats.ElectricDmg,

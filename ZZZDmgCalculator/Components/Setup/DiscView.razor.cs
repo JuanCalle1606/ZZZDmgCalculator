@@ -19,8 +19,8 @@ public partial class DiscView {
 
 	protected override void OnParametersSet() {
 		base.OnParametersSet();
-		_discStatInfos = Info.AllStatInfos.Where(si => si.IsMain).SelectMany(si => si.DiscData).Where(dd => dd.MainDiscs!.Contains(Index + 1)).ToArray();
-		_discSubStatInfos = Info.AllStatInfos.Where(si => si.IsSub).SelectMany(si => si.DiscData).ToArray();
+		_discStatInfos = Info.AllDiscStatInfos.Where(si => si.IsMain).Where(dd => dd.MainDiscs!.Contains(Index + 1)).ToArray();
+		_discSubStatInfos = Info.AllDiscStatInfos.Where(si => si.IsSub).ToArray();
 	}
 
 	async Task OpenDiscDialog() {

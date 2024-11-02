@@ -971,4 +971,19 @@
     <data name="Agent" xml:space="preserve">
         <value>Agent</value>
     </data>
+    <data name="Skills.Core" xml:space="preserve">
+        <value>Core Passive</value>
+    </data>
+    <data name="Skills.Additional" xml:space="preserve">
+        <value>Additional Ability</value>
+    </data>
+    <data name="DiscStats.HpPercent" xml:space="preserve">
+        <value>Hp%</value>
+    </data>
+    <data name="DiscStats.AtkPercent" xml:space="preserve">
+        <value>Atk%</value>
+    </data>
+    <data name="DiscStats.DefPercent" xml:space="preserve">
+        <value>Def%</value>
+    </data>
 </root>

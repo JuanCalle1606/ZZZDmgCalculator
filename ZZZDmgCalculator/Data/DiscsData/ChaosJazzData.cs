@@ -12,7 +12,7 @@ using static Models.Enum.Stats;
 public class ChaosJazzData {
 	public readonly static DiscInfo Data = new()
 	{
-		Id = nameof(ChaosJazz),
+		Uid = ChaosJazz,
 		StatBuff = new()
 		{
 			Stat = Proficiency,

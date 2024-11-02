@@ -1,12 +1,18 @@
 namespace ZZZDmgCalculator.Models.Info;
 
-public class DiscStatInfo {
+using ZZZ.ApiModels;
 
-	public int[]? MainDiscs { get; set; }
+public class DiscStatInfo : BaseInfo<DiscStats> {
 
-	public double[][]? MainScales { get; set; }
+	public int[]? MainDiscs { get; init; }
 
-	public double[]? SubScales { get; set; }
+	public double[][]? MainScales { get; init; }
 
-	public required StatModifier Buff { get; set; }
+	public double[]? SubScales { get; init; }
+
+	public required StatModifier Buff { get; init; }
+	
+	public bool IsMain => MainScales is not null;
+	
+	public bool IsSub => SubScales is not null;
 }

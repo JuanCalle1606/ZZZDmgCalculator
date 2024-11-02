@@ -8,7 +8,7 @@ using ZZZ.ApiModels;
 public class SoulRockData {
 	public readonly static DiscInfo Data = new()
 	{
-		Id = nameof(Discs.SoulRock),
+		Uid = Discs.SoulRock,
 		StatBuff = new()
 		{
 			Stat = Stats.Def,

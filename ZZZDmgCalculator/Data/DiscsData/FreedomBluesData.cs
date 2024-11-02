@@ -8,7 +8,7 @@ using ZZZ.ApiModels;
 public class FreedomBluesData {
 	public readonly static DiscInfo Data = new ()
 	{
-		Id = nameof(Discs.FreedomBlues),
+		Uid = Discs.FreedomBlues,
 		StatBuff = new ()
 		{
 			Stat = Stats.Proficiency,

@@ -8,7 +8,7 @@ using ZZZ.ApiModels;
 public class WoodpeckerElectroData {
 	public readonly static DiscInfo Data = new()
 	{
-		Id = nameof(Discs.WoodpeckerElectro),
+		Uid = Discs.WoodpeckerElectro,
 		StatBuff = new()
 		{
 			Stat = Stats.CritRate,

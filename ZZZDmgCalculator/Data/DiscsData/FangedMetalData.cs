@@ -8,7 +8,7 @@ using ZZZ.ApiModels;
 public class FangedMetalData {
 	public readonly static DiscInfo Data = new()
 	{
-		Id = nameof(Discs.FangedMetal),
+		Uid = Discs.FangedMetal,
 		StatBuff = new()
 		{
 			Stat = Stats.PhysicalDmg,

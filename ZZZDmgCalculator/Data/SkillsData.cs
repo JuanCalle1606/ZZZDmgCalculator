@@ -53,5 +53,15 @@ public static class SkillsData {
 			Id = nameof(Skills.Quick),
 			Icon = "Assist_Attack",
 		},
+		[Skills.Core] = new()
+		{
+			Id = nameof(Skills.Core),
+			Icon = "Core_Skill_Empty",
+		},
+		[Skills.Additional] = new()
+		{
+			Id = nameof(Skills.Additional),
+			Icon = "Core_Skill_Empty",
+		},
 	};
 }

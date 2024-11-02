@@ -2,6 +2,7 @@ namespace ZZZDmgCalculator.Services;
 
 using System.Resources;
 using System.Text;
+using ZZZ.ApiModels;
 
 /// <summary>
 /// Provides access to the language resources.
@@ -24,8 +25,6 @@ public class LangService {
 			return value ?? $"%{key}%";
 		}
 	}
-
-	public string this[Enum key] => this[$"{key.GetType().Name}.{key}"];
 	
 	public string GenMiss() {
 		var sb = new StringBuilder();
@@ -40,7 +39,16 @@ $"""
 	}
 #else
 	public string this[string key] => _manager.GetString(key) ?? $"%{key}%";
-
-	public string this[Enum key] => this[$"{key.GetType().Name}.{key}"];
 #endif
+	
+	public string this[Enum key]
+	{
+		get
+		{
+			// Disc stats use the same localization as the stats except for the percentage stats.
+			if(key is DiscStats ds && (ds != DiscStats.AtkPercent && ds != DiscStats.DefPercent && ds != DiscStats.HpPercent))
+				return this[$"Stats.{key.ToString().Replace("Anomaly", "")}"];
+			return this[$"{key.GetType().Name}.{key}"];
+		}
+	}
 }

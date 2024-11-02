@@ -8,7 +8,7 @@ using ZZZ.ApiModels;
 public class HormonePunkData {
 	public readonly static DiscInfo Data = new()
 	{
-		Id = nameof(Discs.HormonePunk),
+		Uid = Discs.HormonePunk,
 		StatBuff = new()
 		{
 			Stat = Stats.Atk,

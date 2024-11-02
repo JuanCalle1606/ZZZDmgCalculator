@@ -3,14 +3,13 @@ namespace ZZZDmgCalculator.Models.State;
 using System.Text.Json.Serialization;
 using Abstractions;
 using Common;
-using Enum;
 using Info;
 using Json;
 using ZZZ.ApiModels;
 using Enum=System.Enum;
 
 /**
- * Represents the state of a disc.
+ * Represents the state of stats in a disc.
  * This class is used to calculate the stats of a disc.
  * Only tha main stats and sub stats are stored here, the buffs from sets are stored in <see cref="DiscSetState"/>.
  */
@@ -22,8 +21,8 @@ public class DiscState : IModifierContainer {
 	ItemRank _rank = ItemRank.S;
 	int _level = 0;
 
-	public Discs Disc { get; }
-
+	public Discs Disc => Info.Uid;
+	
 	public DiscInfo Info { get; }
 
 	/// <summary>
@@ -52,7 +51,7 @@ public class DiscState : IModifierContainer {
 		}
 	}
 
-	public Stats MainStat => _mainStat.Buff.Stat;
+	public DiscStats MainStat { get; }
 
 	public IList<StatModifier> Modifiers { get; }
 
@@ -84,7 +83,7 @@ public class DiscState : IModifierContainer {
 	public DiscState(DiscInfo info, DiscStatInfo mainStat) {
 		Modifiers = new List<StatModifier>();
 		Info = info;
-		Disc = Enum.Parse<Discs>(info.Id);
+		MainStat = Enum.Parse<DiscStats>(mainStat.Id);
 
 		MainStatInfo = mainStat;
 		SubStats = new(this);

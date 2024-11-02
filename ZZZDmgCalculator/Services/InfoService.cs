@@ -33,8 +33,11 @@ public class InfoService(LangService lang) {
 	Dictionary<Engines, EngineInfo> _engines = null!;
 	public EngineInfo this[Engines item] => _engines[item];
 
-	Dictionary<Stats, StatInfo> _stats = null!;
-	public StatInfo this[Stats item] => _stats[item];
+	Dictionary<Stats, BaseInfo> _stats = null!;
+	public BaseInfo this[Stats item] => _stats[item];
+	
+	Dictionary<DiscStats, DiscStatInfo> _discStats = null!;
+	public DiscStatInfo this[DiscStats item] => _discStats[item];
 
 	Dictionary<Agents, AgentInfo> _agents = null!;
 	public AgentInfo this[Agents item] => _agents[item];
@@ -46,8 +49,9 @@ public class InfoService(LangService lang) {
 		_skills = LoadData<Skills, BaseInfo>(types);
 		_coreSkills = LoadData<CoreSkills, BaseInfo>(types);
 		_attributes = LoadData<Attributes, BaseInfo>(types);
-
-		_stats = LoadData<Stats, StatInfo>(types);
+		_stats = LoadData<Stats, BaseInfo>(types);
+		
+		_discStats = LoadData<DiscStats, DiscStatInfo>(types);
 		_discs = LoadData<Discs, DiscInfo>(types);
 		_engines = LoadData<Engines, EngineInfo>(types);
 		_agents = LoadData<Agents, AgentInfo>(types);
@@ -97,7 +101,7 @@ public class InfoService(LangService lang) {
 	
 	public IEnumerable<Agents> AvailableAgents => _agents.Keys;
 	
-	public IEnumerable<StatInfo> AllStatInfos => _stats.Values;
+	public IEnumerable<DiscStatInfo> AllDiscStatInfos => _discStats.Values;
 
 	public string AgentRankIcon(AgentRank infoRank) => infoRank switch
 	{

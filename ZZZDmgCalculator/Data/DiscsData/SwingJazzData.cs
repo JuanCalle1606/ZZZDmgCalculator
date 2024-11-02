@@ -8,7 +8,7 @@ using ZZZ.ApiModels;
 public class SwingJazzData {
 	public readonly static DiscInfo Data = new()
 	{
-		Id = nameof(Discs.SwingJazz),
+		Uid = Discs.SwingJazz,
 		StatBuff = new()
 		{
 			Stat = Stats.EnergyRegen,

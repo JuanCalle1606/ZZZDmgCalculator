@@ -10,7 +10,7 @@ using static Models.Enum.Stats;
 public class ProtoPunkData {
 	public readonly static DiscInfo Data = new()
 	{
-		Id = nameof(ProtoPunk),
+		Uid = ProtoPunk,
 		StatBuff = new()
 		{
 			Stat = ShieldPower,

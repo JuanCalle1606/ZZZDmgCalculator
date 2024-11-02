@@ -8,7 +8,7 @@ using ZZZ.ApiModels;
 public class InfernoMetalData {
 	public readonly static DiscInfo Data = new()
 	{
-		Id = nameof(Discs.InfernoMetal),
+		Uid = Discs.InfernoMetal,
 		StatBuff = new()
 		{
 			Stat = Stats.FireDmg,

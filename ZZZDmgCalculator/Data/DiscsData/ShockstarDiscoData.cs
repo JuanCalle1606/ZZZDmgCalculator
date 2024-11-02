@@ -8,7 +8,7 @@ using ZZZ.ApiModels;
 public class ShockstarDiscoData {
 	public readonly static DiscInfo Data = new ()
 	{
-		Id = nameof(Discs.ShockstarDisco),
+		Uid = Discs.ShockstarDisco,
 		StatBuff = new ()
 		{
 			Stat = Stats.Impact,

@@ -2,8 +2,9 @@ namespace ZZZDmgCalculator.Models.Info;
 
 using Services;
 using Util;
+using ZZZ.ApiModels;
 
-public class DiscInfo : BaseInfo {
+public class DiscInfo : BaseInfo<Discs> {
 	public required StatModifier StatBuff { get; set; }
 
 	public SingleList<BuffInfo> Buffs { get; init; } = [];

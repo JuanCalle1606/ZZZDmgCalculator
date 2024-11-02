@@ -16,3 +16,17 @@ public class BaseInfo {
 	
 	public virtual void PostLoad(LangService lang) { }
 }
+
+public class BaseInfo<T> : BaseInfo where T : struct, System.Enum {
+	readonly T _uid;
+
+	public required T Uid
+	{
+		get => _uid;
+		init
+		{
+			Id = value.ToString();
+			_uid = value;
+		}
+	}
+}

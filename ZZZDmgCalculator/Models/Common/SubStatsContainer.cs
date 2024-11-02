@@ -7,8 +7,8 @@ using State;
 
 public class SubStatsContainer : IModifierContainer, IEnumerable<DiscStatInfo> {
 	const int MaxSubStats = 4;
-	List<DiscStatInfo> _subStats = new(MaxSubStats);
-	List<int> _subStatRolls = new(MaxSubStats);
+	readonly List<DiscStatInfo> _subStats = new(MaxSubStats);
+	readonly List<int> _subStatRolls = new(MaxSubStats);
 	readonly DiscState _disc;
 
 	public IList<StatModifier> Modifiers { get; } = new List<StatModifier>(MaxSubStats);

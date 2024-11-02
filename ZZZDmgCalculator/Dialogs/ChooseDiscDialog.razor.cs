@@ -17,9 +17,7 @@ public partial class ChooseDiscDialog {
 	protected override void OnInitialized() {
 		base.OnInitialized();
 		_discs = Enum.GetValues<Discs>().Select(e => Info[e]).ToArray();
-		_statData = Info.AllStatInfos
-			.Where(statInfo => statInfo.IsMain)
-			.SelectMany(statInfo => statInfo.DiscData).ToArray();
+		_statData = Info.AllDiscStatInfos.Where(i=>i.IsMain).ToArray();
 	}
 
 	bool ApplyFilters(DiscInfo e) => e.DisplayName.Contains(_searchFilter, StringComparison.CurrentCultureIgnoreCase);
@@ -28,9 +26,8 @@ public partial class ChooseDiscDialog {
 		var discStats = _statData
 			.First(di => di.MainDiscs!.Contains(Index + 1));
 		// disc are by default rank S so lets add 3 substats
-		var subStats = Info.AllStatInfos
-			.Where(statInfo => statInfo.IsMain)
-			.SelectMany(statInfo => statInfo.DiscData)
+		var subStats = Info.AllDiscStatInfos
+			.Where(statInfo => statInfo.IsSub)
 			.ToArray();
 		var state = new DiscState(info, discStats);
 		

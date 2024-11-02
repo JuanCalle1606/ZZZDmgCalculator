@@ -9,7 +9,7 @@ using static ZZZ.ApiModels.Skills;
 public class PolarMetalData {
 	public readonly static DiscInfo Data = new ()
 	{
-		Id = nameof(Discs.PolarMetal),
+		Uid = Discs.PolarMetal,
 		StatBuff = new ()
 		{
 			Stat = Stats.IceDmg,

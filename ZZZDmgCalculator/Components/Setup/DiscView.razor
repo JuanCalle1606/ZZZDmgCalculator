@@ -40,10 +40,9 @@
 				                Data="@ListsUtil.Simple(0, _discStatInfos.Length - 1)" Chips="true"
 				                Style="width: 100%; max-width: 155px; text-align: end; background-color: unset">
 					<Template>
-						@{ var s = _discStatInfos[(int)(object)context].Buff; }
+						@{ var s = _discStatInfos[(int)(object)context]; }
 						<RadzenText class="rz-color-bonus">
-							@Info[s.Stat].DisplayName
-							@(s.Stat is Stats.Atk or Stats.Def or Stats.Hp && s.IsPercent ? " %" : "")
+							@Info[s.Uid].DisplayName
 						</RadzenText>
 					</Template>
 
@@ -76,10 +75,9 @@
 						                Data="@ListsUtil.Simple(0, availableStats.Length - 1)" Chips="true"
 						                Style="width: 100%; max-width: 155px; text-align: start; background-color: unset; ">
 							<Template>
-								@{ var s = availableStats[(int)(object)context].Buff; }
+								@{ var s = availableStats[(int)(object)context]; }
 								<RadzenText>
-									@Info[s.Stat].DisplayName
-									@(s.Stat is Stats.Atk or Stats.Def or Stats.Hp && s.IsPercent ? " %" : "")
+									@Info[s.Uid].DisplayName
 								</RadzenText>
 							</Template>
 
