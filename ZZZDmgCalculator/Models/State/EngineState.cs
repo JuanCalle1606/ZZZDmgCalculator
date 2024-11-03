@@ -5,6 +5,7 @@ using Abstractions;
 using Enum;
 using Info;
 using Json;
+using ZZZ.ApiModels;
 
 [JsonConverter(typeof(EngineSerializer))]
 public class EngineState : IModifierContainer, IBuffContainer, IBuffDependencyChecker {
