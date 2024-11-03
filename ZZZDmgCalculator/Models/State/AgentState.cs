@@ -2,6 +2,7 @@ namespace ZZZDmgCalculator.Models.State;
 
 using System.Text.Json.Serialization;
 using Abstractions;
+using Common;
 using Enum;
 using Info;
 using Json;
@@ -17,6 +18,8 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 
 	readonly Dictionary<Stats, StatModifier> _baseStats = new();
 	readonly StatModifier[] _coreStats = new StatModifier[2];
+	
+	readonly Dictionary<Skills, int> _skillLevels = new();
 
 	/**
 	 * To improve the performance a little bit, we can use a flag to indicate if the agent is currently loading,
@@ -79,16 +82,8 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 	}
 
 	public EntityState Stats { get; } = new();
-
-	/// <summary>
-	/// The skill levels of the agent.
-	/// 0: Basic Attack
-	/// 1: Dodge
-	/// 2: Assist
-	/// 3: Special
-	/// 4: Ultimate
-	/// </summary>
-	public int[] SkillLevels { get; private set; } = [1, 1, 1, 1, 1];
+	
+	public IndexedProperty<Skills, int> Skills { get;  }
 
 	public IList<StatModifier> Modifiers { get; } = new List<StatModifier>();
 
@@ -141,6 +136,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 
 	public AgentState(AgentInfo info) {
 		Info = info;
+		Skills = new(GetSkillLevel, SetSkillLevel);	
 
 		InitBaseStats();
 
@@ -156,6 +152,12 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		InitBuffs();
 		UpdateAllStats();
 	}
+	
+	void SetSkillLevel(Skills skill, int level) {
+		_skillLevels[skill] = level;
+	}
+	
+	int GetSkillLevel(Skills skill) => _skillLevels.GetValueOrDefault(skill, 1);
 
 	public void SetDisc(DiscState? disc, int i) {
 		if (Discs[i] is {} d)

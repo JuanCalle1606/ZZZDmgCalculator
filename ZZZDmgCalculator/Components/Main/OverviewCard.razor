@@ -34,6 +34,6 @@
 		</RadzenStack>
 	</RadzenStack>
 </RadzenStack>
-<SkillLevelSelector @bind-CoreLevel="Agent.CoreSkillLevel" SkillLevels="Agent.SkillLevels"
-                    SkillLevelChanged="tuple => Agent.SkillLevels[tuple.Item1] = tuple.Item2"/>
+<SkillLevelSelector @bind-CoreLevel="Agent.CoreSkillLevel" SkillLevels="Agent.Skills"
+                    SkillLevelChanged="tuple => Agent.Skills[tuple.Item1] = tuple.Item2"/>
 <AgentStatsTable EntityStats="Agent.Stats"/>

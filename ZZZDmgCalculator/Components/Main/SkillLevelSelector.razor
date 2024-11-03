@@ -13,15 +13,15 @@
 				<img src="@Info[CoreSkills.Empty].Url" alt style="width: 32px;height: 32px;"/>
 			</Template>
 		</RadzenTabsItem>
-		@for (var i = 0; i < 5; i++)
+		@for (var i = 0; i < _skills.Length; i++)
 		{
-			var i3 = i;
+			var skill = _skills[i];
 			<RadzenTabsItem class="adaptive-tab-item">
 				<ChildContent>
 					<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.SpaceBetween">
-						<RadzenLabel>@Info[i3 == 3 ? Skills.Special : _skills[i3]].DisplayName:</RadzenLabel>
+						<RadzenLabel>@Info[skill].DisplayName:</RadzenLabel>
 						<div>
-							<RadzenLabel>@SkillLevels[i3]</RadzenLabel>
+							<RadzenLabel>@SkillLevels[skill]</RadzenLabel>
 							@switch (State.CurrentAgent!.Cinema)
 							{
 								case > 4:
@@ -31,13 +31,13 @@
 									<RadzenLabel class="rz-color-success-light rz-ml-1">(+2)</RadzenLabel>
 									break;
 							}
-							<RadzenSlider Value="SkillLevels[i3]" TValue="int" Step="1" Min="1" Max="12" class="rz-ml-3"
-							              ValueChanged="i1 => SkillLevelChanged.InvokeAsync((i3, i1))"/>
+							<RadzenSlider Value="SkillLevels[skill]" TValue="int" Step="1" Min="1" Max="12" class="rz-ml-3"
+							              ValueChanged="i1 => SkillLevelChanged.InvokeAsync((skill, i1))"/>
 						</div>
 					</RadzenStack>
 				</ChildContent>
 				<Template>
-					<img src="@Info[_skills[i3]].Url" alt/>
+					<img src="@Info[skill].Url" alt/>
 				</Template>
 			</RadzenTabsItem>
 		}

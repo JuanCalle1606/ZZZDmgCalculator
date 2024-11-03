@@ -1,20 +1,22 @@
 namespace ZZZDmgCalculator.Components.Main;
 
 using Microsoft.AspNetCore.Components;
+using Models.Common;
 using Models.Enum;
+using Models.Json;
 using ZZZ.ApiModels;
 
 public partial class SkillLevelSelector {
-	Skills[] _skills = [Skills.Basic, Skills.Dodge, Skills.Assist, Skills.Ex, Skills.Ultimate];
-	
+	Skills[] _skills = SkillSerializer.AbilitySkills;
+
 	[Parameter]
-	public int[] SkillLevels { get; set; } = [];
+	public IndexedProperty<Skills, int> SkillLevels { get; set; } = null!;
 
 	[Parameter]
 	public CoreSkills CoreLevel { get; set; }
 
 	[Parameter]
-	public EventCallback<(int, int)> SkillLevelChanged { get; set; }
+	public EventCallback<(Skills, int)> SkillLevelChanged { get; set; }
 	
 	[Parameter]
 	public EventCallback<CoreSkills> CoreLevelChanged { get; set; }
