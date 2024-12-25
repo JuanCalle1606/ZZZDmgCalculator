@@ -1,5 +1,6 @@
 namespace ZZZDmgCalculator.Models.Json;
 
+using Services;
 using State;
 using ZZZ.ApiModels.Responses;
 
@@ -17,5 +18,20 @@ public static class AgentSerializer {
 			Discs = state.Discs.Select(DiscSerializer.StateToModel).Where(d => d is not null).Cast<Agent.Disc>().ToArray(),
 			Skills = SkillSerializer.StateToModel(state)
 		};
+	}
+	public static AgentState? ModelToState(Agent? agent, InfoService info) {
+		if (agent is null) return null;
+		var state = new AgentState(info[agent.Id])
+		{
+			Loading = true,
+			Ascension = agent.Ascension,
+			Cinema = agent.Cinema,
+			Engine = EngineSerializer.ModelToState(agent.Engine, info)
+		};
+
+
+		state.Loading = false;
+		state.UpdateAllStats();
+		return state;
 	}
 }

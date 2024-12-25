@@ -28,6 +28,8 @@ public class StatsData {
 		[PhysicalDmg] = new() { Id = nameof(PhysicalDmg) },
 		
 		[ShieldPower] = new() { Id = nameof(ShieldPower) },
+		[Daze] = new() { Id = nameof(Daze) },
+		[BuildUp] = new() { Id = nameof(BuildUp) },
 		[BonusDmg] = new() { Id = nameof(BonusDmg) },
 
 		[ElectricCritDmg] = new() { Id = nameof(ElectricCritDmg) },

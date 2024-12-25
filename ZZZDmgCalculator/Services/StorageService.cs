@@ -4,8 +4,10 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Blazored.LocalStorage;
 using Models.Json;
+using Models.State;
+using ZZZ.ApiModels.Responses;
 
-public class StorageService(ILocalStorageService localStorage, StateService state, InfoService info) {
+public class StorageService(ILocalStorageService localStorage, StateService state, InfoService info, NotifierService notifier) {
 	
 	const string StateKey = "Setup";
 	
@@ -31,5 +33,24 @@ public class StorageService(ILocalStorageService localStorage, StateService stat
 	}
 	
 	public async Task LoadState() {
+		// load model
+		var agentModel = await Local.GetItemAsStringAsync($"{StateKey}.Agents");
+		if (agentModel != null) {
+			var agents = JsonSerializer.Deserialize<Agent?[]>(agentModel, Options);
+			if (agents != null) {
+				var setup = new SetupState();
+				for (int i = 0; i < 3; i++)
+				{
+					setup[i] = AgentSerializer.ModelToState(agents[i], info);
+				}
+				state.CurrentSetup = setup;
+			}
+		}
+		
+		// load current agent index
+		var currentAgentIndex = await Local.GetItemAsync<int>($"{StateKey}.CurrentAgentIndex");
+		state.CurrentAgentIndex = currentAgentIndex;
+		
+		notifier.CurrentAgentChanged();
 	}
 }

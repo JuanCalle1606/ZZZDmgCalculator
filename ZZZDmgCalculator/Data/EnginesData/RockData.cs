@@ -26,15 +26,13 @@ public class RockData {
 		SubStats = EngineScales.Templates["Shooter.Sub"],
 		Passives =
 		[
-			// TODO: Require daze implement
-			/*
 			new()
 			{
 				Scales = [EngineScales.Templates["Spring.Buff1"]],
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.Impact,
-					Type = StatModifiers.CombatPercent
+					Stat = Stats.Daze,
+					Type = StatModifiers.Combat
 				}
 			},
 
@@ -44,10 +42,10 @@ public class RockData {
 				Depends = 0,
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.Impact,
-					Type = StatModifiers.CombatPercent
+					Stat = Stats.Daze,
+					Type = StatModifiers.Combat
 				}
-			}*/
+			}
 		]
 	};
 }

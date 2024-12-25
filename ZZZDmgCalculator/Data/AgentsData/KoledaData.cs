@@ -1,6 +1,5 @@
 namespace ZZZDmgCalculator.Data.AgentsData;
 
-using Models.Enum;
 using Models.Info;
 using ZZZ.ApiModels;
 using static AgentScales;
@@ -12,6 +11,7 @@ using static Models.Enum.BuffTrigger;
 using static Models.Enum.Factions;
 using static ZZZ.ApiModels.Skills;
 using static Models.Enum.Specialties;
+using static Models.Enum.StatModifiers;
 using static Models.Enum.Stats;
 using static Models.Info.DodgeTypes;
 
@@ -46,7 +46,14 @@ public class KoledaData {
 			Templates["Koleda.Def"],
 		],
 		FinalStats = [0, 116, 96, 97, 1.2],
-		// TODO: Add core buff when app support daze
+		CoreBuff = new BuffInfo()
+		{
+			Scales	= [[30,35,40,45,50,55,60]],
+			Modifiers = new StatModifier
+			{
+				Stat = Daze, Type = Combat
+			}
+		},
 		AdditionalBuff = new BuffInfo()
 		{
 			Type = Stack,
@@ -54,7 +61,7 @@ public class KoledaData {
 			SkillCondition = skill => skill.Type == Chain,
 			Modifiers = new StatModifier
 			{
-				Stat = BonusDmg, Type = StatModifiers.Combat, Value = 35, Shared = true
+				Stat = BonusDmg, Type = Combat, Value = 35, Shared = true
 			}
 		},
 		Abilities =
@@ -259,7 +266,7 @@ public class KoledaData {
 				Type = Stack,
 				Stacks = 2,
 				AbilityCondition = skill => skill.Category == Chain,// this covers chain and ultimate
-				Modifiers = new StatModifier { Stat = BonusDmg, Type = StatModifiers.Combat, Value = 18 },
+				Modifiers = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 18 },
 			},
 			[6] = new SkillInfo
 			{

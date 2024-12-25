@@ -47,7 +47,14 @@ public class AnbyData {
 			Templates["Lucy.Def"],
 		],
 		FinalStats = [0, 118, 83, 94, 1.2],
-		// TODO: Add core buff for Anby when app support daze calculation
+		CoreBuff = new BuffInfo
+		{
+			Scales	= [[32, 37.3, 42.6, 48, 53.3, 58.6, 64]],
+			Modifiers = new StatModifier
+			{
+				Stat = Daze, Type = Combat
+			}
+		},
 		Abilities =
 		[
 			new()// Basic Attack: Turbo Volt

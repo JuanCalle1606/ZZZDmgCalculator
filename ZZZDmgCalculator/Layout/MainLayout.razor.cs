@@ -10,8 +10,6 @@ public partial class MainLayout {
 	async Task SaveState() {
 		// Save state
 		Console.WriteLine("Saving state");
-		/*await LocalStorage.SetItemAsStringAsync("setup", JsonSerializer.Serialize(State.CurrentSetup, _jsonSerializerOptions));
-		await LocalStorage.SetItemAsync("currentAgentIndex", State.CurrentAgentIndex);*/
 		await Storage.SaveState();
 		Console.WriteLine("State saved");
 	}

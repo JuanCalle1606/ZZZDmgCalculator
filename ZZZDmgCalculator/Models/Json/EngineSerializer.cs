@@ -1,5 +1,6 @@
 namespace ZZZDmgCalculator.Models.Json;
 
+using Services;
 using State;
 using ZZZ.ApiModels.Responses;
 
@@ -14,5 +15,8 @@ public static class EngineSerializer {
 			Name = stateEngine.Info.DisplayName,
 			Refinement = stateEngine.Refinement
 		};
+	}
+	public static EngineState? ModelToState(Agent.Weapon? agentEngine, InfoService info) {
+		throw new NotImplementedException();
 	}
 }

@@ -39,15 +39,15 @@ public class StingerData {
 			},
 
 			new()
-			{ // TODO: Change to Buildup Rate when implemented
+			{
 				Scales = [EngineScales.Templates["Stinger.Buff1"]],
 				Type = BuffTrigger.Permanent,
 				Depends = 0,
 				RequiredStacks = 3,
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.Mastery,
-					Type = StatModifiers.CombatPercent
+					Stat = Stats.BuildUp,
+					Type = StatModifiers.Combat
 				}
 			}
 		]

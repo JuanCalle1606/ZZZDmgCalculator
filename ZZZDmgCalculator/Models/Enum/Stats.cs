@@ -6,7 +6,7 @@ namespace ZZZDmgCalculator.Models.Enum;
 
 public enum Stats {
 	// Base stats
-	Atk,
+	Atk, //b
 	Hp,
 	Def,
 	Impact,
@@ -16,22 +16,24 @@ public enum Stats {
 	Pen,
 	EnergyRegen,
 	Proficiency,
-	Mastery,
+	Mastery, //e
 	
 	// Bonus damage stats
-	ElectricDmg = 25,
+	ElectricDmg = 25, //b
 	EtherDmg,
 	FireDmg,
 	IceDmg,
-	PhysicalDmg,
+	PhysicalDmg, //e
 	
 	// Unique buffs	stats
-	ShieldPower = 35,
-	BonusDmg,
+	ShieldPower = 35, //b
+	Daze,
+	BuildUp,
+	BonusDmg, //e
 	
 	// special anomaly stats, this stats are hidden by default unless theis value is not 0, these are increased by specific agents or skills.
 	// for example jane core skill add physical anomaly crit rate and crit dmg.
-	ElectricCritDmg = 50,
+	ElectricCritDmg = 50, //b
 	ElectricCritRate,
 	EtherCritDmg,
 	EtherCritRate,
@@ -40,9 +42,9 @@ public enum Stats {
 	IceCritDmg,
 	IceCritRate,
 	PhysicalCritDmg,
-	PhysicalCritRate,
+	PhysicalCritRate, //e
 	
-	// special stats, these ones are also hidden by default, but they are increased by specific agents or skills.
+	// special stats, these are also hidden by default, but they are increased by specific agents or skills.
 	// also these stats can be modified for enemies.
 	DmgTaken = 75,
 	DmgReduction,
