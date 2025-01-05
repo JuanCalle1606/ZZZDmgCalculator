@@ -51,7 +51,7 @@ public class DiscState : IModifierContainer {
 		}
 	}
 
-	public DiscStats MainStat => MainStatInfo.Uid;
+	public AgentStats MainStat => MainStatInfo.Uid;
 
 	public IList<StatModifier> Modifiers { get; }
 

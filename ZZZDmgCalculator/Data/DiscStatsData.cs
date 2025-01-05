@@ -3,12 +3,12 @@ namespace ZZZDmgCalculator.Data;
 using Models.Enum;
 using Models.Info;
 using ZZZ.ApiModels;
-using static ZZZ.ApiModels.DiscStats;
+using static ZZZ.ApiModels.AgentStats;
 using static Models.Enum.StatModifiers;
 
-[InfoData<DiscStats>]
+[InfoData<AgentStats>]
 public class DiscStatsData {
-	public readonly static Dictionary<DiscStats, DiscStatInfo> Data = new()
+	public readonly static Dictionary<AgentStats, DiscStatInfo> Data = new()
 	{
 		[HpPercent] = new()
 		{

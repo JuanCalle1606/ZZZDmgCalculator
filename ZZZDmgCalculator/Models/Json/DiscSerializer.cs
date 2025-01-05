@@ -22,10 +22,10 @@ public static class DiscSerializer  {
 			SubStats = StateToModel(disc.SubStats)
 		};
 	}
-	static Agent.Disc.Stat[] StateToModel(SubStatsContainer discSubStats) => 
-		discSubStats.Select((s, i) => StatToModel(s, discSubStats.Modifiers[i], discSubStats.Rolls[i])).ToArray();
+	static List<Agent.Stat> StateToModel(SubStatsContainer discSubStats) => 
+		discSubStats.Select((s, i) => StatToModel(s, discSubStats.Modifiers[i], discSubStats.Rolls[i])).ToList();
 
-	static Agent.Disc.Stat StatToModel(DiscStatInfo stat, StatModifier value, int rolls = -1) {
+	static Agent.Stat StatToModel(DiscStatInfo stat, StatModifier value, int rolls = -1) {
 		return new()
 		{
 			Id = stat.Uid,

@@ -2,7 +2,7 @@ namespace ZZZDmgCalculator.Models.Info;
 
 using ZZZ.ApiModels;
 
-public class DiscStatInfo : BaseInfo<DiscStats> {
+public class DiscStatInfo : BaseInfo<AgentStats> {
 
 	public int[]? MainDiscs { get; init; }
 

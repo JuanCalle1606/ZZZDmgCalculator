@@ -46,7 +46,7 @@ $"""
 		get
 		{
 			// Disc stats use the same localization as the stats except for the percentage stats.
-			if(key is DiscStats ds && (ds != DiscStats.AtkPercent && ds != DiscStats.DefPercent && ds != DiscStats.HpPercent))
+			if(key is AgentStats ds && (ds != AgentStats.AtkPercent && ds != AgentStats.DefPercent && ds != AgentStats.HpPercent))
 				return this[$"Stats.{key.ToString().Replace("Anomaly", "")}"];
 			return this[$"{key.GetType().Name}.{key}"];
 		}

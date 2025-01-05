@@ -36,8 +36,8 @@ public class InfoService(LangService lang) {
 	Dictionary<Stats, BaseInfo> _stats = null!;
 	public BaseInfo this[Stats item] => _stats[item];
 	
-	Dictionary<DiscStats, DiscStatInfo> _discStats = null!;
-	public DiscStatInfo this[DiscStats item] => _discStats[item];
+	Dictionary<AgentStats, DiscStatInfo> _discStats = null!;
+	public DiscStatInfo this[AgentStats item] => _discStats[item];
 
 	Dictionary<Agents, AgentInfo> _agents = null!;
 	public AgentInfo this[Agents item] => _agents[item];
@@ -51,7 +51,7 @@ public class InfoService(LangService lang) {
 		_attributes = LoadData<Attributes, BaseInfo>(types);
 		_stats = LoadData<Stats, BaseInfo>(types);
 		
-		_discStats = LoadData<DiscStats, DiscStatInfo>(types);
+		_discStats = LoadData<AgentStats, DiscStatInfo>(types);
 		_discs = LoadData<Discs, DiscInfo>(types);
 		_engines = LoadData<Engines, EngineInfo>(types);
 		_agents = LoadData<Agents, AgentInfo>(types);

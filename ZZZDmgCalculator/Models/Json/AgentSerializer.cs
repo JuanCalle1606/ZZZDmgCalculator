@@ -15,7 +15,7 @@ public static class AgentSerializer {
 			Cinema = state.Cinema,
 			Name = state.Info.DisplayName,
 			Engine = EngineSerializer.StateToModel(state.Engine),
-			Discs = state.Discs.Select(DiscSerializer.StateToModel).Where(d => d is not null).Cast<Agent.Disc>().ToArray(),
+			Discs = state.Discs.Select(DiscSerializer.StateToModel).Where(d => d is not null).Cast<Agent.Disc>().ToList(),
 			Skills = SkillSerializer.StateToModel(state)
 		};
 	}

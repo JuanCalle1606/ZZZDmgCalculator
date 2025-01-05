@@ -65,6 +65,14 @@ public static class EngineScales {
 		["Suppressor.Buff1"] = [35, 43.5, 52, 60.5, 70],
 		["TuskOfFury.Buff"] = [30, 38, 46, 54, 60],
 		["TuskOfFury.Buff1"] = [18, 22.5, 27, 31.5, 36],
-		["Cannon.Buff"] = [7.5, 8.6, 9.7, 10.8, 12]
+		["Cannon.Buff"] = [7.5, 8.6, 9.7, 10.8, 12],
+		["Blazing.Buff"] = [25, 28.75, 32.5, 36.25, 40],
+		["Blazing.Buff1"] = [1.5, 1.72, 1.95, 2.17, 2.4],
+		["Flamemaker.Buff"] = [50, 62, 75, 87, 100],
+		["Hailstorm.Main"] = [50, 128, 173, 251, 296, 374, 419, 497, 542, 620, 665, 743],
+		["Hailstorm.Buff"] = [50, 57, 65, 72, 80],
+		["Timeweaver.Buff"] = [30, 35, 40, 45 ,50],
+		["Timeweaver.Buff1"] = [75, 85, 95, 105, 115],
+		["Timeweaver.Buff2"] = [25, 27.5, 30, 32.5, 35],
 	};
 }
