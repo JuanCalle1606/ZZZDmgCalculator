@@ -27,7 +27,7 @@ public partial class BuffView {
 	protected override void OnInitialized() {
 		base.OnInitialized();
 		Buff.DependencyChecker?.CheckBuffDependencies(Buff);
-		if (Buff.HasDependencies)
+		if (Buff.HasDependencies && Buff.Dependency is not null /* Dependency is null when engine is used on agents of another specialty */)
 		{
 			Buff.AppliedTo = Buff.Dependency!.AppliedTo;
 		}
