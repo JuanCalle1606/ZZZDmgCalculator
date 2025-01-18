@@ -47,6 +47,8 @@
 			{
 				var category = _categories[index];
 				var li = index;
+				if(SkipCategory(category)) continue;
+				
 				<tbody>
 				<tr class="rz-group-row rz-unselectable-text" @onclick="() => ToggleCategory(li)">
 					<td colspan="@Cols">
@@ -70,31 +72,33 @@
 					var initialStat = EntityStats.Initial[stat];
 					var combatStat = EntityStats.Combat[stat];
 					var totalStat = EntityStats.Total[stat];
-
-					<tr class="rz-data-row rz-unselectable-text" style="@GetCatStyle(li)">
-						<td>
-							<span class=@GetStatClass(totalStat)>@Info[stat].DisplayName</span>
-						</td>
-						<td class="rz-text-align-right initial-stat">
-							@{
-								var baseFormatted = stat.Format(baseStat);
-								var bonusFormatted = stat.Format(bonusStat);
-								var tittle = baseFormatted.Contains("%") || bonusStat == 0 ? "" : $"{baseFormatted} + {bonusFormatted}";
-							}
-							<span class=@(GetStatClass(initialStat)) title="@tittle">
-								@stat.Format(initialStat)
-							</span>
-						</td>
-						<td class="rz-text-align-right">
-							<span class=@GetCombatClass(combatStat)>
-								@(combatStat == 0 ? "" : "+")
-								@stat.Format(combatStat)
-							</span>
-						</td>
-						<td class="rz-text-align-right">
-							<span class=@GetStatClass(totalStat)>@stat.Format(totalStat)</span>
-						</td>
-					</tr>
+					if (totalStat != 0)
+					{
+						<tr class="rz-data-row rz-unselectable-text" style="@GetCatStyle(li)">
+							<td>
+								<span class=@GetStatClass(totalStat)>@Info[stat].DisplayName</span>
+							</td>
+							<td class="rz-text-align-right initial-stat">
+								@{
+									var baseFormatted = stat.Format(baseStat);
+									var bonusFormatted = stat.Format(bonusStat);
+									var tittle = baseFormatted.Contains("%") || bonusStat == 0 ? "" : $"{baseFormatted} + {bonusFormatted}";
+								}
+								<span class=@(GetStatClass(initialStat)) title="@tittle">
+									@stat.Format(initialStat)
+								</span>
+							</td>
+							<td class="rz-text-align-right">
+								<span class=@GetCombatClass(combatStat)>
+									@(combatStat == 0 ? "" : "+")
+									@stat.Format(combatStat)
+								</span>
+							</td>
+							<td class="rz-text-align-right">
+								<span class=@GetStatClass(totalStat)>@stat.Format(totalStat)</span>
+							</td>
+						</tr>
+					}
 				}
 				</tbody>
 			}

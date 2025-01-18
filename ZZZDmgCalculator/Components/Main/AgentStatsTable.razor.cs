@@ -27,6 +27,8 @@ public partial class AgentStatsTable {
 			_ => throw new ArgumentOutOfRangeException(nameof(category), category, null)
 		};
 	}
+	
+	bool SkipCategory(string category) => GetStats(category).All(c => EntityStats.Total[c] == 0);
 	void ToggleCategory(int index) => _categoriesState[index] = !_categoriesState[index];
 	string GetCatStyle(int index) => _categoriesState[index] ? "" : "display: none;";
 	string GetCombatClass(double value) => "rz-cell-data " + (value == 0 ? CeroColor : BonusColor);

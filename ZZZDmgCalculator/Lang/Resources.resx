@@ -977,13 +977,25 @@
     <data name="Skills.Additional" xml:space="preserve">
         <value>Additional Ability</value>
     </data>
-    <data name="DiscStats.HpPercent" xml:space="preserve">
+    <data name="AgentStats.HpPercent" xml:space="preserve">
         <value>Hp%</value>
     </data>
-    <data name="DiscStats.AtkPercent" xml:space="preserve">
+    <data name="AgentStats.AtkPercent" xml:space="preserve">
         <value>Atk%</value>
     </data>
-    <data name="DiscStats.DefPercent" xml:space="preserve">
+    <data name="AgentStats.DefPercent" xml:space="preserve">
         <value>Def%</value>
+    </data>
+    <data name="Stats.Daze" xml:space="preserve">
+        <value>Daze</value>
+    </data>
+    <data name="Stats.BuildUp" xml:space="preserve">
+        <value>Anomaly Build Up</value>
+    </data>
+    <data name="Discs.AstralVoice" xml:space="preserve">
+        <value>Astral Voice</value>
+    </data>
+    <data name="Discs.BranchBladeSong" xml:space="preserve">
+        <value>Branch &amp; Blade Song</value>
     </data>
 </root>
