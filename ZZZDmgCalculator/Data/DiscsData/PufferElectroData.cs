@@ -13,7 +13,7 @@ public class PufferElectroData {
 		StatBuff = new ()
 		{
 			Stat = Stats.PenRatio,
-			Value = 10
+			Value = 8
 		},
 		Buffs =
 		[

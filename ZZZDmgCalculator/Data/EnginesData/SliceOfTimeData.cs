@@ -22,6 +22,6 @@ public class SliceOfTimeData {
 		{
 			Stat = Stats.PenRatio
 		},
-		SubStats = EngineScales.Templates["SliceOfTime.Sub"]
+		SubStats = EngineScales.Templates["Mark1.Sub"]
 	};
 }
