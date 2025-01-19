@@ -47,5 +47,7 @@ public class BuffInfo : BaseInfo {
 	/// </summary>
 	public double? BuffLimit { get; set; }
 	
+	public SingleList<StatRequirement> StatRequirements { get; set; } = [];
+	
 	public static implicit operator BuffInfo(StatModifier d) => new() { Modifiers = [d] };
 }

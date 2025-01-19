@@ -50,10 +50,14 @@ public class TimeweaverData {
 			new()
 			{ 
 				Scales = [Templates["Timeweaver.Buff2"]],
-				Type = Switch, // TODO: replace with stat condition, require 375 proficiency
+				Type = Permanent,
 				Modifiers = new StatModifier
 				{
 					Stat = BonusDmg, Type = Combat // TODO: apply only to disorder
+				},
+				StatRequirements = new StatRequirement
+				{
+					Stat = Proficiency, Value = 375
 				}
 			}
 		]

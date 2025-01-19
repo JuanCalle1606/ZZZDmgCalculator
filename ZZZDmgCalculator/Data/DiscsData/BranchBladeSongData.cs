@@ -22,10 +22,14 @@ public class BranchBladeSongData {
 		[
 			new()
 			{
-				Type = Switch,// TODO: change to permanent buff with stat condition (require 115 anomaly mastery)
+				Type = Permanent,
 				Modifiers = new StatModifier
 				{
 					Stat = CritDmg, Value = 30, Type = Combat
+				},
+				StatRequirements = new StatRequirement
+				{
+					Stat = Mastery, Value = 115
 				}
 			},
 			new()

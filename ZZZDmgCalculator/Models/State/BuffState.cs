@@ -54,6 +54,8 @@ public class BuffState : IModifierContainer {
 	public bool Shared => Info.Modifiers.Any(m => m.Shared);
 
 	public bool HasDependencies => Info.Depends is not null;
+	
+	public bool HasStatRequirements => Info.StatRequirements.Any();
 
 	public BuffInfo Info { get; }
 
@@ -81,6 +83,11 @@ public class BuffState : IModifierContainer {
 
 		Modifiers = Info.Modifiers.Select(i => i.WithValue(i.Value)).ToList();
 		Update();
+		
+		if (HasStatRequirements)
+		{
+			Available = false;
+		}
 	}
 
 	public void Update() {

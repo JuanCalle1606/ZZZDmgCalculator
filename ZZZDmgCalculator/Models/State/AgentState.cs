@@ -324,6 +324,23 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		UpdateDummies();
 		UpdateCombatStats();
 		Stats.Update();
+		CheckRequirements();
+	}
+	
+	void CheckRequirements() {
+		IBuffContainer buffContainer = this;
+
+		var mods = buffContainer.AllBuffs.Where(b => b.HasStatRequirements).ToList();
+		var control = mods.Select(b => b.Available).ToArray();
+		foreach (var mod in mods)
+		{
+			mod.Available = mod.Info.StatRequirements.All(r => Stats.Total[r.Stat] >= r.Value);
+		}
+		var changed = mods.Select(b => b.Available).ToArray();
+		if (!control.SequenceEqual(changed))
+		{
+			UpdateAllStats();
+		}
 	}
 
 	void UpdateDummies() {

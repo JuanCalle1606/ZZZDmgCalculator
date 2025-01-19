@@ -50,13 +50,13 @@ public class RoaringData {
 				}
 			},
 
-			new() // This is Buildup rate, not mastery, need change when implemented
+			new()
 			{
 				Scales = [EngineScales.Templates["Bravo.Buff"]],
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.Mastery,
-					Type = StatModifiers.CombatPercent
+					Stat = Stats.BuildUp,
+					Type = StatModifiers.Combat
 				}
 			}
 		]
