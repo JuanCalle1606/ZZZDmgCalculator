@@ -224,6 +224,7 @@ public class RinaData {
 		],
 		Cinema =
 		{
+			// TODO: increment core buff
 			[2] = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 15 },
 			[4] = new StatModifier { Stat = EnergyRegen, Value = 0.5, Type = CombatFlat },
 			[6] = new StatModifier { Stat = ElectricDmg, Value = 15, Type = Combat, Shared = true }

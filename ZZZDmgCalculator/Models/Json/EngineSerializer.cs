@@ -2,10 +2,10 @@ namespace ZZZDmgCalculator.Models.Json;
 
 using Services;
 using State;
-using ZZZ.ApiModels;
 using ZZZ.ApiModels.Responses;
+using static ZZZ.ApiModels.AgentStats;
 
-public static class EngineSerializer {
+public static class EngineSerializer { 
 
 	public static Agent.Weapon? StateToModel(EngineState? stateEngine) {
 		if (stateEngine is null) return null;
@@ -15,18 +15,24 @@ public static class EngineSerializer {
 			Ascension = stateEngine.Ascension,
 			Name = stateEngine.Info.DisplayName,
 			Refinement = stateEngine.Refinement,
-			MainStat = new Agent.Stat()
+			MainStat = new()
 			{
-				Id = AgentStats.Atk,
-				Value = "0",
-			},SubStat = new Agent.Stat()
+				Id = Atk, Value = "0",
+			},SubStat = new()
 			{
-				Id = AgentStats.Atk,
-				Value = "0",
+				Id = Atk, Value = "0",
 			}
 		};
 	}
-	public static EngineState? ModelToState(Agent.Weapon? agentEngine, InfoService info) {
-		throw new NotImplementedException();
+	
+	public static EngineState? ModelToState(Agent.Weapon? engine, InfoService info) {
+		if (engine is null) return null;
+		var state = new EngineState(info[engine.Id])
+		{
+			Ascension = engine.Ascension,
+			Refinement = engine.Refinement
+		};
+		
+		return state;
 	}
 }

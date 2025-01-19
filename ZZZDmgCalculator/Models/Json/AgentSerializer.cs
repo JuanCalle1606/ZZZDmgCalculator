@@ -29,7 +29,8 @@ public static class AgentSerializer {
 			Engine = EngineSerializer.ModelToState(agent.Engine, info)
 		};
 
-
+		DiscSerializer.ModelToState(agent.Discs, state, info);
+		SkillSerializer.ModelToState(agent.Skills, state);
 		state.Loading = false;
 		state.UpdateAllStats();
 		return state;
