@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.2.2](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v0.2.1...v0.2.2) (2025-01-19)
+
+
+### Features
+
+* Added auto stat condition check on some buffs ([f0c2bb0](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/f0c2bb074016be9640f9c984d1a24323eaaae74f))
+* **stats:** Added Daze and BuildUp stats ([b5d0542](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/b5d0542191df28eda9aaf37b48360c95faaea467))
+* Update to 1.4 ([7eb7d2c](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/7eb7d2c24c167ab8e607ee62bfda876bbbb35674))
+
+
+### Bug Fixes
+
+* **BuffView:** Prevent crash when using a weapon on agents of another specialty ([64135c3](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/64135c3ce81d4b6c12cc1afb0b8b4bdfaba725a3))
+* **Data:** Fixed wrong modifiers values ([aa773dd](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/aa773dd8e311b017ab419d56a435bd42cee8f013))
+
+
+### UI Changes
+
+* **AgentStatsTable:** Hide unchanged stats ([337c594](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/337c5940f6bc664d8e24950334d788742cff0740))
+
 ## [0.2.1](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v0.2.0...v0.2.1) (2024-10-30)
 
 
