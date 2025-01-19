@@ -13,8 +13,8 @@ public partial class AdaptableCards {
 	public RenderFragment ChildContent { get; set; } = null!;
 	
 	protected override void OnBrowserResize(BrowserDimension dimension) {
-		const int widthMax = 550;
-		const int widthMin = 400;
+		const int widthMax = 475;
+		const int widthMin = 375;
 		CardWith = dimension.Width switch
 		{
 			> 1900 => widthMax,
