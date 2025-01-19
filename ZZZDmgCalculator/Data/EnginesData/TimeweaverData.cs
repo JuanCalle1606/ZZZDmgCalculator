@@ -35,7 +35,7 @@ public class TimeweaverData {
 				Type = Permanent,
 				Modifiers = new StatModifier
 				{
-					Stat = BuildUp, Type = Combat
+					Stat = BuildUp, Type = Combat // TODO: change to only electric
 				}
 			},
 			new()

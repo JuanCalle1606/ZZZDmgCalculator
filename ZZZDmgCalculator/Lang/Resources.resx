@@ -998,4 +998,118 @@
     <data name="Discs.BranchBladeSong" xml:space="preserve">
         <value>Branch &amp; Blade Song</value>
     </data>
+    <data name="Buffs.Discs.AstralVoice.0" xml:space="preserve">
+        <value>Whenever any squad member enters the field using a Quick Assist, all squad members gain 1 stack of Astral, up to a maximum of 3 stacks, and lasting 15s. Repeated triggers reset the duration. Each stack of Astral increases the DMG dealt by the character entering the field using a Quick Assist by {value}.</value>
+    </data>
+    <data name="Buffs.Discs.BranchBladeSong.0" xml:space="preserve">
+        <value>When Anomaly Mastery exceeds or equals 115 points, the equipper's {stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Discs.BranchBladeSong.1" xml:space="preserve">
+        <value>When any squad member applies  &lt;span class="rz-color-ice"&gt;&lt;b&gt;Freeze&lt;/b&gt;&lt;/span&gt; or triggers the  &lt;span class="rz-color-ice"&gt;&lt;b&gt;Shatter&lt;/b&gt;&lt;/span&gt; effect on an enemy, the equipper's {stat} increases by {value}, lasting 15s.</value>
+    </data>
+    <data name="Engines.BlazingLaurel" xml:space="preserve">
+        <value>Blazing Laurel</value>
+    </data>
+    <data name="Buffs.Engines.BlazingLaurel" xml:space="preserve">
+        <value>Flowing Flame</value>
+    </data>
+    <data name="Buffs.Engines.BlazingLaurel.0" xml:space="preserve">
+        <value>Upon launching a Quick Assist or Perfect Assist, the equipper's {stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.BlazingLaurel.1" xml:space="preserve">
+        <value>When the equipper launches and hits an enemy with a Basic Attack, apply a Wilt stack. When any squad member hits an enemy, for every stack of Wilt applied to the target, the {stat} of the &lt;span class="rz-color-ice"&gt;&lt;b&gt;Ice DMG&lt;/b&gt;&lt;/span&gt; and &lt;span class="rz-color-fire"&gt;&lt;b&gt;Fire DMG&lt;/b&gt;&lt;/span&gt; dealt by that attack increases by {value}.</value>
+    </data>
+    <data name="Engines.FlamemakerShaker" xml:space="preserve">
+        <value>Flamemaker Shaker</value>
+    </data>
+    <data name="Buffs.Engines.FlamemakerShaker" xml:space="preserve">
+        <value>Fuel on the Rocks
+</value>
+    </data>
+    <data name="Buffs.Engines.FlamemakerShaker.0" xml:space="preserve">
+        <value>While off-field, the equipper's {stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.FlamemakerShaker.1" xml:space="preserve">
+        <value>When hitting an enemy with an EX Special Attack or Assist Attack, the equipper's {stat} increases by {value}, stacking up to 10 times. </value>
+    </data>
+    <data name="Buffs.Engines.FlamemakerShaker.2" xml:space="preserve">
+        <value>If the number of current stacks is greater than or equal to 5, then the equipper's {stat} increases by {value} for 6s. </value>
+    </data>
+    <data name="Engines.HailstormShrine" xml:space="preserve">
+        <value>Hailstorm Shrine</value>
+    </data>
+    <data name="Buffs.Engines.HailstormShrine" xml:space="preserve">
+        <value>Frost-Stained Star</value>
+    </data>
+    <data name="Buffs.Engines.HailstormShrine.0" xml:space="preserve">
+        <value>{stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.HailstormShrine.1" xml:space="preserve">
+        <value>When using an EX Special Attack or when any squad member applies an Attribute Anomaly to an enemy, the equipper's {stat} increases by {value}, stacking up to 2 times.</value>
+    </data>
+    <data name="Engines.MarcatoDesire" xml:space="preserve">
+        <value>Marcato Desire</value>
+    </data>
+    <data name="Buffs.Engines.MarcatoDesire" xml:space="preserve">
+        <value>Get Everyone Fired Up
+</value>
+    </data>
+    <data name="Buffs.Engines.MarcatoDesire.0" xml:space="preserve">
+        <value>When an EX Special Attack or Chain Attack hits an enemy, the equipper's {stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.MarcatoDesire.1" xml:space="preserve">
+        <value>While the target is under an Attribute Anomaly, the {stat} is increased by an additional {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Rock" xml:space="preserve">
+        <value>Behemoth Hunter</value>
+    </data>
+    <data name="Buffs.Engines.Rock.0" xml:space="preserve">
+        <value>When the target's HP is no lower than 50%, the equipper inflicts {value} more {stat}.</value>
+    </data>
+    <data name="Buffs.Engines.Rock.1" xml:space="preserve">
+        <value>When the target's HP is no lower than 75%, the {stat} is further enhanced by {value}.</value>
+    </data>
+    <data name="Engines.Timeweaver" xml:space="preserve">
+        <value>Timeweaver</value>
+    </data>
+    <data name="Buffs.Engines.Timeweaver" xml:space="preserve">
+        <value>Time-Devouring Stratagem
+</value>
+    </data>
+    <data name="Buffs.Engines.Timeweaver.0" xml:space="preserve">
+        <value>The equipper's {stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Timeweaver.1" xml:space="preserve">
+        <value>When Special Attacks or EX Special Attacks hit enemies under Attribute Anomalies, the equipper's {stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.Timeweaver.2" xml:space="preserve">
+        <value>When the equipper's Anomaly Proficiency is greater than or equal to 375, {stat} inflicted by the equipper increases by {value}.</value>
+    </data>
+    <data name="Engines.ZanshinHerbCase" xml:space="preserve">
+        <value>Zanshin Herb Case</value>
+    </data>
+    <data name="Buffs.Engines.ZanshinHerbCase" xml:space="preserve">
+        <value>Growth Through Adversity</value>
+    </data>
+    <data name="Buffs.Engines.ZanshinHerbCase.0" xml:space="preserve">
+        <value>{stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.ZanshinHerbCase.1" xml:space="preserve">
+        <value>Dash Attack {stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Engines.ZanshinHerbCase.2" xml:space="preserve">
+        <value>When any squad member applies an Attribute Anomaly or Stuns an enemy, the equipper's {stat} increases by an additional {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Anby.Core" xml:space="preserve">
+        <value>Fluctuating Voltage</value>
+    </data>
+    <data name="Buffs.Agents.Anby.Core.0" xml:space="preserve">
+        <value>Launch a Basic Attack: Thunderbolt, Special Attack, or EX Special Attack after the 3rd-hit of Anby's Basic Attack for an extra {value} {stat}.</value>
+    </data>
+    <data name="Buffs.Agents.Koleda.Core" xml:space="preserve">
+        <value>Demolition Hammer</value>
+    </data>
+    <data name="Buffs.Agents.Koleda.Core.0" xml:space="preserve">
+        <value>When Koleda uses her EX Special Attack or consumes Furnace Fire to use an enhanced Basic Attack, the {stat} she deals increases by {value}.</value>
+    </data>
 </root>
