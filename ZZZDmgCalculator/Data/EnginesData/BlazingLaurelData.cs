@@ -40,14 +40,15 @@ public class BlazingLaurelData {
 				}
 			},
 			new()
-			{// Add daze when implemented
+			{
 				Scales = [Templates["Blazing.Buff1"]],
 				Type = Stack,
 				Stacks = 20,
-				Modifiers = new StatModifier
-				{
-					Stat = CritDmg, Type = Combat, Shared = true
-				}
+				Modifiers =
+				[
+					new() { Stat = FireCritDmg, Type = Combat, Shared = true },
+					new() { Stat = IceCritDmg, Type = Combat, Shared = true }
+				]
 			}
 		]
 	};

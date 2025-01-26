@@ -40,10 +40,10 @@ public class SuppressorData {
 			new()
 			{
 				Scales = [EngineScales.Templates["Suppressor.Buff1"]],
-				SkillCondition = skill => skill.Type is Basic && skill.DmgType is Attributes.Ether,
+				SkillCondition = skill => skill.DmgType is Attributes.Ether,
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.BonusDmg, Type = StatModifiers.Combat
+					Stat = Stats.BasicDmg, Type = StatModifiers.Combat
 				}
 			}
 		]

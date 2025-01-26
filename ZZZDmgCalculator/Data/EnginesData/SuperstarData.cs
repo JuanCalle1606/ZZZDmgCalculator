@@ -32,10 +32,9 @@ public class SuperstarData {
 				Scales = [EngineScales.Templates["Superstar.Buff"]],
 				Type = BuffTrigger.Stack,
 				Stacks = 3,
-				SkillCondition = skill => skill.Type is Ultimate,
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.BonusDmg, Type = StatModifiers.Combat
+					Stat = Stats.UltimateDmg, Type = StatModifiers.Combat
 				}
 			}
 		]

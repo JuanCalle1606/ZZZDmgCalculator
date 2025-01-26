@@ -42,10 +42,9 @@ public class BlossomData {
 			{
 				Scales = [EngineScales.Templates["Superstar.Buff"]],
 				Type = BuffTrigger.Permanent,
-				SkillCondition = skill => skill.Type is Ex,
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.BonusDmg, Type = StatModifiers.Combat
+					Stat = Stats.ExDmg, Type = StatModifiers.Combat
 				}
 			}
 		]

@@ -35,7 +35,7 @@ public class TimeweaverData {
 				Type = Permanent,
 				Modifiers = new StatModifier
 				{
-					Stat = BuildUp, Type = Combat // TODO: change to only electric
+					Stat = ShockBuildUp, Type = Combat
 				}
 			},
 			new()
@@ -53,7 +53,7 @@ public class TimeweaverData {
 				Type = Permanent,
 				Modifiers = new StatModifier
 				{
-					Stat = BonusDmg, Type = Combat // TODO: apply only to disorder
+					Stat = DisorderDmg, Type = Combat
 				},
 				StatRequirements = new StatRequirement
 				{

@@ -58,10 +58,9 @@ public class KoledaData {
 		{
 			Type = Stack,
 			Stacks = 2,
-			SkillCondition = skill => skill.Type == Chain,
 			Modifiers = new StatModifier
 			{
-				Stat = BonusDmg, Type = Combat, Value = 35, Shared = true
+				Stat = ChainDmg, Type = Combat, Value = 35, Shared = true
 			}
 		},
 		Abilities =

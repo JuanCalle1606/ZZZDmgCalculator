@@ -19,21 +19,12 @@ public enum Stats {
 	Mastery, //e
 	
 	// Bonus damage stats
-	ElectricDmg = 25, //b
+	ElectricDmg = 50, //b
 	EtherDmg,
 	FireDmg,
 	IceDmg,
-	PhysicalDmg, //e
-	
-	// Unique buffs	stats
-	ShieldPower = 35, //b
-	Daze,
-	BuildUp,
-	BonusDmg, //e
-	
-	// special anomaly stats, this stats are hidden by default unless theis value is not 0, these are increased by specific agents or skills.
-	// for example jane core skill add physical anomaly crit rate and crit dmg.
-	ElectricCritDmg = 50, //b
+	PhysicalDmg,
+	ElectricCritDmg,
 	ElectricCritRate,
 	EtherCritDmg,
 	EtherCritRate,
@@ -44,9 +35,44 @@ public enum Stats {
 	PhysicalCritDmg,
 	PhysicalCritRate, //e
 	
+	// Unique buffs	stats
+	ShieldPower = 100, //b
+	Daze,
+	BasicDmg,
+	SpecialDmg,
+	DodgeDmg,
+	UltimateDmg,
+	AssistDmg,
+	ExDmg,
+	DashDmg,
+	ChainDmg,
+	QuickDmg,
+	BonusDmg, //e
+	
+	// special anomaly stats, these stats are hidden by default unless theis value is not 0, these are increased by specific agents or skills.
+	// for example jane core skill add physical anomaly crit rate and crit dmg.
+	BuildUp = 150, //b
+	AssaultBuildUp,
+	FreezeBuildUp,
+	CorruptionBuildUp,
+	BurnBuildUp,
+	ShockBuildUp,
+	FrostburnBuildUp,
+	AssaultDmg,
+	FreezeDmg,
+	CorruptionDmg,
+	BurnDmg,
+	ShockDmg,
+	FrostburnDmg,
+	// Crit stats on anomaly is only applied by jane, maybe add stats for other anomalies later.
+	AssaultCritRate,
+	AssaultCritDmg,
+	AnomalyDmg, // Bonus dmg to any anomaly
+	DisorderDmg, //e
+	
 	// special stats, these are also hidden by default, but they are increased by specific agents or skills.
 	// also these stats can be modified for enemies.
-	DmgTaken = 75,
+	DmgTaken = 200,
 	DmgReduction,
 	StunDmg,
 	DmgRes,

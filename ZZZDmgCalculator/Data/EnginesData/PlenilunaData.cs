@@ -4,7 +4,8 @@ using Models.Enum;
 using Models.Info;
 using ZZZ.ApiModels;
 using static ZZZ.ApiModels.Skills;
-
+using static Models.Enum.StatModifiers;
+using static Models.Enum.Stats;
 
 [InfoData<Engines>(Engines.Pleniluna)]
 public class PlenilunaData {
@@ -16,13 +17,13 @@ public class PlenilunaData {
 		Type = Specialties.Attack,
 		MainStat = new()
 		{
-			Stat = Stats.Atk
+			Stat = Atk
 		},
 		MainStats = EngineScales.Templates["Mark1.Main"],
 		SubStat = new()
 		{
-			Stat = Stats.Atk,
-			Type = StatModifiers.BasePercent
+			Stat = Atk,
+			Type = BasePercent
 		},
 		SubStats = EngineScales.Templates["Mark1.Sub"],
 		Passives =
@@ -31,11 +32,12 @@ public class PlenilunaData {
 			{
 				Scales = [EngineScales.Templates["Pleniluna.Buff"]],
 				Type = BuffTrigger.Permanent,
-				SkillCondition = skill=> skill.Type is Basic or Dash or Dodge,
-				Modifiers = new StatModifier
-				{
-					Stat = Stats.BonusDmg, Type = StatModifiers.Combat
-				}
+				Modifiers =
+				[
+					new() { Stat = BasicDmg, Type = Combat },
+					new() { Stat = DashDmg, Type = Combat },
+					new() { Stat = DodgeDmg, Type = Combat }
+				]
 			}
 		]
 	};

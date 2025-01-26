@@ -25,10 +25,9 @@ public class AstralVoiceData {
 			{
 				Type = Stack,
 				Stacks = 3,
-				SkillCondition = s => s.Type is Quick,
 				Modifiers = new StatModifier
 				{
-					Stat = BonusDmg, Value = 8, Type = Combat, Shared = true
+					Stat = QuickDmg, Value = 8, Type = Combat, Shared = true
 				}
 			}
 		]

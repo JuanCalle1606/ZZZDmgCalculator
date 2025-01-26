@@ -21,9 +21,9 @@ public partial class AgentStatsTable {
 		return category switch
 		{
 			"Basic" => _allStats.Where(s => s is >= Stats.Atk and <= Stats.Mastery),
-			"Bonus" => _allStats.Where(s => s is >= Stats.ElectricDmg and <= Stats.PhysicalDmg),
+			"Bonus" => _allStats.Where(s => s is >= Stats.ElectricDmg and <= Stats.PhysicalCritRate),
 			"Unique" => _allStats.Where(s => s is >= Stats.ShieldPower and <= Stats.BonusDmg),
-			"Anomaly" => _allStats.Where(s => s is >= Stats.ElectricCritDmg and <= Stats.PhysicalCritRate),
+			"Anomaly" => _allStats.Where(s => s is >= Stats.BuildUp and <= Stats.DisorderDmg),
 			_ => throw new ArgumentOutOfRangeException(nameof(category), category, null)
 		};
 	}

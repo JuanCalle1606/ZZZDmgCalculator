@@ -223,34 +223,34 @@
         <value>Shield Power</value>
     </data>
     <data name="Stats.ElectricCritDmg" xml:space="preserve">
-        <value>Shock CRIT DMG</value>
+        <value>Electric CRIT DMG</value>
     </data>
     <data name="Stats.EtherCritDmg" xml:space="preserve">
-        <value>Corruption CRIT DMG</value>
+        <value>Ether CRIT DMG</value>
     </data>
     <data name="Stats.FireCritDmg" xml:space="preserve">
-        <value>Burn CRIT DMG</value>
+        <value>Fire CRIT DMG</value>
     </data>
     <data name="Stats.IceCritDmg" xml:space="preserve">
-        <value>Shatter CRIT DMG</value>
+        <value>Ice CRIT DMG</value>
     </data>
     <data name="Stats.PhysicalCritDmg" xml:space="preserve">
-        <value>Assault CRIT Dmg</value>
+        <value>Physical CRIT DMG</value>
     </data>
     <data name="Stats.ElectricCritRate" xml:space="preserve">
-        <value>Shock CRIT Rate</value>
+        <value>Electric CRIT Rate</value>
     </data>
     <data name="Stats.EtherCritRate" xml:space="preserve">
-        <value>Corruption CRIT Rate</value>
+        <value>Ether CRIT Rate</value>
     </data>
     <data name="Stats.FireCritRate" xml:space="preserve">
-        <value>Burn CRIT Rate</value>
+        <value>Fire CRIT Rate</value>
     </data>
     <data name="Stats.IceCritRate" xml:space="preserve">
-        <value>Shatter CRIT Rate</value>
+        <value>Ice CRIT Rate</value>
     </data>
     <data name="Stats.PhysicalCritRate" xml:space="preserve">
-        <value>Assault CRIT Rate</value>
+        <value>Physical CRIT Rate</value>
     </data>
     <data name="Stats.BonusDmg" xml:space="preserve">
         <value>All DMG</value>
@@ -1111,5 +1111,80 @@
     </data>
     <data name="Buffs.Agents.Koleda.Core.0" xml:space="preserve">
         <value>When Koleda uses her EX Special Attack or consumes Furnace Fire to use an enhanced Basic Attack, the {stat} she deals increases by {value}.</value>
+    </data>
+    <data name="Stats.BasicDmg" xml:space="preserve">
+        <value>Basic Attack DMG</value>
+    </data>
+    <data name="Stats.SpecialDmg" xml:space="preserve">
+        <value>Special Attack DMG</value>
+    </data>
+    <data name="Stats.DodgeDmg" xml:space="preserve">
+        <value>Dodge Counter DMG</value>
+    </data>
+    <data name="Stats.UltimateDmg" xml:space="preserve">
+        <value>Ultimate DMG</value>
+    </data>
+    <data name="Stats.AssistDmg" xml:space="preserve">
+        <value>Assist Follow-Up DMG</value>
+    </data>
+    <data name="Stats.ExDmg" xml:space="preserve">
+        <value>EX Special Attack DMG</value>
+    </data>
+    <data name="Stats.DashDmg" xml:space="preserve">
+        <value>Dash Attack DMG</value>
+    </data>
+    <data name="Stats.ChainDmg" xml:space="preserve">
+        <value>Chain Attack DMG</value>
+    </data>
+    <data name="Stats.QuickDmg" xml:space="preserve">
+        <value>Quick Assist DMG</value>
+    </data>
+    <data name="Stats.AssaultBuildUp" xml:space="preserve">
+        <value>Physical Build Up</value>
+    </data>
+    <data name="Stats.FreezeBuildUp" xml:space="preserve">
+        <value>Ice Build Up</value>
+    </data>
+    <data name="Stats.CorruptionBuildUp" xml:space="preserve">
+        <value>Ether Build Up</value>
+    </data>
+    <data name="Stats.BurnBuildUp" xml:space="preserve">
+        <value>Fire Build Up</value>
+    </data>
+    <data name="Stats.ShockBuildUp" xml:space="preserve">
+        <value>Electric Build Up</value>
+    </data>
+    <data name="Stats.FrostburnBuildUp" xml:space="preserve">
+        <value>Frost Build Up</value>
+    </data>
+    <data name="Stats.AssaultDmg" xml:space="preserve">
+        <value>Assault DMG</value>
+    </data>
+    <data name="Stats.FreezeDmg" xml:space="preserve">
+        <value>Shatter DMG</value>
+    </data>
+    <data name="Stats.CorruptionDmg" xml:space="preserve">
+        <value>Corruption DMG</value>
+    </data>
+    <data name="Stats.BurnDmg" xml:space="preserve">
+        <value>Burn DMG</value>
+    </data>
+    <data name="Stats.ShockDmg" xml:space="preserve">
+        <value>Shock DMG</value>
+    </data>
+    <data name="Stats.FrostburnDmg" xml:space="preserve">
+        <value>Frosrburn DMG</value>
+    </data>
+    <data name="Stats.AssaultCritRate" xml:space="preserve">
+        <value>Assault CRIT Rate</value>
+    </data>
+    <data name="Stats.AssaultCritDmg" xml:space="preserve">
+        <value>Assault CRIT DMG</value>
+    </data>
+    <data name="Stats.AnomalyDmg" xml:space="preserve">
+        <value>Anomaly DMG</value>
+    </data>
+    <data name="Stats.DisorderDmg" xml:space="preserve">
+        <value>Disorder DMG</value>
     </data>
 </root>

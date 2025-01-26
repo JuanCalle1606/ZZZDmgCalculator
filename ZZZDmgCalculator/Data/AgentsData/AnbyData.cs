@@ -226,8 +226,10 @@ public class AnbyData {
 			},
 			[6] = new BuffInfo
 			{
-				SkillCondition = skill => skill.Type is Basic or Dash,
-				Modifiers = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 45 }
+				Modifiers = [
+					new() { Stat = BasicDmg, Type = Combat, Value = 45 },
+					new() { Stat = DashDmg, Type = Combat, Value = 45 }
+				]
 			}
 		}
 	};

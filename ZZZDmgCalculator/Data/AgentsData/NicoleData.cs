@@ -281,11 +281,12 @@ public class NicoleData {
 			[1] = new BuffInfo
 			{
 				Type = BuffTrigger.Permanent,
-				SkillCondition = skill => skill.Type == Ex,
-				Modifiers = new StatModifier
-				{
-					Stat = BonusDmg, Type = Combat, Value = 16
-				}
+				SkillCondition = skill => skill.Type == Ex, // only applies to ex skills
+				Modifiers =
+				[
+					new() { Stat = BonusDmg, Type = Combat, Value = 16 }, // we dont use ExDmg here because BuildUp need to be conditioned
+					new() { Stat = BuildUp, Type = Combat, Value = 16 }
+				]
 			},
 			[6] = new BuffInfo
 			{

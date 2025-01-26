@@ -20,10 +20,9 @@ public class PufferElectroData {
 			new ()
 			{
 				Type = BuffTrigger.Permanent,
-				SkillCondition = skill => skill.Type is Ultimate,
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.BonusDmg, Type = StatModifiers.Combat,
+					Stat = Stats.UltimateDmg, Type = StatModifiers.Combat,
 					Value = 20
 				}
 			},

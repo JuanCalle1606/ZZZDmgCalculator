@@ -32,11 +32,11 @@ public class ChaosJazzData {
 			},
 			new()
 			{
-				SkillCondition = skill => skill.Type is Ex or Assist,
-				Modifiers = new StatModifier
-				{
-					Stat = BonusDmg, Type = Combat, Value = 20
-				}
+				Modifiers =
+				[
+					new() { Stat = ExDmg, Type = Combat, Value = 20 },
+					new() { Stat = AssistDmg, Type = Combat, Value = 20 }
+				]
 			}
 		]
 	};
