@@ -258,7 +258,7 @@ public class KoledaData {
 				]
 			}
 		],
-		Cinema =
+		Cinemas =
 		{
 			[4] = new BuffInfo
 			{

@@ -276,7 +276,7 @@ public class NicoleData {
 				]
 			}
 		],
-		Cinema =
+		Cinemas =
 		{
 			[1] = new BuffInfo
 			{

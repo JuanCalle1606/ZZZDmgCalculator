@@ -254,15 +254,16 @@ public class LycaonData {
 				]
 			}
 		],
-		Cinema =
+		Cinemas =
 		{
+			// TODO: Cinema 1 buff
 			[6] = new BuffInfo
 			{
 				// TODO: this need more check, i think this buff is a DmgTaken debuff of the enemy instead of a bonus dmg on lycaon.
 				// in case of a DmgTaken debuff, need to be limited to only damage coming from lycaon.
 				Type = Stack,
 				Stacks = 5,
-				Modifiers =new StatModifier
+				Modifiers = new StatModifier
 				{
 					Stat = BonusDmg, Type = StatModifiers.Combat,
 					Value = 10

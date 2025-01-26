@@ -35,5 +35,6 @@ public partial class CoreSkillSelector {
 		if (newval == Value)
 			return;
 		await ValueChanged.InvokeAsync(newval);
+		Notifier.CurrentAgentChanged(); // notify to re-render all the main page, TODO: maybe only re-render things that depend on the core skill
 	}
 }

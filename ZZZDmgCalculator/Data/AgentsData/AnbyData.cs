@@ -216,7 +216,7 @@ public class AnbyData {
 				]
 			}
 		],
-		Cinema =
+		Cinemas =
 		{
 			[1] = new StatModifier { Stat = EnergyRegen, Value = 12, Type = CombatPercent},
 			[2] = new BuffInfo{

@@ -263,7 +263,7 @@ public class QingyiData {
 				]
 			}
 		],
-		Cinema =
+		Cinemas =
 		{
 			[1] = new BuffInfo
 			{

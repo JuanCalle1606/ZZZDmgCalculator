@@ -26,7 +26,7 @@
 				<RadzenDropDown TValue="AscensionState" @bind-Value="@Agent.Ascension" Data="@(Enum.GetValues<AscensionState>().Cast<Enum>())" Chips="true" class="z-select"/>
 				
 			</div>
-			<RadzenDropDown @bind-Value="@Agent.Cinema" Data="@ListsUtil.Simple(0, 6)" Chips="true" Style="width: 55px">
+			<RadzenDropDown TValue="int" Value="Agent.Cinema" ValueChanged="ChangeCinema" Data="@ListsUtil.Simple(0, 6)" Chips="true" Style="width: 55px">
 				<Template>
 					@("M" + (object)context)
 				</Template>

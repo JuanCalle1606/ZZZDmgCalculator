@@ -14,4 +14,9 @@ public partial class OverviewCard {
 			Notifier.SwapCurrentAgent(a);
 		}
 	}
+	void ChangeCinema(int value) {
+		Agent.Cinema = value;
+		// update all cinema buffs
+		Notifier.CurrentAgentChanged(); // notify to re-render all the main page, TODO: maybe only re-render the buffs tab
+	}
 }

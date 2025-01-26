@@ -270,7 +270,7 @@ public class LucyData {
 				]
 			},
 		],
-		Cinema =
+		Cinemas =
 		{
 			[4] = new StatModifier { Stat = CritDmg, Value = 10 },
 			[6] = new SkillInfo { DmgType = Fire, Value = 300 }

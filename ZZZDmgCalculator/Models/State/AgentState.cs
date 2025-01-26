@@ -7,6 +7,7 @@ using Enum;
 using Info;
 using Json;
 using Extensions;
+using Services;
 using ZZZ.ApiModels;
 using static Enum.Stats;
 
@@ -14,11 +15,12 @@ using static Enum.Stats;
 public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChecker {
 	CoreSkills _coreSkillLevel;
 	AscensionState _ascension;
+	int _cinema;
 	EngineState? _engine;
 
 	readonly Dictionary<Stats, StatModifier> _baseStats = new();
 	readonly StatModifier[] _coreStats = new StatModifier[2];
-	
+
 	readonly Dictionary<Skills, int> _skillLevels = new();
 
 	/**
@@ -42,7 +44,27 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		}
 	}
 
-	public int Cinema { get; set; }
+	public int Cinema
+	{
+		get => _cinema;
+		set
+		{
+			_cinema = value;
+			foreach (var buffState in _cinemaBuffs.SelectMany(o => o))
+			{
+				buffState.Available = false;
+			}
+			for (var i = 0; i < _cinema; i++)
+			{
+				foreach (var buffState in _cinemaBuffs[i])
+				{
+					buffState.Available = true;
+				}
+			}
+
+			UpdateAllStats();
+		}
+	}
 
 	public CoreSkills CoreSkillLevel
 	{
@@ -82,8 +104,8 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 	}
 
 	public EntityState Stats { get; } = new();
-	
-	public IndexedProperty<Skills, int> Skills { get;  }
+
+	public IndexedProperty<Skills, int> Skills { get; }
 
 	public IList<StatModifier> Modifiers { get; } = new List<StatModifier>();
 
@@ -94,7 +116,11 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 	readonly List<IBuffContainer> _buffChildren = [];
 
 	BuffState[] _coreBuffs = null!;
+
 	BuffState[] _additionalBuffs = null!;
+
+	// Cinema 3 and 5 are always empty
+	BuffState[][] _cinemaBuffs = new BuffState[6][];
 
 	IEnumerable<IBuffContainer> IBuffContainer.Children => _buffChildren;
 
@@ -136,7 +162,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 
 	public AgentState(AgentInfo info) {
 		Info = info;
-		Skills = new(GetSkillLevel, SetSkillLevel);	
+		Skills = new(GetSkillLevel, SetSkillLevel);
 
 		InitBaseStats();
 
@@ -152,11 +178,11 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		InitBuffs();
 		UpdateAllStats();
 	}
-	
+
 	void SetSkillLevel(Skills skill, int level) {
 		_skillLevels[skill] = level;
 	}
-	
+
 	int GetSkillLevel(Skills skill) => _skillLevels.GetValueOrDefault(skill, 1);
 
 	public void SetDisc(DiscState? disc, int i) {
@@ -235,6 +261,23 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		Buffs.AddRange(_coreBuffs);
 		Buffs.AddRange(_additionalBuffs);
 
+		// add cinema buffs
+		foreach (var cinema in Info.Cinemas)
+		{
+			_cinemaBuffs[cinema.Key - 1] = cinema.Value.Buffs.Select(b => new BuffState(b)
+			{
+				SourceInfo = Info,
+				Owner = this,
+				Available = false// by default all cinemas are disabled
+			}).ToArray();
+			Buffs.AddRange(_cinemaBuffs[cinema.Key - 1]);
+		}
+		// fill cinema buffs array
+		for (var i = 0; i < 6; i++)
+		{
+			_cinemaBuffs[i] ??= [];
+		}
+
 		// check for agent buffs
 		foreach (var buff in Buffs)
 		{
@@ -252,7 +295,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 				});
 				mod.Dummy = dummy;
 			}
-			
+
 			buff.Update();
 			CheckBuffDependencies(buff);
 		}
@@ -326,7 +369,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		Stats.Update();
 		CheckRequirements();
 	}
-	
+
 	void CheckRequirements() {
 		IBuffContainer buffContainer = this;
 
@@ -347,8 +390,8 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		foreach (var buff in Buffs)
 		{
 			var limit = buff.Info.BuffLimit ?? double.MaxValue;
-			
-			
+
+
 			foreach (var mod in buff.Modifiers.Where(m => m.Agent).ToList())
 			{
 				var subtotal = buff.Modifiers.Where(m => m.Dummy == -1 && m.Stat == mod.Stat).Sum(m => m.Value);

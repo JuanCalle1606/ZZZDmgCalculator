@@ -42,7 +42,7 @@ public class AgentInfo : BaseInfo<Agents> {
 
 	public List<AbilityInfo> Abilities { get; set; } = [];
 
-	public Dictionary<int, AbilityInfo> Cinema { get; set; } = [];
+	public Dictionary<int, AbilityInfo> Cinemas { get; set; } = [];
 
 	public override void PostLoad(LangService lang) {
 		for (var i = 0; i < CoreBuff.Count; i++)
@@ -59,6 +59,17 @@ public class AgentInfo : BaseInfo<Agents> {
 			buffInfo.Id = $"Buffs.Agents.{Id}.Additional.{i}";
 			buffInfo.DisplayName = lang[$"Buffs.Agents.{Id}.Additional"];
 			buffInfo.Description = lang[buffInfo.Id];
+		}
+
+		foreach (var (index, value) in Cinemas)
+		{
+			for (var i = 0; i < value.Buffs.Count; i++)
+			{
+				var buffInfo = value.Buffs[i];
+				buffInfo.Id = $"Buffs.Agents.{Id}.Cinema{index}.{i}";
+				buffInfo.DisplayName = lang[$"Buffs.Agents.{Id}.Cinema{index}"];
+				buffInfo.Description = lang[buffInfo.Id];
+			}
 		}
 	}
 }
