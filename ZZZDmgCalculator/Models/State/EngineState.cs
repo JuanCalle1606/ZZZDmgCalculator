@@ -60,6 +60,28 @@ public class EngineState : IModifierContainer, IBuffContainer, IBuffDependencyCh
 			SourceInfo = Info,
 			DependencyChecker = this
 		}).ToList();
+		
+		// check for agent buffs
+		foreach (var buff in Buffs)
+		{
+			var agentMods = buff.Modifiers.Where(m => m.Agent).ToArray();
+			foreach (var mod in agentMods)
+			{
+				var dummy = buff.Modifiers.Count;
+				buff.Modifiers.Add(new()
+				{
+					Stat = mod.Stat,
+					Type = StatModifiers.Combat,
+					Value = /*mod.Value*/0,
+					Dummy = dummy,
+					Shared = mod.Shared
+				});
+				mod.Dummy = dummy;
+			}
+
+			//buff.Update();
+			//CheckBuffDependencies(buff);
+		}
 	}
 	
 	public void CheckDependencies(bool available = true) {

@@ -23,6 +23,17 @@ public class ArrowData {
 			Stat = Stats.Impact,
 			Type = StatModifiers.BasePercent
 		},
-		SubStats = EngineScales.Templates["Arrow.Sub"]
+		SubStats = EngineScales.Templates["Arrow.Sub"],
+		Passives = new BuffInfo()
+		{
+			Type = BuffTrigger.Permanent,
+			Scales = [EngineScales.Templates["Mark1.Buff"]],
+			SkillCondition = skill => skill.Type is Skills.Basic,
+			Modifiers = new StatModifier
+			{
+				Stat = Stats.Daze,
+				Type = StatModifiers.Combat,
+			}
+		}
 	};
 }

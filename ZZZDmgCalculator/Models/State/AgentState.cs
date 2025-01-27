@@ -289,7 +289,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 				{
 					Stat = mod.Stat,
 					Type = StatModifiers.Combat,
-					Value = mod.Value,
+					Value = /*mod.Value*/0,
 					Dummy = dummy,
 					Shared = mod.Shared
 				});
@@ -387,10 +387,14 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 	}
 
 	void UpdateDummies() {
-		foreach (var buff in Buffs)
+		foreach (var buff in ((IBuffContainer)this).SelfBuffs.Where(state => state is { Active: true, Available: true }))
 		{
+			if (buff.Info.Amplify != null)
+			{
+				UpdateAmplifyDummy(buff);
+				continue;
+			}
 			var limit = buff.Info.BuffLimit ?? double.MaxValue;
-
 
 			foreach (var mod in buff.Modifiers.Where(m => m.Agent).ToList())
 			{
@@ -403,6 +407,18 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 					dummy.Value = limit - subtotal;
 				}
 			}
+		}
+	}
+
+	void UpdateAmplifyDummy(BuffState buff) {
+		IBuffContainer buffContainer = this;
+		var amplify = buffContainer.AllBuffs.FirstOrDefault(b => b is { Available: true, Active: true } && b.Info.Id == buff.Info.Amplify);
+		Console.WriteLine("Amplify: " + amplify);
+		foreach (var mod in buff.Modifiers.Where(m => m.Agent).ToList())
+		{
+			var subtotal = amplify?.Modifiers.Where(m => !m.Agent && m.Stat == mod.Stat).Sum(m => m.Value) ?? 0;
+			var dummy = buff.Modifiers[mod.Dummy];
+			dummy.Value = subtotal * (mod.Value / 100) - subtotal;
 		}
 	}
 
@@ -454,7 +470,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		IBuffContainer buffContainer = this;
 
 		return container.AllModifiers
-			.Concat(buffContainer.AllBuffs.Where(b => b is { Available: true, Active: true }).SelectMany(b => {
+			.Concat(buffContainer.AllBuffs.Where(b => b is { Available: true, Active: true, Info.SkillCondition: null, Info.AbilityCondition: null }).SelectMany(b => {
 				// sometimes shared buffs have not shared modifiers
 				if (b.Shared && b.Owner != this)
 					return b.Modifiers.Where(m => m.Shared);

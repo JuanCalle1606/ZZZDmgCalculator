@@ -49,7 +49,7 @@ public class AnbyData {
 		FinalStats = [0, 118, 83, 94, 1.2],
 		CoreBuff = new BuffInfo
 		{
-			Scales	= [[32, 37.3, 42.6, 48, 53.3, 58.6, 64]],
+			Scales = [[32, 37.3, 42.6, 48, 53.3, 58.6, 64]],
 			Modifiers = new StatModifier
 			{
 				Stat = Daze, Type = Combat
@@ -218,15 +218,30 @@ public class AnbyData {
 		],
 		Cinemas =
 		{
-			[1] = new StatModifier { Stat = EnergyRegen, Value = 12, Type = CombatPercent},
-			[2] = new BuffInfo{
-				// anby's cinema 2 only applies to thunderbolt
-				AbilityCondition = skill => skill.Id == "Basic.Thunderbolt",
-				Modifiers = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 30 }
+			[1] = new StatModifier { Stat = EnergyRegen, Value = 12, Type = CombatPercent },
+			[2] = new()
+			{
+				Buffs =
+				[
+					new BuffInfo
+					{
+						Type = BuffTrigger.Switch,
+						// anby's cinema 2 only applies to thunderbolt
+						AbilityCondition = skill => skill.Id == "Basic.Thunderbolt",
+						Modifiers = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 30 }
+					},
+					new BuffInfo
+					{
+						Type = BuffTrigger.Switch,
+						SkillCondition = info => info.Type is Ex,
+						Modifiers = new StatModifier { Stat = Daze, Type = Combat, Value = 10 }
+					}
+				]
 			},
 			[6] = new BuffInfo
 			{
-				Modifiers = [
+				Modifiers =
+				[
 					new() { Stat = BasicDmg, Type = Combat, Value = 45 },
 					new() { Stat = DashDmg, Type = Combat, Value = 45 }
 				]

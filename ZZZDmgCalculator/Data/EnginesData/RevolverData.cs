@@ -24,6 +24,16 @@ public class RevolverData {
 			Type = StatModifiers.BasePercent
 		},
 		SubStats = EngineScales.Templates["Mark1.Sub"],
-		// TODO: Add the stun passive
+		Passives = new BuffInfo()
+		{
+			Type = BuffTrigger.Permanent,
+			Scales = [EngineScales.Templates["Spring.Buff1"]],
+			SkillCondition = skill => skill.Type is Skills.Ex,
+			Modifiers = new StatModifier
+			{
+				Stat = Stats.Daze,
+				Type = StatModifiers.Combat,
+			}
+		}
 	};
 }

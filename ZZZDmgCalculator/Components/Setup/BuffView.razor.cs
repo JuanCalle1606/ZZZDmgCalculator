@@ -27,7 +27,7 @@ public partial class BuffView {
 	protected override void OnInitialized() {
 		base.OnInitialized();
 		Buff.DependencyChecker?.CheckBuffDependencies(Buff);
-		if (Buff.HasDependencies && Buff.Dependency is not null /* Dependency is null when engine is used on agents of another specialty */)
+		if (Buff.HasDependencies && Buff.Dependency is not null/* Dependency is null when engine is used on agents of another specialty */)
 		{
 			Buff.AppliedTo = Buff.Dependency!.AppliedTo;
 		}
@@ -39,16 +39,15 @@ public partial class BuffView {
 	}
 
 	void NotifyAll() {
+		// to prevent desync of shared amplify buffs we update the current owner first
+		Buff.Owner.UpdateAllStats();
+		
 		if (Buff.Shared || Buff.Info.Pass)
 		{
-			foreach (var agent in State.CurrentSetup.Agents)
+			foreach (var agent in State.CurrentSetup.Agents.Where(a => a != Buff.Owner))
 			{
 				agent?.UpdateAllStats();
 			}
-		}
-		else
-		{
-			State.CurrentAgent!.UpdateAllStats();
 		}
 		Notifier.BuffUpdated(Buff);
 	}

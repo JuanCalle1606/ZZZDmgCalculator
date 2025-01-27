@@ -39,13 +39,22 @@ public class FlamemakerShakerData {
 				}
 			},
 			new()
-			{ // TODO: double the stack effect with a switch
+			{
 				Scales = [Templates["Brimstone.Buff"]],
 				Type = Stack,
 				Stacks = 10,
 				Modifiers = new StatModifier
 				{
 					Stat = BonusDmg, Type = Combat
+				}
+			},
+			new()
+			{
+				Type = Switch,
+				Amplify = "Buffs.Engines.FlamemakerShaker.1",
+				Modifiers = new StatModifier
+				{
+					Stat = BonusDmg, Type = Combat, Agent = true, Value = 200
 				}
 			},
 			new()

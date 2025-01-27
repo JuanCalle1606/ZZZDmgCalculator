@@ -1033,6 +1033,9 @@
         <value>When hitting an enemy with an EX Special Attack or Assist Attack, the equipper's {stat} increases by {value}, stacking up to 10 times. </value>
     </data>
     <data name="Buffs.Engines.FlamemakerShaker.2" xml:space="preserve">
+        <value>While off-field, the stack effect is doubled.</value>
+    </data>
+    <data name="Buffs.Engines.FlamemakerShaker.3" xml:space="preserve">
         <value>If the number of current stacks is greater than or equal to 5, then the equipper's {stat} increases by {value} for 6s. </value>
     </data>
     <data name="Engines.HailstormShrine" xml:space="preserve">

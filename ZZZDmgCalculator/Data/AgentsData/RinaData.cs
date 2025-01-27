@@ -224,7 +224,12 @@ public class RinaData {
 		],
 		Cinemas =
 		{
-			// TODO: increment core buff
+			[1] = new BuffInfo
+			{
+				Type = BuffTrigger.Permanent,
+				Amplify = "Buffs.Agents.Rina.Core.0",
+				Modifiers = new StatModifier { Stat = PenRatio, Type = Combat, Value = 130, Agent = true, Shared = true}
+			},
 			[2] = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 15 },
 			[4] = new StatModifier { Stat = EnergyRegen, Value = 0.5, Type = CombatFlat },
 			[6] = new StatModifier { Stat = ElectricDmg, Value = 15, Type = Combat, Shared = true }

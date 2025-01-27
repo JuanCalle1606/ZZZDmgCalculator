@@ -47,6 +47,11 @@ public class BuffInfo : BaseInfo {
 	/// </summary>
 	public double? BuffLimit { get; set; }
 	
+	/// <summary>
+	/// The id off another buff that is going to be amplified by this buff.
+	/// </summary>
+	public string? Amplify { get; set; }
+	
 	public SingleList<StatRequirement> StatRequirements { get; set; } = [];
 	
 	public static implicit operator BuffInfo(StatModifier d) => new() { Modifiers = [d] };
