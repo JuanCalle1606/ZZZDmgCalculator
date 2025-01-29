@@ -260,6 +260,7 @@ public class KoledaData {
 		],
 		Cinemas =
 		{
+			// TODO: Add c1
 			[4] = new BuffInfo
 			{
 				Type = Stack,

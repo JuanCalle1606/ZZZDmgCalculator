@@ -279,7 +279,7 @@ public class SoukakuData {
 		Cinemas =
 		{	
 			[4] = new StatModifier { Stat = IceRes, Value = 10, Enemy = true},	
-			[6] = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 45 }
+			[6] = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 45 } // TODO: change to only enchanced attack
 		}
 	};
 }

@@ -273,6 +273,7 @@ public class QingyiData {
 					new() { Stat = CritRate, Value = 20, Type = Combat }
 				]
 			},
+			// todo: add qingyi cinema 2
 			[6] = new()
 			{
 				Buffs =

@@ -226,7 +226,7 @@ public class RinaData {
 		{
 			[1] = new BuffInfo
 			{
-				Type = BuffTrigger.Permanent,
+				Type = BuffTrigger.Switch,
 				Amplify = "Buffs.Agents.Rina.Core.0",
 				Modifiers = new StatModifier { Stat = PenRatio, Type = Combat, Value = 130, Agent = true, Shared = true}
 			},

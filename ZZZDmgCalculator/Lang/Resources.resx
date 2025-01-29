@@ -1190,4 +1190,126 @@
     <data name="Stats.DisorderDmg" xml:space="preserve">
         <value>Disorder DMG</value>
     </data>
+    <data name="Buffs.Engines.Revolver" xml:space="preserve">
+        <value>Undercurrent</value>
+    </data>
+    <data name="Buffs.Engines.Revolver.0" xml:space="preserve">
+        <value>EX Special Attacks inflict {value} more {stat}.</value>
+    </data>
+    <data name="Buffs.Agents.Anby.Cinema1" xml:space="preserve">
+        <value>M1: Rapid Charge Mode</value>
+    </data>
+    <data name="Buffs.Agents.Anby.Cinema1.0" xml:space="preserve">
+        <value>When the 4th-hit of Anby's Basic Attack hits an enemy, her {stat} is increased by {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Anby.Cinema2" xml:space="preserve">
+        <value>M2: 
+Precision Discharge</value>
+    </data>
+    <data name="Buffs.Agents.Anby.Cinema2.0" xml:space="preserve">
+        <value>When Basic Attack: Thunderbolt hits a Stunned enemy, its DMG is increased by {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Anby.Cinema6" xml:space="preserve">
+        <value>M6: Charging Field</value>
+    </data>
+    <data name="Buffs.Agents.Anby.Cinema6.0" xml:space="preserve">
+        <value>When Anby uses her EX Special Attack, she gains 8 stacks of Charge (max 8 stacks). When she hits an enemy with her Basic Attack or Dash Attack, 1 stack of Charge is consumed, increasing that attack's DMG by {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Koleda.Cinema4" xml:space="preserve">
+        <value>M4: 
+Furnace’s Glow</value>
+    </data>
+    <data name="Buffs.Agents.Koleda.Cinema4.0" xml:space="preserve">
+        <value>Koleda gains one stack of Charge when consuming Furnace Fire to use her Enhanced Basic Attack. When her Chain Attack or Ultimate hits an enemy, she consumes all stacks of Charge to increase the attack's DMG by {value} per stack.</value>
+    </data>
+    <data name="Buffs.Agents.Lucy.Cinema4" xml:space="preserve">
+        <value>M4: Chaos Ball Game</value>
+    </data>
+    <data name="Buffs.Agents.Lucy.Cinema4.0" xml:space="preserve">
+        <value>While in the Cheer On! state, allies' {STAT} is increased by an additional {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Lycaon.Cinema6" xml:space="preserve">
+        <value>M6: 
+Ruthless Hunter</value>
+    </data>
+    <data name="Buffs.Agents.Lycaon.Cinema6.0" xml:space="preserve">
+        <value>When a charged attack hits an enemy, the target suffers {value} increased DMG from Lycaon, stacking up to 5 times and lasting 12s. </value>
+    </data>
+    <data name="Buffs.Agents.Nicole.Cinema1" xml:space="preserve">
+        <value>M1: Supercharged Bomb</value>
+    </data>
+    <data name="Buffs.Agents.Nicole.Cinema1.0" xml:space="preserve">
+        <value>The DMG and the Anomaly Buildup inflicted by Nicole’s EX Special Attack increases by {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Nicole.Cinema6" xml:space="preserve">
+        <value>M6: Corrupting Energy Field
+
+</value>
+    </data>
+    <data name="Buffs.Agents.Nicole.Cinema6.0" xml:space="preserve">
+        <value>When Nicole’s energy fields deal DMG to an enemy, all squad members {stat} against that enemy increases by {value}, stacking up to 10 times.</value>
+    </data>
+    <data name="Buffs.Agents.Qingyi.Cinema1" xml:space="preserve">
+        <value>M1: Insulation Breakdown
+
+</value>
+    </data>
+    <data name="Buffs.Agents.Qingyi.Cinema1.0" xml:space="preserve">
+        <value>When using her Basic Attack: Enchanted Moonlit Blossoms, if Flash Connect Voltage is at its maximum, the attack will reduce the {stats.0} of the enemy it hits by {values.0}, and Qingyi's {stats.1} against that enemy will increase by {values.1}.</value>
+    </data>
+    <data name="Buffs.Agents.Qingyi.Cinema6" xml:space="preserve">
+        <value>M6: Insulation Breakdown
+</value>
+    </data>
+    <data name="Buffs.Agents.Qingyi.Cinema6.0" xml:space="preserve">
+        <value>The Interrupt Level of Basic Attack: Enchanted Moonlit Blossoms is greatly increased, and the {stat} is increased by an additional {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Qingyi.Cinema6.1" xml:space="preserve">
+        <value>When Qingyi hits an enemy with her Basic Attack: Enchanted Moonlit Blossoms, the target's Resistance to all Attribute DMG is reduced by {value}</value>
+    </data>
+    <data name="Buffs.Agents.Rina.Cinema1" xml:space="preserve">
+        <value>M1: Dance Duet</value>
+    </data>
+    <data name="Buffs.Agents.Rina.Cinema1.0" xml:space="preserve">
+        <value>The effect gained from Core Passive: Mini Destruction Partner by characters within 10m is increased to {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Rina.Cinema2" xml:space="preserve">
+        <value>M2: Master's Paragon</value>
+    </data>
+    <data name="Buffs.Agents.Rina.Cinema2.0" xml:space="preserve">
+        <value>Upon entering combat or switching in, Rina's DMG increases by {value} for 12s.</value>
+    </data>
+    <data name="Buffs.Agents.Rina.Cinema4" xml:space="preserve">
+        <value>M4: Needle and Hammer</value>
+    </data>
+    <data name="Buffs.Agents.Rina.Cinema4.0" xml:space="preserve">
+        <value>Rina's Energy Regen increases by {value} while both Drusilla and Anastella are deployed.</value>
+    </data>
+    <data name="Buffs.Agents.Rina.Cinema6" xml:space="preserve">
+        <value>Stormy Night's Fright</value>
+    </data>
+    <data name="Buffs.Agents.Rina.Cinema6.0" xml:space="preserve">
+        <value>When an EX Special Attack, Chain Attack or Ultimate hits an enemy, the entire squad's {stat} is increased by {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Soukaku.Cinema4" xml:space="preserve">
+        <value>M4: Hypothermia</value>
+    </data>
+    <data name="Buffs.Agents.Soukaku.Cinema4.0" xml:space="preserve">
+        <value>If an enemy is hit by Fly the Flag, the target's {stat} is reduced by {value} for 8s.</value>
+    </data>
+    <data name="Buffs.Agents.Soukaku.Cinema6" xml:space="preserve">
+        <value>M6: Northern Wind</value>
+    </data>
+    <data name="Buffs.Agents.Soukaku.Cinema6.0" xml:space="preserve">
+        <value>While in the Frosted Banner state, enhanced Basic Attacks and enhanced Dash Attacks deal {value} more DMG.</value>
+    </data>
+    <data name="Buffs.Engines.Arrow" xml:space="preserve">
+        <value>Tsunami</value>
+    </data>
+    <data name="Buffs.Engines.Arrow.0" xml:space="preserve">
+        <value>The equipper's attacks inflict {value} more {stat} on their main target.</value>
+    </data>
+    <data name="Buffs.Agents.Anby.Cinema2.1" xml:space="preserve">
+        <value>When Anby's EX Special Attack hits an enemy that is not Stunned, the {stat} inflicted is increased by {value}.</value>
+    </data>
 </root>
