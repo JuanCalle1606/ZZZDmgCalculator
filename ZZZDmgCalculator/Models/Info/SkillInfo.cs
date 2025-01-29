@@ -22,7 +22,9 @@ public class SkillInfo {
 
 	public int Ticks { get; set; } = 1;
 
-	public double[]? Scales { get; set; }
+	public double[]? Dmg { get; set; }
+	
+	public double[]? Daze { get; set; }
 
 	public bool Cinema { get; set; }
 }

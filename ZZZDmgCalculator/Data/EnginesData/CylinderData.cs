@@ -39,7 +39,7 @@ public class CylinderData {
 		Skill = new()
 		{
 			Stat = Stats.Def,
-			Scales = EngineScales.Templates["Cylinder.Skill"],
+			Dmg = EngineScales.Templates["Cylinder.Skill"],
 			Engine = true
 		}
 	};

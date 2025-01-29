@@ -71,7 +71,15 @@ const skillTemplate = `new() // {move}
 {
 \tType = {subtype},
 \tDmgType = ChangeMe,
-\tScales = {scales}
+\tDmg = {scales},
+\tDaze = {daze}
+}
+`;
+
+const parryTemplate = `new() // {move}
+{
+\tType = Assist,
+\tDaze = {daze}
 }
 `;
 
@@ -101,7 +109,7 @@ function getSkillId(skill) {
 
 	// Toma la parte después de los dos puntos, elimina espacios al inicio/final y dentro del string
 	if (parts.length > 1) {
-		
+
 		// replace any character that is not a letter with ""
 		return parts[1].trim().replace(/[^a-zA-Z]/g, "");
 	}
@@ -110,7 +118,17 @@ function getSkillId(skill) {
 	return "";
 }
 
-getSkillStats = (id) => {
+function getLen(childList) {
+	let len = 0;
+	for (let j = 0; j < childList.length; j++) {
+		if (childList[j].children.length >= 16) {
+			len = j + 1;
+		}
+	}
+	return len;
+}
+
+getSkillStats = () => {
 	let logOut = "[\n";
 	const skillTable = $("table.skill-table");
 	for (const skillTableElement of skillTable) {
@@ -122,38 +140,75 @@ getSkillStats = (id) => {
 			const type = trs[i].children[1].innerText;
 			const subtype = trs[i].children[2].innerText;
 
-			if ((type === "Dodge" && subtype === "") || subtype === "Defensive Assist" || subtype === "Additional Ability" || type === "Core Skill" || subtype === "Evasive Assist") {
+			if ((type === "Dodge" && subtype === "") || subtype === "Additional Ability" || type === "Core Skill" || subtype === "Evasive Assist") {
 				continue;
 			}
-			
+
+			let parry = subtype === "Defensive Assist";
+
 			// for this tr get the nested table item
 			let skills = $(trs[i + 1]).find("table > tbody");
-			if(skills.length === 0) continue;
-				
+			if (skills.length === 0) continue;
+
 			let skillsOut = skillsTemplate.replace("{name}", name).replace("{type}", getTypeShort(type)).replace("{Id}", getSkillId(name));
 			let skillList = [];
 
 			skills = skills[0].children;
+			let len = getLen(skills);
+
 			for (let j = 1; j < skills.length; j++) {
 				if (skills[j].children.length < 16) continue;
 				let txt = skills[j].children[0].innerHTML;
 				// if tolower(txt) containts "daze" continue
-				if (txt.toLowerCase().includes("daze")) continue;
+				if (txt.toLowerCase().includes("daze") && !parry) continue;
 
-				let skillsOut = skillTemplate.replace("{move}", txt).replace("{subtype}", getSubTypeShort(type, subtype));
+				let skillOut = (parry ? parryTemplate : skillTemplate).replace("{move}", txt).replace("{subtype}", getSubTypeShort(type, subtype));
 
 				let scales = "[";
-				// concatenate the values of the table
-				for (let k = 1; k < skills[j].children.length; k++) {
-					scales += skills[j].children[k].innerText;
-					if (k < skills[j].children.length - 1) {
-						scales += ", ";
+				if (!parry) {
+					// concatenate the values of the table
+					for (let k = 1; k < skills[j].children.length; k++) {
+						scales += skills[j].children[k].innerText;
+						if (k < skills[j].children.length - 1) {
+							scales += ", ";
+						}
 					}
+					scales += "]\n";
+				} else {
+					scales = "null";
 				}
-				scales += "]\n";
 
-				skillsOut = skillsOut.replace("{scales}", scales);
-				skillList.push(skillsOut);
+
+				// get the daze values
+				// if there are only 3 children, then the daze is the next row
+				// if there are more than 3 children, then the daze row need to be calculated
+				let dazerow = 0;
+				if (len === 3) {
+					dazerow = j + 1;
+				} else {
+					dazerow = j + (len - 1) / 2;
+				}
+				dazerow = parry ? j : dazerow;
+
+				let daze = "[";
+				if (len > 2) {
+					if (skills[dazerow].children.length >= 16) {
+						// concatenate the values of the table
+						for (let k = 1; k < skills[dazerow].children.length; k++) {
+							daze += skills[dazerow].children[k].innerText;
+							if (k < skills[dazerow].children.length - 1) {
+								daze += ", ";
+							}
+						}
+					}
+					daze += "]\n";
+				} else {
+					daze = "null";
+				}
+
+
+				skillOut = skillOut.replace("{scales}", scales).replace("{daze}", daze);
+				skillList.push(skillOut);
 			}
 
 			skillsOut = skillsOut.replace("{skillList}", skillList.join(","));
