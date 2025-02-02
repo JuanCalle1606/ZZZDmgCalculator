@@ -9,9 +9,9 @@ using Json;
 public class SetupState : IBuffContainer {
 	public string DisplayName { get; set; } = "";
 
-	public AgentState?[] Agents { get; set; } = new AgentState?[3];
+	public AgentState?[] Agents { get; } = new AgentState?[3];
 
-	public EnemyState Enemy { get; set; } = new EnemyState();
+	public EnemyState Enemy { get; }
 
 	public BuffSource Source => BuffSource.Shared;
 
@@ -20,6 +20,10 @@ public class SetupState : IBuffContainer {
 	public List<BuffState> Buffs { get; } = [];
 
 	public IEnumerable<BuffState> AllBuffs => Children.SelectMany(c => c.SelfBuffs).Where(b => b.Shared || b.Info.Pass);
+
+	public SetupState() {
+		Enemy = new(this);
+	}
 
 	public AgentState? this[int currentAgentIndex]
 	{

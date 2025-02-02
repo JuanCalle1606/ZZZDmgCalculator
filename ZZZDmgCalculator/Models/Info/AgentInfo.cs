@@ -52,7 +52,7 @@ public class AgentInfo : BaseInfo<Agents> {
 			buffInfo.DisplayName = lang[$"Buffs.Agents.{Id}.Core"];
 			buffInfo.Description = lang[buffInfo.Id];
 		}
-		
+
 		for (var i = 0; i < AdditionalBuff.Count; i++)
 		{
 			var buffInfo = AdditionalBuff[i];
@@ -69,6 +69,32 @@ public class AgentInfo : BaseInfo<Agents> {
 				buffInfo.Id = $"Buffs.Agents.{Id}.Cinema{index}.{i}";
 				buffInfo.DisplayName = lang[$"Buffs.Agents.{Id}.Cinema{index}"];
 				buffInfo.Description = lang[buffInfo.Id];
+			}
+		}
+
+		AssignAbilities(lang);
+	}
+
+	void AssignAbilities(LangService lang) {
+		foreach (var ability in Abilities)
+		{
+			var id = "Abilities.Agents." + Id + "." + ability.Id;
+			ability.DisplayName = lang[id];
+			//ability.Description = lang[ability.Id + ".Desc"];
+
+			for (var i = 0; i < ability.Buffs.Count; i++)
+			{
+				var buffInfo = ability.Buffs[i];
+				buffInfo.Id = $"Buffs.Abilities.{Id}.{ability.Id}.{i}";
+				buffInfo.DisplayName = lang[id];
+				buffInfo.Description = lang[buffInfo.Id];
+			}
+			
+			for (var i = 0; i < ability.Skills.Count; i++)
+			{
+				var buffInfo = ability.Skills[i];
+				buffInfo.Id = $"Skills.Abilities.{Id}.{ability.Id}.{i}";
+				buffInfo.DisplayName = lang[buffInfo.Id]; 
 			}
 		}
 	}

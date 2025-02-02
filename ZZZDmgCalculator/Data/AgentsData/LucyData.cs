@@ -312,7 +312,7 @@ public class LucyData {
 		],
 		Cinemas =
 		{
-			[4] = new StatModifier { Stat = CritDmg, Value = 10 },
+			[4] = new StatModifier { Stat = CritDmg, Value = 10, Type = Combat},
 			[6] = new SkillInfo { DmgType = Fire, Value = 300 }
 		}
 	};

@@ -1226,7 +1226,7 @@ Furnace’s Glow</value>
         <value>M4: Chaos Ball Game</value>
     </data>
     <data name="Buffs.Agents.Lucy.Cinema4.0" xml:space="preserve">
-        <value>While in the Cheer On! state, allies' {STAT} is increased by an additional {value}.</value>
+        <value>While in the Cheer On! state, allies' {stat} is increased by an additional {value}.</value>
     </data>
     <data name="Buffs.Agents.Lycaon.Cinema6" xml:space="preserve">
         <value>M6: 
@@ -1311,5 +1311,23 @@ Ruthless Hunter</value>
     </data>
     <data name="Buffs.Agents.Anby.Cinema2.1" xml:space="preserve">
         <value>When Anby's EX Special Attack hits an enemy that is not Stunned, the {stat} inflicted is increased by {value}.</value>
+    </data>
+    <data name="EnemyInfo" xml:space="preserve">
+        <value>Enemy Info</value>
+    </data>
+    <data name="Weaknesses" xml:space="preserve">
+        <value>Weaknesses</value>
+    </data>
+    <data name="Resistances" xml:space="preserve">
+        <value>Resistances</value>
+    </data>
+    <data name="BaseDef" xml:space="preserve">
+        <value>Base Def</value>
+    </data>
+    <data name="Stunned" xml:space="preserve">
+        <value>Stunned</value>
+    </data>
+    <data name="StunMultiplier" xml:space="preserve">
+        <value>Stun Multiplier</value>
     </data>
 </root>

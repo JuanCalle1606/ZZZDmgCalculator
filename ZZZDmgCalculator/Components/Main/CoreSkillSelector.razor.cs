@@ -35,6 +35,13 @@ public partial class CoreSkillSelector {
 		if (newval == Value)
 			return;
 		await ValueChanged.InvokeAsync(newval);
+		// if the agent has a core skill with an enemy debuff, we need to update enemy stats
+		var agent = State.CurrentAgent!;
+		if (agent.Info.CoreBuff.Concat(agent.Info.AdditionalBuff).Any(b => b.Modifiers.Any(m => m.Enemy)))
+		{
+			State.CurrentSetup.Enemy.UpdateAllStats();
+		}
+		
 		Notifier.CurrentAgentChanged(); // notify to re-render all the main page, TODO: maybe only re-render things that depend on the core skill
 	}
 }

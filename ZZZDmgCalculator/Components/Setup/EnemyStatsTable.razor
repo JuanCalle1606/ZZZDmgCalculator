@@ -1,0 +1,86 @@
+@using ZZZDmgCalculator.Extensions
+@inherits MainComponent
+
+<div class="rz-data-grid rz-has-pager rz-datatable rz-datatable-scrollable rz-density-compact z-stats-table rz-mt-4">
+	<div class="rz-data-grid-data">
+		<table class="z-stats-table rz-grid-table rz-grid-table-fixed rz-grid-table-striped  rz-grid-gridlines-horizontal">
+			<colgroup>
+				<col>
+				<col style="width: 60px;">
+				<col style="width: 65px">
+				<col style="width: 60px">
+			</colgroup>
+			<thead>
+			<tr>
+				<!--!-->
+				<th rowspan="1" colspan="1" class="rz-unselectable-text rz-text-align-left" scope="col" style="">
+					<div>
+						<span class="rz-column-title" title="@Lang["Stat"]">
+							<span class="rz-column-title-content">@Lang["Stat"]</span>
+						</span>
+					</div>
+				</th><!--!-->
+				<th rowspan="1" colspan="1" class="rz-unselectable-text rz-text-align-right" scope="col" style="">
+					<div>
+						<span class="rz-column-title" title="@Lang["Initial"]">
+							<span class="rz-column-title-content">@Lang["Initial"]</span>
+						</span>
+					</div>
+				</th>
+				<th rowspan="1" colspan="1" class="rz-unselectable-text rz-text-align-right" scope="col" style="">
+					<div>
+						<span class="rz-column-title" title="@Lang["Combat"]">
+							<span class="rz-column-title-content ">@Lang["Combat"]</span>
+						</span>
+					</div>
+				</th>
+				<th rowspan="1" colspan="1" class="rz-unselectable-text rz-text-align-right" scope="col" style="">
+					<div>
+						<span class="rz-column-title rz-pr-2" title="@Lang["Total"]">
+							<span class="rz-column-title-content">@Lang["Total"]</span>
+						</span>
+					</div>
+				</th>
+			</tr>
+			</thead>
+				<tbody>
+				
+				@foreach (var stat in Enum.GetValues<Stats>())
+				{
+					var baseStat = InvertResistance(EntityStats.Base[stat], stat);
+					var bonusStat = InvertResistance(EntityStats.Bonus[stat], stat);
+					var initialStat = InvertResistance(EntityStats.Initial[stat], stat);
+					var combatStat = InvertResistance(EntityStats.Combat[stat], stat);
+					var totalStat = InvertResistance(EntityStats.Total[stat], stat);
+					if (totalStat != 0)
+					{
+						<tr class="rz-data-row rz-unselectable-text">
+							<td>
+								<span class=@GetStatClass(totalStat)>@Info[stat].DisplayName</span>
+							</td>
+							<td class="rz-text-align-right initial-stat">
+								@{
+									var baseFormatted = stat.Format(baseStat);
+									var bonusFormatted = stat.Format(bonusStat);
+									var tittle = baseFormatted.Contains("%") || bonusStat == 0 ? "" : $"{baseFormatted} + {bonusFormatted}";
+								}
+								<span class=@(GetStatClass(initialStat)) title="@tittle">
+									@stat.Format(initialStat)
+								</span>
+							</td>
+							<td class="rz-text-align-right">
+								<span class=@GetCombatClass(combatStat)>
+									@(combatStat > 0 ? "+" : "")
+									@stat.Format(combatStat)
+								</span>
+							</td>
+							<td class="rz-text-align-right">
+								<span class=@GetStatClass(totalStat)>@stat.Format(totalStat)</span>
+							</td>
+						</tr>
+					}
+				}
+				</tbody>
+		</table>
+	</div>
+</div>

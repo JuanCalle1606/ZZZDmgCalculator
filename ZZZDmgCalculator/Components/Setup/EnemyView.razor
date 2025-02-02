@@ -1,0 +1,37 @@
+@inherits MainComponent
+
+<RadzenCard Variant="Variant.Flat" class="rz-background-color-base-900 rz-p-3 rz-mb-3">
+	<RadzenStack>
+		<RadzenText>@Lang["EnemyInfo"]</RadzenText>
+		<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.SpaceBetween">
+			<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
+				<RadzenLabel>@Lang["Level"]:</RadzenLabel>
+				<RadzenNumeric Min="1" Max="70" TValue="int" @bind-Value="Enemy.Level" Style="max-width: 50px"/>
+			</RadzenStack>
+			<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
+				<RadzenLabel>@Lang["BaseDef"]:</RadzenLabel>
+				<RadzenNumeric Min="36" Max="60" TValue="int" @bind-Value="Enemy.BaseDefense" Style="max-width: 50px"/>
+			</RadzenStack>
+		</RadzenStack>
+		<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.SpaceBetween">
+			<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
+				<RadzenLabel>@Lang["Stunned"]:</RadzenLabel>
+				<RadzenSwitch @bind-Value="Enemy.Stunned"/>
+			</RadzenStack>
+			<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
+				<RadzenLabel>@Lang["StunMultiplier"]:</RadzenLabel>
+				<RadzenNumeric Min="150" Max="250" TValue="int" Step="10" @bind-Value="Enemy.StunMultiplier" Style="max-width: 60px"/>
+			</RadzenStack>
+		</RadzenStack>
+		<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
+			<RadzenLabel>@Lang["Weaknesses"]:</RadzenLabel>
+			<EnumFilter Value="Enemy.Weaknesses" FilterChanged="Enemy.UpdateResistances"/>
+		</RadzenStack>
+		<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
+			<RadzenLabel>@Lang["Resistances"]:</RadzenLabel>
+			<EnumFilter Value="Enemy.Resistances" FilterChanged="Enemy.UpdateResistances"/>
+		</RadzenStack>
+	</RadzenStack>
+	
+	<EnemyStatsTable EntityStats="Enemy.Stats"/>
+</RadzenCard>

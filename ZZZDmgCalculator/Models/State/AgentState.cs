@@ -166,15 +166,6 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 
 		InitBaseStats();
 
-		foreach (var baseStat in _baseStats)
-		{
-			Modifiers.Add(baseStat.Value);
-		}
-		foreach (var coreStat in _coreStats)
-		{
-			Modifiers.Add(coreStat);
-		}
-
 		InitBuffs();
 		UpdateAllStats();
 	}
@@ -357,6 +348,15 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 
 		_coreStats[0] = new() { Stat = Info.CoreStats[0].Stat };
 		_coreStats[1] = new() { Stat = Info.CoreStats[1].Stat };
+		
+		foreach (var baseStat in _baseStats)
+		{
+			Modifiers.Add(baseStat.Value);
+		}
+		foreach (var coreStat in _coreStats)
+		{
+			Modifiers.Add(coreStat);
+		}
 	}
 
 	public void UpdateAllStats() {
@@ -413,7 +413,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 	void UpdateAmplifyDummy(BuffState buff) {
 		IBuffContainer buffContainer = this;
 		var amplify = buffContainer.AllBuffs.FirstOrDefault(b => b is { Available: true, Active: true } && b.Info.Id == buff.Info.Amplify);
-		Console.WriteLine("Amplify: " + amplify);
+		
 		foreach (var mod in buff.Modifiers.Where(m => m.Agent).ToList())
 		{
 			var subtotal = amplify?.Modifiers.Where(m => !m.Agent && m.Stat == mod.Stat).Sum(m => m.Value) ?? 0;

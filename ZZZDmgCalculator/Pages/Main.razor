@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using ZZZDmgCalculator.Models.Abstractions
 @inherits MainComponent
 
 @code {
@@ -6,6 +7,14 @@
 	void Callback() {
 #if DEBUG
 		text = Lang.GenMiss();
+		text += "\n";
+		text += "Current agent buffs:";
+		IBuffContainer agent = State.CurrentAgent!;
+		var buffWithConditions = agent.AllBuffs.Where(b=>b.Info.SkillCondition != null);
+		foreach (var buff in buffWithConditions)
+		{
+			text += $"\n{buff.Info.Id} ({buff.Modifiers.Count} modifiers)";
+		}
 #endif
 	}
 }
@@ -17,6 +26,9 @@
 		</AdaptableCard>
 		<AdaptableCard TabText=@Lang["Party"]>
 			<SetupCard TeamState="State.CurrentSetup"/>
+		</AdaptableCard>
+		<AdaptableCard TabText=@Lang["Skills"]>
+			<SkillCard Agent="State.CurrentAgent"/>
 		</AdaptableCard>
 		<DebugOnly>
 			<AdaptableCard TabText="Debug">

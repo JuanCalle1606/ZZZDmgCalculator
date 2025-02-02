@@ -9,6 +9,7 @@ using ZZZ.ApiModels;
 /// </summary>
 public class LangService {
 	readonly ResourceManager _manager = new("ZZZDmgCalculator.Lang.Resources", typeof(LangService).Assembly);
+	bool _debugmode = false;
 
 #if DEBUG
 	readonly List<string> _warnKeys = [];
@@ -17,12 +18,13 @@ public class LangService {
 	{
 		get
 		{
+			//if(DEBUGMODE) return "{" + key + "}";
 			var value = _manager.GetString(key);
 			if (value is null && !_warnKeys.Contains(key))
 			{
 				_warnKeys.Add(key);
 			}
-			return value ?? $"%{key}%";
+			return (_debugmode ? null : value) ?? $"%{key}%";
 		}
 	}
 	

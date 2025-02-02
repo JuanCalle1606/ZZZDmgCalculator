@@ -71,6 +71,8 @@ public class BuffState : IModifierContainer {
 
 	public AgentState Owner { get; set; } = null!;
 	
+	public bool Enemy => Modifiers.Any(m => m.Enemy);
+	
 	public  AgentState? AppliedTo
 	{
 		[return: NotNull]

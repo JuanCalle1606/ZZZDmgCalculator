@@ -53,7 +53,7 @@ public class QingyiData {
 			Scales = [[2, 2.4, 2.7, 3, 3.4, 3.7, 4]],
 			Modifiers = new StatModifier
 			{
-				Stat = StunDmg, Enemy = true
+				Stat = StunDmg, Type = Combat, Enemy = true
 			}
 		},
 		// TODO: Add qingyi additional buff
@@ -326,7 +326,7 @@ public class QingyiData {
 					},
 					new StatModifier
 					{
-						Stat = DmgRes, Value = 20, Enemy = true
+						Stat = DmgRes, Value = 20, Enemy = true, Type = Combat
 					}
 				]
 			}

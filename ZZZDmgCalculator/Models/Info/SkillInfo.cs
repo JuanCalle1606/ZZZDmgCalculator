@@ -3,11 +3,7 @@ namespace ZZZDmgCalculator.Models.Info;
 using Enum;
 using ZZZ.ApiModels;
 
-public class SkillInfo {
-	public string DisplayName { get; set; } = string.Empty;
-
-	public string Description { get; set; } = string.Empty;
-
+public class SkillInfo : BaseInfo {
 	public Stats Stat { get; set; }
 
 	public bool Engine { get; set; }

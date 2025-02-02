@@ -5,5 +5,6 @@ public enum BuffSource {
 	Engine = 2,
 	Disc = 4,
 	Shared = 8,
-	Other = 16
+	Other = 16,
+	Enemy = 32,
 }

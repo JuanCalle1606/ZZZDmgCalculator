@@ -31,7 +31,6 @@ public class EngineInfo : BaseInfo<Engines> {
 			buffInfo.Description = lang[buffInfo.Id];
 		}
 		if (Skill == null) return;
-		Skill.DisplayName = lang[$"Skills.Engines.{Id}"];
-		Skill.Description = lang[$"Skills.Engines.{Id}.0"];
+		Skill.DisplayName = lang[$"Skills.Engines.{Id}.0"];
 	}
 }

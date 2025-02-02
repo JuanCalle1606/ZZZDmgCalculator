@@ -49,6 +49,11 @@ public partial class BuffView {
 				agent?.UpdateAllStats();
 			}
 		}
+		if (Buff.Enemy)
+		{
+			State.CurrentSetup.Enemy.UpdateAllStats();
+		}
+		
 		Notifier.BuffUpdated(Buff);
 	}
 

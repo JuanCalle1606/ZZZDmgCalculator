@@ -11,6 +11,7 @@ using static Models.Enum.BuffTrigger;
 using static Models.Enum.Factions;
 using static ZZZ.ApiModels.Skills;
 using static Models.Enum.Specialties;
+using static Models.Enum.StatModifiers;
 using static Models.Enum.Stats;
 using static Models.Info.DodgeTypes;
 
@@ -47,11 +48,11 @@ public class LycaonData {
 		FinalStats = [0, 119, 90, 91, 1.2],
 		CoreBuff = new StatModifier
 		{
-			Stat = IceRes, Value = 25, Enemy = true
+			Stat = IceRes, Value = 25, Enemy = true, Type = Combat
 		},
 		AdditionalBuff = new StatModifier
 		{
-			Stat = StunDmg, Value = 35, Enemy = true
+			Stat = StunDmg, Value = 35, Enemy = true, Type = Combat
 		},
 		Abilities =
 		[
@@ -309,7 +310,7 @@ public class LycaonData {
 				Stacks = 5,
 				Modifiers = new StatModifier
 				{
-					Stat = BonusDmg, Type = StatModifiers.Combat,
+					Stat = BonusDmg, Type = Combat,
 					Value = 10
 				}
 			}

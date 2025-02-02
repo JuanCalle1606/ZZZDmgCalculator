@@ -1,0 +1,10 @@
+@inherits MainComponent
+
+<RadzenPanelMenu class="buff-menu">
+
+	@foreach (var group in _groups)
+	{
+		<AbilityList Category="group.Key" Abilities="group" Stats="Agent.Stats"/>
+	}
+	
+</RadzenPanelMenu>
