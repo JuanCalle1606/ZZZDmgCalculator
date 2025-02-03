@@ -6,30 +6,30 @@
 		<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.SpaceBetween">
 			<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
 				<RadzenLabel>@Lang["Level"]:</RadzenLabel>
-				<RadzenNumeric Min="1" Max="70" TValue="int" @bind-Value="Enemy.Level" Style="max-width: 50px"/>
+				<RadzenNumeric Min="1" Max="70" TValue="int" Value="Enemy.Level" ValueChanged="ChangeLevel" Style="max-width: 50px"/>
 			</RadzenStack>
 			<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
 				<RadzenLabel>@Lang["BaseDef"]:</RadzenLabel>
-				<RadzenNumeric Min="36" Max="60" TValue="int" @bind-Value="Enemy.BaseDefense" Style="max-width: 50px"/>
+				<RadzenNumeric Min="36" Max="60" TValue="int" Value="Enemy.BaseDefense" ValueChanged="ChangeDefense" Style="max-width: 50px"/>
 			</RadzenStack>
 		</RadzenStack>
 		<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.SpaceBetween">
 			<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
 				<RadzenLabel>@Lang["Stunned"]:</RadzenLabel>
-				<RadzenSwitch @bind-Value="Enemy.Stunned"/>
+				<RadzenSwitch Value="Enemy.Stunned" ValueChanged="ChangeStunned"/>
 			</RadzenStack>
 			<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
 				<RadzenLabel>@Lang["StunMultiplier"]:</RadzenLabel>
-				<RadzenNumeric Min="150" Max="250" TValue="int" Step="10" @bind-Value="Enemy.StunMultiplier" Style="max-width: 60px"/>
+				<RadzenNumeric Min="150" Max="250" TValue="int" Step="10" Value="Enemy.StunMultiplier" ValueChanged="ChangeStunMultipler" Style="max-width: 60px"/>
 			</RadzenStack>
 		</RadzenStack>
 		<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
 			<RadzenLabel>@Lang["Weaknesses"]:</RadzenLabel>
-			<EnumFilter Value="Enemy.Weaknesses" FilterChanged="Enemy.UpdateResistances"/>
+			<EnumFilter Value="Enemy.Weaknesses" FilterChanged="UpdateResistances"/>
 		</RadzenStack>
 		<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
 			<RadzenLabel>@Lang["Resistances"]:</RadzenLabel>
-			<EnumFilter Value="Enemy.Resistances" FilterChanged="Enemy.UpdateResistances"/>
+			<EnumFilter Value="Enemy.Resistances" FilterChanged="UpdateResistances"/>
 		</RadzenStack>
 	</RadzenStack>
 	

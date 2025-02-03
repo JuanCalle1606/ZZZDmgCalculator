@@ -75,6 +75,7 @@ public class SoukakuData {
 			{
 				Id = "MakingRiceCakes",
 				Category = Basic,
+				UseCommonNames = true,
 				Skills =
 				[
 					new()// 1st-Hit DMG Multiplier (%)
@@ -104,6 +105,7 @@ public class SoukakuData {
 			{
 				Id = "MakingRiceCakesFrostedBanner",
 				Category = Basic,
+				UseCommonNames = true,
 				Skills =
 				[
 					new()// 1st-Hit DMG Multiplier (%)

@@ -54,6 +54,8 @@ public class LucyData {
 			{
 				Id = "LadysBat",
 				Category = Basic,
+				UseCommonNames = true,
+				MaxCommonName = 4,
 				Skills =
 				[
 					new()// 1st-Hit DMG Multiplier (%)
@@ -77,6 +79,13 @@ public class LucyData {
 						Dmg = [188.9, 206.1, 223.3, 240.5, 257.7, 274.9, 292.1, 309.3, 326.5, 343.7, 360.9, 378.1, 395.3, 412.5, 429.7, 446.9],
 						Daze = [157.4, 164.6, 171.8, 179.0, 186.2, 193.4, 200.6, 207.8, 215.0, 222.2, 229.4, 236.6, 243.8, 251.0, 258.2, 265.4]
 					},
+					new()// 4th-Hit DMG Multiplier (%)
+					{
+						Type = Basic,
+						DmgType = Fire,
+						Dmg = [272.6, 297.4, 322.2, 347.0, 371.8, 396.6, 421.4, 446.2, 471.0, 495.8, 520.6, 545.4, 570.2, 595, 619.8, 644.6],
+						Daze = [208, 217.5, 227, 236.5, 246, 255.5, 265, 274.5, 284, 293.5, 303, 312.5, 322, 331.5, 341, 350.5]
+					},
 					new()// 3rd-Hit (ALT) DMG Multiplier (%)
 					{
 						Type = Basic,
@@ -84,13 +93,6 @@ public class LucyData {
 						Dmg = [211.5, 230.8, 250.1, 269.4, 288.7, 308.0, 327.3, 346.6, 365.9, 385.2, 404.5, 423.8, 443.1, 462.4, 481.7, 501.0],
 						Daze = [162.3, 169.7, 177.1, 184.5, 191.9, 199.3, 206.7, 214.1, 221.5, 228.9, 236.3, 243.7, 251.1, 258.5, 265.9, 273.3]
 					},
-					new()// 4th-Hit DMG Multiplier (%)
-					{
-						Type = Basic,
-						DmgType = Fire,
-						Dmg = [272.6, 297.4, 322.2, 347.0, 371.8, 396.6, 421.4, 446.2, 471.0, 495.8, 520.6, 545.4, 570.2, 595, 619.8, 644.6],
-						Daze = [208, 217.5, 227, 236.5, 246, 255.5, 265, 274.5, 284, 293.5, 303, 312.5, 322, 331.5, 341, 350.5]
-					}
 				]
 			},
 			new()// Guard Boars: To Arms!
@@ -312,7 +314,7 @@ public class LucyData {
 		],
 		Cinemas =
 		{
-			[4] = new StatModifier { Stat = CritDmg, Value = 10, Type = Combat},
+			[4] = new StatModifier { Stat = CritDmg, Value = 10, Type = Combat },
 			[6] = new SkillInfo { DmgType = Fire, Value = 300 }
 		}
 	};

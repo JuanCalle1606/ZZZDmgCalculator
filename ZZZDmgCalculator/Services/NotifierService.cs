@@ -19,12 +19,16 @@ public class NotifierService : IDisposable {
 	readonly IDisposablePublisher<BuffState> _buffChangedPublisher;
 	public ISubscriber<BuffState> OnBuffChanged { get; }
 	
+	readonly IDisposablePublisher<EnemyState> _enemyChangedPublisher;
+	public ISubscriber<EnemyState> OnEnemyChanged { get; }
+	
 	public NotifierService(EventFactory eventFactory, StateService stateService) {
 		_stateService = stateService;
 		(_currentAgentChangedPublisher, OnCurrentAgentChanged) = eventFactory.CreateEvent<AgentState?>();
 		(_currentEngineChangedPublisher, OnCurrentEngineChanged) = eventFactory.CreateEvent<EngineState?>();
 		(_currentDiscChangedPublisher, OnCurrentDiscChanged) = eventFactory.CreateEvent<KeyValuePair<int, DiscState?>>();
 		(_buffChangedPublisher, OnBuffChanged) = eventFactory.CreateEvent<BuffState>();
+		(_enemyChangedPublisher, OnEnemyChanged) = eventFactory.CreateEvent<EnemyState>();
 	}
 	
 	public void SwapCurrentAgent(AgentState newAgent) {
@@ -48,12 +52,17 @@ public class NotifierService : IDisposable {
 	public void BuffUpdated(BuffState buff) {
 		_buffChangedPublisher.Publish(buff);
 	}
+	
+	public void CurrentEnemyUpdated(EnemyState enemy) {
+		_enemyChangedPublisher.Publish(enemy);
+	}
 
 	public void Dispose() {
 		_currentAgentChangedPublisher.Dispose();
 		_currentEngineChangedPublisher.Dispose();
 		_currentDiscChangedPublisher.Dispose();
 		_buffChangedPublisher.Dispose();
+		_enemyChangedPublisher.Dispose();
 		
 		GC.SuppressFinalize(this);
 	}

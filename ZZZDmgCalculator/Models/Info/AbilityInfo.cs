@@ -7,10 +7,14 @@ public class AbilityInfo : BaseInfo {
 	public string Description { get; set; } = string.Empty;
 
 	public Skills Category { get; set; }
+	
+	public bool UseCommonNames { get; set; }
 
 	public SingleList<SkillInfo> Skills { get; set; } = [];
 
 	public SingleList<BuffInfo> Buffs { get; set; } = [];
+
+	public int MaxCommonName { get; set; } = int.MaxValue;
 
 	public static implicit operator AbilityInfo(StatModifier d) => new() { Buffs = [new() { Modifiers = [d] }] };
 

@@ -69,6 +69,8 @@ public class KoledaData {
 			{
 				Id = "SmashnBash",
 				Category = Basic,
+				UseCommonNames = true,
+				MaxCommonName = 4,
 				Skills =
 				[
 					new()// 1st-Hit DMG Multiplier (%)

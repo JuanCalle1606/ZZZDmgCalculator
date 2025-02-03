@@ -60,6 +60,8 @@ public class LycaonData {
 			{
 				Id = "MoonHunter",
 				Category = Basic,
+				UseCommonNames = true,
+				MaxCommonName = 5,
 				Skills =
 				[
 					new()// 1st-Hit DMG Multiplier (%)

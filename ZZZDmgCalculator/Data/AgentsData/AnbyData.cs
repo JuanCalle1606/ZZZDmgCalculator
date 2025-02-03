@@ -61,6 +61,7 @@ public class AnbyData {
 			{
 				Id = "TurboVolt",
 				Category = Basic,
+				UseCommonNames = true,
 				Skills =
 				[
 					new()// 1st-Hit DMG Multiplier (%)

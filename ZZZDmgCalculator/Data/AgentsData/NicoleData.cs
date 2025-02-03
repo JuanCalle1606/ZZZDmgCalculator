@@ -63,6 +63,7 @@ public class NicoleData {
 			{
 				Id = "CunningCombo",
 				Category = Basic,
+				UseCommonNames = true,
 				Skills =
 				[
 					new()// 1st-Hit DMG Multiplier (% +&nbsp;%*2)
@@ -95,6 +96,7 @@ public class NicoleData {
 			{
 				Id = "DoAsIPlease",
 				Category = Basic,
+				UseCommonNames = true,
 				Skills =
 				[
 					new()// 1st-Hit DMG Multiplier (% +&nbsp;%*2)

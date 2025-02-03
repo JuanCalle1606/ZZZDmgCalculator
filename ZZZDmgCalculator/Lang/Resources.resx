@@ -1330,4 +1330,103 @@ Ruthless Hunter</value>
     <data name="StunMultiplier" xml:space="preserve">
         <value>Stun Multiplier</value>
     </data>
+    <data name="Skill" xml:space="preserve">
+        <value>Skill</value>
+    </data>
+    <data name="NoCrit" xml:space="preserve">
+        <value>Non Crit</value>
+    </data>
+    <data name="Crit" xml:space="preserve">
+        <value>Crit</value>
+    </data>
+    <data name="Mean" xml:space="preserve">
+        <value>Avg.</value>
+    </data>
+    <data name="DMG" xml:space="preserve">
+        <value>DMG</value>
+    </data>
+    <data name="Abilities.Agents.Soukaku.MakingRiceCakes" xml:space="preserve">
+        <value>Basic Attack: Making Rice Cakes</value>
+    </data>
+    <data name="Abilities.Agents.Soukaku.MakingRiceCakesFrostedBanner" xml:space="preserve">
+        <value>Basic Attack: Making Rice Cakes (Frosted Banner)</value>
+    </data>
+    <data name="Abilities.Agents.Soukaku.50_50" xml:space="preserve">
+        <value>Dash Attack: 50/50</value>
+    </data>
+    <data name="Abilities.Agents.Soukaku.50_50FrostedBanner" xml:space="preserve">
+        <value>Dash Attack: 50/50 (Frosted Banner)</value>
+    </data>
+    <data name="Abilities.Agents.Soukaku.AwayFromMySnacks" xml:space="preserve">
+        <value>Dodge Counter: Away From My Snacks</value>
+    </data>
+    <data name="Abilities.Agents.Soukaku.ASetforTwo" xml:space="preserve">
+        <value>Quick Assist: A Set for Two</value>
+    </data>
+    <data name="Abilities.Agents.Soukaku.GuardingTactics" xml:space="preserve">
+        <value>Defensive Assist: Guarding Tactics</value>
+    </data>
+    <data name="Abilities.Agents.Soukaku.SweepingStrike" xml:space="preserve">
+        <value>Assist Follow-Up: Sweeping Strike</value>
+    </data>
+    <data name="Abilities.Agents.Soukaku.CoolingBento" xml:space="preserve">
+        <value>Special Attack: Cooling Bento</value>
+    </data>
+    <data name="Skills.Abilities.Soukaku.CoolingBento.0" xml:space="preserve">
+        <value>1st-Hit</value>
+    </data>
+    <data name="Skills.Abilities.Soukaku.CoolingBento.1" xml:space="preserve">
+        <value>Finishing Move</value>
+    </data>
+    <data name="Abilities.Agents.Soukaku.FanningMosquitoes" xml:space="preserve">
+        <value>EX Special Attack: Fanning Mosquitoes</value>
+    </data>
+    <data name="Skills.Abilities.Soukaku.FanningMosquitoes.0" xml:space="preserve">
+        <value>Chain Attack</value>
+    </data>
+    <data name="Skills.Abilities.Soukaku.FanningMosquitoes.1" xml:space="preserve">
+        <value>Wind Current</value>
+    </data>
+    <data name="Abilities.Agents.Soukaku.Rally" xml:space="preserve">
+        <value>Special Attack: Rally!</value>
+    </data>
+    <data name="Skills.Abilities.Soukaku.Rally.0" xml:space="preserve">
+        <value>Fly the Flag</value>
+    </data>
+    <data name="Skills.Abilities.Soukaku.Rally.1" xml:space="preserve">
+        <value>Quick Fly the Flag</value>
+    </data>
+    <data name="Skills.Abilities.Soukaku.Rally.2" xml:space="preserve">
+        <value>Lowering the Flag</value>
+    </data>
+    <data name="Skills.Abilities.Common.Parry.0" xml:space="preserve">
+        <value>Light Defensive</value>
+    </data>
+    <data name="Skills.Abilities.Common.Parry.1" xml:space="preserve">
+        <value>Heavy Defensive</value>
+    </data>
+    <data name="Skills.Abilities.Common.Parry.2" xml:space="preserve">
+        <value>Chain Defensive</value>
+    </data>
+    <data name="Abilities.Agents.Soukaku.PuddingSlash" xml:space="preserve">
+        <value>Chain Attack: Pudding Slash</value>
+    </data>
+    <data name="Abilities.Agents.Soukaku.JumboPuddingSlash" xml:space="preserve">
+        <value>Ultimate: Jumbo Pudding Slash</value>
+    </data>
+    <data name="Skills.Abilities.Common.Combo.0" xml:space="preserve">
+        <value>1st-Hit</value>
+    </data>
+    <data name="Skills.Abilities.Common.Combo.1" xml:space="preserve">
+        <value>2nd-Hit</value>
+    </data>
+    <data name="Skills.Abilities.Common.Combo.2" xml:space="preserve">
+        <value>3rd-Hit</value>
+    </data>
+    <data name="Skills.Abilities.Common.Combo.3" xml:space="preserve">
+        <value>4th-Hit</value>
+    </data>
+    <data name="Skills.Abilities.Common.Combo.4" xml:space="preserve">
+        <value>5th-Hit</value>
+    </data>
 </root>

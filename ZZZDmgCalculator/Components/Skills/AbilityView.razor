@@ -1,1 +1,13 @@
 @inherits MainComponent
+
+<tbody>
+<tr class="rz-group-row rz-unselectable-text">
+	<td colspan="4">
+		<span class="rz-cell-data">@Ability.DisplayName</span>
+	</td>
+</tr>
+@foreach (var skill in Ability.Skills)
+{
+	<SkillView Skill="skill" Scale="Scale"/>
+}
+</tbody>

@@ -67,6 +67,7 @@ public class RinaData {
 			{
 				Id = "WhacktheDimwit",
 				Category = Basic,
+				UseCommonNames = true,
 				Skills =
 				[
 					new()// 1st-Hit DMG Multiplier (%)

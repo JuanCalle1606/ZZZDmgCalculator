@@ -13,7 +13,7 @@ public partial class SkillCard {
 	[Parameter]
 	public AgentState Agent { get; set; } = null!;
 
-	protected override void OnInitialized() {
-		_groups = Agent.Info.Abilities.GroupBy(a => a.Category).ToList();
+	protected override void OnParametersSet() {
+		_groups = Agent.Info.Abilities.Where(a=>a.Skills.Any()).GroupBy(a => a.Category).ToList();
 	}
 }

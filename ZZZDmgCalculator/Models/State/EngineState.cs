@@ -10,7 +10,7 @@ using ZZZ.ApiModels;
 [JsonConverter(typeof(EngineSerializer))]
 public class EngineState : IModifierContainer, IBuffContainer, IBuffDependencyChecker {
 
-	AscensionState _ascension = AscensionState.A0_10;
+	AscensionState _ascension = AscensionState.A1_10;
 	int _refinement = 1;
 
 	bool _weaponEnabled = true;
