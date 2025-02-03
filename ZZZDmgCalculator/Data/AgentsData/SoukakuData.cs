@@ -303,7 +303,7 @@ public class SoukakuData {
 			new()// Chain Attack: Pudding Slash
 			{
 				Id = "PuddingSlash",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// DMG Multiplier (%)
@@ -318,7 +318,7 @@ public class SoukakuData {
 			new()// Ultimate: Jumbo Pudding Slash
 			{
 				Id = "JumboPuddingSlash",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// DMG Multiplier (%)

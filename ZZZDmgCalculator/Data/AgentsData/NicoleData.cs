@@ -277,7 +277,7 @@ public class NicoleData {
 			new()// Chain Attack: Ether Shellacking
 			{
 				Id = "EtherShellacking",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// Bombard DMG Multiplier (%)
@@ -299,7 +299,7 @@ public class NicoleData {
 			new()// Ultimate: Ether Grenade
 			{
 				Id = "EtherGrenade",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// Bombard DMG Multiplier (%)

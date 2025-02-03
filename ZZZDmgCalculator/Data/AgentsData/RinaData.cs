@@ -207,7 +207,7 @@ public class RinaData {
 			new()// Chain Attack: Code of Conduct
 			{
 				Id = "CodeofConduct",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// DMG Multiplier (%)
@@ -222,7 +222,7 @@ public class RinaData {
 			new()// Ultimate: The Queen's Attendants
 			{
 				Id = "TheQueensAttendants",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// DMG Multiplier (%)

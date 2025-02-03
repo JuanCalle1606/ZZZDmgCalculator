@@ -271,7 +271,7 @@ public class LycaonData {
 			new()// Chain Attack: As You Wish
 			{
 				Id = "AsYouWish",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// DMG Multiplier (%)
@@ -286,7 +286,7 @@ public class LycaonData {
 			new()// Ultimate: Mission Complete
 			{
 				Id = "MissionComplete",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// DMG Multiplier (%)

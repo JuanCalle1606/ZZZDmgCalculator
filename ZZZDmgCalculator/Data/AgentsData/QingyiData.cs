@@ -274,7 +274,7 @@ public class QingyiData {
 			new()// Chain Attack: Tranquil Serenade
 			{
 				Id = "TranquilSerenade",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// DMG Multiplier (%)
@@ -290,7 +290,7 @@ public class QingyiData {
 			new()// Ultimate: Eight Sounds of Ganzhou
 			{
 				Id = "EightSoundsofGanzhou",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// DMG Multiplier (%)

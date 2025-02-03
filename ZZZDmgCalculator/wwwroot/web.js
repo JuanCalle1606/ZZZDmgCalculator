@@ -84,7 +84,7 @@ const parryTemplate = `new() // {move}
 `;
 
 getTypeShort = (type) => {
-	return type.replace(" Attack", "");
+	return type.replace(" Attack", "").replace("Chain", "Ultimate");
 }
 
 getSubTypeShort = (type, subtype) => {

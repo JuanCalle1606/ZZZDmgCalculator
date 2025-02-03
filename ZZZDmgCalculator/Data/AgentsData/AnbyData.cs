@@ -224,7 +224,7 @@ public class AnbyData {
 			new()// Chain Attack: Electro Engine
 			{
 				Id = "ElectroEngine",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// DMG Multiplier (%)
@@ -239,7 +239,7 @@ public class AnbyData {
 			new()// Ultimate: Overdrive Engine
 			{
 				Id = "OverdriveEngine",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// DMG Multiplier (%)

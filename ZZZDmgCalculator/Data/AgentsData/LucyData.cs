@@ -282,7 +282,7 @@ public class LucyData {
 			new()// Chain Attack: Grand Slam!
 			{
 				Id = "GrandSlam",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// DMG Multiplier (%*3)
@@ -297,7 +297,7 @@ public class LucyData {
 			new()// Ultimate: Walk-Off Home Run!
 			{
 				Id = "WalkOffHomeRun",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// DMG Multiplier (%*3)

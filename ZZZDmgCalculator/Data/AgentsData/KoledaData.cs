@@ -266,7 +266,7 @@ public class KoledaData {
 			new()// Chain Attack: Natural Disaster
 			{
 				Id = "NaturalDisaster",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// DMG Multiplier (%)
@@ -281,7 +281,7 @@ public class KoledaData {
 			new()// Ultimate: Hammerquake
 			{
 				Id = "Hammerquake",
-				Category = Chain,
+				Category = Ultimate,
 				Skills =
 				[
 					new()// DMG Multiplier (%)
@@ -308,7 +308,7 @@ public class KoledaData {
 			{
 				Type = Stack,
 				Stacks = 2,
-				AbilityCondition = skill => skill.Category == Chain,// this covers chain and ultimate
+				AbilityCondition = skill => skill.Category == Ultimate,// this covers chain and ultimate
 				Modifiers = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 18 },
 			},
 			[6] = new SkillInfo
