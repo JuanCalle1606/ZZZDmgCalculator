@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.2.3](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v0.2.2...v0.2.3) (2025-02-04)
+
+
+### Features
+
+* Add cinema buffs ([02548d6](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/02548d673e0572212278f13cfffb208ed89407da))
+* Added amplify buffs ([7939275](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/79392755a4e04dc7a7ef8c5e338232e231c24b88))
+* Added enemy info ([91a1791](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/91a1791f122f5dbad2e6eef47cd7116bc06b51da))
+* added new stats ([59aacb3](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/59aacb3e34e2908e9693a17dddb23265c788c16c))
+* Added Skill Dmg Card ([3004449](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/3004449714e330e5d9c7a27ccde456d2f0fc6ca5))
+
+
+### UI Changes
+
+* **AdaptableCards:** Change card size ([53bfe71](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/53bfe71001631b14c9bad42118f4561b3baaed9a))
+
+
+### Language Changes
+
+* Added lang keys for cinemas ([c9e1452](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/c9e14525dfa399ee6f32d4838d518f2831f2bcab))
+* Added missing lang keys ([85bc718](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/85bc718bc3777110692dc7ef54d78991bc226e14))
+
 ## [0.2.2](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v0.2.1...v0.2.2) (2025-01-19)
 
 
