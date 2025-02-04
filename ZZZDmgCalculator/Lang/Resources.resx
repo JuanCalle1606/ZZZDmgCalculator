@@ -1429,4 +1429,364 @@ Ruthless Hunter</value>
     <data name="Skills.Abilities.Common.Combo.4" xml:space="preserve">
         <value>5th-Hit</value>
     </data>
+    <data name="Abilities.Agents.Anby.TurboVolt" xml:space="preserve">
+        <value>Basic Attack: Turbo Volt</value>
+    </data>
+    <data name="Abilities.Agents.Anby.Thunderbolt" xml:space="preserve">
+        <value>Basic Attack: Thunderbolt</value>
+    </data>
+    <data name="Abilities.Agents.Anby.TaserBlast" xml:space="preserve">
+        <value>Dash Attack: Taser Blast</value>
+    </data>
+    <data name="Abilities.Agents.Anby.Thunderclap" xml:space="preserve">
+        <value>Dodge Counter: Thunderclap</value>
+    </data>
+    <data name="Abilities.Agents.Anby.Thunderfall" xml:space="preserve">
+        <value>Quick Assist: Thunderfall</value>
+    </data>
+    <data name="Abilities.Agents.Anby.Flash" xml:space="preserve">
+        <value>Defensive Assist: Flash</value>
+    </data>
+    <data name="Abilities.Agents.Anby.LightningWhirl" xml:space="preserve">
+        <value>Assist Follow-Up: Lightning Whirl</value>
+    </data>
+    <data name="Abilities.Agents.Anby.ForkLightning" xml:space="preserve">
+        <value>Special Attack: Fork Lightning</value>
+    </data>
+    <data name="Abilities.Agents.Anby.LightningBolt" xml:space="preserve">
+        <value>EX Special Attack: Lightning Bolt</value>
+    </data>
+    <data name="Abilities.Agents.Anby.ElectroEngine" xml:space="preserve">
+        <value>Chain Attack: Electro Engine</value>
+    </data>
+    <data name="Abilities.Agents.Anby.OverdriveEngine" xml:space="preserve">
+        <value>Ultimate: Overdrive Engine</value>
+    </data>
+    <data name="Abilities.Agents.Koleda.SmashnBash" xml:space="preserve">
+        <value>Basic Attack: Smash 'n' Bash</value>
+    </data>
+    <data name="Skills.Abilities.Koleda.SmashnBash.4" xml:space="preserve">
+        <value>Enhanced 1st-Hit </value>
+    </data>
+    <data name="Skills.Abilities.Koleda.SmashnBash.5" xml:space="preserve">
+        <value>Enhanced 2nd-Hit</value>
+    </data>
+    <data name="Skills.Abilities.Koleda.SmashnBash.6" xml:space="preserve">
+        <value>Enhanced 2nd-Hit (Teamwork)	</value>
+    </data>
+    <data name="Abilities.Agents.Koleda.Tremble" xml:space="preserve">
+        <value>Dash Attack: Tremble!</value>
+    </data>
+    <data name="Abilities.Agents.Koleda.DontLookDownonMe" xml:space="preserve">
+        <value>Dodge Counter: Don't Look Down on Me</value>
+    </data>
+    <data name="Abilities.Agents.Koleda.ComingThru" xml:space="preserve">
+        <value>Quick Assist: Coming Thru!</value>
+    </data>
+    <data name="Abilities.Agents.Koleda.ProtectiveHammer" xml:space="preserve">
+        <value>Defensive Assist: Protective Hammer</value>
+    </data>
+    <data name="Abilities.Agents.Koleda.HammerBell" xml:space="preserve">
+        <value>Assist Follow-Up: Hammer Bell</value>
+    </data>
+    <data name="Abilities.Agents.Koleda.HammerTime" xml:space="preserve">
+        <value>Special Attack: Hammer Time</value>
+    </data>
+    <data name="Skills.Abilities.Koleda.HammerTime.0" xml:space="preserve">
+        <value>Strike </value>
+    </data>
+    <data name="Skills.Abilities.Koleda.HammerTime.1" xml:space="preserve">
+        <value>Explosion </value>
+    </data>
+    <data name="Skills.Abilities.Koleda.HammerTime.2" xml:space="preserve">
+        <value>Explosion (Teamwork)</value>
+    </data>
+    <data name="Abilities.Agents.Koleda.BoilingFurnace" xml:space="preserve">
+        <value>EX Special Attack: Boiling Furnace</value>
+    </data>
+    <data name="Skills.Abilities.Koleda.BoilingFurnace.0" xml:space="preserve">
+        <value>Strike </value>
+    </data>
+    <data name="Skills.Abilities.Koleda.BoilingFurnace.1" xml:space="preserve">
+        <value>Explosion </value>
+    </data>
+    <data name="Skills.Abilities.Koleda.BoilingFurnace.2" xml:space="preserve">
+        <value>Explosion (Teamwork)</value>
+    </data>
+    <data name="Abilities.Agents.Koleda.NaturalDisaster" xml:space="preserve">
+        <value>Chain Attack: Natural Disaster</value>
+    </data>
+    <data name="Abilities.Agents.Koleda.Hammerquake" xml:space="preserve">
+        <value>Ultimate: Hammerquake</value>
+    </data>
+    <data name="Skills.Abilities.Koleda.Hammerquake.0" xml:space="preserve">
+        <value>Normal</value>
+    </data>
+    <data name="Skills.Abilities.Koleda.Hammerquake.1" xml:space="preserve">
+        <value>Teamwork</value>
+    </data>
+    <data name="Abilities.Agents.Lucy.LadysBat" xml:space="preserve">
+        <value>Basic Attack: Lady's Bat</value>
+    </data>
+    <data name="Skills.Abilities.Lucy.LadysBat.4" xml:space="preserve">
+        <value>3rd-Hit (ALT)</value>
+    </data>
+    <data name="Abilities.Agents.Lucy.ToArms" xml:space="preserve">
+        <value>Guard Boars: To Arms!</value>
+    </data>
+    <data name="Skills.Abilities.Lucy.ToArms.0" xml:space="preserve">
+        <value>Baseball Bat</value>
+    </data>
+    <data name="Skills.Abilities.Lucy.ToArms.1" xml:space="preserve">
+        <value>Boxing Gloves</value>
+    </data>
+    <data name="Skills.Abilities.Lucy.ToArms.2" xml:space="preserve">
+        <value>Slingshot</value>
+    </data>
+    <data name="Abilities.Agents.Lucy.SpinningSwing" xml:space="preserve">
+        <value>Guard Boars: Spinning Swing!</value>
+    </data>
+    <data name="Abilities.Agents.Lucy.FearlessBoar" xml:space="preserve">
+        <value>Dash Attack: Fearless Boar!</value>
+    </data>
+    <data name="Abilities.Agents.Lucy.ReturningTusk" xml:space="preserve">
+        <value>Dodge Counter: Returning Tusk!</value>
+    </data>
+    <data name="Abilities.Agents.Lucy.HitByPitch" xml:space="preserve">
+        <value>Quick Assist: Hit By Pitch!</value>
+    </data>
+    <data name="Abilities.Agents.Lucy.SafeonBase" xml:space="preserve">
+        <value>Defensive Assist: Safe on Base!</value>
+    </data>
+    <data name="Abilities.Agents.Lucy.ScoredaRun" xml:space="preserve">
+        <value>Assist Follow-Up: Scored a Run!</value>
+    </data>
+    <data name="Abilities.Agents.Lucy.SolidHit" xml:space="preserve">
+        <value>Special Attack: Solid Hit!</value>
+    </data>
+    <data name="Skills.Abilities.Lucy.SolidHit.0" xml:space="preserve">
+        <value>Line Drive</value>
+    </data>
+    <data name="Skills.Abilities.Lucy.SolidHit.1" xml:space="preserve">
+        <value>Fly Ball</value>
+    </data>
+    <data name="Abilities.Agents.Lucy.HomeRun" xml:space="preserve">
+        <value>EX Special Attack: Home Run!</value>
+    </data>
+    <data name="Skills.Abilities.Lucy.HomeRun.0" xml:space="preserve">
+        <value>Line Drive</value>
+    </data>
+    <data name="Skills.Abilities.Lucy.HomeRun.1" xml:space="preserve">
+        <value>Fly Ball</value>
+    </data>
+    <data name="Abilities.Agents.Lucy.CheerOn" xml:space="preserve">
+        <value>Cheer On!</value>
+    </data>
+    <data name="Abilities.Agents.Lucy.GrandSlam" xml:space="preserve">
+        <value>Chain Attack: Grand Slam!</value>
+    </data>
+    <data name="Abilities.Agents.Lucy.WalkOffHomeRun" xml:space="preserve">
+        <value>Ultimate: Walk-Off Home Run!</value>
+    </data>
+    <data name="Abilities.Agents.Lycaon.MoonHunter" xml:space="preserve">
+        <value>Basic Attack: Moon Hunter</value>
+    </data>
+    <data name="Skills.Abilities.Lycaon.MoonHunter.5" xml:space="preserve">
+        <value>1st-Hit Charged</value>
+    </data>
+    <data name="Skills.Abilities.Lycaon.MoonHunter.6" xml:space="preserve">
+        <value>2nd-Hit Charged</value>
+    </data>
+    <data name="Skills.Abilities.Lycaon.MoonHunter.7" xml:space="preserve">
+        <value>3rd-Hit Charged</value>
+    </data>
+    <data name="Skills.Abilities.Lycaon.MoonHunter.8" xml:space="preserve">
+        <value>4th-Hit Charged</value>
+    </data>
+    <data name="Skills.Abilities.Lycaon.MoonHunter.9" xml:space="preserve">
+        <value>5th-Hit Level-1 Charged</value>
+    </data>
+    <data name="Skills.Abilities.Lycaon.MoonHunter.10" xml:space="preserve">
+        <value>5th-Hit Level-2 Charged</value>
+    </data>
+    <data name="Abilities.Agents.Lycaon.KeepitClean" xml:space="preserve">
+        <value>Dash Attack: Keep it Clean</value>
+    </data>
+    <data name="Abilities.Agents.Lycaon.EtiquetteManual" xml:space="preserve">
+        <value>Dodge Counter: Etiquette Manual</value>
+    </data>
+    <data name="Abilities.Agents.Lycaon.WolfPack" xml:space="preserve">
+        <value>Quick Assist: Wolf Pack</value>
+    </data>
+    <data name="Abilities.Agents.Lycaon.DisruptedHunt" xml:space="preserve">
+        <value>Defensive Assist: Disrupted Hunt</value>
+    </data>
+    <data name="Abilities.Agents.Lycaon.VengefulCounterattack" xml:space="preserve">
+        <value>Assist Follow-Up: Vengeful Counterattack</value>
+    </data>
+    <data name="Abilities.Agents.Lycaon.TimetoHunt" xml:space="preserve">
+        <value>Special Attack: Time to Hunt</value>
+    </data>
+    <data name="Skills.Abilities.Lycaon.TimetoHunt.0" xml:space="preserve">
+        <value>Normal</value>
+    </data>
+    <data name="Skills.Abilities.Lycaon.TimetoHunt.1" xml:space="preserve">
+        <value>Charged</value>
+    </data>
+    <data name="Abilities.Agents.Lycaon.ThrilloftheHunt" xml:space="preserve">
+        <value>EX Special Attack: Thrill of the Hunt</value>
+    </data>
+    <data name="Skills.Abilities.Lycaon.ThrilloftheHunt.0" xml:space="preserve">
+        <value>Normal</value>
+    </data>
+    <data name="Skills.Abilities.Lycaon.ThrilloftheHunt.1" xml:space="preserve">
+        <value>Charged</value>
+    </data>
+    <data name="Abilities.Agents.Lycaon.AsYouWish" xml:space="preserve">
+        <value>Chain Attack: As You Wish</value>
+    </data>
+    <data name="Abilities.Agents.Lycaon.MissionComplete" xml:space="preserve">
+        <value>Ultimate: Mission Complete</value>
+    </data>
+    <data name="Abilities.Agents.Nicole.CunningCombo" xml:space="preserve">
+        <value>Basic Attack: Cunning Combo</value>
+    </data>
+    <data name="Abilities.Agents.Nicole.DoAsIPlease" xml:space="preserve">
+        <value>Basic Attack: Do As I Please</value>
+    </data>
+    <data name="Abilities.Agents.Nicole.JackintheBox" xml:space="preserve">
+        <value>Dash Attack: Jack in the Box</value>
+    </data>
+    <data name="Skills.Abilities.Nicole.JackintheBox.0" xml:space="preserve">
+        <value>Forward Dash</value>
+    </data>
+    <data name="Skills.Abilities.Nicole.JackintheBox.1" xml:space="preserve">
+        <value>Backward Vault</value>
+    </data>
+    <data name="Abilities.Agents.Nicole.DivertedBombard" xml:space="preserve">
+        <value>Dodge Counter: Diverted Bombard</value>
+    </data>
+    <data name="Abilities.Agents.Nicole.EmergencyBombard" xml:space="preserve">
+        <value>Quick Assist: Emergency Bombard</value>
+    </data>
+    <data name="Abilities.Agents.Nicole.TheHareStrikesBack" xml:space="preserve">
+        <value>Defensive Assist: The Hare Strikes Back!</value>
+    </data>
+    <data name="Abilities.Agents.Nicole.WindowofOpportunity" xml:space="preserve">
+        <value>Assist Follow-Up: Window of Opportunity</value>
+    </data>
+    <data name="Abilities.Agents.Nicole.SugarcoatedBullet" xml:space="preserve">
+        <value>Special Attack: Sugarcoated Bullet</value>
+    </data>
+    <data name="Abilities.Agents.Nicole.StuffedSugarcoatedBullet" xml:space="preserve">
+        <value>EX Special Attack: Stuffed Sugarcoated Bullet</value>
+    </data>
+    <data name="Skills.Abilities.Nicole.StuffedSugarcoatedBullet.0" xml:space="preserve">
+        <value>Charged Attack</value>
+    </data>
+    <data name="Skills.Abilities.Nicole.StuffedSugarcoatedBullet.1" xml:space="preserve">
+        <value>Bombard</value>
+    </data>
+    <data name="Skills.Abilities.Nicole.StuffedSugarcoatedBullet.2" xml:space="preserve">
+        <value>Energy Field</value>
+    </data>
+    <data name="Abilities.Agents.Nicole.EtherShellacking" xml:space="preserve">
+        <value>Chain Attack: Ether Shellacking</value>
+    </data>
+    <data name="Skills.Abilities.Nicole.EtherShellacking.0" xml:space="preserve">
+        <value>Bombard</value>
+    </data>
+    <data name="Skills.Abilities.Nicole.EtherShellacking.1" xml:space="preserve">
+        <value>Energy Field</value>
+    </data>
+    <data name="Abilities.Agents.Nicole.EtherGrenade" xml:space="preserve">
+        <value>Ultimate: Ether Grenade</value>
+    </data>
+    <data name="Skills.Abilities.Nicole.EtherGrenade.0" xml:space="preserve">
+        <value>Bombard</value>
+    </data>
+    <data name="Skills.Abilities.Nicole.EtherGrenade.1" xml:space="preserve">
+        <value>Energy Field</value>
+    </data>
+    <data name="Abilities.Agents.Qingyi.Penultimate" xml:space="preserve">
+        <value>Basic Attack: Penultimate</value>
+    </data>
+    <data name="Skills.Abilities.Qingyi.Penultimate.4" xml:space="preserve">
+        <value>1st-Hit (ALT)</value>
+    </data>
+    <data name="Skills.Abilities.Qingyi.Penultimate.5" xml:space="preserve">
+        <value>4th-Hit (Enhanced)</value>
+    </data>
+    <data name="Abilities.Agents.Qingyi.EnchantedBlossoms" xml:space="preserve">
+        <value>Basic Attack: Enchanted Blossoms</value>
+    </data>
+    <data name="Abilities.Agents.Qingyi.FlashConnet" xml:space="preserve">
+        <value>Flash Connect</value>
+    </data>
+    <data name="Abilities.Agents.Qingyi.EnchantedMoonlitBlossoms" xml:space="preserve">
+        <value>Basic Attack: Enchanted Moonlit Blossoms</value>
+    </data>
+    <data name="Skills.Abilities.Qingyi.EnchantedMoonlitBlossoms.0" xml:space="preserve">
+        <value>Rush Attack</value>
+    </data>
+    <data name="Skills.Abilities.Qingyi.EnchantedMoonlitBlossoms.1" xml:space="preserve">
+        <value>Finishing Move</value>
+    </data>
+    <data name="Abilities.Agents.Qingyi.Breach" xml:space="preserve">
+        <value>Dash Attack: Breach</value>
+    </data>
+    <data name="Abilities.Agents.Qingyi.LingeringSentiments" xml:space="preserve">
+        <value>Dodge Counter: Lingering Sentiments</value>
+    </data>
+    <data name="Abilities.Agents.Qingyi.WindThroughthePines" xml:space="preserve">
+        <value>Quick Assist: Wind Through the Pines</value>
+    </data>
+    <data name="Abilities.Agents.Qingyi.GracefulEmbellishment" xml:space="preserve">
+        <value>Defensive Assist: Graceful Embellishment</value>
+    </data>
+    <data name="Abilities.Agents.Qingyi.SongoftheClearRiver" xml:space="preserve">
+        <value>Assist Follow-Up: Song of the Clear River</value>
+    </data>
+    <data name="Abilities.Agents.Qingyi.SunlitGlory" xml:space="preserve">
+        <value>Special Attack: Sunlit Glory</value>
+    </data>
+    <data name="Abilities.Agents.Qingyi.MoonlitBegonia" xml:space="preserve">
+        <value>EX Special Attack: Moonlit Begonia</value>
+    </data>
+    <data name="Abilities.Agents.Qingyi.TranquilSerenade" xml:space="preserve">
+        <value>Chain Attack: Tranquil Serenade</value>
+    </data>
+    <data name="Abilities.Agents.Qingyi.EightSoundsofGanzhou" xml:space="preserve">
+        <value>Ultimate: Eight Sounds of Ganzhou</value>
+    </data>
+    <data name="Abilities.Agents.Rina.WhacktheDimwit" xml:space="preserve">
+        <value>Basic Attack: Whack the Dimwit</value>
+    </data>
+    <data name="Abilities.Agents.Rina.ShootheFool" xml:space="preserve">
+        <value>Basic Attack: Shoo the Fool</value>
+    </data>
+    <data name="Abilities.Agents.Rina.SuddenSurprise" xml:space="preserve">
+        <value>Dash Attack: Sudden Surprise</value>
+    </data>
+    <data name="Abilities.Agents.Rina.BangbooCallback" xml:space="preserve">
+        <value>Dodge Counter: Bangboo Callback</value>
+    </data>
+    <data name="Abilities.Agents.Rina.DupleMeterAllemande" xml:space="preserve">
+        <value>Quick Assist: Duple Meter Allemande</value>
+    </data>
+    <data name="Abilities.Agents.Rina.QuadrupleMeterGavotte" xml:space="preserve">
+        <value>Assist Follow-Up: Quadruple Meter Gavotte</value>
+    </data>
+    <data name="Abilities.Agents.Rina.BeattheBlockhead" xml:space="preserve">
+        <value>Special Attack: Beat the Blockhead</value>
+    </data>
+    <data name="Abilities.Agents.Rina.DimwitDisappearingTrick" xml:space="preserve">
+        <value>EX Special Attack: Dimwit Disappearing Trick</value>
+    </data>
+    <data name="Abilities.Agents.Rina.CodeofConduct" xml:space="preserve">
+        <value>Chain Attack: Code of Conduct</value>
+    </data>
+    <data name="Abilities.Agents.Rina.TheQueensAttendants" xml:space="preserve">
+        <value>Ultimate: The Queen's Attendants</value>
+    </data>
 </root>

@@ -150,7 +150,7 @@ public class NicoleData {
 			},
 			new()// Dash Attack: Do As I Please
 			{
-				Id = "DoAsIPlease",
+				Id = "DashDoAsIPlease",
 				Category = Dodge,
 				Skills =
 				[
