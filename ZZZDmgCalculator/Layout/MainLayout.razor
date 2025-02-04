@@ -2,26 +2,25 @@
 
 @inject LangService Lang
 @inject InfoService Info
-@inject StorageService Storage	
+@inject StorageService Storage
 
 <FirstTime/>
 
 <RadzenLayout>
 	<RadzenHeader>
-		<RadzenStack AlignItems="AlignItems.Center" JustifyContent="JustifyContent.SpaceBetween" Orientation="Orientation.Horizontal" Gap="0" Style="height: 100%">
+		<RadzenStack AlignItems="AlignItems.Center" JustifyContent="JustifyContent.SpaceBetween" Orientation="Orientation.Horizontal" Gap="0"
+		             Style="height: 100%">
 			<RadzenLabel class="rz-p-1">
 				@Lang["AppName"]
 			</RadzenLabel>
-			<DebugOnly>
-				<RadzenStack Orientation="Orientation.Horizontal" Gap="10px">
-					<RadzenButton Icon="refresh" Size="ButtonSize.Small" Click="SaveState">
-						Save
-					</RadzenButton>
-					<RadzenButton Icon="bug_report" Size="ButtonSize.Small" Click="LoadState">
-						Load
-					</RadzenButton>
-				</RadzenStack>
-			</DebugOnly>
+			<RadzenStack Orientation="Orientation.Horizontal" Gap="10px">
+				<RadzenButton Icon="refresh" Size="ButtonSize.Small" Click="SaveState">
+					Save
+				</RadzenButton>
+				<RadzenButton Icon="bug_report" Size="ButtonSize.Small" Click="LoadState">
+					Load
+				</RadzenButton>
+			</RadzenStack>
 		</RadzenStack>
 	</RadzenHeader>
 	<RadzenBody Class="body-content rz-p-0 rz-p-xs-4">
