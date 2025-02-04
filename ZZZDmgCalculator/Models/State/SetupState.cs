@@ -19,7 +19,7 @@ public class SetupState : IBuffContainer {
 
 	public List<BuffState> Buffs { get; } = [];
 
-	public IEnumerable<BuffState> AllBuffs => Children.SelectMany(c => c.SelfBuffs).Where(b => b.Shared || b.Info.Pass);
+	public IEnumerable<BuffState> AllBuffs => Children.SelectMany(c => c.SelfBuffs).Where(b => b.Shared || b.Info.Pass || b.Enemy);
 
 	public SetupState() {
 		Enemy = new(this);
