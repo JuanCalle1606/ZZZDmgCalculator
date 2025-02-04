@@ -20,5 +20,9 @@ public partial class SkillLevelSelector {
 	
 	[Parameter]
 	public EventCallback<CoreSkills> CoreLevelChanged { get; set; }
-	
+
+	async Task SliderChanged(Skills skill, int i1) {
+		await SkillLevelChanged.InvokeAsync((skill, i1));
+		Notifier.CurrentAgentChanged();
+	}
 }

@@ -23,7 +23,7 @@
 				<RadzenLabel>
 					@Lang["Level"]:
 				</RadzenLabel>
-				<RadzenDropDown TValue="AscensionState" @bind-Value="@Agent.Ascension" Data="@(Enum.GetValues<AscensionState>().Cast<Enum>())" Chips="true" class="z-select"/>
+				<RadzenDropDown TValue="AscensionState" Value="@Agent.Ascension" ValueChanged="AscensionChanged" Data="@(Enum.GetValues<AscensionState>().Cast<Enum>())" Chips="true" class="z-select"/>
 				
 			</div>
 			<RadzenDropDown TValue="int" Value="Agent.Cinema" ValueChanged="ChangeCinema" Data="@ListsUtil.Simple(0, 6)" Chips="true" Style="width: 55px">

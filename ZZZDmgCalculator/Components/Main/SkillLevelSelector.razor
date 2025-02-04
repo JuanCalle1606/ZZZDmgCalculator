@@ -32,7 +32,7 @@
 									break;
 							}
 							<RadzenSlider Value="SkillLevels[skill]" TValue="int" Step="1" Min="1" Max="12" class="rz-ml-3"
-							              ValueChanged="i1 => SkillLevelChanged.InvokeAsync((skill, i1))"/>
+							              ValueChanged="i1 => SliderChanged(skill, i1)"/>
 						</div>
 					</RadzenStack>
 				</ChildContent>
