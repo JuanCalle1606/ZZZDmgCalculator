@@ -336,7 +336,11 @@ public class SoukakuData {
 		Cinemas =
 		{
 			[4] = new StatModifier { Stat = IceRes, Value = 10, Enemy = true, Type = Combat },
-			[6] = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 45 }// TODO: change to only enchanced attack
+			[6] = new BuffInfo
+			{
+				AbilityCondition = skill=> skill.Id is "MakingRiceCakesFrostedBanner" or "50_50FrostedBanner",
+				Modifiers =  new StatModifier { Stat = BonusDmg, Type = Combat, Value = 45 }
+			}
 		}
 	};
 }

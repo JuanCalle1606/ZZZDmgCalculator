@@ -1,5 +1,6 @@
 namespace ZZZDmgCalculator.Data.AgentsData;
 
+using Extensions;
 using Models.Enum;
 using Models.Info;
 using ZZZ.ApiModels;
@@ -67,35 +68,35 @@ public class LycaonData {
 					new()// 1st-Hit DMG Multiplier (%)
 					{
 						Type = Basic,
-						DmgType = Physical ,
+						DmgType = Physical,
 						Dmg = [29.2, 31.9, 34.6, 37.3, 40, 42.7, 45.4, 48.1, 50.8, 53.5, 56.2, 58.9, 61.6, 64.3, 67, 69.7],
 						Daze = [14.6, 15.3, 16, 16.7, 17.4, 18.1, 18.8, 19.5, 20.2, 20.9, 21.6, 22.3, 23, 23.7, 24.4, 25.1]
 					},
 					new()// 2nd-Hit DMG Multiplier (%)
 					{
 						Type = Basic,
-						DmgType = Physical ,
+						DmgType = Physical,
 						Dmg = [34.9, 38.1, 41.3, 44.5, 47.7, 50.9, 54.1, 57.3, 60.5, 63.7, 66.9, 70.1, 73.3, 76.5, 79.7, 82.9],
 						Daze = [30.3, 31.7, 33.1, 34.5, 35.9, 37.3, 38.7, 40.1, 41.5, 42.9, 44.3, 45.7, 47.1, 48.5, 49.9, 51.3]
 					},
 					new()// 3rd-Hit DMG Multiplier (%)
 					{
 						Type = Basic,
-						DmgType = Physical ,
+						DmgType = Physical,
 						Dmg = [58.4, 63.8, 69.2, 74.6, 80.0, 85.4, 90.8, 96.2, 101.6, 107.0, 112.4, 117.8, 123.2, 128.6, 134.0, 139.4],
 						Daze = [45.6, 47.7, 49.8, 51.9, 54.0, 56.1, 58.2, 60.3, 62.4, 64.5, 66.6, 68.7, 70.8, 72.9, 75.0, 77.1]
 					},
 					new()// 4th-Hit DMG Multiplier (%)
 					{
 						Type = Basic,
-						DmgType = Physical ,
+						DmgType = Physical,
 						Dmg = [152.0, 165.9, 179.8, 193.7, 207.6, 221.5, 235.4, 249.3, 263.2, 277.1, 291.0, 304.9, 318.8, 332.7, 346.6, 360.5],
 						Daze = [112.0, 117.1, 122.2, 127.3, 132.4, 137.5, 142.6, 147.7, 152.8, 157.9, 163.0, 168.1, 173.2, 178.3, 183.4, 188.5]
 					},
 					new()// 5th-Hit DMG Multiplier (%)
 					{
 						Type = Basic,
-						DmgType = Physical ,
+						DmgType = Physical,
 						Dmg = [180.7, 197.2, 213.7, 230.2, 246.7, 263.2, 279.7, 296.2, 312.7, 329.2, 345.7, 362.2, 378.7, 395.2, 411.7, 428.2],
 						Daze = [147.7, 154.5, 161.3, 168.1, 174.9, 181.7, 188.5, 195.3, 202.1, 208.9, 215.7, 222.5, 229.3, 236.1, 242.9, 249.7]
 					},
@@ -303,7 +304,32 @@ public class LycaonData {
 		],
 		Cinemas =
 		{
-			// TODO: Cinema 1 buff
+			[1] = new()
+			{
+				Buffs =
+				[
+					new BuffInfo
+					{
+						Type = Switch,
+						SkillCondition = skill => skill.Type is Ex,
+						Modifiers = new StatModifier
+						{
+							Stat = Daze, Type = Combat,
+							Value = 12
+						}
+					},
+					new BuffInfo
+					{
+						Type = Switch, // make this permanent and dependent on the other buff
+						SkillCondition = skill => skill.Type is Ex && skill.Index is 1,
+						Modifiers = new StatModifier
+						{
+							Stat = Daze, Type = Combat,
+							Value = 10
+						}
+					}
+				]
+			},
 			[6] = new BuffInfo
 			{
 				// TODO: this need more check, i think this buff is a DmgTaken debuff of the enemy instead of a bonus dmg on lycaon.

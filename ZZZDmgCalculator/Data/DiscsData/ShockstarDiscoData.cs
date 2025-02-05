@@ -14,6 +14,17 @@ public class ShockstarDiscoData {
 			Stat = Stats.Impact,
 			Value = 6,
 			Type = StatModifiers.BasePercent
+		},
+		Buffs = new BuffInfo()
+		{
+			Type = BuffTrigger.Permanent,
+			SkillCondition = info => info.Type is Skills.Basic or Skills.Dash or Skills.Dodge,
+			Modifiers = new StatModifier
+			{
+				Stat = Stats.Daze,
+				Value = 20,
+				Type = StatModifiers.Combat
+			}
 		}
 	};
 }

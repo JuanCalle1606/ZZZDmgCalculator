@@ -13,6 +13,8 @@ public class SkillInfo : BaseInfo {
 	public Attributes DmgType { get; set; }
 
 	public double Value { get; set; }
+	
+	public int Index { get; set; }
 
 	public int Hits { get; set; } = 1;
 

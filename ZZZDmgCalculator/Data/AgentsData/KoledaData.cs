@@ -305,7 +305,11 @@ public class KoledaData {
 		],
 		Cinemas =
 		{
-			// TODO: Add c1
+			[1] = new BuffInfo
+			{
+				AbilityCondition = skill => skill.Category == Special, // this cover special and Ex
+				Modifiers = new StatModifier { Stat = Daze, Type = Combat, Value = 15 }
+			},
 			[4] = new BuffInfo
 			{
 				Type = Stack,

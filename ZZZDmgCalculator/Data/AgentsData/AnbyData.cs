@@ -264,7 +264,7 @@ public class AnbyData {
 					{
 						Type = BuffTrigger.Switch,
 						// anby's cinema 2 only applies to thunderbolt
-						AbilityCondition = skill => skill.Id == "Basic.Thunderbolt",
+						AbilityCondition = skill => skill.Id == "Thunderbolt",
 						Modifiers = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 30 }
 					},
 					new BuffInfo

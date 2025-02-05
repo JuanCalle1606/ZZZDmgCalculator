@@ -93,23 +93,28 @@ public class AgentInfo : BaseInfo<Agents> {
 			{
 				for (var i = 0; i < ability.Skills.Count; i++)
 				{
-					var buffInfo = ability.Skills[i];
-					buffInfo.Id = $"Skills.Abilities.{Id}.{ability.Id}.{i}";
+					var skillInfo = ability.Skills[i];
+					skillInfo.Index = i;
+					skillInfo.Id = $"Skills.Abilities.{Id}.{ability.Id}.{i}";
 					if (ability.UseCommonNames && i < ability.MaxCommonName)
 					{
-						buffInfo.DisplayName = lang[$"Skills.Abilities.Common.Combo.{i}"];
+						skillInfo.DisplayName = lang[$"Skills.Abilities.Common.Combo.{i}"];
 					}
-					else if (buffInfo.Dmg is null && buffInfo.Daze is not null)
+					else if (skillInfo.Dmg is null && skillInfo.Daze is not null)
 					{
 						// all parries have the same name
-						buffInfo.DisplayName = lang[$"Skills.Abilities.Common.Parry.{i}"];
+						skillInfo.DisplayName = lang[$"Skills.Abilities.Common.Parry.{i}"];
 					}
 					else
 					{
-						buffInfo.DisplayName = lang[buffInfo.Id];
+						skillInfo.DisplayName = lang[skillInfo.Id];
 					}
 				}
 			}
+			else if (ability.Skills.Count == 1)
+			{
+				ability.Skills[0].Index = 0;
+				ability.Skills[0].Id = $"Skills.Abilities.{Id}.{ability.Id}.0"; }
 		}
 	}
 }
