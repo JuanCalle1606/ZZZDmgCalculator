@@ -74,5 +74,6 @@ public static class EngineScales {
 		["Timeweaver.Buff"] = [30, 35, 40, 45 ,50],
 		["Timeweaver.Buff1"] = [75, 85, 95, 105, 115],
 		["Timeweaver.Buff2"] = [25, 27.5, 30, 32.5, 35],
+		["Shooter.Buff"] = [4, 4.6, 5.2, 5.8, 6.4]
 	};
 }

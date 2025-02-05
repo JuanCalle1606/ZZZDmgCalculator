@@ -2,6 +2,8 @@ namespace ZZZDmgCalculator.Data.DiscsData;
 
 using Models.Info;
 using ZZZ.ApiModels;
+using static Models.Enum.BuffTrigger;
+using static Models.Enum.StatModifiers;
 using static ZZZ.ApiModels.Discs;
 using static Models.Enum.Stats;
 
@@ -16,14 +18,28 @@ public class ChaoticMetalData {
 			Stat = EtherDmg,
 			Value = 10
 		},
-		Buffs = new BuffInfo()
-		{
-			Modifiers = new StatModifier
+		Buffs =[
+			new BuffInfo
 			{
-				Stat = DmgTaken,
-				Enemy = true,
-				Value = 18
+				Type = Permanent,
+				Modifiers = new StatModifier
+				{
+					Stat = CritDmg,
+					Type = Combat,
+					Value = 20
+				}
+			},
+			new BuffInfo
+			{
+				Type = Stack,
+				Stacks = 6,
+				Modifiers = new StatModifier
+				{
+					Stat = CritDmg,
+					Type = Combat,
+					Value = 5.5
+				}
 			}
-		}
+		]
 	};
 }

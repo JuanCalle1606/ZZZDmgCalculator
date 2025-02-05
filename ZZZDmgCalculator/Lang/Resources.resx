@@ -539,7 +539,7 @@
         <value>When off-field, DMG dealt by EX Special Attacks and Assist Attacks is increased by {value}.</value>
     </data>
     <data name="Buffs.Discs.ChaoticMetal.0" xml:space="preserve">
-        <value>Whenever a squad member inflicts &lt;span class="rz-color-ether"&gt;&lt;b&gt;Corruption&lt;/b&gt;&lt;/span&gt; on an enemy, that enemy takes {value} more DMG for 12s.</value>
+        <value>The equipper's {stat} increases by {value}.</value>
     </data>
     <data name="Buffs.Discs.FangedMetal.0" xml:space="preserve">
         <value>Whenever a squad member inflicts &lt;span class="rz-color-physical"&gt;&lt;b&gt;Assault&lt;/b&gt;&lt;/span&gt; on an enemy, the equipper deals {value} additional DMG to the target.</value>
@@ -1788,5 +1788,29 @@ Ruthless Hunter</value>
     </data>
     <data name="Abilities.Agents.Rina.TheQueensAttendants" xml:space="preserve">
         <value>Ultimate: The Queen's Attendants</value>
+    </data>
+    <data name="Buffs.Discs.ChaoticMetal.1" xml:space="preserve">
+        <value>When any character in the squad triggers &lt;span class="rz-color-ether"&gt;&lt;b&gt;Corruption's&lt;/b&gt;&lt;/span&gt; additional DMG, the {stat} further increases by {value}, stacking up to 6 times.</value>
+    </data>
+    <data name="Buffs.Discs.ShockstarDisco.0" xml:space="preserve">
+        <value>Basic Attacks, Dash Attacks, and Dodge Counters, inflict {value} more {stat}.</value>
+    </data>
+    <data name="Buffs.Agents.Koleda.Cinema1" xml:space="preserve">
+        <value>M1: Beat of the Hammer</value>
+    </data>
+    <data name="Buffs.Agents.Koleda.Cinema1.0" xml:space="preserve">
+        <value>After the 2nd or 4th hit of Koleda's Basic Attack or her enhanced Basic Attack, quickly use a Special Attack or EX Special Attack to increase the {stat} dealt by {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Lycaon.Cinema1" xml:space="preserve">
+        <value>M1: Full Moon Momentum</value>
+    </data>
+    <data name="Buffs.Agents.Lycaon.Cinema1.0" xml:space="preserve">
+        <value>When Lycaon's EX Special Attack hits an enemy, the attack's {stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Lycaon.Cinema1.1" xml:space="preserve">
+        <value>When he charges his EX Special Attack to completion, the {stat} will increase by an additional {value}.</value>
+    </data>
+    <data name="Abilities.Agents.Nicole.DashDoAsIPlease" xml:space="preserve">
+        <value>Dash Attack: Do As I Please</value>
     </data>
 </root>

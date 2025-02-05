@@ -166,8 +166,11 @@ public class QingyiData {
 				{
 					Type = Stack,
 					Stacks = 25,
-					AbilityCondition = skill => skill.Id == "Basic.EnchantedMoonlitBlossoms",
-					Modifiers = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 1 }
+					AbilityCondition = skill => skill.Id == "EnchantedMoonlitBlossoms",
+					Modifiers = [
+						new StatModifier { Stat = BonusDmg, Type = Combat, Value = 1 },
+						new StatModifier { Stat = Daze, Type = Combat, Value = 0.5 },
+					]
 				}
 			},
 			new()// Basic Attack: Enchanted Moonlit Blossoms
