@@ -53,12 +53,14 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 			foreach (var buffState in _cinemaBuffs.SelectMany(o => o))
 			{
 				buffState.Available = false;
+				buffState.Hidden = true;
 			}
 			for (var i = 0; i < _cinema; i++)
 			{
 				foreach (var buffState in _cinemaBuffs[i])
 				{
-					buffState.Available = true;
+					buffState.Hidden = false;
+					buffState.Available = buffState.Info.Depends is null;
 				}
 			}
 
@@ -247,7 +249,8 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		_additionalBuffs = Info.AdditionalBuff.Select(b => new BuffState(b)
 		{
 			SourceInfo = Info,
-			Owner = this
+			Owner = this,
+			DependencyChecker = this
 		}).ToArray();
 		Buffs.AddRange(_coreBuffs);
 		Buffs.AddRange(_additionalBuffs);
@@ -259,7 +262,9 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 			{
 				SourceInfo = Info,
 				Owner = this,
-				Available = false// by default all cinemas are disabled
+				Available = false, // by default all cinemas are disabled and hidden
+				Hidden = true,
+				DependencyChecker = this
 			}).ToArray();
 			Buffs.AddRange(_cinemaBuffs[cinema.Key - 1]);
 		}
@@ -293,11 +298,24 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 	}
 
 	public void CheckBuffDependencies(BuffState buff) {
-		if (!_coreBuffs.Contains(buff)) return;
-		buff.Available = true;
+		BuffState[] buffs;
+		if (_coreBuffs.Contains(buff)) buffs = _coreBuffs;
+		else if (_additionalBuffs.Contains(buff)) buffs = _additionalBuffs;
+		else
+		{
+			for (var i = 0; i < 6; i++)
+			{
+				if (!_cinemaBuffs[i].Contains(buff)) continue;
+				buffs = _cinemaBuffs[i];
+				goto check;
+			}
+			return;
+		}
+		check:
 		if (!buff.HasDependencies) return;
+		buff.Available = true;
 		var depends = buff.Info.Depends!.Value;
-		var dependency = _coreBuffs[depends];
+		var dependency = buffs[depends];
 		buff.Dependency = dependency;
 		var requiredStacks = buff.Info.RequiredStacks ?? dependency.MaxStacks;
 

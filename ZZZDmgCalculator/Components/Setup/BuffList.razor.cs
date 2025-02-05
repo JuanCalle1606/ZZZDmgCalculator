@@ -9,4 +9,10 @@ public partial class BuffList {
 
 	[Parameter]
 	public string Title { get; set; } = "";
+	
+	List<BuffState> _showBuffs = [];
+
+	protected override void OnParametersSet() {
+		_showBuffs = Buffs.Where(b => !b.Hidden).ToList();
+	}
 }

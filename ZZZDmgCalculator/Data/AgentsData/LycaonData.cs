@@ -320,7 +320,8 @@ public class LycaonData {
 					},
 					new BuffInfo
 					{
-						Type = Switch, // make this permanent and dependent on the other buff
+						Type = Permanent,
+						Depends = 0,
 						SkillCondition = skill => skill.Type is Ex && skill.Index is 1,
 						Modifiers = new StatModifier
 						{

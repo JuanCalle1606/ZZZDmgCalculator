@@ -1,13 +1,13 @@
 @inherits MainComponent
 
-<RadzenPanelMenuItem Expanded="@(Buffs.Count > 0 && Buffs.Any(b => b.Available))"
+<RadzenPanelMenuItem Expanded="@(_showBuffs.Count > 0 && _showBuffs.Any(b => b.Available))"
                      Text="@Title">
 	<RadzenPanelMenuItem Style="display: none"/>
 	<div class="rz-px-2">
-		@if (Buffs.Count > 0)
+		@if (_showBuffs.Count > 0)
 		{
 			<RadzenStack Orientation="Orientation.Vertical" class="rz-pt-4 rz-pb-2">
-				@foreach (var buff in Buffs)
+				@foreach (var buff in _showBuffs)
 				{
 					<BuffView Buff="buff"/>
 				}
