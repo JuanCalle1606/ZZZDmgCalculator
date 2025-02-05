@@ -146,6 +146,15 @@ public partial class SkillView {
 		return (crit * critRate + dmg * (100 - critRate)) / 100;
 	}
 	
+	double GetDaze() {
+		if (Skill.Daze is null) return 0;
+		var daze = 1 + State.CurrentAgent!.Stats.Total[Stats.Daze] / 100;
+		var impact = State.CurrentAgent!.Stats.Total[Stats.Impact];
+		var multiplier = Skill.Daze[Scale] / 100;
+		
+		return daze * impact * multiplier;
+	}
+	
 	protected override void OnDisposableBag(DisposableBagBuilder bag) {
 		// update stats everytime an engine is changed
 		Notifier.OnCurrentEngineChanged.SubscribeUpdate(this).AddTo(bag);
@@ -153,4 +162,5 @@ public partial class SkillView {
 		Notifier.OnBuffChanged.SubscribeUpdate(this).AddTo(bag);
 		Notifier.OnEnemyChanged.SubscribeUpdate(this).AddTo(bag);
 	}
+	
 }

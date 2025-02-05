@@ -23,12 +23,13 @@
 
 @if (Skill.Daze != null)
 {
+	var daze = GetDaze();
 	<tr class="rz-data-row rz-unselectable-text">
 		<td>
 			<span class="rz-cell-data">@Skill.DisplayName @Lang["Stats.Daze"]</span>
 		</td>
 		<td class="rz-text-align-center" colspan="3">
-			<span class="rz-cell-data">@Skill.Daze[Scale]</span>
+			<span class="rz-cell-data">@FormatValue(daze)</span>
 		</td>
 	</tr>
 }
