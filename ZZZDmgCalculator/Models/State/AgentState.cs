@@ -348,7 +348,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 
 		_coreStats[0] = new() { Stat = Info.CoreStats[0].Stat };
 		_coreStats[1] = new() { Stat = Info.CoreStats[1].Stat };
-		
+
 		foreach (var baseStat in _baseStats)
 		{
 			Modifiers.Add(baseStat.Value);
@@ -367,6 +367,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		UpdateDummies();
 		UpdateCombatStats();
 		Stats.Update();
+		UpdateDummies(true);
 		CheckRequirements();
 	}
 
@@ -386,34 +387,51 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		}
 	}
 
-	void UpdateDummies() {
+	void UpdateDummies(bool combat = false) {
+		var flag = false;
 		foreach (var buff in ((IBuffContainer)this).SelfBuffs.Where(state => state is { Active: true, Available: true }))
 		{
 			if (buff.Info.Amplify != null)
 			{
-				UpdateAmplifyDummy(buff);
+				if(!combat) UpdateAmplifyDummy(buff);
 				continue;
 			}
 			var limit = buff.Info.BuffLimit ?? double.MaxValue;
 
-			foreach (var mod in buff.Modifiers.Where(m => m.Agent).ToList())
+			foreach (var mod in buff.Modifiers
+				         .Where(m => m.Agent && 
+				                     combat ? m.Type is StatModifiers.Combat or StatModifiers.CombatPercent : m.Type is StatModifiers.Base or StatModifiers.BasePercent)
+				         .ToList())
 			{
+				flag = true;
 				var subtotal = buff.Modifiers.Where(m => m.Dummy == -1 && m.Stat == mod.Stat).Sum(m => m.Value);
 				var dummy = buff.Modifiers[mod.Dummy];
-				var stat = Stats.Initial[mod.Stat];
-				dummy.Value = stat * (mod.Value / 100);
+				var dict = mod.Type is StatModifiers.Combat ? Stats.Total : Stats.Initial;
+				var stat = dict[mod.AgentStat ?? mod.Stat];
+				var denominator = mod.Type switch
+				{
+					StatModifiers.CombatPercent => 100,
+					StatModifiers.BasePercent => 100,
+					_ => 1
+				};
+				dummy.Value = stat * (mod.Value / denominator);
 				if (dummy.Value + subtotal > limit)
 				{
 					dummy.Value = limit - subtotal;
 				}
 			}
 		}
+		if (flag)
+		{
+			UpdateCombatStats();
+			Stats.Update();
+		}
 	}
 
 	void UpdateAmplifyDummy(BuffState buff) {
 		IBuffContainer buffContainer = this;
 		var amplify = buffContainer.AllBuffs.FirstOrDefault(b => b is { Available: true, Active: true } && b.Info.Id == buff.Info.Amplify);
-		
+
 		foreach (var mod in buff.Modifiers.Where(m => m.Agent).ToList())
 		{
 			var subtotal = amplify?.Modifiers.Where(m => !m.Agent && m.Stat == mod.Stat).Sum(m => m.Value) ?? 0;

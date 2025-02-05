@@ -24,16 +24,6 @@ public partial class SkillView {
 		var resDmg = GetResDmg();
 		var takenDmg = GetTakenDmg();
 		var stunDmg = GetStunDmg();
-		// log every value
-		if (Skill.Type == Skills.Ultimate)
-		{
-			Console.WriteLine($"baseDmg: {baseDmg}");
-			Console.WriteLine($"bonusDmg: {bonusDmg}");
-			Console.WriteLine($"defDmg: {defDmg}");
-			Console.WriteLine($"resDmg: {resDmg}");
-			Console.WriteLine($"takenDmg: {takenDmg}");
-			Console.WriteLine($"stunDmg: {stunDmg}");
-		}
 		
 		return baseDmg * bonusDmg * defDmg * resDmg * takenDmg * stunDmg;
 	}

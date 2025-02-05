@@ -56,7 +56,39 @@ public class QingyiData {
 				Stat = StunDmg, Type = Combat, Enemy = true
 			}
 		},
-		// TODO: Add qingyi additional buff
+		AdditionalBuff =
+		[
+			new BuffInfo()
+			{
+				Type = Permanent,
+				SkillCondition = s => s.Type is Basic,
+				Modifiers = new StatModifier
+				{
+					Stat = Daze, Value = 20, Type = Combat
+				}
+			},
+			new BuffInfo()
+			{
+				Type = Permanent,
+				BuffLimit = 600,
+				Modifiers =
+				[
+					new StatModifier
+					{
+						Stat = Atk, Value = 6, Type = Combat, Agent = true,
+						AgentStat = Impact
+					},
+					new StatModifier
+					{
+						Stat = Atk, Value = -120 * 6, Type = CombatFlat
+					}
+				],
+				StatRequirements = new StatRequirement
+				{
+					Stat = Impact, Type = Combat, Value = 120
+				}
+			}
+		],
 		Abilities =
 		[
 			new()// Basic Attack: Penultimate
