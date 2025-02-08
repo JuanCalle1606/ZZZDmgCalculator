@@ -17,7 +17,7 @@ public class StateService {
 	
 	public StateService(InfoService info) {
 		// set ellen by default
-		CurrentSetup[0] = new(info[Agents.Anby]);
+		CurrentSetup[0] = new(info[Agents.Ellen]);
 		CurrentAgentIndex = 0;
 	}
 }

@@ -105,6 +105,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 				buff.Scale = num;
 			}
 
+			CheckAbilityBuffs();
 			UpdateAllStats();
 		}
 	}
@@ -178,6 +179,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 
 		InitAbilities();
 		InitBuffs();
+		UpdateAbilityBuffs();
 
 		UpdateAllStats();
 	}

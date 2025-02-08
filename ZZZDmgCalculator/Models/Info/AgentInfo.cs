@@ -25,6 +25,11 @@ public class AgentInfo : BaseInfo<Agents> {
 
 	public required StatModifier[] CoreStats { get; set; }
 
+	/**
+	 * 0: Atk
+	 * 1: Hp
+	 * 2: Def
+	 */
 	public required double[][] BaseStats { get; set; } = [];
 
 	/**

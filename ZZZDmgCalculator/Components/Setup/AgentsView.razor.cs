@@ -28,6 +28,8 @@ public partial class AgentsView {
 	void ClickAgent(int li) {
 		if(li == State.CurrentAgentIndex) return;
 		State.CurrentAgentIndex = li;
+		// make sure the current agent is updated
+		State.CurrentAgent?.UpdateAllStats();
 		Notifier.CurrentAgentChanged();
 	}
 	

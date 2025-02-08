@@ -37,8 +37,6 @@ public class AbilityState : IBuffContainer {
 			SourceInfo = owner.Info,
 			DependencyChecker = owner
 		}).ToList();
-		
-		UpdateBuffs();
 	}
 
 	/// <summary>

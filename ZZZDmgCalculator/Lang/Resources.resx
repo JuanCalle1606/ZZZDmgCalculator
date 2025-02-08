@@ -1813,4 +1813,113 @@ Ruthless Hunter</value>
     <data name="Abilities.Agents.Nicole.DashDoAsIPlease" xml:space="preserve">
         <value>Dash Attack: Do As I Please</value>
     </data>
+    <data name="Agents.Ellen" xml:space="preserve">
+        <value>Ellen Joe</value>
+    </data>
+    <data name="Buffs.Agents.Ellen.Core" xml:space="preserve">
+        <value>Core Passive: Sharp-Toothed</value>
+    </data>
+    <data name="Buffs.Agents.Ellen.Core.0" xml:space="preserve">
+        <value>When Ellen launches a charged scissor strike or consumes a Flash Freeze Charg, the skill's {stat} is increased by {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Ellen.Additional" xml:space="preserve">
+        <value>Additional Ability: Rising Storm</value>
+    </data>
+    <data name="Buffs.Agents.Ellen.Additional.0" xml:space="preserve">
+        <value>When Ellen deals {stat}, subsequent {stat} increases by {value} this effect can stack up to 10 times.</value>
+    </data>
+    <data name="Buffs.Agents.Ellen.Cinema1" xml:space="preserve">
+        <value>M1: 
+Glacial Omen</value>
+    </data>
+    <data name="Buffs.Agents.Ellen.Cinema1.0" xml:space="preserve">
+        <value>For each Flash Freeze Charge consumed, Ellen's {stat} is increased by {value}, stacking up to 6 times.</value>
+    </data>
+    <data name="Buffs.Agents.Ellen.Cinema2" xml:space="preserve">
+        <value>M2: Arctic Ocean Predator</value>
+    </data>
+    <data name="Buffs.Agents.Ellen.Cinema2.0" xml:space="preserve">
+        <value>hen using an EX Special Attack, each Flash Freeze Charge increases the current attack's {stat} by {value}, up to a max of 60%.</value>
+    </data>
+    <data name="Buffs.Agents.Ellen.Cinema6" xml:space="preserve">
+        <value>M6: The Feast Begins</value>
+    </data>
+    <data name="Buffs.Agents.Ellen.Cinema6.0" xml:space="preserve">
+        <value>When Ellen uses an EX Special Attack, Chain Attack, or gains Quick Charge, her {stat} increases by {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Ellen.Cinema6.1" xml:space="preserve">
+        <value>She gains stacks when using her EX  Special, using a Charge Scissor Strike during Dash Attack consumes all stacks, increasing the DMG of the current attack by {value}.</value>
+    </data>
+    <data name="Buffs.Abilities.Lucy.CheerOn.0" xml:space="preserve">
+        <value> While under the Cheer On! status, allies' {stat} increases by {values.0} of Lucy's ATK plus {values.1}, up to a maximum of 600.</value>
+    </data>
+    <data name="Buffs.Agents.Qingyi.Additional" xml:space="preserve">
+        <value>Additional: Three Verses of Farewell at Yang Pass</value>
+    </data>
+    <data name="Buffs.Agents.Qingyi.Additional.0" xml:space="preserve">
+        <value>Basic Attacks deal {value} increased {stat}.</value>
+    </data>
+    <data name="Buffs.Agents.Qingyi.Additional.1" xml:space="preserve">
+        <value>If Qingyi's Impact is greater than 120, each point over increases her {stat} by {value}, up to a maximum of 600.</value>
+    </data>
+    <data name="Buffs.Abilities.Qingyi.FlashConnet.0" xml:space="preserve">
+        <value>For every 1% of Flash Connect Voltage consumed over 75%, her Damage and Daze inflicted by Enchanted Moonlit Blossoms will be increased by {values.0}/{values.1}.</value>
+    </data>
+    <data name="Buffs.Engines.Shooter" xml:space="preserve">
+        <value>Fire!</value>
+    </data>
+    <data name="Buffs.Engines.Shooter.0" xml:space="preserve">
+        <value>When launching an EX Special Attack, consumes all Charge stacks and each stack consumed increases the skill's {stat} inflicted by {value}.</value>
+    </data>
+    <data name="Abilities.Agents.Ellen.SawTeethTrimming" xml:space="preserve">
+        <value>Basic Attack: Saw Teeth Trimming</value>
+    </data>
+    <data name="Abilities.Agents.Ellen.FlashFreezeTrimming" xml:space="preserve">
+        <value>Basic Attack: Flash Freeze Trimming</value>
+    </data>
+    <data name="Abilities.Agents.Ellen.ArcticAmbush" xml:space="preserve">
+        <value>Dash Attack: Arctic Ambush</value>
+    </data>
+    <data name="Skills.Abilities.Ellen.ArcticAmbush.0" xml:space="preserve">
+        <value>Spinning Slash</value>
+    </data>
+    <data name="Skills.Abilities.Ellen.ArcticAmbush.1" xml:space="preserve">
+        <value>Swift Scissors</value>
+    </data>
+    <data name="Skills.Abilities.Ellen.ArcticAmbush.2" xml:space="preserve">
+        <value>Charged Scissors</value>
+    </data>
+    <data name="Abilities.Agents.Ellen.MonstrousWave" xml:space="preserve">
+        <value>Dash Attack: Monstrous Wave</value>
+    </data>
+    <data name="Abilities.Agents.Ellen.ColdSnap" xml:space="preserve">
+        <value>Dash Attack: Cold Snap</value>
+    </data>
+    <data name="Abilities.Agents.Ellen.ReefRock" xml:space="preserve">
+        <value>Dodge Counter: Reef Rock</value>
+    </data>
+    <data name="Abilities.Agents.Ellen.SharkSentinel" xml:space="preserve">
+        <value>Quick Assist: Shark Sentinel</value>
+    </data>
+    <data name="Abilities.Agents.Ellen.WavefrontImpact" xml:space="preserve">
+        <value>Defensive Assist: Wavefront Impact</value>
+    </data>
+    <data name="Abilities.Agents.Ellen.SharkCruiser" xml:space="preserve">
+        <value>Assist Follow-Up: Shark Cruiser</value>
+    </data>
+    <data name="Abilities.Agents.Ellen.Drift" xml:space="preserve">
+        <value>Special Attack: Drift</value>
+    </data>
+    <data name="Abilities.Agents.Ellen.TailSwipe" xml:space="preserve">
+        <value>EX Special Attack: Tail Swipe</value>
+    </data>
+    <data name="Abilities.Agents.Ellen.Sharknami" xml:space="preserve">
+        <value>EX Special Attack: Sharknami</value>
+    </data>
+    <data name="Abilities.Agents.Ellen.Avalanche" xml:space="preserve">
+        <value>Chain Attack: Avalanche</value>
+    </data>
+    <data name="Abilities.Agents.Ellen.EndlessWinter" xml:space="preserve">
+        <value>Ultimate: Endless Winter</value>
+    </data>
 </root>

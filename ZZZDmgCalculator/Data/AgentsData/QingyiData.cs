@@ -358,7 +358,7 @@ public class QingyiData {
 					new()
 					{
 						Type = Permanent,
-						AbilityCondition = skill => skill.Id == "Basic.EnchantedMoonlitBlossoms",
+						AbilityCondition = skill => skill.Id == "EnchantedMoonlitBlossoms",
 						Modifiers = new StatModifier { Stat = CritDmg, Value = 100 },
 					},
 					new StatModifier
