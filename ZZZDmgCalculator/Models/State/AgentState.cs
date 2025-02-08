@@ -176,8 +176,8 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 
 		InitBaseStats();
 
-		InitBuffs();
 		InitAbilities();
+		InitBuffs();
 
 		UpdateAllStats();
 	}
@@ -200,15 +200,22 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 	void SetSkillLevel(Skills skill, int level) {
 		_skillLevels[skill] = level;
 		UpdateSkillLevel(skill, level);
+		UpdateAllStats(); // update all stats to reflect the changes off skills with buffs
 	}
 	
 	void UpdateSkillLevel(Skills skill, int level, bool update = true) {
+		var newLevel = level - 1;
+		if (_cinema > 2) newLevel += 2;
+		if (_cinema > 4) newLevel += 2;
+		
 		foreach (var skillState in Abilities[skill].SelectMany(a => a.Skills))
 		{
-			skillState.Scale = level - 1;
-			if (_cinema > 2) skillState.Scale += 2;
-			if (_cinema > 4) skillState.Scale += 2;
+			skillState.Scale = newLevel;
 			if (update) skillState.UpdateValues();
+		}
+		foreach (var skillState in Abilities[skill].SelectMany(a => a.Buffs))
+		{
+			skillState.Scale = newLevel;
 		}
 	}
 
@@ -313,8 +320,9 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 			_cinemaBuffs[i] ??= [];
 		}
 
+		IBuffContainer container = this;
 		// check for agent buffs
-		foreach (var buff in Buffs)
+		foreach (var buff in container.SelfBuffs)
 		{
 			var agentMods = buff.Modifiers.Where(m => m.Agent).ToArray();
 			foreach (var mod in agentMods)
