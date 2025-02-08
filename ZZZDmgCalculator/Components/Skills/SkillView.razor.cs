@@ -5,20 +5,42 @@ namespace ZZZDmgCalculator.Components.Skills;
 using Extensions;
 using MessagePipe;
 using Models.Enum;
-using Models.Info;
-using ZZZ.ApiModels;
+using Models.State;
 
 public partial class SkillView {
 	[Parameter]
-	public SkillInfo Skill { get; set; } = null!;
-
-	[Parameter]
-	public int Scale { get; set; }
+	public SkillState Skill { get; set; } = null!;
+	static string FormatValue(double value) => $"{value:N0}";
 	
+	double GetMean(double dmg, double crit) {
+		var baseCrit = Skill.Stats.Total[Stats.CritRate];
+		var stat = Skill.Info.DmgType switch
+		{
+			Attributes.Physical => Stats.PhysicalCritRate,
+			Attributes.Fire => Stats.FireCritRate,
+			Attributes.Ice => Stats.IceCritRate,
+			Attributes.Electric => Stats.ElectricCritRate,
+			Attributes.Ether => Stats.EtherCritRate,
+			_ => throw new ArgumentOutOfRangeException()
+		};
+		var attributeCrit = Skill.Stats.Total[stat];
+		var critRate = baseCrit + attributeCrit;
+		return (crit * critRate + dmg * (100 - critRate)) / 100;
+	}
+	/*EntityState _stats = new();
+	
+	List<BuffState> _buffs = [];
+	List<BuffState> _appliedBuffs = [];
+
+	protected override void OnInitialized() {
+		AbilityView.ChildSkills.Add(this);
+		_stats.Parent = ParentStats;
+		_stats.Update();
+	}
 
 	double GetDmg() {
 		if (Skill.Dmg is null) return 0;
-		var baseDmg = Skill.Dmg[Scale] / 100 * State.CurrentAgent!.Stats.Total[Skill.Stat];
+		var baseDmg = Skill.Dmg[Scale] / 100 * _stats.Total[Skill.Stat];
 		var bonusDmg = GetBonusDmg();
 		var defDmg = GetDefDmg();
 		var resDmg = GetResDmg();
@@ -69,8 +91,8 @@ public partial class SkillView {
 		};
 		var levelFactor =  Math.Floor(0.1551 * level * level + 3.141 * level + 47.2039);
 		var defTarget = State.CurrentSetup.Enemy.Stats.Total[Stats.Def];
-		var agentPen = State.CurrentAgent!.Stats.Total[Stats.Pen];
-		var agentPenRatio = State.CurrentAgent!.Stats.Total[Stats.PenRatio] / 100;
+		var agentPen = _stats.Total[Stats.Pen];
+		var agentPenRatio = _stats.Total[Stats.PenRatio] / 100;
 		
 		var denominator = Math.Max(defTarget * (1 - agentPenRatio) - agentPen, 0) + levelFactor;
 		
@@ -78,7 +100,7 @@ public partial class SkillView {
 	}
 
 	double GetCritDmg() {
-		var critDmg = State.CurrentAgent!.Stats.Total[Stats.CritDmg];
+		var critDmg = _stats.Total[Stats.CritDmg];
 		var stat = Skill.DmgType switch
 		{
 			Attributes.Physical => Stats.PhysicalCritDmg,
@@ -88,12 +110,12 @@ public partial class SkillView {
 			Attributes.Ether => Stats.EtherCritDmg,
 			_ => throw new ArgumentOutOfRangeException()
 		};
-		var attributeCritDmg = State.CurrentAgent!.Stats.Total[stat];
+		var attributeCritDmg = _stats.Total[stat];
 		return 1 + (critDmg + attributeCritDmg) / 100;
 	}
 
 	double GetBonusDmg() {
-		var baseDmg = State.CurrentAgent!.Stats.Total[Stats.BonusDmg];
+		var baseDmg = _stats.Total[Stats.BonusDmg];
 		var skillDmg = GetSkillDmg();
 		var attributeDmg = GetAttributeDmg();
 		return 1 + (baseDmg + skillDmg + attributeDmg) / 100;
@@ -109,7 +131,7 @@ public partial class SkillView {
 			Attributes.Ether => Stats.EtherDmg,
 			_ => throw new ArgumentOutOfRangeException()
 		};
-		return State.CurrentAgent!.Stats.Total[stat];
+		return _stats.Total[stat];
 	}
 
 	double GetSkillDmg() {
@@ -126,12 +148,12 @@ public partial class SkillView {
 			Skills.Assist => Stats.AssistDmg,
 			_ => throw new ArgumentOutOfRangeException()
 		};
-		return State.CurrentAgent!.Stats.Total[stat];
+		return _stats.Total[stat];
 	}
 
 	static string FormatValue(double value) => $"{value:N0}";
 	double GetMean(double dmg, double crit) {
-		var baseCrit = State.CurrentAgent!.Stats.Total[Stats.CritRate];
+		var baseCrit = _stats.Total[Stats.CritRate];
 		var stat = Skill.DmgType switch
 		{
 			Attributes.Physical => Stats.PhysicalCritRate,
@@ -141,26 +163,53 @@ public partial class SkillView {
 			Attributes.Ether => Stats.EtherCritRate,
 			_ => throw new ArgumentOutOfRangeException()
 		};
-		var attributeCrit = State.CurrentAgent!.Stats.Total[stat];
+		var attributeCrit = _stats.Total[stat];
 		var critRate = baseCrit + attributeCrit;
 		return (crit * critRate + dmg * (100 - critRate)) / 100;
 	}
 	
 	double GetDaze() {
 		if (Skill.Daze is null) return 0;
-		var daze = 1 + State.CurrentAgent!.Stats.Total[Stats.Daze] / 100;
-		var impact = State.CurrentAgent!.Stats.Total[Stats.Impact];
+		var daze = 1 + _stats.Total[Stats.Daze] / 100;
+		var impact = _stats.Total[Stats.Impact];
 		var multiplier = Skill.Daze[Scale] / 100;
 		
 		return daze * impact * multiplier;
 	}
 	
+	public void UpdateSkill(List<BuffState> skillBuffs, bool force) {
+		_stats.Reset();
+		if (force) _buffs.Clear();
+		var buffs = skillBuffs;
+		if (buffs.SequenceEqual(_buffs)) goto finalize;
+		_buffs = buffs;
+		if (_buffs.Count == 0)
+		{
+			_appliedBuffs.Clear();
+			goto finalize;
+		}
+		
+		_appliedBuffs = _buffs.Where(b => b.Info.SkillCondition!(Skill)).ToList();
+		
+		UpdateBuffs(true);
+		
+		finalize:
+		_stats.Update();
+	}
+	
+	public void UpdateBuffs(object? source) {
+		if(source is not true)
+			_stats.Reset();
+		
+		AbilityView.ApplyModifiers(_appliedBuffs.Where(b => b is { Available: true, Active: true }), _stats);
+		_stats.Update();
+		StateHasChanged();
+	}*/
+	
 	protected override void OnDisposableBag(DisposableBagBuilder bag) {
-		// update stats everytime an engine is changed
 		Notifier.OnCurrentEngineChanged.SubscribeUpdate(this).AddTo(bag);
 		Notifier.OnCurrentDiscChanged.SubscribeUpdate(this).AddTo(bag);
 		Notifier.OnBuffChanged.SubscribeUpdate(this).AddTo(bag);
 		Notifier.OnEnemyChanged.SubscribeUpdate(this).AddTo(bag);
 	}
-	
 }

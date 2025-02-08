@@ -50,10 +50,12 @@ public class NotifierService : IDisposable {
 	}
 	
 	public void BuffUpdated(BuffState buff) {
+		_stateService.CurrentAgent!.CheckAbilityBuffs();
 		_buffChangedPublisher.Publish(buff);
 	}
 	
 	public void CurrentEnemyUpdated(EnemyState enemy) {
+		_stateService.CurrentAgent!.UpdateSkills();
 		_enemyChangedPublisher.Publish(enemy);
 	}
 

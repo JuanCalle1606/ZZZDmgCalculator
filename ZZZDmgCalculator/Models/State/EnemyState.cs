@@ -128,7 +128,8 @@ public class EnemyState : IModifierContainer, IBuffContainer {
 	
 
 	void UpdateCombatStats() {
-		Stats.Combat.Reset();
+		Stats.CombatPercent.Reset();
+		Stats.CombatFlat.Reset();
 
 		var percent = ListModifiers(StatModifiers.CombatPercent)
 			.GroupBy(mod => mod.Stat)
@@ -136,9 +137,7 @@ public class EnemyState : IModifierContainer, IBuffContainer {
 
 		foreach (var perPair in percent)
 		{
-			// values are in percent need to be converted to decimal + 1
-			var mod = perPair.Value / 100;
-			Stats.Combat[perPair.Key] = Stats.Initial[perPair.Key] * mod;
+			Stats.CombatPercent[perPair.Key] += perPair.Value;
 		}
 
 		var flat = ListModifiers(StatModifiers.CombatFlat)
@@ -147,7 +146,7 @@ public class EnemyState : IModifierContainer, IBuffContainer {
 
 		foreach (var flatPair in flat)
 		{
-			Stats.Combat[flatPair.Key] += flatPair.Value;
+			Stats.CombatFlat[flatPair.Key] += flatPair.Value;
 		}
 
 		var flat2 = ListModifiers(StatModifiers.Combat)
@@ -156,21 +155,21 @@ public class EnemyState : IModifierContainer, IBuffContainer {
 
 		foreach (var flatPair in flat2)
 		{
-			Stats.Combat[flatPair.Key] += flatPair.Value;
+			Stats.CombatFlat[flatPair.Key] += flatPair.Value;
 		}
 	}
 
 	void UpdateBonusStats() {
-		Stats.Bonus.Reset();
+		Stats.BasePercent.Reset();
+		Stats.BaseFlat.Reset();
+		
 		var percent = ListModifiers(StatModifiers.BasePercent)
 			.GroupBy(mod => mod.Stat)
 			.Select(group => new KeyValuePair<Stats, double>(group.Key, group.Sum(mod => mod.Value)));
 
 		foreach (var perPair in percent)
 		{
-			// values are in percent need to be converted to decimal + 1
-			var mod = perPair.Value / 100;
-			Stats.Bonus[perPair.Key] = Stats.Base[perPair.Key] * mod;
+			Stats.BasePercent[perPair.Key] += perPair.Value;
 		}
 
 		var flat = ListModifiers(StatModifiers.BaseFlat)
@@ -179,7 +178,7 @@ public class EnemyState : IModifierContainer, IBuffContainer {
 
 		foreach (var flatPair in flat)
 		{
-			Stats.Bonus[flatPair.Key] += flatPair.Value;
+			Stats.BaseFlat[flatPair.Key] += flatPair.Value;
 		}
 	}
 

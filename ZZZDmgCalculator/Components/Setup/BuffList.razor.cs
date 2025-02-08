@@ -5,7 +5,7 @@ using Models.State;
 
 public partial class BuffList {
 	[Parameter]
-	public List<BuffState> Buffs { get; set; } = null!;
+	public IEnumerable<BuffState> Buffs { get; set; } = null!;
 
 	[Parameter]
 	public string Title { get; set; } = "";

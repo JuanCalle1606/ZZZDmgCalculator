@@ -12,17 +12,17 @@ public partial class BuffSetup {
 	[Parameter]
 	public AgentState Agent { get; set; } = null!;
 
-	List<BuffState> _engineBuffs = null!;
-	List<BuffState> _discBuffs = null!;
-	List<BuffState> _sharedBuffs = null!;
-	List<BuffState> _agentBuffs = null!;
+	IEnumerable<BuffState> _engineBuffs = null!;
+	IEnumerable<BuffState> _discBuffs = null!;
+	IEnumerable<BuffState> _sharedBuffs = null!;
+	IEnumerable<BuffState> _agentBuffs = null!;
 
 	protected override void OnParametersSet() {
 		base.OnParametersSet();
 		IBuffContainer container = Agent;
 		_agentBuffs = container.Buffs;
-		_engineBuffs = container.Children.Where(c => c.Source == BuffSource.Engine).SelectMany(c => c.Buffs).ToList();
-		_discBuffs = container.Children.Where(c => c.Source == BuffSource.Disc).SelectMany(c => c.Buffs).ToList();
-		_sharedBuffs = Team.AllBuffs.Except(container.SelfBuffs).ToList();
+		_engineBuffs = container.Children.Where(c => c.Source == BuffSource.Engine).SelectMany(c => c.Buffs);
+		_discBuffs = container.Children.Where(c => c.Source == BuffSource.Disc).SelectMany(c => c.Buffs);
+		_sharedBuffs = Team.AllBuffs.Except(container.SelfBuffs);
 	}
 }

@@ -1,47 +1,36 @@
 namespace ZZZDmgCalculator.Models.State;
 
 using Enum;
+using Info;
 using Enum=System.Enum;
 
 /**
  * Holds the stats of an entity
  */
 public class EntityState {
-
-	/**
-	 * Base stats of the entity, normally only affected by level, core skill and engines.
-	 */
-	public Dictionary<Stats, double> Base;
-
-	/**
-	 * Stats from <see cref="Base"/> after apply <see cref="StatModifiers.BaseFlat"/> and <see cref="StatModifiers.BasePercent"/> modifiers.
-	 */
-	public Dictionary<Stats, double> Bonus;
 	
-	/**
-	 * Stats from <see cref="Bonus"/> after apply <see cref="StatModifiers.Combat"/> modifiers.
-	 */
-	public Dictionary<Stats, double> Initial;
+	public readonly Dictionary<Stats, double> Base = ZeroStats();
 
-	/**
-	 * Stats from <see cref="Bonus"/> after apply <see cref="StatModifiers.Combat"/> modifiers.
-	 */
-	public Dictionary<Stats, double> Combat;
+	public readonly Dictionary<Stats, double> BasePercent = ZeroStats();
 
-	/**
-	 * Total Stats of the entity, sum of <see cref="Base"/>, <see cref="Bonus"/> and <see cref="Combat"/>.
-	 */
-	public Dictionary<Stats, double> Total;
+	public readonly Dictionary<Stats, double> BaseFlat = ZeroStats();
+
+	public readonly Dictionary<Stats, double> CombatPercent = ZeroStats();
+
+	public readonly Dictionary<Stats, double> CombatFlat = ZeroStats();
 	
-	public EntityState() {
-		Base = CeroStats();
-		Bonus = CeroStats();
-		Combat = CeroStats();
-		Initial = CeroStats();
-		Total = CeroStats();
-	}
+	
+	public readonly Dictionary<Stats, double> Bonus = ZeroStats();
+	
+	public readonly Dictionary<Stats, double> Initial = ZeroStats();
+	
+	public readonly Dictionary<Stats, double> Combat = ZeroStats();
+	
+	public readonly Dictionary<Stats, double> Total = ZeroStats();
 
-	public static Dictionary<Stats, double> CeroStats() {
+	public EntityState? Parent { get; set; }
+
+	static Dictionary<Stats, double> ZeroStats() {
 		var stats = new Dictionary<Stats, double>();
 		foreach (var stat in Enum.GetValues<Stats>())
 		{
@@ -49,12 +38,69 @@ public class EntityState {
 		}
 		return stats;
 	}
+	
+	public void ApplyModifier(StatModifier modifier) {
+		if(modifier.Agent) return;
+		
+		var stat = modifier.Stat;
+		var value = modifier.Value;
+		var container = modifier.Type switch {
+			StatModifiers.Base => Base,
+			StatModifiers.BasePercent => BasePercent,
+			StatModifiers.BaseFlat => BaseFlat,
+			StatModifiers.CombatPercent => CombatPercent,
+			StatModifiers.CombatFlat => CombatFlat,
+			StatModifiers.Combat => CombatFlat,
+			_ => throw new ArgumentOutOfRangeException()
+		};
+		
+		container[stat] += value;
+	}
 
-	public void Update(bool b = true) {
+	public double GetStat(StatModifiers type, Stats stat) {
+		var container = type switch {
+			StatModifiers.Base => Base,
+			StatModifiers.BasePercent => BasePercent,
+			StatModifiers.BaseFlat => BaseFlat,
+			StatModifiers.CombatPercent => CombatPercent,
+			StatModifiers.CombatFlat => CombatFlat,
+			_ => throw new ArgumentOutOfRangeException()
+		};
+		var dev = container[stat];
+		if(Parent != null) {
+			dev += Parent.GetStat(type, stat);
+		}
+		
+		return dev;
+	}
+	
+	public void Reset() {
 		foreach (var stat in Enum.GetValues<Stats>())
 		{
-			Initial[stat] = Base[stat] + Bonus[stat];
-			if(b) Total[stat] = Initial[stat] + Combat[stat];
+			Base[stat] = 0;
+			BasePercent[stat] = 0;
+			BaseFlat[stat] = 0;
+			CombatPercent[stat] = 0;
+			CombatFlat[stat] = 0;
+		}
+		Update();
+	}
+
+	public void Update(bool total = true) {
+		foreach (var stat in Enum.GetValues<Stats>())
+		{
+			
+			var baseStat = GetStat(StatModifiers.Base, stat);
+			var bonus = baseStat * (GetStat(StatModifiers.BasePercent, stat) / 100) + GetStat(StatModifiers.BaseFlat, stat);
+			Bonus[stat] = bonus;
+			Initial[stat] = bonus + baseStat;
+
+			if (!total) continue;
+			
+			var initial = Initial[stat];
+			var combat = initial * (GetStat(StatModifiers.CombatPercent, stat) / 100) + GetStat(StatModifiers.CombatFlat, stat);
+			Combat[stat] = combat;
+			Total[stat] = combat + initial;
 		}
 	}
 }

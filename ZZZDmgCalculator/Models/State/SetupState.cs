@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 using Abstractions;
 using Enum;
 using Json;
+using ZZZ.ApiModels;
 
 [JsonConverter(typeof(SetupSerializer))]
 public class SetupState : IBuffContainer {
@@ -40,7 +41,14 @@ public class SetupState : IBuffContainer {
 			}
 			Agents[currentAgentIndex] = value;
 			if (value != null)
+			{
 				value.SharedContainer = this;
+				foreach (var skill in value.Abilities.SelectMany(a=>a.Value).SelectMany(a=>a.Skills))
+				{
+					skill.Target = Enemy;
+					skill.UpdateValues();
+				}
+			}
 
 			foreach (var agent in Agents.Where(a => a is not null))
 			{

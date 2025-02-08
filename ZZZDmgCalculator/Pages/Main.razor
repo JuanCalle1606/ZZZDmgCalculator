@@ -10,7 +10,8 @@
 		text += "\n";
 		text += "Current agent buffs:";
 		IBuffContainer agent = State.CurrentAgent!;
-		var buffWithConditions = agent.AllBuffs.Where(b=>b.Info.SkillCondition != null);
+		var buffWithConditions = agent.AllBuffs.
+			Where(b=>(b.Info.SkillCondition != null || b.Info.AbilityCondition != null) && b is { Available: true });
 		foreach (var buff in buffWithConditions)
 		{
 			text += $"\n{buff.Info.Id} ({buff.Modifiers.Count} modifiers)";

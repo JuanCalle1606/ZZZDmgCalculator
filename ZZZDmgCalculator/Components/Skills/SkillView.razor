@@ -1,13 +1,13 @@
 @inherits MainComponent
 
-@if (Skill.Dmg != null)
+@if (Skill.HasDmg)
 {
-	var dmg = GetDmg();
-	var crit = dmg * GetCritDmg();
+	var dmg = Skill.Dmg;
+	var crit = dmg * Skill.Crit;
 	var mean = GetMean(dmg, crit);
 	<tr class="rz-data-row rz-unselectable-text">
 		<td>
-			<span class="rz-cell-data">@Skill.DisplayName @Lang["DMG"]</span>
+			<span class="rz-cell-data">@Skill.Info.DisplayName @Lang["DMG"]</span>
 		</td>
 		<td class="rz-text-align-center">
 			<span class="rz-cell-data">@FormatValue(dmg)</span>
@@ -21,12 +21,12 @@
 	</tr>
 }
 
-@if (Skill.Daze != null)
+@if (Skill.HasDaze)
 {
-	var daze = GetDaze();
+	var daze = Skill.Daze;
 	<tr class="rz-data-row rz-unselectable-text">
 		<td>
-			<span class="rz-cell-data">@Skill.DisplayName @Lang["Stats.Daze"]</span>
+			<span class="rz-cell-data">@Skill.Info.DisplayName @Lang["Stats.Daze"]</span>
 		</td>
 		<td class="rz-text-align-center" colspan="3">
 			<span class="rz-cell-data">@FormatValue(daze)</span>

@@ -2,9 +2,9 @@
 
 <RadzenPanelMenu class="buff-menu">
 
-	@foreach (var group in _groups)
+	@foreach (var group in Agent.Abilities)
 	{
-		<AbilityList Category="group.Key" Abilities="group" Agent="Agent"/>
+		<AbilityList Category="group.Key" Abilities="group.Value.Where(a=>a.Info.Skills.Any())" Agent="Agent"/>
 	}
 	
 </RadzenPanelMenu>

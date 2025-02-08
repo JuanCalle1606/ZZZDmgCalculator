@@ -67,7 +67,7 @@ public abstract class MainComponent : ComponentBase, IDisposable {
 
 	protected virtual void OnDisposableBag(DisposableBagBuilder bag) {}
 
-	public void Dispose() {
+	public virtual void Dispose() {
 		_disposable.Dispose();
 		GC.SuppressFinalize(this);
 	}

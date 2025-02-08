@@ -7,7 +7,6 @@ using Enum;
 using Info;
 using Json;
 using Extensions;
-using Services;
 using ZZZ.ApiModels;
 using static Enum.Stats;
 
@@ -64,6 +63,11 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 				}
 			}
 
+			// udpate skills level
+			foreach (var skill in Abilities)
+			{
+				UpdateSkillLevel(skill.Key, Skills[skill.Key], false);
+			}
 			UpdateAllStats();
 		}
 	}
@@ -122,7 +126,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 	BuffState[] _additionalBuffs = null!;
 
 	// Cinema 3 and 5 are always empty
-	BuffState[][] _cinemaBuffs = new BuffState[6][];
+	readonly BuffState[][] _cinemaBuffs = new BuffState[6][];
 
 	IEnumerable<IBuffContainer> IBuffContainer.Children => _buffChildren;
 
@@ -150,6 +154,8 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 				_engine.CheckDependencies(Info.Specialty == _engine.Info.Type);
 				_engine.UpdateOwner(this);
 			}
+			
+			UpdateAbilityBuffs();
 			UpdateAllStats();
 		}
 	}
@@ -162,6 +168,8 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 	 */
 	List<DiscSetState> DiscSets { get; } = new(3);
 
+	public Dictionary<Skills, AbilityState[]> Abilities { get; } = new();
+
 	public AgentState(AgentInfo info) {
 		Info = info;
 		Skills = new(GetSkillLevel, SetSkillLevel);
@@ -169,11 +177,39 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		InitBaseStats();
 
 		InitBuffs();
+		InitAbilities();
+
 		UpdateAllStats();
+	}
+	void InitAbilities() {
+		foreach (var group in Info.Abilities.GroupBy(p => p.Category))
+		{
+			Abilities[group.Key] = group.Select(a => {
+				var ability = new AbilityState(a, this);
+				if (a.Buffs.Any())
+				{
+					_buffChildren.Add(ability);
+				}
+
+				return ability;
+			}
+			).ToArray();
+		}
 	}
 
 	void SetSkillLevel(Skills skill, int level) {
 		_skillLevels[skill] = level;
+		UpdateSkillLevel(skill, level);
+	}
+	
+	void UpdateSkillLevel(Skills skill, int level, bool update = true) {
+		foreach (var skillState in Abilities[skill].SelectMany(a => a.Skills))
+		{
+			skillState.Scale = level - 1;
+			if (_cinema > 2) skillState.Scale += 2;
+			if (_cinema > 4) skillState.Scale += 2;
+			if (update) skillState.UpdateValues();
+		}
 	}
 
 	int GetSkillLevel(Skills skill) => _skillLevels.GetValueOrDefault(skill, 1);
@@ -210,6 +246,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 				{
 					set.FullSet = true;
 					_buffChildren.Add(set);
+					UpdateAbilityBuffs();
 				}
 			}
 		}
@@ -221,6 +258,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 			{
 				set.FullSet = false;
 				_buffChildren.Remove(set);
+				UpdateAbilityBuffs();
 			}
 		}
 
@@ -262,7 +300,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 			{
 				SourceInfo = Info,
 				Owner = this,
-				Available = false, // by default all cinemas are disabled and hidden
+				Available = false,// by default all cinemas are disabled and hidden
 				Hidden = true,
 				DependencyChecker = this
 			}).ToArray();
@@ -271,6 +309,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		// fill cinema buffs array
 		for (var i = 0; i < 6; i++)
 		{
+			// ReSharper disable once NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract
 			_cinemaBuffs[i] ??= [];
 		}
 
@@ -387,6 +426,19 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		Stats.Update();
 		UpdateDummies(true);
 		CheckRequirements();
+
+		UpdateSkills();
+	}
+	public void UpdateSkills() {
+		foreach (var ability in Abilities.Values.SelectMany(a => a))
+		{
+			ability.Stats.Update();
+
+			foreach (var skill in ability.Skills)
+			{
+				skill.UpdateValues();
+			}
+		}
 	}
 
 	void CheckRequirements() {
@@ -411,14 +463,16 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		{
 			if (buff.Info.Amplify != null)
 			{
-				if(!combat) UpdateAmplifyDummy(buff);
+				if (!combat) UpdateAmplifyDummy(buff);
 				continue;
 			}
 			var limit = buff.Info.BuffLimit ?? double.MaxValue;
 
 			foreach (var mod in buff.Modifiers
-				         .Where(m => m.Agent && 
-				                     combat ? m.Type is StatModifiers.Combat or StatModifiers.CombatPercent : m.Type is StatModifiers.Base or StatModifiers.BasePercent)
+				         .Where(m => m.Agent &&
+				                     combat
+					         ? m.Type is StatModifiers.Combat or StatModifiers.CombatPercent
+					         : m.Type is StatModifiers.Base or StatModifiers.BasePercent)
 				         .ToList())
 			{
 				flag = true;
@@ -459,7 +513,8 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 	}
 
 	void UpdateCombatStats() {
-		Stats.Combat.Reset();
+		Stats.CombatFlat.Reset();
+		Stats.CombatPercent.Reset();
 
 		var percent = ListModifiers(StatModifiers.CombatPercent)
 			.GroupBy(mod => mod.Stat)
@@ -467,9 +522,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 
 		foreach (var perPair in percent)
 		{
-			// values are in percent need to be converted to decimal + 1
-			var mod = perPair.Value / 100;
-			Stats.Combat[perPair.Key] = Stats.Initial[perPair.Key] * mod;
+			Stats.CombatPercent[perPair.Key] += perPair.Value;
 		}
 
 		var flat = ListModifiers(StatModifiers.CombatFlat)
@@ -478,7 +531,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 
 		foreach (var flatPair in flat)
 		{
-			Stats.Combat[flatPair.Key] += flatPair.Value;
+			Stats.CombatFlat[flatPair.Key] += flatPair.Value;
 		}
 
 		var flat2 = ListModifiers(StatModifiers.Combat)
@@ -487,7 +540,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 
 		foreach (var flatPair in flat2)
 		{
-			Stats.Combat[flatPair.Key] += flatPair.Value;
+			Stats.CombatFlat[flatPair.Key] += flatPair.Value;
 		}
 	}
 
@@ -517,8 +570,16 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 			.Where(m => m.Type == modifier && m is { Enemy: false, Agent: false });
 	}
 
+	public List<BuffState> ListConditionalBuffs() {
+		IBuffContainer buffContainer = this;
+
+		return buffContainer.SelfBuffs.Where(b => b.Info.SkillCondition is not null || b.Info.AbilityCondition is not null)
+			.ToList();
+	}
+
 	void UpdateBonusStats() {
-		Stats.Bonus.Reset();
+		Stats.BaseFlat.Reset();
+		Stats.BasePercent.Reset();
 
 		var percent = ListModifiers(StatModifiers.BasePercent)
 			.GroupBy(mod => mod.Stat)
@@ -527,8 +588,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		foreach (var perPair in percent)
 		{
 			// values are in percent need to be converted to decimal + 1
-			var mod = perPair.Value / 100;
-			Stats.Bonus[perPair.Key] = Stats.Base[perPair.Key] * mod;
+			Stats.BasePercent[perPair.Key] += perPair.Value;
 		}
 
 		var flat = ListModifiers(StatModifiers.BaseFlat)
@@ -537,7 +597,21 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 
 		foreach (var flatPair in flat)
 		{
-			Stats.Bonus[flatPair.Key] += flatPair.Value;
+			Stats.BaseFlat[flatPair.Key] += flatPair.Value;
+		}
+	}
+	
+	public void CheckAbilityBuffs() {
+		foreach (var ability in Abilities.Values.SelectMany(a => a))
+		{
+			ability.CheckBuffs();
+		}
+	}
+
+	void UpdateAbilityBuffs() {
+		foreach (var ability in Abilities.Values.SelectMany(a => a))
+		{
+			ability.UpdateBuffs();
 		}
 	}
 }
