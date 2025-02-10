@@ -46,6 +46,8 @@ public class EngineState : IModifierContainer, IBuffContainer, IBuffDependencyCh
 	public List<BuffState> Buffs { get; }
 	
 	public EngineInfo Info { get; }
+	
+	public SkillState? Skill { get; set; }
 
 	public bool Disabled => !_weaponEnabled;
 
@@ -81,6 +83,12 @@ public class EngineState : IModifierContainer, IBuffContainer, IBuffDependencyCh
 
 			//buff.Update();
 			//CheckBuffDependencies(buff);
+		}
+		
+		// skill
+		if (Info.Skill is not null)
+		{
+			Skill = new(Info.Skill, null!, null!);
 		}
 	}
 	
@@ -127,6 +135,12 @@ public class EngineState : IModifierContainer, IBuffContainer, IBuffDependencyCh
 		foreach (var buff in Buffs)
 		{
 			buff.Owner = agentState;
+		}
+		if (Skill is not null)
+		{
+			Skill.Owner = agentState;
+			Skill.Stats.Parent = agentState.Stats;
+			Skill.UpdateValues();
 		}
 	}
 }

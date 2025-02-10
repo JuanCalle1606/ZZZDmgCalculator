@@ -10,4 +10,5 @@ public partial class SkillCard {
 	
 	[Parameter]
 	public AgentState Agent { get; set; } = null!;
+	
 }

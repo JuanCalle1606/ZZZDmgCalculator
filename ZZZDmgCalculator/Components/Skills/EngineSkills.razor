@@ -1,0 +1,58 @@
+@inherits MainComponent
+
+<RadzenPanelMenuItem Text="@Lang["Engine"]" Expanded="true">
+	<RadzenPanelMenuItem Style="display: none"/>
+	<div class="rz-data-grid rz-has-pager rz-datatable  rz-datatable-scrollable rz-density-compact z-stats-table">
+		<div class="rz-data-grid-data">
+			<table class="z-stats-table rz-grid-table rz-grid-table-fixed rz-grid-table-striped  rz-grid-gridlines-horizontal">
+				<colgroup>
+					<col>
+					<col style="width: 75px;">
+					<col style="width: 75px">
+					<col style="width: 75px">
+				</colgroup>
+				<thead>
+				<tr>
+					<!--!-->
+					<th rowspan="1" colspan="1" class="rz-unselectable-text rz-text-align-left" scope="col" style="">
+						<div>
+							<span class="rz-column-title" title="@Lang["Skill"]">
+								<span class="rz-column-title-content">@Lang["Skill"]</span>
+							</span>
+						</div>
+					</th><!--!-->
+					<th rowspan="1" colspan="1" class="rz-unselectable-text rz-text-align-center" scope="col" style="">
+						<div>
+							<span class="rz-column-title" title="@Lang["NoCrit"]">
+								<span class="rz-column-title-content">@Lang["NoCrit"]</span>
+							</span>
+						</div>
+					</th>
+					<th rowspan="1" colspan="1" class="rz-unselectable-text rz-text-align-center" scope="col" style="">
+						<div>
+							<span class="rz-column-title" title="@Lang["Crit"]">
+								<span class="rz-column-title-content ">@Lang["Crit"]</span>
+							</span>
+						</div>
+					</th>
+					<th rowspan="1" colspan="1" class="rz-unselectable-text rz-text-align-center" scope="col" style="">
+						<div>
+							<span class="rz-column-title rz-pr-2" title="@Lang["Mean"]">
+								<span class="rz-column-title-content">@Lang["Mean"]</span>
+							</span>
+						</div>
+					</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="rz-group-row rz-unselectable-text">
+					<td colspan="4">
+						<span class="rz-cell-data">@Engine.Info.DisplayName</span>
+					</td>
+				</tr>
+				<SkillView Skill="Engine.Skill"/>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</RadzenPanelMenuItem>

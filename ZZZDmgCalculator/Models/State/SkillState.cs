@@ -10,7 +10,7 @@ public class SkillState {
 	
 	public EntityState Stats { get; }
 	
-	public AgentState Owner { get; }
+	public AgentState Owner { get; set; }
 	
 	public int Scale { get; set; }
 

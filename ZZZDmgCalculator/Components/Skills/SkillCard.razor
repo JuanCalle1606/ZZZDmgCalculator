@@ -6,5 +6,10 @@
 	{
 		<AbilityList Category="group.Key" Abilities="group.Value.Where(a=>a.Info.Skills.Any())" Agent="Agent"/>
 	}
+	@if (Agent.Engine?.Skill is not null)
+	{
+		// TODO: implement EngineSkills.razor
+		//<EngineSkills Engine="Agent.Engine"/>
+	}
 	
 </RadzenPanelMenu>

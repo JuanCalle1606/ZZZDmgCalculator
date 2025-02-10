@@ -1,37 +1,43 @@
 namespace ZZZDmgCalculator.Data.EnginesData;
 
-using Models.Enum;
 using Models.Info;
 using ZZZ.ApiModels;
+using static EngineScales;
+using static Models.Enum.BuffTrigger;
+using static Models.Enum.Specialties;
+using static Models.Enum.StatModifiers;
+using static Models.Enum.Stats;
+using static ZZZ.ApiModels.Engines;
+using static ZZZ.ApiModels.ItemRank;
 
-
-[InfoData<Engines>(Engines.Cannon)]
+[InfoData<Engines>(Cannon)]
 public class CannonData {
 	public readonly static EngineInfo Data = new()
 	{
-		Uid = Engines.Cannon,
+		Uid = Cannon,
 		Icon = "Cannon_Rotor",
-		Rank = ItemRank.A,
-		Type = Specialties.Attack,
+		Rank = A,
+		Type = Attack,
 		MainStat = new()
 		{
-			Stat = Stats.Atk
+			Stat = Atk
 		},
-		MainStats = EngineScales.Templates["GameBall.Main"],
+		MainStats = Templates["GameBall.Main"],
 		SubStat = new()
 		{
-			Stat = Stats.CritRate
+			Stat = CritRate
 		},
-		SubStats = EngineScales.Templates["Mark1.Sub"],
+		SubStats = Templates["Mark1.Sub"],
 		Passives =
 		[
 			new()
 			{
-				Scales = [EngineScales.Templates["Cannon.Buff"]],
+				Type = Permanent,
+				Scales = [Templates["Cannon.Buff"]],
 				Modifiers = new StatModifier
 				{
-					Stat = Stats.Atk,
-					Type = StatModifiers.CombatPercent
+					Stat = Atk,
+					Type = CombatPercent
 				}
 			}
 		],
