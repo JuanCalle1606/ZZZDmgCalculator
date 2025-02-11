@@ -88,4 +88,19 @@ public class DiscState : IModifierContainer {
 		SubStats = new(this);
 		Children = [SubStats];
 	}
+	
+	public static DiscState Clone(DiscInfo info, DiscState currentDisc) {
+		var state = new DiscState(info, currentDisc.MainStatInfo)
+		{
+			Rank = currentDisc.Rank,
+			Level = currentDisc.Level
+		};
+		for (var index = 0; index < currentDisc.SubStats.Count; index++)
+		{
+			var subStat = currentDisc.SubStats[index]!;
+			var roll = currentDisc.SubStats.Rolls[index];
+			state.SubStats.Add(subStat, roll);
+		}
+		return state;
+	}
 }

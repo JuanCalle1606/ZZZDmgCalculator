@@ -23,6 +23,12 @@ public partial class ChooseDiscDialog {
 	bool ApplyFilters(DiscInfo e) => e.DisplayName.Contains(_searchFilter, StringComparison.CurrentCultureIgnoreCase);
 
 	DiscState CreateDiscState(DiscInfo info) {
+		var currentDisc = State.CurrentAgent!.Discs[Index];
+		if (currentDisc != null)
+		{
+			return DiscState.Clone(info, currentDisc);
+		}
+		
 		var discStats = _statData
 			.First(di => di.MainDiscs!.Contains(Index + 1));
 		// disc are by default rank S so lets add 3 substats
