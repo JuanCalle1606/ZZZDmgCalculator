@@ -1,53 +1,27 @@
 namespace ZZZDmgCalculator.Models.Json;
 
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using Saves;
 using State;
 
-public class SetupSerializer : JsonConverter<SetupState> {
+public class SetupSerializer {
 
-	public override SetupState? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
-		var dev = new SetupState();
-
-		while (reader.Read())
+	public static SavedEnemy EnemyToModel(EnemyState enemy) {
+		return new SavedEnemy()
 		{
-			if (reader.TokenType == JsonTokenType.EndObject)
-			{
-				break;
-			}
-			if (reader.TokenType == JsonTokenType.PropertyName)
-			{
-				var propertyName = reader.GetString();
-				reader.Read();
-				switch (propertyName)
-				{
-					case "Agents":
-						var agents = JsonSerializer.Deserialize<AgentState?[]>(ref reader, options);
-						if (agents != null)
-						{
-							for (var index = 0; index < agents.Length; index++)
-							{
-								var agent = agents[index];
-								dev[index] = agent;
-							}
-						}
-						break;
-				}
-			}
-		}
-
-		return dev;
+			Level = enemy.Level,
+			Stunned = enemy.Stunned,
+			StunMultiplier = enemy.StunMultiplier,
+			Resistances = enemy.Resistances,
+			Weaknesses = enemy.Weaknesses,
+			BaseDefense = enemy.BaseDefense
+		};
 	}
-
-	public override void Write(Utf8JsonWriter writer, SetupState value, JsonSerializerOptions options) {
-		writer.WriteStartObject();
-		writer.WritePropertyName("Agents");
-		writer.WriteStartArray();
-		foreach (var agent in value.Agents)
-		{
-			JsonSerializer.Serialize(writer, agent, options);
-		}
-		writer.WriteEndArray();
-		writer.WriteEndObject();
+	public static void ModelToEnemy(SavedEnemy enemy, EnemyState setupEnemy) {
+		setupEnemy.Level = enemy.Level;
+		setupEnemy.Stunned = enemy.Stunned;
+		setupEnemy.StunMultiplier = enemy.StunMultiplier;
+		setupEnemy.BaseDefense = enemy.BaseDefense;
+		setupEnemy.Resistances.AddRange(enemy.Resistances);
+		setupEnemy.Weaknesses.AddRange(enemy.Weaknesses);
 	}
 }

@@ -32,7 +32,6 @@ public static class AgentSerializer {
 		DiscSerializer.ModelToState(agent.Discs, state, info);
 		SkillSerializer.ModelToState(agent.Skills, state);
 		state.Loading = false;
-		state.UpdateAllStats();
 		return state;
 	}
 }
