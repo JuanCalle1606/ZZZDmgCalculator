@@ -7,6 +7,11 @@ public class SkillInfo : BaseInfo {
 	public Stats Stat { get; set; }
 
 	public bool Engine { get; set; }
+	
+	/// <summary>
+	/// The ability this skill is tied to.
+	/// </summary>
+	public string? Ability { get; set; }
 
 	public Skills Type { get; set; }
 

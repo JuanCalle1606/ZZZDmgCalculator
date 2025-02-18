@@ -101,6 +101,7 @@ public class AgentInfo : BaseInfo<Agents> {
 					var skillInfo = ability.Skills[i];
 					skillInfo.Index = i;
 					skillInfo.Id = $"Skills.Abilities.{Id}.{ability.Id}.{i}";
+					skillInfo.Ability = ability.Id;
 					if (ability.UseCommonNames && i < ability.MaxCommonName)
 					{
 						skillInfo.DisplayName = lang[$"Skills.Abilities.Common.Combo.{i}"];
@@ -119,7 +120,9 @@ public class AgentInfo : BaseInfo<Agents> {
 			else if (ability.Skills.Count == 1)
 			{
 				ability.Skills[0].Index = 0;
-				ability.Skills[0].Id = $"Skills.Abilities.{Id}.{ability.Id}.0"; }
+				ability.Skills[0].Id = $"Skills.Abilities.{Id}.{ability.Id}.0"; 
+				ability.Skills[0].Ability = ability.Id;
+			}
 		}
 	}
 }

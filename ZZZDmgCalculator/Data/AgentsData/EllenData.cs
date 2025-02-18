@@ -52,7 +52,7 @@ public class EllenData {
 		{
 			Type = Permanent,
 			Scales = [Templates["Ellen.Core"]],
-			AbilityCondition = a => a.Id is "ArcticAmbush" or "FlashFreezeTrimming", // TODO: limit to only charged dash
+			SkillCondition = s => s.Ability is "FlashFreezeTrimming" || s is { Ability: "ArcticAmbush", Index: 2 },
 			Modifiers = new StatModifier
 			{
 				Stat = CritDmg,
@@ -347,14 +347,15 @@ public class EllenData {
 			},
 			[6] = new()
 			{
-				Buffs = [
+				Buffs =
+				[
 					new StatModifier
 					{
 						Stat = PenRatio, Type = Combat, Value = 20
 					},
 					new BuffInfo
 					{
-						AbilityCondition = skill=>skill.Id is "ArcticAmbush", // TODO: limit to only charged attack
+						SkillCondition = skill => skill is { Ability: "ArcticAmbush", Index: 2 },
 						Modifiers = new StatModifier { Stat = BonusDmg, Type = Combat, Value = 250 }
 					}
 				]
