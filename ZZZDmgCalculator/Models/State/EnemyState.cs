@@ -197,7 +197,7 @@ public class EnemyState : IModifierContainer, IBuffContainer {
 		return container.AllModifiers
 			.Concat(SharedContainer!.Children.SelectMany(c => c.SelfBuffs)
 				.Where(b => b is { Available: true, Active: true, Info.SkillCondition: null, Info.AbilityCondition: null })
-				.SelectMany(b => b.Modifiers.Where(m => m.Enemy)))
+				.SelectMany(b => b.Modifiers.Where(m => m is { Enemy: true, Agent: false })))
 			.Where(m => m.Type == modifier);
 	}
 

@@ -23,6 +23,6 @@ public partial class BuffSetup {
 		_agentBuffs = container.Buffs.Concat(container.Children.Where(c => c.Source == BuffSource.Agent).SelectMany(c => c.Buffs));
 		_engineBuffs = container.Children.Where(c => c.Source == BuffSource.Engine).SelectMany(c => c.Buffs);
 		_discBuffs = container.Children.Where(c => c.Source == BuffSource.Disc).SelectMany(c => c.Buffs);
-		_sharedBuffs = Team.AllBuffs.Except(container.SelfBuffs);
+		_sharedBuffs = Team.AllBuffs.Except(container.SelfBuffs).Where(b=>b.Info.Type != BuffTrigger.Permanent);
 	}
 }

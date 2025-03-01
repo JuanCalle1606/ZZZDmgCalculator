@@ -336,7 +336,8 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 					Type = StatModifiers.Combat,
 					Value = /*mod.Value*/0,
 					Dummy = dummy,
-					Shared = mod.Shared
+					Shared = mod.Shared,
+					Enemy = mod.Enemy
 				});
 				mod.Dummy = dummy;
 			}

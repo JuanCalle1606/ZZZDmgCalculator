@@ -167,7 +167,8 @@ public class QingyiData {
 					Type = Stack,
 					Stacks = 25,
 					AbilityCondition = skill => skill.Id == "EnchantedMoonlitBlossoms",
-					Modifiers = [
+					Modifiers =
+					[
 						new StatModifier { Stat = BonusDmg, Type = Combat, Value = 1 },
 						new StatModifier { Stat = Daze, Type = Combat, Value = 0.5 },
 					]
@@ -350,7 +351,22 @@ public class QingyiData {
 					new() { Stat = CritRate, Value = 20, Type = Combat }
 				]
 			},
-			// todo: add qingyi cinema 2
+			[2] = new()
+			{
+				Buffs =
+				{
+					new()
+					{
+						Type = Permanent,
+						Amplify = "Buffs.Agents.Qingyi.Core.0",
+						Modifiers = new StatModifier { Stat = StunDmg, Type = Combat, Value = 135, Agent = true, Enemy = true }
+					},
+					new StatModifier
+					{
+						Stat = Daze, Value = 15, Type = Combat
+					}
+				}
+			},
 			[6] = new()
 			{
 				Buffs =

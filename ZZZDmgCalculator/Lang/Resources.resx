@@ -1922,4 +1922,13 @@ Glacial Omen</value>
     <data name="Abilities.Agents.Ellen.EndlessWinter" xml:space="preserve">
         <value>Ultimate: Endless Winter</value>
     </data>
+    <data name="Buffs.Agents.Qingyi.Cinema2" xml:space="preserve">
+        <value>M2: Minimal Effort, Maximum Impact</value>
+    </data>
+    <data name="Buffs.Agents.Qingyi.Cinema2.0" xml:space="preserve">
+        <value>The {stat} Multiplier increase provided by each stack of Subjugation increases to {value}.</value>
+    </data>
+    <data name="Buffs.Agents.Qingyi.Cinema2.1" xml:space="preserve">
+        <value>When Qingyi's attack hits an enemy and the stacks of Subjugation she applies reaches its maximum stacks, her {stat} dealt to the target increases by {value}.</value>
+    </data>
 </root>
