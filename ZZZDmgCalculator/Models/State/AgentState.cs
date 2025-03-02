@@ -276,12 +276,12 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 	}
 
 	public void SetAdditionalStatus(bool status) {
-		var current = _additionalBuffs.Any(b => b.Available);
+		var current = _additionalBuffs.Any(b => !b.ForceDisable);
 		if (current == status) return;
 
 		foreach (var buff in _additionalBuffs)
 		{
-			buff.Available = status;
+			buff.ForceDisable = !status;
 		}
 		UpdateAllStats();
 	}
@@ -455,13 +455,13 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 	void CheckRequirements() {
 		IBuffContainer buffContainer = this;
 
-		var mods = buffContainer.AllBuffs.Where(b => b.HasStatRequirements).ToList();
-		var control = mods.Select(b => b.Available).ToArray();
-		foreach (var mod in mods)
+		var buffs = buffContainer.AllBuffs.Where(b => b is { HasStatRequirements: true, ForceDisable: false }).ToList();
+		var control = buffs.Select(b => b.Available).ToArray();
+		foreach (var mod in buffs)
 		{
 			mod.Available = mod.Info.StatRequirements.All(r => Stats.Total[r.Stat] >= r.Value);
 		}
-		var changed = mods.Select(b => b.Available).ToArray();
+		var changed = buffs.Select(b => b.Available).ToArray();
 		if (!control.SequenceEqual(changed))
 		{
 			UpdateAllStats();

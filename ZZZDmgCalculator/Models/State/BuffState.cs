@@ -10,13 +10,20 @@ public class BuffState : IModifierContainer {
 
 	int _scale;
 	AgentState? _appliedTo;
+	bool _available = true;
 
 	/**
 	 * Get if this buff is available to be used.
 	 *
 	 * If the buff is not available, it will be hidden.
 	 */
-	public bool Available { get; set; } = true;
+	public bool Available
+	{
+		get => !ForceDisable && _available;
+		set => _available = value;
+	}
+	
+	public bool ForceDisable { get; set; }
 
 	public bool Enabled { get; set; }
 
