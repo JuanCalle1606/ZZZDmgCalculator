@@ -1,4 +1,4 @@
-namespace ZZZDmgCalculator.Models.Info;
+namespace ZZZDmgCalculator.Models.Enum;
 
 public enum DodgeTypes {
 	Parry,

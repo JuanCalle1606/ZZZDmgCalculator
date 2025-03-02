@@ -13,7 +13,7 @@ using static ZZZ.ApiModels.Skills;
 using static Models.Enum.Specialties;
 using static Models.Enum.StatModifiers;
 using static Models.Enum.Stats;
-using static Models.Info.DodgeTypes;
+using static Models.Enum.DodgeTypes;
 
 [InfoData<Agents>(Koleda)]
 public class KoledaData {

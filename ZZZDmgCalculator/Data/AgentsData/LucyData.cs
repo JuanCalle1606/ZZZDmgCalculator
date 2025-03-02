@@ -12,7 +12,7 @@ using static ZZZ.ApiModels.Skills;
 using static Models.Enum.Specialties;
 using static Models.Enum.StatModifiers;
 using static Models.Enum.Stats;
-using static Models.Info.DodgeTypes;
+using static Models.Enum.DodgeTypes;
 
 [UrlTemplate("icons/agents/Agent_{Icon}_Icon.webp")]
 [InfoData<Agents>(Lucy)]
