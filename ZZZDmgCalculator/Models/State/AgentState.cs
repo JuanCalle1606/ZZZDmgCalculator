@@ -570,7 +570,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 		IBuffContainer buffContainer = this;
 
 		return container.AllModifiers
-			.Concat(buffContainer.AllBuffs.Where(b => b is { Available: true, Active: true, Info.SkillCondition: null, Info.AbilityCondition: null }).SelectMany(b => {
+			.Concat(buffContainer.AllBuffs.Where(b => b is { Available: true, Active: true, Info.SkillCondition: null, Info.AbilityCondition: null, Enemy: false }).SelectMany(b => {
 				// sometimes shared buffs have not shared modifiers
 				if (b.Shared && b.Owner != this)
 					return b.Modifiers.Where(m => m.Shared);
