@@ -481,9 +481,9 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 
 			foreach (var mod in buff.Modifiers
 				         .Where(m => m.Agent &&
-				                     combat
+				                     (combat
 					         ? m.Type is StatModifiers.Combat or StatModifiers.CombatPercent
-					         : m.Type is StatModifiers.Base or StatModifiers.BasePercent)
+					         : m.Type is StatModifiers.Base or StatModifiers.BasePercent))
 				         .ToList())
 			{
 				flag = true;
