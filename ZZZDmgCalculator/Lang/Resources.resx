@@ -1931,4 +1931,70 @@ Glacial Omen</value>
     <data name="Buffs.Agents.Qingyi.Cinema2.1" xml:space="preserve">
         <value>When Qingyi's attack hits an enemy and the stacks of Subjugation she applies reaches its maximum stacks, her {stat} dealt to the target increases by {value}.</value>
     </data>
+    <data name="Anomalies.Assault" xml:space="preserve">
+        <value>Assault</value>
+    </data>
+    <data name="Anomalies.Shatter" xml:space="preserve">
+        <value>Shatter</value>
+    </data>
+    <data name="Anomalies.Corruption" xml:space="preserve">
+        <value>Corruption</value>
+    </data>
+    <data name="Anomalies.Burn" xml:space="preserve">
+        <value>Burn</value>
+    </data>
+    <data name="Anomalies.Shock" xml:space="preserve">
+        <value>Shock</value>
+    </data>
+    <data name="Anomalies.Frostburn" xml:space="preserve">
+        <value>Frostburn</value>
+    </data>
+    <data name="Anomalies.CorruptionTick" xml:space="preserve">
+        <value>Corruption (Tick)</value>
+    </data>
+    <data name="Anomalies.BurnTick" xml:space="preserve">
+        <value>Burn (Tick)</value>
+    </data>
+    <data name="Anomalies.ShockTick" xml:space="preserve">
+        <value>Shock (Tick)</value>
+    </data>
+    <data name="Tick" xml:space="preserve">
+        <value>Tick</value>
+    </data>
+    <data name="Skills.Anomaly" xml:space="preserve">
+        <value>Anomalies</value>
+    </data>
+    <data name="Skills.Disorder" xml:space="preserve">
+        <value>Disorder</value>
+    </data>
+    <data name="Skills.Abilities.Common.Disorder.0" xml:space="preserve">
+        <value>0s</value>
+    </data>
+    <data name="Skills.Abilities.Common.Disorder.1" xml:space="preserve">
+        <value>1s</value>
+    </data>
+    <data name="Skills.Abilities.Common.Disorder.2" xml:space="preserve">
+        <value>2s</value>
+    </data>
+    <data name="Skills.Abilities.Common.Disorder.3" xml:space="preserve">
+        <value>3s</value>
+    </data>
+    <data name="Skills.Abilities.Common.Disorder.4" xml:space="preserve">
+        <value>4s</value>
+    </data>
+    <data name="Skills.Abilities.Common.Disorder.5" xml:space="preserve">
+        <value>5s</value>
+    </data>
+    <data name="Skills.Abilities.Common.Disorder.6" xml:space="preserve">
+        <value>6s</value>
+    </data>
+    <data name="Skills.Abilities.Common.Disorder.7" xml:space="preserve">
+        <value>7s</value>
+    </data>
+    <data name="Skills.Abilities.Common.Disorder.8" xml:space="preserve">
+        <value>8s</value>
+    </data>
+    <data name="Skills.Abilities.Common.Disorder.9" xml:space="preserve">
+        <value>9s</value>
+    </data>
 </root>

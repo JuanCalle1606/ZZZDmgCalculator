@@ -46,7 +46,7 @@ public class AnbyData {
 			Templates["Anby.Hp"],
 			Templates["Lucy.Def"],
 		],
-		FinalStats = [0, 118, 83, 94, 1.2],
+		FinalStats = [0, 118, 93, 94, 1.2],
 		CoreBuff = new BuffInfo
 		{
 			Scales = [[32, 37.3, 42.6, 48, 53.3, 58.6, 64]],

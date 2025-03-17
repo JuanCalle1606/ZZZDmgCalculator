@@ -41,6 +41,9 @@ public class InfoService(LangService lang) {
 
 	Dictionary<Agents, AgentInfo> _agents = null!;
 	public AgentInfo this[Agents item] => _agents[item];
+	
+	Dictionary<Anomalies, AnomalyInfo> _anomalies = null!;
+	public AnomalyInfo this[Anomalies item] => _anomalies[item];
 
 	public void LoadAll() {
 		var types = PreLoad();
@@ -50,6 +53,7 @@ public class InfoService(LangService lang) {
 		_coreSkills = LoadData<CoreSkills, BaseInfo>(types);
 		_attributes = LoadData<Attributes, BaseInfo>(types);
 		_stats = LoadData<Stats, BaseInfo>(types);
+		_anomalies = LoadData<Anomalies, AnomalyInfo>(types);
 		
 		_discStats = LoadData<AgentStats, DiscStatInfo>(types);
 		_discs = LoadData<Discs, DiscInfo>(types);
@@ -102,6 +106,8 @@ public class InfoService(LangService lang) {
 	public IEnumerable<Agents> AvailableAgents => _agents.Keys;
 	
 	public IEnumerable<DiscStatInfo> AllDiscStatInfos => _discStats.Values;
+	
+	public IEnumerable<AnomalyInfo> AllAnomalyInfos => _anomalies.Values;
 
 	public string AgentRankIcon(AgentRank infoRank) => infoRank switch
 	{

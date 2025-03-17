@@ -5,11 +5,16 @@ namespace ZZZDmgCalculator.Models.Enum;
 /// </summary>
 public enum Anomalies {
 	Assault,
-	Freeze,
+	Shatter,
 	Corruption,
 	Burn,
 	Shock,
 	
 	// Special anomalies
 	Frostburn,
+	
+	// Ticks
+	CorruptionTick,
+	BurnTick,
+	ShockTick,
 }
