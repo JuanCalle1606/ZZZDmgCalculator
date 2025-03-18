@@ -68,6 +68,7 @@ public class AgentState : IModifierContainer, IBuffContainer, IBuffDependencyChe
 			{
 				UpdateSkillLevel(skill.Key, Skills[skill.Key], false);
 			}
+			CheckAbilityBuffs();
 			UpdateAllStats();
 		}
 	}

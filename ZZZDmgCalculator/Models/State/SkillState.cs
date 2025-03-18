@@ -211,6 +211,7 @@ public class SkillState {
 		var resDmg = GetResDmg();
 		var takenDmg = GetTakenDmg();
 		var stunDmg = GetStunDmg();
+		// TODO: Add anomalies buffs
 
 		return baseDmg * bonusDmg * defDmg * resDmg * takenDmg * stunDmg * proficiency * level;
 	}
