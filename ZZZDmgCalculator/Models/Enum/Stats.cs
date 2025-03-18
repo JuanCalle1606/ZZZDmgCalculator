@@ -49,7 +49,7 @@ public enum Stats {
 	QuickDmg,
 	BonusDmg, //e
 	
-	// special anomaly stats, these stats are hidden by default unless theis value is not 0, these are increased by specific agents or skills.
+	// special anomaly stats, these are increased by specific agents or skills.
 	// for example jane core skill add physical anomaly crit rate and crit dmg.
 	BuildUp, //b
 	AssaultBuildUp,
@@ -70,15 +70,17 @@ public enum Stats {
 	AnomalyDmg, // Bonus dmg to any anomaly
 	DisorderDmg, //e
 	
+	// enemy resistance stats
+	DmgRes, //b
+	ElectricRes,
+	EtherRes,
+	FireRes,
+	IceRes,
+	PhysicalRes, //e
+	
 	// special stats, these are also hidden by default, but they are increased by specific agents or skills.
 	// also these stats can be modified for enemies.
 	DmgTaken,
 	DmgReduction,
 	StunDmg,
-	DmgRes,
-	ElectricRes,
-	EtherRes,
-	FireRes,
-	IceRes,
-	PhysicalRes,
 }

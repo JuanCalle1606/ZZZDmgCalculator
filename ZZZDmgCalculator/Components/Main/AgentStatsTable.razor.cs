@@ -14,8 +14,8 @@ public partial class AgentStatsTable {
 	[Parameter]
 	public EntityState EntityStats { get; set; } = null!;
 
-	string[] _categories = ["Basic", "Bonus", "Unique", "Anomaly"];
-	bool[] _categoriesState = [true, true, true, true];
+	string[] _categories = ["Basic", "Bonus", "Unique", "Anomaly", "Resistances"];
+	bool[] _categoriesState = [true, true, true, true, true];
 	Stats[] _allStats = Enum.GetValues<Stats>();
 	IEnumerable<Stats> GetStats(string category) {
 		return category switch
@@ -24,6 +24,7 @@ public partial class AgentStatsTable {
 			"Bonus" => _allStats.Where(s => s is >= Stats.ElectricDmg and <= Stats.PhysicalCritRate),
 			"Unique" => _allStats.Where(s => s is >= Stats.ShieldPower and <= Stats.BonusDmg),
 			"Anomaly" => _allStats.Where(s => s is >= Stats.BuildUp and <= Stats.DisorderDmg),
+			"Resistances" => _allStats.Where(s => s is >= Stats.DmgRes and <= Stats.PhysicalRes),
 			_ => throw new ArgumentOutOfRangeException(nameof(category), category, null)
 		};
 	}

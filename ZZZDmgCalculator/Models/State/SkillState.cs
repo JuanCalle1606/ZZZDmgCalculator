@@ -101,7 +101,20 @@ public class SkillState {
 			_ => throw new ArgumentOutOfRangeException()
 		};
 		var attributeRes = Target.Stats.Total[stat];
-		return 1 + (baseRes + attributeRes) / 100;
+		
+		var ignoreRes = Stats.Total[DmgRes];
+		var ignoreStat = Info.DmgType switch
+		{
+			Attributes.Physical => PhysicalRes,
+			Attributes.Fire => FireRes,
+			Attributes.Ice => IceRes,
+			Attributes.Electric => ElectricRes,
+			Attributes.Ether => EtherRes,
+			_ => throw new ArgumentOutOfRangeException()
+		};
+		var ignoreAttributeRes = Stats.Total[ignoreStat];
+		
+		return 1 + (baseRes + attributeRes + ignoreRes + ignoreAttributeRes) / 100;
 	}
 
 	double GetDefDmg() {
