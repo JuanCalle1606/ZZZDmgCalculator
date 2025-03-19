@@ -50,6 +50,11 @@ public static class AgentScales {
 		["Corin.Atk"] = [116, 178, 219, 288, 330, 400, 441, 510, 552, 621, 662, 732],
 		["Corin.Hp"] = [561, 1246, 1631, 2392, 2777, 3538, 3923, 4684, 5069, 5830, 6215, 6976],
 		["Corin.Def"] = [49, 108, 141, 207, 241, 307, 340, 405, 438, 504, 538, 604],
+
+		["Anton.Atk"] = [114, 174, 215, 283, 323, 391, 432, 500, 541, 608, 648, 716],
+		["Anton.Hp"] = [580, 1288, 1686, 2474, 2873, 3661, 4059, 4846, 5244, 6032, 6431, 7219],
+		
+		
 	};
 
 	public static bool BasicAdditionalCondition(AgentInfo agent, AgentInfo target) => agent.Attribute == target.Attribute || agent.Faction == target.Faction;
