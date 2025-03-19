@@ -1,5 +1,33 @@
 # Changelog
 
+## [0.2.4](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v0.2.3...v0.2.4) (2025-03-18)
+
+
+### Features
+
+* Added resistances ignore ([2543f91](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/2543f91a244522635156861df630b13e0fee0797))
+* **Agents:** Added Billy, Corin and Nekomata data ([fc0f3b5](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/fc0f3b53b5ed2fc9c268c13a62652e08b9dc3fa3))
+* **Buffs:** Added qingyi additional buff ([f45b4ce](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/f45b4cefa9b51915b5bc878526b88b12fa629ad2))
+* **Buffs:** Show enemy buffs in team section ([a1fd7a2](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/a1fd7a22a47039f91922a69cd196bd32f8695fa7))
+* **Discs:** Maintain substats when changing disc types ([5d30d49](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/5d30d4911f12d71e9455b0afc85dbdb884fbad7b))
+* Save state for buffs and enemy ([baad044](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/baad04439afa456a1fc93e3adf6be8dbe4402bce))
+* **Skills Card:** Added daze calculation ([aaed7d7](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/aaed7d70b43c9574e903b6bda8283a1b988ba651))
+* **Skills:** Added anomalies and disorder dmg calculation ([192fd5c](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/192fd5cef9825b11648b362507654feff807f6e6))
+* **Skills:** Added conditional buffs to skills ([8ae605d](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/8ae605de4ae9ad7c63587fed4f1a70d54c57ebee))
+
+
+### Bug Fixes
+
+* **Additional Ability:** Fixed Additional Ability enabling when the condition is not meet ([e0deb6f](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/e0deb6f0386fe5fd66dae9da04a93aca9b901b47))
+* **Agents:** Added some missing buffs ([cf99229](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/cf9922922a38aa524761d51a4eebe930ce2ee1c4))
+* **Buffs:** Show skill buffs correctly on buff list ([041fb3c](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/041fb3c7ff8f419b8d820172152bfd67f37ca116))
+* **Skills:** Fixed skills not updating when changing core skill level ([0cab1f3](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/0cab1f3cd13324978a46c2825853cb4116822b7e))
+
+
+### UI Changes
+
+* **Buffs:** Hide cinema buffs unless available ([54ea495](https://github.com/JuanCalle1606/ZZZDmgCalculator/commit/54ea495d7cb40ce67168bf5baef92ec5af98e7c6))
+
 ## [0.2.3](https://github.com/JuanCalle1606/ZZZDmgCalculator/compare/v0.2.2...v0.2.3) (2025-02-04)
 
 
