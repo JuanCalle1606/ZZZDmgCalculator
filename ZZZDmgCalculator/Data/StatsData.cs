@@ -70,6 +70,13 @@ public class StatsData {
 		[DisorderDmg] = new() { Id = nameof(DisorderDmg) },
 		
 		[DmgRes] = new() { Id = nameof(DmgRes) },
+		[BuildUpRes] = new() { Id = nameof(BuildUpRes) },
+		[AssaultBuildUpRes] = new() { Id = nameof(AssaultBuildUpRes) },
+		[FreezeBuildUpRes] = new() { Id = nameof(FreezeBuildUpRes) },
+		[CorruptionBuildUpRes] = new() { Id = nameof(CorruptionBuildUpRes) },
+		[BurnBuildUpRes] = new() { Id = nameof(BurnBuildUpRes) },
+		[ShockBuildUpRes] = new() { Id = nameof(ShockBuildUpRes) },
+		[FrostburnBuildUpRes] = new() { Id = nameof(FrostburnBuildUpRes) },
 		[ElectricRes] = new() { Id = nameof(ElectricRes) },
 		[EtherRes] = new() { Id = nameof(EtherRes) },
 		[FireRes] = new() { Id = nameof(FireRes) },

@@ -72,6 +72,13 @@ public enum Stats {
 	
 	// enemy resistance stats
 	DmgRes, //b
+	BuildUpRes,
+	AssaultBuildUpRes,
+	FreezeBuildUpRes,
+	CorruptionBuildUpRes,
+	BurnBuildUpRes,
+	ShockBuildUpRes,
+	FrostburnBuildUpRes,
 	ElectricRes,
 	EtherRes,
 	FireRes,
