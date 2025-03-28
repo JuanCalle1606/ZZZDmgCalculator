@@ -1,9 +1,9 @@
 namespace ZZZDmgCalculator.Components.Setup;
 
+using Extensions;
 using Microsoft.AspNetCore.Components;
 using Models.State;
 using Radzen;
-using Extensions;
 
 public partial class AgentsView {
 	[Parameter]

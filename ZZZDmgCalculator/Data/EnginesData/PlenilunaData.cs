@@ -3,9 +3,9 @@ namespace ZZZDmgCalculator.Data.EnginesData;
 using Models.Enum;
 using Models.Info;
 using ZZZ.ApiModels;
-using static ZZZ.ApiModels.Skills;
 using static Models.Enum.StatModifiers;
 using static Models.Enum.Stats;
+using static ZZZ.ApiModels.Skills;
 
 [InfoData<Engines>(Engines.Pleniluna)]
 public class PlenilunaData {

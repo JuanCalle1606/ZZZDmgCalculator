@@ -1,10 +1,10 @@
 namespace ZZZDmgCalculator.Components.Setup;
 
+using Extensions;
 using MessagePipe;
 using Microsoft.AspNetCore.Components;
 using Models.Info;
 using Models.State;
-using Extensions;
 
 public partial class BuffView {
 	[Parameter]

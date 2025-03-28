@@ -4,8 +4,8 @@ using Models.Info;
 using ZZZ.ApiModels;
 using static Models.Enum.BuffTrigger;
 using static Models.Enum.StatModifiers;
-using static ZZZ.ApiModels.Discs;
 using static Models.Enum.Stats;
+using static ZZZ.ApiModels.Discs;
 
 [UrlTemplate("icons/discs/Drive_Disc_{Id_}_S.webp")]
 [InfoData<Discs>(ChaoticMetal)]

@@ -4,10 +4,10 @@ using Models.Info;
 using ZZZ.ApiModels;
 using static EngineScales;
 using static Models.Enum.BuffTrigger;
-using static ZZZ.ApiModels.Engines;
 using static Models.Enum.Specialties;
 using static Models.Enum.StatModifiers;
 using static Models.Enum.Stats;
+using static ZZZ.ApiModels.Engines;
 
 [UrlTemplate("icons/engines/W-Engine_{Icon}.webp")]
 [InfoData<Engines>(DeepSea)]

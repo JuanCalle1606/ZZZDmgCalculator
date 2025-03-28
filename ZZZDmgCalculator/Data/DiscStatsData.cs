@@ -3,8 +3,8 @@ namespace ZZZDmgCalculator.Data;
 using Models.Enum;
 using Models.Info;
 using ZZZ.ApiModels;
-using static ZZZ.ApiModels.AgentStats;
 using static Models.Enum.StatModifiers;
+using static ZZZ.ApiModels.AgentStats;
 
 [InfoData<AgentStats>]
 public class DiscStatsData {

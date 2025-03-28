@@ -4,15 +4,15 @@ using Models.Enum;
 using Models.Info;
 using ZZZ.ApiModels;
 using static AgentScales;
-using static ZZZ.ApiModels.Agents;
 using static Models.Enum.AttackTypes;
 using static Models.Enum.Attributes;
+using static Models.Enum.DodgeTypes;
 using static Models.Enum.Factions;
-using static ZZZ.ApiModels.Skills;
 using static Models.Enum.Specialties;
 using static Models.Enum.StatModifiers;
 using static Models.Enum.Stats;
-using static Models.Enum.DodgeTypes;
+using static ZZZ.ApiModels.Agents;
+using static ZZZ.ApiModels.Skills;
 
 [UrlTemplate("icons/agents/Agent_{Icon}_Icon.webp")]
 [InfoData<Agents>(Lucy)]

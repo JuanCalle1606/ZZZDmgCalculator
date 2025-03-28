@@ -1,8 +1,8 @@
 namespace ZZZDmgCalculator.Dialogs;
 
+using Extensions;
 using Models.Enum;
 using Models.Info;
-using Extensions;
 
 public partial class ChooseAgentDialog {
 	string _searchFilter = string.Empty;

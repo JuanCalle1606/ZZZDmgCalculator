@@ -1,9 +1,9 @@
 namespace ZZZDmgCalculator.Components.Setup;
 
+using Extensions;
 using MessagePipe;
 using Microsoft.AspNetCore.Components;
 using Models.State;
-using Extensions;
 
 public partial class EquipmentSetup {
 	[Parameter]

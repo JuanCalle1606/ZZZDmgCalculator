@@ -1,10 +1,10 @@
 namespace ZZZDmgCalculator.Services;
 
+using Extensions;
 using Microsoft.AspNetCore.Components;
 using Models.Enum;
 using Models.State;
 using SmartFormat;
-using Extensions;
 
 public class FormatService(InfoService info) {
 

@@ -2,9 +2,9 @@ namespace ZZZDmgCalculator.Data.DiscsData;
 
 using Models.Info;
 using ZZZ.ApiModels;
-using static ZZZ.ApiModels.Discs;
 using static Models.Enum.StatModifiers;
 using static Models.Enum.Stats;
+using static ZZZ.ApiModels.Discs;
 
 [InfoData<Discs>(ProtoPunk)]
 public class ProtoPunkData {

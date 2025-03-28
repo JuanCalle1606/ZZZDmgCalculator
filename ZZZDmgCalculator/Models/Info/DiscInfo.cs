@@ -1,7 +1,7 @@
 namespace ZZZDmgCalculator.Models.Info;
 
-using Services;
 using Extensions;
+using Services;
 using ZZZ.ApiModels;
 
 public class DiscInfo : BaseInfo<Discs> {

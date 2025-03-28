@@ -3,10 +3,10 @@ namespace ZZZDmgCalculator.Data.DiscsData;
 using Models.Info;
 using ZZZ.ApiModels;
 using static Models.Enum.BuffTrigger;
-using static ZZZ.ApiModels.Discs;
-using static ZZZ.ApiModels.Skills;
 using static Models.Enum.StatModifiers;
 using static Models.Enum.Stats;
+using static ZZZ.ApiModels.Discs;
+using static ZZZ.ApiModels.Skills;
 
 [InfoData<Discs>(BranchBladeSong)]
 public class BranchBladeSongData {

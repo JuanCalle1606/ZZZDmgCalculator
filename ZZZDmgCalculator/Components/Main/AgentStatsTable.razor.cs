@@ -1,10 +1,10 @@
 namespace ZZZDmgCalculator.Components.Main;
 
+using Extensions;
 using MessagePipe;
 using Microsoft.AspNetCore.Components;
 using Models.Enum;
 using Models.State;
-using Extensions;
 
 public partial class AgentStatsTable {
 	const int Cols = 4;

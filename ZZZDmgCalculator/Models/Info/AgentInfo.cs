@@ -2,8 +2,8 @@ namespace ZZZDmgCalculator.Models.Info;
 
 using System.Text.Json.Serialization;
 using Enum;
-using Services;
 using Extensions;
+using Services;
 using ZZZ.ApiModels;
 using static Enum.Anomalies;
 using static Enum.Attributes;

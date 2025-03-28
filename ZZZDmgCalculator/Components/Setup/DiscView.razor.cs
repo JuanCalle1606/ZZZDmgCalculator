@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace ZZZDmgCalculator.Components.Setup;
 
+using Extensions;
 using Models.Info;
 using Models.State;
-using Extensions;
 using ZZZ.ApiModels;
 
 public partial class DiscView {

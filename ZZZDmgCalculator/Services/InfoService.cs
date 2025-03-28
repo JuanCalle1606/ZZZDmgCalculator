@@ -2,9 +2,9 @@ namespace ZZZDmgCalculator.Services;
 
 using System.Reflection;
 using Data;
+using Extensions;
 using Models.Enum;
 using Models.Info;
-using Extensions;
 using ZZZ.ApiModels;
 
 /// <summary>

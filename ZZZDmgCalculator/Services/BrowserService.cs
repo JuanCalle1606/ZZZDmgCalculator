@@ -1,9 +1,9 @@
 namespace ZZZDmgCalculator.Services;
 
-using Microsoft.JSInterop;
 using System.Threading.Tasks;
 using MessagePipe;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 public class BrowserService(IJSRuntime js, IBufferedAsyncPublisher<BrowserDimension> publisher) {
 
