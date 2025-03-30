@@ -3,7 +3,8 @@ namespace ZZZDmgCalculator.Data.AgentsData;
 using Models.Enum;
 using Models.Info;
 
-public static class AgentScales {
+public static class AgentScales
+{
 	public readonly static Dictionary<string, double[]> Templates = new()
 	{
 		["Rina.Atk"] = [103, 157, 194, 254, 291, 351, 388, 448, 484, 544, 581, 642],
@@ -60,13 +61,24 @@ public static class AgentScales {
 
 		["Grace.Atk"] = [119, 183, 225, 296, 339, 410, 452, 523, 566, 637, 679, 750],
 		["Grace.Hp"] = [602, 1336, 1749, 2566, 2979, 3795, 4208, 5024, 5436, 6253, 6666, 7482],
+
+		["ZhuYuan.Atk"] = [132, 204, 251, 332, 380, 461, 508, 588, 635, 716, 763, 844],
+
+		["Jane.Atk"] = [127, 196, 241, 317, 362, 439, 485, 562, 607, 683, 728, 805],
+		["Jane.Hp"] = [626, 1390, 1820, 2670, 3099, 3949, 4379, 5229, 5659, 6508, 6938, 7788],
+
+		["Seth.Atk"] = [93, 140, 173, 225, 258, 311, 344, 397, 430, 482, 515, 568],
+		["Seth.Hp"] = [699, 1553, 2033, 2982, 3462, 4412, 4892, 5841, 6321, 7270, 7751, 8701],
+		["Seth.Def"] = [60, 133, 174, 255, 296, 377, 418, 500, 542, 623, 664, 746],
 	};
 
 	/// <summary>
 	/// When another character in your squad shares the same Attribute or Faction.
 	/// </summary>
-	public static bool BasicAdditionalCondition(AgentInfo agent, AgentInfo target) => agent.Attribute == target.Attribute || agent.Faction == target.Faction;
+	public static bool BasicAdditionalCondition(AgentInfo agent, AgentInfo target) =>
+		agent.Attribute == target.Attribute || agent.Faction == target.Faction;
 
 
-	public static Func<AgentInfo, AgentInfo, bool> SpecialtyAdditionalCondition(Specialties specialty) => (a, b) => b.Specialty == specialty || a.Faction == b.Faction;
+	public static Func<AgentInfo, AgentInfo, bool> SpecialtyAdditionalCondition(Specialties specialty) =>
+		(a, b) => b.Specialty == specialty || a.Faction == b.Faction;
 }
