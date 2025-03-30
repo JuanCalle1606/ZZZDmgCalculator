@@ -53,12 +53,20 @@ public static class AgentScales {
 
 		["Anton.Atk"] = [114, 174, 215, 283, 323, 391, 432, 500, 541, 608, 648, 716],
 		["Anton.Hp"] = [580, 1288, 1686, 2474, 2873, 3661, 4059, 4846, 5244, 6032, 6431, 7219],
-		
-		
+
+		["Ben.Atk"] = [94, 142, 176, 229, 262, 316, 350, 403, 436, 490, 524, 578],
+		["Ben.Hp"] = [690, 1532, 2005, 2941, 3415, 4350, 4823, 5759, 6232, 7168, 7641, 8577],
+		["Ben.Def"] = [58, 129, 169, 248, 288, 367, 407, 486, 526, 605, 645, 724],
+
+		["Grace.Atk"] = [119, 183, 225, 296, 339, 410, 452, 523, 566, 637, 679, 750],
+		["Grace.Hp"] = [602, 1336, 1749, 2566, 2979, 3795, 4208, 5024, 5436, 6253, 6666, 7482],
 	};
 
+	/// <summary>
+	/// When another character in your squad shares the same Attribute or Faction.
+	/// </summary>
 	public static bool BasicAdditionalCondition(AgentInfo agent, AgentInfo target) => agent.Attribute == target.Attribute || agent.Faction == target.Faction;
 
 
-	public static Func<AgentInfo, AgentInfo, bool> SpecialyAdditionalCondition(Specialties specialty) => (a, b) => b.Specialty == specialty || a.Faction == b.Faction;
+	public static Func<AgentInfo, AgentInfo, bool> SpecialtyAdditionalCondition(Specialties specialty) => (a, b) => b.Specialty == specialty || a.Faction == b.Faction;
 }
